@@ -1,0 +1,217 @@
+LICENSE AGREEMENT - ALETHEIA
+
+========================================
+
+PROPRIÉTÉ EXCLUSIVE - DROITS RÉSERVÉS
+
+Copyright © 2024-2026 Yanis. Tous droits réservés.
+
+Dernière mise à jour : 26 février 2025
+
+========================================
+
+1. DÉFINITIONS
+-------------
+
+Dans le présent contrat, on entend par :
+
+**"Le Titulaire"** : Yanis, propriétaire exclusif de la plateforme Aletheia, de son code source, de sa structure, de son design et de l'ensemble des données philosophiques qu'elle contient.
+
+**"L'Utilisateur"** : Toute personne accédant à la plateforme Aletheia, quel que soit le moyen d'accès utilisé.
+
+**"La Plateforme"** : L'ensemble du site web, applications, code source, bases de données, contenus philosophiques, design, structure et tous les éléments qui composent Aletheia.
+
+**"Code Source"** : L'intégralité du code informatique, incluant mais sans s'y limiter : les fichiers source TypeScript, JavaScript, les configurations, les scripts, les dépendances, l'architecture logicielle, et tout élément technique constituant la plateforme.
+
+**"Données Philosophiques"** : L'ensemble des contenus philosophiques, incluant mais sans s'y limiter : les biographies de philosophes, les définitions de concepts, les textes explicatifs, les citations, les courants philosophiques, et toute information intellectuelle présente sur la plateforme.
+
+
+2. PROPRIÉTÉ INTELLECTUELLE
+----------------------------
+
+2.1. Propriété Exclusive
+
+Le Titulaire déclare être le propriétaire EXCLUSIF de :
+
+- La totalité du Code Source de la plateforme Aletheia
+- L'ensemble des Données Philosophiques présentes sur la plateforme
+- L'architecture logicielle et la structure de la plateforme
+- Le design visuel, l'expérience utilisateur et l'interface
+- Le nom de domaine "Aletheia" et toutes les marques associées
+- L'ensemble des droits de propriété intellectuelle y afférents
+
+2.2. Protection Juridique
+
+La plateforme Aletheia est protégée par :
+
+- Le Code de la propriété intellectuelle français (Livres I et II)
+- La Directive 2001/29/CE du Parlement européen sur l'harmonisation de certains aspects du droit d'auteur
+- La Convention de Berne pour la protection des œuvres littéraires et artistiques
+- Les traités internationaux sur la propriété intellectuelle
+
+2.3. Droits d'Auteur
+
+L'ensemble du Code Source et des Données Philosophiques constitue une œuvre originale au sens du Code de la propriété intellectuelle (articles L.111-1 et suivants).
+
+Le Titulaire est titulaire des droits exclusifs suivants :
+
+- Droit de reproduction (article L.122-3 du CPI)
+- Droit de représentation (article L.122-2 du CPI)
+- Droit d'adaptation et de transformation (article L.122-4 du CPI)
+- Droit de création d'œuvres dérivées
+- Droit au respect de l'œuvre (article L.121-1 du CPI)
+
+
+3. INTERDICTIONS FORMELLES
+--------------------------
+
+3.1. Interdiction de Copie du Code Source
+
+Il est FORMELLEMENT INTERDIT, sans accord écrit préalable du Titulaire, de :
+
+- Copier, reproduire, télécharger ou extraire tout ou partie du Code Source
+- Dupliquer la plateforme ou créer une version similaire
+- Utiliser le Code Source comme base pour un autre projet
+- "Scraper", crawler ou extraire le Code Source par quelque moyen que ce soit
+- Reverse engineer, décompiler ou désassembler tout ou partie de la plateforme
+- Extraire ou réutiliser les composants logiciels de manière isolée
+
+3.2. Interdiction d'Utilisation des Données
+
+Il est FORMELLEMENT INTERDIT, sans accord écrit préalable du Titulaire, de :
+
+- Copier, reproduire ou extraire les Données Philosophiques
+- Utiliser les données philosophiques dans un autre projet ou application
+- Revendre, redistribuer ou commercialiser les données
+- Créer une base de données similaire ou concurrente
+- Agréger les données avec d'autres sources à des fins commerciales
+
+3.3. Interdiction de Création d'Œuvres Dérivées
+
+Il est FORMELLEMENT INTERDIT de :
+
+- Créer une version modifiée ou dérivée de la plateforme
+- Créer un fork ou une branche du projet
+- Utiliser l'architecture ou les patterns logiciels pour un projet concurrent
+- S'inspirer substantiellement du design ou de l'UX de la plateforme
+
+
+4. OBLIGATIONS DE L'UTILISATEUR
+--------------------------------
+
+4.1. Utilisation Personnelle Uniquement
+
+L'utilisateur est autorisé à :
+
+- Consulter la plateforme Aletheia à des fins personnelles et éducatives
+- Naviguer et explorer les contenus philosophiques
+- Apprendre et s'instruire grâce aux contenus proposés
+
+4.2. Interdiction d'Utilisation Commerciale
+
+Sans accord écrit préalable du Titulaire, il est interdit de :
+
+- Utiliser la plateforme ou son contenu à des fins commerciales
+- Monétiser l'accès aux contenus philosophiques
+- Utiliser Aletheia dans un cadre professionnel ou lucratif
+
+
+5. PROTECTION JURIDIQUE RENFORCÉE
+----------------------------------
+
+5.1. Mesures Techniques de Protection
+
+La plateforme Aletheia est protégée par des mesures techniques de protection. Toute tentative de contourner ces protections constitue une contrefaçon punie par la loi (article L.335-1 du CPI).
+
+5.2. Informations de Droit d'Auteur
+
+Tout Code Source ou Donnée Philosophique extraite illégalement conservera les informations de droit d'auteur du Titulaire. Toute suppression ou altération de ces informations est interdite et sanctionnée.
+
+
+6. SANCTIONS EN CAS DE VIOLATION
+---------------------------------
+
+6.1. Violation des Droits d'Auteur
+
+Toute violation des présentes dispositions constitue un acte de contrefaçon punie par :
+
+- 3 ans d'emprisonnement et 300 000 € d'amende (article L.335-2 du CPI)
+- 5 ans d'emprisonnement et 500 000 € d'amende en cas de bande organisée (article L.335-3 du CPI)
+- Dommages et intérêts pour préjudice subi
+- Récupération des profits illicites réalisés
+- Frais de justice et honoraires d'avocat
+
+6.2. Responsabilité Civile
+
+En cas de violation, l'utilisateur s'engage à :
+
+- Indemniser le Titulaire pour tous préjudices subis
+- Rembourser les frais de justice engagés
+- Cesser immédiatement toute utilisation illicite
+- Détruire toutes les copies illicites du Code Source ou des Données
+
+6.3. Mesures Correctives
+
+Le Titulaire se réserve le droit de :
+
+- Faire cesser toute activité illicite par voie d'huissier
+- Demander la destruction des copies illicites
+- Obtenir des dommages-intérêts en référé ou au fond
+- Porter plainte auprès des autorités compétentes
+
+
+7. DROIT APPLICABLE ET JURIDICTION
+-----------------------------------
+
+7.1. Droit Français
+
+Le présent contrat est régi par le droit français.
+
+7.2. Juridiction Compétente
+
+Tout litige relatif à l'interprétation, l'exécution ou la violation du présent contrat relève de la compétence exclusive des tribunaux français.
+
+En cas de litige, le tribunal compétent sera :
+- Le Tribunal de Commerce de Paris pour les litiges commerciaux
+- Le Tribunal Judiciaire de Paris pour les litiges civils
+
+
+8. CONTACT ET SIGNALEMENT
+--------------------------
+
+Pour toute question relative au présent contrat ou pour signaler une violation :
+
+**Email :** contact@aletheia.fr
+**Adresse :** [À compléter par le Titulaire]
+**SIRET :** [À compléter par le Titulaire]
+
+
+9. ACCEPTATION DU CONTRAT
+---------------------------
+
+L'accès à la plateforme Aletheia vaut acceptation pleine et entière des présentes dispositions.
+
+Tout utilisateur n'acceptant pas les présentes conditions doit cesser immédiatement d'utiliser la plateforme.
+
+Le Titulaire se réserve le droit de modifier les présentes conditions à tout moment. Les modifications entreront en vigueur dès leur publication en ligne.
+
+========================================
+
+DOCUMENT LÉGAL SOUS SEING PRIVÉ
+
+Ce document constitue un accord juridique contraignant entre le Titulaire et tout utilisateur de la plateforme Aletheia.
+
+En utilisant cette plateforme, vous reconnaissez avoir lu, compris et accepté les présentes conditions.
+
+========================================
+
+PIED DE PAGE
+------------
+
+Aletheia © 2024-2026 Yanis
+Tous droits réservés - Propriété exclusive
+Licence restrictive - Reproduction interdite
+
+Pour le contenu de ce contrat :
+Ce document est protégé par le droit d'auteur français et international.
+Toute reproduction ou utilisation non autorisée sera poursuivie conformément aux articles L.335-2 et suivants du Code de la propriété intellectuelle.

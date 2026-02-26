@@ -1,0 +1,781 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id                   String            @id @default(cuid())
+  email                String            @unique
+  name                 String?
+  image                String?
+  role                 UserRole          @default(USER)
+  createdAt            DateTime          @default(now())
+  updatedAt            DateTime          @updatedAt
+  emailVerified        Boolean?
+  bio                  String?
+  deletionScheduled    DateTime?
+  deletionToken        String?           @unique
+  emailChangeExpires   DateTime?
+  emailChangeToken     String?           @unique
+  isPublic             Boolean           @default(false)
+  notificationSettings Json?
+  preferences          Json?
+  accounts             Account[]
+  annotations          Annotation[]
+  collections          Collection[]
+  favorites            Favorite[]
+  flashcardReviews     FlashcardReview[]
+  forumLikes           ForumLike[]
+  forumPosts           ForumPost[]
+  forumReplies         ForumReply[]
+  notes                Note[]
+  progressions         Progression[]
+  quotes               Quote[]
+  readingStates        ReadingState[]
+  sessions             Session[]
+  achievements         UserAchievement[]
+  activities           UserActivity[]
+  progress             UserProgress?
+
+  @@index([email])
+  @@index([emailChangeToken])
+  @@index([deletionToken])
+  @@map("users")
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  expiresAt DateTime
+  token     String   @unique
+  ipAddress String?
+  userAgent String?
+  userId    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([token])
+  @@map("sessions")
+}
+
+model Account {
+  id                   String    @id @default(cuid())
+  userId               String
+  scope                String?
+  accountId            String
+  providerId           String
+  accessToken          String?
+  accessTokenExpiresAt DateTime?
+  refreshToken         String?
+  createdAt            DateTime  @default(now())
+  updatedAt            DateTime  @updatedAt
+  user                 User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([providerId, accountId])
+  @@index([userId])
+  @@map("accounts")
+}
+
+model Verification {
+  id         String   @id @default(cuid())
+  identifier String
+  value      String
+  expiresAt  DateTime
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@unique([identifier, value])
+  @@index([identifier])
+  @@map("verifications")
+}
+
+model Favorite {
+  id         String     @id @default(cuid())
+  userId     String
+  entityType EntityType
+  entityId   String
+  createdAt  DateTime   @default(now())
+  user       User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, entityType, entityId])
+  @@index([userId])
+  @@index([entityType, entityId])
+  @@map("favorites")
+}
+
+model Collection {
+  id          String           @id @default(cuid())
+  userId      String
+  name        String
+  description String?
+  isPublic    Boolean          @default(false)
+  shareSlug   String?          @unique
+  coverImage  String?
+  color       String?
+  order       Int              @default(0)
+  createdAt   DateTime         @default(now())
+  updatedAt   DateTime         @updatedAt
+  items       CollectionItem[]
+  user        User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([shareSlug])
+  @@index([isPublic])
+  @@map("collections")
+}
+
+model CollectionItem {
+  id           String     @id @default(cuid())
+  collectionId String
+  entityType   EntityType
+  entityId     String
+  order        Int        @default(0)
+  note         String?
+  createdAt    DateTime   @default(now())
+  collection   Collection @relation(fields: [collectionId], references: [id], onDelete: Cascade)
+
+  @@unique([collectionId, entityType, entityId])
+  @@index([collectionId])
+  @@index([entityType, entityId])
+}
+
+model Category {
+  id          String     @id @default(cuid())
+  slug        String     @unique
+  name        String
+  description String?
+  color       String?
+  icon        String?
+  parentId    String?
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  parent      Category?  @relation("CategoryHierarchy", fields: [parentId], references: [id])
+  children    Category[] @relation("CategoryHierarchy")
+  concepts    Concept[]
+  movements   Movement[]
+
+  @@index([slug])
+  @@index([parentId])
+  @@map("categories")
+}
+
+model Concept {
+  id               String            @id @default(cuid())
+  slug             String            @unique
+  name             String
+  definition       String?
+  shortDefinition  String?
+  etymology        Json?
+  keyAuthors       Json?
+  variations       Json?
+  examples         Json?
+  connections      Json?
+  flashcards       Json?
+  status           String?
+  tags             String[]
+  categoryId       String?
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+  relations        ConceptRelation[] @relation("ConceptRelations")
+  relatedRelations ConceptRelation[] @relation("RelatedConcepts")
+  sourceConcepts   ConceptSource[]
+  category         Category?         @relation(fields: [categoryId], references: [id])
+  flashcardPrompts FlashcardPrompt[]
+  progressions     Progression[]
+
+  @@index([slug])
+  @@index([categoryId])
+  @@index([tags])
+  @@map("concepts")
+}
+
+model ConceptSource {
+  id        String   @id @default(cuid())
+  conceptId String
+  sourceId  String
+  createdAt DateTime @default(now())
+  concept   Concept  @relation(fields: [conceptId], references: [id], onDelete: Cascade)
+  source    Source   @relation(fields: [sourceId], references: [id], onDelete: Cascade)
+
+  @@unique([conceptId, sourceId])
+  @@index([conceptId])
+  @@index([sourceId])
+  @@map("concept_sources")
+}
+
+model ConceptRelation {
+  id               String       @id @default(cuid())
+  conceptId        String
+  relatedConceptId String
+  relationType     RelationType
+  description      String?
+  strength         Int          @default(1)
+  createdAt        DateTime     @default(now())
+  updatedAt        DateTime     @updatedAt
+  concept          Concept      @relation("ConceptRelations", fields: [conceptId], references: [id], onDelete: Cascade)
+  relatedConcept   Concept      @relation("RelatedConcepts", fields: [relatedConceptId], references: [id], onDelete: Cascade)
+
+  @@unique([conceptId, relatedConceptId, relationType])
+  @@index([conceptId])
+  @@index([relatedConceptId])
+  @@index([relationType])
+  @@map("concept_relations")
+}
+
+model Philosopher {
+  id                   String                @id @default(cuid())
+  slug                 String                @unique
+  name                 String
+  fullName             String?
+  dates                String?
+  birthYear            Int?
+  deathYear            Int?
+  nationality          String?
+  century              String?
+  biography            String?
+  mainMovements        String[]
+  disciplines          String[]
+  keyIdeas             Json?
+  influences           Json?
+  legacy               Json?
+  metadata             Json?
+  createdAt            DateTime              @default(now())
+  updatedAt            DateTime              @updatedAt
+  movementPhilosophers MovementPhilosopher[]
+  quoteSources         Quote[]
+
+  @@index([slug])
+  @@index([name])
+  @@index([nationality])
+  @@index([century])
+  @@map("philosophers")
+}
+
+model Movement {
+  id                   String                @id @default(cuid())
+  slug                 String                @unique
+  name                 String
+  description          String?
+  shortDefinition      String?
+  period               String?
+  origins              Json?
+  keyPrinciples        Json?
+  keyPhilosophers      String[]
+  keyConcepts          String[]
+  variations           Json?
+  criticisms           Json?
+  influence            Json?
+  categoryId           String?
+  metadata             Json?
+  createdAt            DateTime              @default(now())
+  updatedAt            DateTime              @updatedAt
+  movementPhilosophers MovementPhilosopher[]
+  category             Category?             @relation(fields: [categoryId], references: [id])
+
+  @@index([slug])
+  @@index([name])
+  @@index([period])
+  @@index([categoryId])
+  @@map("movements")
+}
+
+model MovementPhilosopher {
+  id            String      @id @default(cuid())
+  movementId    String
+  philosopherId String
+  role          String?
+  contribution  String?
+  createdAt     DateTime    @default(now())
+  movement      Movement    @relation(fields: [movementId], references: [id], onDelete: Cascade)
+  philosopher   Philosopher @relation(fields: [philosopherId], references: [id], onDelete: Cascade)
+
+  @@unique([movementId, philosopherId])
+  @@index([movementId])
+  @@index([philosopherId])
+  @@map("movement_philosophers")
+}
+
+model Source {
+  id               String            @id @default(cuid())
+  slug             String            @unique
+  title            String
+  author           String?
+  year             Int?
+  type             SourceType
+  url              String?
+  description      String?
+  isbn             String?
+  doi              String?
+  metadata         Json?
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+  conceptSources   ConceptSource[]
+  flashcardPrompts FlashcardPrompt[]
+  quotes           Quote[]
+
+  @@index([slug])
+  @@index([type])
+  @@index([author])
+  @@map("sources")
+}
+
+model FlashcardPrompt {
+  id           String            @id @default(cuid())
+  slug         String            @unique
+  conceptId    String
+  sourceId     String?
+  type         FlashcardType
+  question     String
+  answer       String
+  hint         String?
+  tags         String[]
+  difficulty   Int               @default(1)
+  metadata     Json?
+  generatedAt  DateTime          @default(now())
+  createdAt    DateTime          @default(now())
+  updatedAt    DateTime          @updatedAt
+  concept      Concept           @relation(fields: [conceptId], references: [id], onDelete: Cascade)
+  source       Source?           @relation(fields: [sourceId], references: [id])
+  reviews      FlashcardReview[]
+  progressions Progression[]
+
+  @@index([slug])
+  @@index([conceptId])
+  @@index([sourceId])
+  @@index([type])
+  @@index([tags])
+  @@map("flashcard_prompts")
+}
+
+model FlashcardReview {
+  id               String          @id @default(cuid())
+  promptId         String
+  userId           String
+  quality          Int
+  previousEase     Float
+  newEase          Float
+  previousInterval Int
+  newInterval      Int
+  timeTaken        Int?
+  reviewedAt       DateTime        @default(now())
+  prompt           FlashcardPrompt @relation(fields: [promptId], references: [id], onDelete: Cascade)
+  user             User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([promptId])
+  @@index([userId])
+  @@index([reviewedAt])
+  @@map("flashcard_reviews")
+}
+
+model Progression {
+  id                String           @id @default(cuid())
+  userId            String
+  conceptId         String
+  promptId          String?
+  status            ProgressStatus
+  easeFactor        Float            @default(2.5)
+  interval          Int              @default(0)
+  repetitions       Int              @default(0)
+  nextReview        DateTime         @default(now())
+  lastReview        DateTime?
+  totalReviews      Int              @default(0)
+  successfulReviews Int              @default(0)
+  streak            Int              @default(0)
+  metadata          Json?
+  createdAt         DateTime         @default(now())
+  updatedAt         DateTime         @updatedAt
+  concept           Concept          @relation(fields: [conceptId], references: [id], onDelete: Cascade)
+  prompt            FlashcardPrompt? @relation(fields: [promptId], references: [id])
+  user              User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, conceptId, promptId])
+  @@index([userId])
+  @@index([conceptId])
+  @@index([nextReview])
+  @@index([status])
+  @@map("progressions")
+}
+
+model ForumCategory {
+  id          String      @id @default(cuid())
+  slug        String      @unique
+  name        String
+  description String?
+  icon        String?
+  color       String?
+  order       Int         @default(0)
+  postCount   Int         @default(0)
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  posts       ForumPost[]
+
+  @@index([slug])
+  @@index([order])
+  @@map("forum_categories")
+}
+
+model ForumPost {
+  id          String         @id @default(cuid())
+  slug        String         @unique
+  title       String
+  content     String
+  userId      String
+  categoryId  String?
+  isPinned    Boolean        @default(false)
+  isLocked    Boolean        @default(false)
+  views       Int            @default(0)
+  likeCount   Int            @default(0)
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+  excerpt     String?
+  lastReplyAt DateTime?
+  mentions    String[]       @default([])
+  replyCount  Int            @default(0)
+  tags        String[]       @default([])
+  likes       ForumLike[]
+  category    ForumCategory? @relation(fields: [categoryId], references: [id])
+  user        User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  replies     ForumReply[]
+
+  @@index([slug])
+  @@index([userId])
+  @@index([categoryId])
+  @@index([createdAt])
+  @@index([lastReplyAt])
+  @@index([tags])
+  @@map("forum_posts")
+}
+
+model ForumReply {
+  id        String       @id @default(cuid())
+  content   String
+  userId    String
+  postId    String
+  parentId  String?
+  likeCount Int          @default(0)
+  createdAt DateTime     @default(now())
+  updatedAt DateTime     @updatedAt
+  mentions  String[]     @default([])
+  likes     ForumLike[]
+  parent    ForumReply?  @relation("ReplyHierarchy", fields: [parentId], references: [id], onDelete: Cascade)
+  replies   ForumReply[] @relation("ReplyHierarchy")
+  post      ForumPost    @relation(fields: [postId], references: [id], onDelete: Cascade)
+  user      User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([postId])
+  @@index([parentId])
+  @@index([createdAt])
+  @@map("forum_replies")
+}
+
+model ForumLike {
+  id        String      @id @default(cuid())
+  userId    String
+  postId    String?
+  replyId   String?
+  createdAt DateTime    @default(now())
+  post      ForumPost?  @relation(fields: [postId], references: [id], onDelete: Cascade)
+  reply     ForumReply? @relation(fields: [replyId], references: [id], onDelete: Cascade)
+  user      User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, postId, replyId])
+  @@index([userId])
+  @@index([postId])
+  @@index([replyId])
+  @@map("forum_likes")
+}
+
+model Text {
+  id            String         @id @default(cuid())
+  slug          String         @unique
+  title         String
+  author        String?
+  summary       String?
+  description   String?
+  coverImage    String?
+  language      String         @default("fr")
+  pageCount     Int?
+  publishedAt   DateTime?
+  metadata      Json?
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  annotations   Annotation[]
+  chapters      Chapter[]
+  quotes        Quote[]
+  readingStates ReadingState[]
+
+  @@index([slug])
+  @@index([author])
+  @@index([publishedAt])
+  @@map("texts")
+}
+
+model Chapter {
+  id            String       @id @default(cuid())
+  slug          String
+  textId        String
+  title         String
+  content       String
+  chapterNumber Int
+  order         Int
+  wordCount     Int?
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+  annotations   Annotation[]
+  text          Text         @relation(fields: [textId], references: [id], onDelete: Cascade)
+  quotes        Quote[]
+
+  @@unique([textId, slug])
+  @@unique([textId, order])
+  @@index([textId])
+  @@index([order])
+  @@map("chapters")
+}
+
+model ReadingState {
+  id              String        @id @default(cuid())
+  userId          String
+  textId          String
+  status          ReadingStatus
+  currentPage     Int           @default(0)
+  totalPages      Int?
+  progressPercent Int           @default(0)
+  startedAt       DateTime?
+  completedAt     DateTime?
+  lastReadAt      DateTime      @default(now())
+  estimatedTime   Int?
+  notes           String?
+  metadata        Json?
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+  text            Text          @relation(fields: [textId], references: [id], onDelete: Cascade)
+  user            User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, textId])
+  @@index([userId])
+  @@index([textId])
+  @@index([status])
+  @@index([lastReadAt])
+  @@map("reading_states")
+}
+
+model Annotation {
+  id          String   @id @default(cuid())
+  userId      String
+  textId      String?
+  chapterId   String?
+  quoteId     String?
+  content     String
+  startOffset Int?
+  endOffset   Int?
+  color       String?
+  isPublic    Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  chapter     Chapter? @relation(fields: [chapterId], references: [id])
+  quote       Quote?   @relation(fields: [quoteId], references: [id])
+  text        Text?    @relation(fields: [textId], references: [id], onDelete: Cascade)
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([textId])
+  @@index([chapterId])
+  @@index([quoteId])
+  @@index([isPublic])
+  @@map("annotations")
+}
+
+model Quote {
+  id            String       @id @default(cuid())
+  slug          String       @unique
+  text          String
+  context       String?
+  sourceId      String?
+  textId        String?
+  chapterId     String?
+  userId        String?
+  tags          String[]
+  isPublic      Boolean      @default(false)
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+  philosopherId String?
+  annotations   Annotation[]
+  chapter       Chapter?     @relation(fields: [chapterId], references: [id])
+  philosopher   Philosopher? @relation(fields: [philosopherId], references: [id])
+  source        Source?      @relation(fields: [sourceId], references: [id])
+  textContent   Text?        @relation(fields: [textId], references: [id])
+  user          User?        @relation(fields: [userId], references: [id])
+
+  @@index([slug])
+  @@index([sourceId])
+  @@index([textId])
+  @@index([userId])
+  @@index([philosopherId])
+  @@index([isPublic])
+  @@index([tags])
+  @@map("quotes")
+}
+
+model Note {
+  id               String   @id @default(cuid())
+  title            String
+  content          String   @default("")
+  userId           String
+  tags             String[] @default([])
+  linkedEntityType String?
+  linkedEntityId   String?
+  isPublic         Boolean  @default(false)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  user             User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([tags])
+  @@index([linkedEntityType, linkedEntityId])
+  @@index([createdAt])
+  @@map("notes")
+}
+
+model UserProgress {
+  id                 String   @id @default(cuid())
+  userId             String   @unique
+  xp                 Int      @default(0)
+  level              Int      @default(1)
+  streak             Int      @default(0)
+  lastActivity       DateTime @default(now())
+  notesCreated       Int      @default(0)
+  favoritesAdded     Int      @default(0)
+  flashcardsCreated  Int      @default(0)
+  flashcardsReviewed Int      @default(0)
+  flashcardsMastered Int      @default(0)
+  quotesContributed  Int      @default(0)
+  forumPostsCreated  Int      @default(0)
+  forumRepliesCreated Int     @default(0)
+  conceptsExplored   Int      @default(0)
+  philosophersRead   Int      @default(0)
+  sourcesRead        Int      @default(0)
+  hoursSpent         Float    @default(0)
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+  user               User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([level])
+  @@index([xp])
+  @@index([streak])
+  @@map("user_progress")
+}
+
+model Achievement {
+  id           String            @id @default(cuid())
+  slug         String            @unique
+  name         String
+  description  String
+  icon         String?
+  xpReward     Int               @default(0)
+  category     String
+  requirements Json
+  users        UserAchievement[]
+
+  @@index([category])
+  @@map("achievements")
+}
+
+model UserAchievement {
+  id            String      @id @default(cuid())
+  userId        String
+  achievementId String
+  unlockedAt    DateTime    @default(now())
+  progress      Int         @default(0)
+  achievement   Achievement @relation(fields: [achievementId], references: [id], onDelete: Cascade)
+  user          User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, achievementId])
+  @@index([userId])
+  @@index([achievementId])
+  @@map("user_achievements")
+}
+
+model UserActivity {
+  id         String   @id @default(cuid())
+  userId     String
+  actionType String
+  entityType String?
+  entityId   String?
+  metadata   Json?
+  xpGained   Int      @default(0)
+  createdAt  DateTime @default(now())
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([actionType])
+  @@index([createdAt])
+  @@map("user_activities")
+}
+
+enum UserRole {
+  USER
+  ADMIN
+  MODERATOR
+}
+
+enum RelationType {
+  RELATED
+  OPPOSES
+  BUILDS_ON
+  INFLUENCES
+  CRITIQUES
+  EXTENDS
+  CLARIFIES
+  EXEMPLIFIES
+}
+
+enum SourceType {
+  BOOK
+  ARTICLE
+  VIDEO
+  PODCAST
+  WEBSITE
+  COURSE
+  OTHER
+  POEM
+  TEXT
+}
+
+enum FlashcardType {
+  BASIC
+  CLOZE
+  CONCEPT
+  QUOTE
+  ESSAY
+}
+
+enum ProgressStatus {
+  NOT_STARTED
+  IN_PROGRESS
+  MASTERED
+  REVIEWING
+}
+
+enum ReadingStatus {
+  NOT_STARTED
+  READING
+  PAUSED
+  COMPLETED
+  ABANDONED
+}
+
+enum EntityType {
+  CONCEPT
+  PHILOSOPHER
+  CURRENT
+  MOVEMENT
+  TEXT
+  SOURCE
+  QUOTE
+}
