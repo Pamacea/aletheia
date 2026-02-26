@@ -1,0 +1,38 @@
+'use client';
+
+import { useState, useEffect } from 'react';
+
+/**
+ * Custom hook for tracking CSS media queries
+ * @param query - The media query to track (e.g., "(min-width: 768px)")
+ * @returns Boolean indicating if the media query matches
+ */
+export function useMediaQuery(query: string): boolean {
+  const [matches, setMatches] = useState<boolean>(() => {
+    if (typeof window === 'undefined') {
+      return false;
+    }
+
+    return window.matchMedia(query).matches;
+  });
+
+  useEffect(() => {
+    if (typeof window === 'undefined') {
+      return;
+    }
+
+    const mediaQuery = window.matchMedia(query);
+    const handler = (event: MediaQueryListEvent) => setMatches(event.matches);
+
+    // Set initial value
+    setMatches(mediaQuery.matches);
+
+    // Add listener
+    mediaQuery.addEventListener('change', handler);
+
+    // Clean up
+    return () => mediaQuery.removeEventListener('change', handler);
+  }, [query]);
+
+  return matches;
+}

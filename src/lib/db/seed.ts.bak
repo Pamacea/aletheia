@@ -1,0 +1,593 @@
+import { PrismaClient } from '@prisma/client';
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
+
+const prisma = new PrismaClient();
+
+// Configuration
+const VAULT_PATH = process.env.OBSIDIAN_VAULT_PATH || '';
+const CONCEPTS_PATH = path.join(VAULT_PATH, '00-COMET', 'Concepts');
+const CITATIONS_PATH = path.join(VAULT_PATH, '03-CITATIONS');
+
+// Types
+interface FrontmatterData {
+  type?: string;
+  statut?: string;
+  date_creation?: string;
+  tags?: string[];
+  title?: string;
+  auteur?: string;
+  oeuvre?: string;
+  annee?: string;
+}
+
+interface ConceptData {
+  slug: string;
+  name: string;
+  definition: string | null;
+  shortDefinition: string | null;
+  etymology: any;
+  keyAuthors: any;
+  variations: any;
+  examples: any;
+  connections: any;
+  flashcards: any;
+  status: string | null;
+  tags: string[];
+  content: string;
+}
+
+interface CitationData {
+  slug: string;
+  text: string;
+  context: string | null;
+  author: string | null;
+  work: string | null;
+  tags: string[];
+  content: string;
+}
+
+// Logger utility
+class Logger {
+  private startTime: number = Date.now();
+
+  info(message: string, data?: any) {
+    const elapsed = ((Date.now() - this.startTime) / 1000).toFixed(2);
+    console.log(`[${elapsed}s] ℹ️  ${message}`, data || '');
+  }
+
+  success(message: string, data?: any) {
+    const elapsed = ((Date.now() - this.startTime) / 1000).toFixed(2);
+    console.log(`[${elapsed}s] ✅ ${message}`, data || '');
+  }
+
+  error(message: string, error?: any) {
+    const elapsed = ((Date.now() - this.startTime) / 1000).toFixed(2);
+    console.error(`[${elapsed}s] ❌ ${message}`, error || '');
+  }
+
+  warn(message: string, data?: any) {
+    const elapsed = ((Date.now() - this.startTime) / 1000).toFixed(2);
+    console.warn(`[${elapsed}s] ⚠️  ${message}`, data || '');
+  }
+}
+
+const logger = new Logger();
+
+// Utility functions
+function slugify(text: string): string {
+  return text
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^\w\s-]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+    .trim();
+}
+
+function extractSlug(filePath: string): string {
+  const basename = path.basename(filePath, '.md');
+  return slugify(basename);
+}
+
+function extractDefinitions(content: string): { short: string | null; full: string | null } {
+  const shortMatch = content.match(/\*\*Définition courte\s*:\*\*\s*([^\n]+)/);
+  const shortDef = shortMatch ? shortMatch[1].trim() : null;
+
+  // Extract detailed definition from the detailed definition section
+  const detailedMatch = content.match(/\*\*Définition détaillée\s*:\*\*\s*([\s\S]*?)(?=---|\n##)/);
+  const fullDef = detailedMatch ? detailedMatch[1].trim() : null;
+
+  return { short: shortDef, full: fullDef };
+}
+
+function extractEtymology(content: string): any {
+  const etymology: any = {};
+
+  const latinMatch = content.match(/Latin\s*:\s*\*([^*]+)\*/);
+  if (latinMatch) etymology.latin = latinMatch[1];
+
+  const greekMatch = content.match(/Grec\s*:\s*\*([^*]+)\*/);
+  if (greekMatch) etymology.greek = greekMatch[1];
+
+  const evolutionMatch = content.match(/\*\*Évolution du sens\s*:\*\*\s*([\s\S]*?)(?=---|\n##|\n\*\*)/);
+  if (evolutionMatch) etymology.evolution = evolutionMatch[1].trim();
+
+  return Object.keys(etymology).length > 0 ? etymology : null;
+}
+
+function extractKeyAuthors(content: string): any[] {
+  const authors: any[] = [];
+  const tableRegex = /\|\s*\[\[([^\]]+)\]\]\s*\|\s*\[\[([^\]]+)\]\]\s*\|\s*([^\|]+)\s*\|/g;
+  let match;
+
+  while ((match = tableRegex.exec(content)) !== null) {
+    authors.push({
+      author: match[1],
+      work: match[2],
+      contribution: match[3].trim()
+    });
+  }
+
+  return authors.length > 0 ? authors : [];
+}
+
+function extractConnections(content: string): any[] {
+  const connections: any[] = [];
+  const linkRegex = /\[\[([^\]]+)\]\]/g;
+  let match;
+
+  while ((match = linkRegex.exec(content)) !== null) {
+    connections.push({
+      concept: match[1],
+      relation: 'RELATED'
+    });
+  }
+
+  return connections.length > 0 ? connections : null;
+}
+
+function generateFlashcards(conceptName: string, definition: string | null): any[] {
+  const flashcards: any[] = [];
+
+  if (definition) {
+    // Basic definition card
+    flashcards.push({
+      type: 'BASIC',
+      question: `Qu'est-ce que ${conceptName} ?`,
+      answer: definition
+    });
+  }
+
+  // Etymology card
+  flashcards.push({
+    type: 'CONCEPT',
+    question: `Quelle est l'étymologie du concept "${conceptName}" ?`,
+    answer: 'Voir section étymologie pour les détails.'
+  });
+
+  // Application card
+  flashcards.push({
+    type: 'ESSAY',
+    question: `Donnez un exemple d'application du concept "${conceptName}" dans un contexte philosophique.`,
+    answer: 'Voir section exemples pour des illustrations.'
+  });
+
+  return flashcards.length > 0 ? flashcards : null;
+}
+
+// Parser functions
+async function parseConceptFile(filePath: string): Promise<ConceptData | null> {
+  try {
+    const fileContent = fs.readFileSync(filePath, 'utf-8');
+    const { data: frontmatter, content } = matter(fileContent) as { data: FrontmatterData; content: string };
+
+    const slug = extractSlug(filePath);
+    const name = frontmatter.title || path.basename(filePath, '.md');
+    const { short: shortDef, full: fullDef } = extractDefinitions(content);
+
+    return {
+      slug,
+      name,
+      definition: fullDef,
+      shortDefinition: shortDef,
+      etymology: extractEtymology(content),
+      keyAuthors: extractKeyAuthors(content),
+      variations: null,
+      examples: null,
+      connections: extractConnections(content),
+      flashcards: generateFlashcards(name, shortDef),
+      status: frontmatter.statut || null,
+      tags: frontmatter.tags || [],
+      content
+    };
+  } catch (error) {
+    logger.error(`Error parsing concept file ${filePath}`, error);
+    return null;
+  }
+}
+
+async function parseCitationFile(filePath: string): Promise<CitationData | null> {
+  try {
+    const fileContent = fs.readFileSync(filePath, 'utf-8');
+    const { data: frontmatter, content } = matter(fileContent) as { data: FrontmatterData; content: string };
+
+    const slug = extractSlug(filePath);
+    const text = content.split('\n\n')[0].replace(/^>\s*/, '').trim();
+    const contextMatch = content.match(/Contexte\s*:\s*([^\n]+)/);
+    const context = contextMatch ? contextMatch[1].trim() : null;
+
+    return {
+      slug,
+      text,
+      context,
+      author: frontmatter.auteur || null,
+      work: frontmatter.oeuvre || null,
+      tags: frontmatter.tags || [],
+      content
+    };
+  } catch (error) {
+    logger.error(`Error parsing citation file ${filePath}`, error);
+    return null;
+  }
+}
+
+// Directory scanner
+async function scanDirectory(dirPath: string, extensions: string[] = ['.md']): Promise<string[]> {
+  if (!fs.existsSync(dirPath)) {
+    logger.warn(`Directory does not exist: ${dirPath}`);
+    return [];
+  }
+
+  const files: string[] = [];
+
+  function scan(currentPath: string) {
+    const entries = fs.readdirSync(currentPath, { withFileTypes: true });
+
+    for (const entry of entries) {
+      const fullPath = path.join(currentPath, entry.name);
+
+      if (entry.isDirectory()) {
+        scan(fullPath);
+      } else if (entry.isFile() && extensions.includes(path.extname(entry.name))) {
+        files.push(fullPath);
+      }
+    }
+  }
+
+  scan(dirPath);
+  return files;
+}
+
+// Seed functions
+async function seedCategories() {
+  logger.info('Seeding categories...');
+
+  const categories = [
+    { name: 'Métaphysique', slug: 'metaphysique', description: 'Études de la nature fondamentale de la réalité' },
+    { name: 'Épistémologie', slug: 'epistemologie', description: 'Théorie de la connaissance' },
+    { name: 'Éthique', slug: 'ethique', description: 'Philosophie morale' },
+    { name: 'Politique', slug: 'politique', description: 'Philosophie politique' },
+    { name: 'Esthétique', slug: 'esthetique', description: 'Philosophie de l\'art' },
+    { name: 'Logique', slug: 'logique', description: 'Science du raisonnement' },
+    { name: 'Phénoménologie', slug: 'phenomenologie', description: 'Étude des structures de la conscience' },
+    { name: 'Existentialisme', slug: 'existentialisme', description: 'Philosophie de l\'existence' }
+  ];
+
+  const created = await Promise.all(
+    categories.map(cat =>
+      prisma.category.upsert({
+        where: { slug: cat.slug },
+        update: {},
+        create: cat
+      })
+    )
+  );
+
+  logger.success(`Created ${created.length} categories`);
+  return created;
+}
+
+async function seedConcepts(categories: any[]) {
+  logger.info('Seeding concepts from Obsidian vault...');
+
+  const conceptFiles = await scanDirectory(CONCEPTS_PATH);
+  logger.info(`Found ${conceptFiles.length} concept files`);
+
+  let created = 0;
+  let failed = 0;
+
+  for (const filePath of conceptFiles) {
+    try {
+      const conceptData = await parseConceptFile(filePath);
+      if (!conceptData) {
+        failed++;
+        continue;
+      }
+
+      // Try to assign a category based on tags
+      const categoryMap: Record<string, string> = {
+        'metaphysique': 'metaphysique',
+        'etre': 'metaphysique',
+        'connaissance': 'epistemologie',
+        'savoir': 'epistemologie',
+        'morale': 'ethique',
+        'vertu': 'ethique',
+        'politique': 'politique',
+        'justice': 'politique',
+        'art': 'esthetique',
+        'beau': 'esthetique',
+        'logique': 'logique',
+        'raison': 'logique',
+        'conscience': 'phenomenologie',
+        'existence': 'existentialisme',
+        'liberte': 'existentialisme'
+      };
+
+      let categoryId: string | undefined;
+      for (const [key, catSlug] of Object.entries(categoryMap)) {
+        if (conceptData.tags.some(tag => tag.toLowerCase().includes(key)) ||
+            conceptData.name.toLowerCase().includes(key)) {
+          const cat = categories.find(c => c.slug === catSlug);
+          if (cat) categoryId = cat.id;
+          break;
+        }
+      }
+
+      await prisma.concept.upsert({
+        where: { slug: conceptData.slug },
+        update: {
+          name: conceptData.name,
+          definition: conceptData.definition,
+          shortDefinition: conceptData.shortDefinition,
+          etymology: conceptData.etymology,
+          keyAuthors: conceptData.keyAuthors,
+          variations: conceptData.variations,
+          examples: conceptData.examples,
+          connections: conceptData.connections,
+          flashcards: conceptData.flashcards,
+          status: conceptData.status,
+          tags: conceptData.tags,
+          categoryId
+        },
+        create: {
+          slug: conceptData.slug,
+          name: conceptData.name,
+          definition: conceptData.definition,
+          shortDefinition: conceptData.shortDefinition,
+          etymology: conceptData.etymology,
+          keyAuthors: conceptData.keyAuthors,
+          variations: conceptData.variations,
+          examples: conceptData.examples,
+          connections: conceptData.connections,
+          flashcards: conceptData.flashcards,
+          status: conceptData.status,
+          tags: conceptData.tags,
+          categoryId
+        }
+      });
+
+      created++;
+      if (created % 10 === 0) {
+        logger.info(`Progress: ${created}/${conceptFiles.length} concepts processed`);
+      }
+    } catch (error) {
+      logger.error(`Failed to seed concept from ${filePath}`, error);
+      failed++;
+    }
+  }
+
+  logger.success(`Created ${created} concepts`);
+  if (failed > 0) {
+    logger.warn(`${failed} concepts failed to import`);
+  }
+
+  return created;
+}
+
+async function seedConceptRelations() {
+  logger.info('Seeding concept relations...');
+
+  const concepts = await prisma.concept.findMany({
+    where: { connections: { not: null } }
+  });
+
+  let created = 0;
+
+  for (const concept of concepts) {
+    if (!concept.connections) continue;
+
+    const connections = concept.connections as any[];
+    for (const connection of connections) {
+      try {
+        const relatedConcept = await prisma.concept.findFirst({
+          where: {
+            OR: [
+              { slug: slugify(connection.concept) },
+              { name: { contains: connection.concept, mode: 'insensitive' } }
+            ]
+          }
+        });
+
+        if (relatedConcept) {
+          await prisma.conceptRelation.upsert({
+            where: {
+              conceptId_relatedConceptId_relationType: {
+                conceptId: concept.id,
+                relatedConceptId: relatedConcept.id,
+                relationType: connection.relation || 'RELATED'
+              }
+            },
+            create: {
+              conceptId: concept.id,
+              relatedConceptId: relatedConcept.id,
+              relationType: (connection.relation || 'RELATED') as any,
+              description: connection.description || null
+            },
+            update: {}
+          });
+          created++;
+        }
+      } catch (error) {
+        // Relation might already exist, skip
+      }
+    }
+  }
+
+  logger.success(`Created ${created} concept relations`);
+}
+
+async function seedSources() {
+  logger.info('Seeding sources...');
+
+  const concepts = await prisma.concept.findMany({
+    where: { keyAuthors: { not: null } }
+  });
+
+  const sources = new Map<string, any>();
+
+  for (const concept of concepts) {
+    if (!concept.keyAuthors) continue;
+
+    const authors = concept.keyAuthors as any[];
+    for (const author of authors) {
+      const key = `${author.author}-${author.work}`;
+      if (!sources.has(key)) {
+        sources.set(key, {
+          slug: slugify(`${author.author} ${author.work}`),
+          title: author.work,
+          author: author.author,
+          type: 'BOOK'
+        });
+      }
+    }
+  }
+
+  let created = 0;
+  for (const sourceData of sources.values()) {
+    try {
+      await prisma.source.upsert({
+        where: { slug: sourceData.slug },
+        update: {},
+        create: sourceData
+      });
+      created++;
+    } catch (error) {
+      logger.warn(`Failed to create source: ${sourceData.slug}`, error);
+    }
+  }
+
+  logger.success(`Created ${created} sources`);
+}
+
+async function seedFlashcardPrompts() {
+  logger.info('Seeding flashcard prompts...');
+
+  const concepts = await prisma.concept.findMany({
+    where: { flashcards: { not: null } }
+  });
+
+  let created = 0;
+
+  for (const concept of concepts) {
+    if (!concept.flashcards) continue;
+
+    const flashcards = concept.flashcards as any[];
+    for (let i = 0; i < flashcards.length; i++) {
+      const card = flashcards[i];
+      try {
+        await prisma.flashcardPrompt.upsert({
+          where: {
+            slug: `${concept.slug}-${i}`
+          },
+          update: {},
+          create: {
+            slug: `${concept.slug}-${i}`,
+            conceptId: concept.id,
+            type: card.type as any,
+            question: card.question,
+            answer: card.answer,
+            hint: card.hint || null,
+            tags: [...concept.tags, card.type.toLowerCase()]
+          }
+        });
+        created++;
+      } catch (error) {
+        logger.warn(`Failed to create flashcard for ${concept.slug}`, error);
+      }
+    }
+  }
+
+  logger.success(`Created ${created} flashcard prompts`);
+}
+
+// Main seed function
+async function main() {
+  const startTime = Date.now();
+
+  logger.info('Starting seed process...');
+  logger.info(`Vault path: ${VAULT_PATH}`);
+  logger.info(`Concepts path: ${CONCEPTS_PATH}`);
+
+  // Check if vault exists
+  if (!fs.existsSync(VAULT_PATH)) {
+    logger.error(`Vault path does not exist: ${VAULT_PATH}`);
+    logger.info('Please set OBSIDIAN_VAULT_PATH in your .env file');
+    return;
+  }
+
+  try {
+    // Clear existing data (optional - comment out if you want to keep data)
+    logger.warn('Clearing existing data...');
+    await prisma.flashcardReview.deleteMany();
+    await prisma.progression.deleteMany();
+    await prisma.flashcardPrompt.deleteMany();
+    await prisma.conceptRelation.deleteMany();
+    await prisma.concept.deleteMany();
+    await prisma.category.deleteMany();
+    await prisma.source.deleteMany();
+    logger.success('Cleared existing data');
+
+    // Seed in order
+    const categories = await seedCategories();
+    await seedConcepts(categories);
+    await seedConceptRelations();
+    await seedSources();
+    await seedFlashcardPrompts();
+
+    const elapsed = ((Date.now() - startTime) / 1000).toFixed(2);
+    logger.success(`Seed completed in ${elapsed}s`);
+
+    // Print summary
+    const counts = await Promise.all([
+      prisma.category.count(),
+      prisma.concept.count(),
+      prisma.conceptRelation.count(),
+      prisma.source.count(),
+      prisma.flashcardPrompt.count()
+    ]);
+
+    console.log('\n📊 Seed Summary:');
+    console.log(`   Categories: ${counts[0]}`);
+    console.log(`   Concepts: ${counts[1]}`);
+    console.log(`   Relations: ${counts[2]}`);
+    console.log(`   Sources: ${counts[3]}`);
+    console.log(`   Flashcards: ${counts[4]}`);
+
+  } catch (error) {
+    logger.error('Seed failed', error);
+    throw error;
+  }
+}
+
+// Run seed
+main()
+  .catch((error) => {
+    console.error('Fatal error during seed:', error);
+    process.exit(1);
+  })
+  .finally(async () => {
+    await prisma.$disconnect();
+  });

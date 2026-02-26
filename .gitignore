@@ -1,0 +1,25 @@
+node_modules
+.next
+.env.local
+dist
+*.log
+.DS_Store
+
+# Test coverage
+coverage
+.nyc_output
+
+# Playwright
+test-results
+playwright-report
+playwright/.cache
+
+# Vitest
+.vitest
+
+# Ex-g-se
+.ex-g-se/
+.guardian/
+
+# Claude
+.claude/

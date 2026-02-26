@@ -1,0 +1,317 @@
+/* ============================================================================
+   AGORA FORUM - MARKDOWN STYLING
+   Greek-inspired aesthetic for philosophical discussions
+   ============================================================================ */
+
+.prose {
+  --tw-prose-body: theme('colors.paper.700');
+  --tw-prose-headings: theme('colors.ink');
+  --tw-prose-links: theme('colors.sepia.600');
+  --tw-prose-bold: theme('colors.ink');
+  --tw-prose-code: theme('colors.sepia.700');
+  --tw-prose-pre-code: theme('colors.paper.100');
+  --tw-prose-pre-bg: theme('colors.paper.800');
+  --tw-prose-quotes: theme('colors.paper.700');
+  --tw-prose-quote-borders: theme('colors.sepia.400');
+  --tw-prose-hr: theme('colors.sepia.200');
+  --tw-prose-th-borders: theme('colors.sepia.200');
+  --tw-prose-td-borders: theme('colors.sepia.100');
+}
+
+/* Headers with Greek-inspired styling */
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4 {
+  font-family: var(--font-playfair), Georgia, serif;
+  font-weight: 600;
+  color: #2d2b29;
+  margin-top: 1.5em;
+  margin-bottom: 0.75em;
+}
+
+.prose h1 {
+  font-size: 2.25em;
+  border-bottom: 2px solid #d4bc8f;
+  padding-bottom: 0.5em;
+}
+
+.prose h2 {
+  font-size: 1.875em;
+  border-bottom: 1px solid #d9d6d0;
+  padding-bottom: 0.3em;
+}
+
+.prose h3 {
+  font-size: 1.5em;
+}
+
+/* Paragraphs */
+.prose p {
+  margin-bottom: 1.25em;
+  line-height: 1.75;
+  color: #4a4744;
+}
+
+/* Links with decorative underline */
+.prose a {
+  color: #8b6f3c;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.2s;
+}
+
+.prose a::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, #8b6f3c, #d4bc8f, #8b6f3c);
+  transition: width 0.3s ease;
+}
+
+.prose a:hover::before {
+  width: 100%;
+}
+
+.prose a:hover {
+  color: #6b552e;
+}
+
+/* Blockquotes with philosophical scroll style */
+.prose blockquote {
+  border-left: 4px solid #8b6f3c;
+  padding-left: 1.5em;
+  margin: 2em 0;
+  font-style: italic;
+  color: #6b6762;
+  background: linear-gradient(to right, #faf9f7, transparent);
+  padding: 1.5em;
+  border-radius: 0 4px 4px 0;
+}
+
+.prose blockquote p {
+  margin-bottom: 0;
+}
+
+.prose blockquote p::before {
+  content: '"';
+  font-size: 2em;
+  color: #d9d6d0;
+  line-height: 0;
+  margin-right: 0.2em;
+}
+
+/* Code inline */
+.prose code {
+  background-color: #e8e6e1;
+  color: #4a3a21;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-size: 0.9em;
+  font-family: 'Courier New', monospace;
+}
+
+/* Code blocks */
+.prose pre {
+  background-color: #2d2b29;
+  color: #faf9f7;
+  padding: 1.5em;
+  border-radius: 6px;
+  overflow-x: auto;
+  border: 1px solid #8b6f3c;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.prose pre code {
+  background-color: transparent;
+  color: inherit;
+  padding: 0;
+  font-size: 0.875em;
+}
+
+/* Lists */
+.prose ul,
+.prose ol {
+  padding-left: 1.5em;
+  margin-bottom: 1.25em;
+}
+
+.prose li {
+  margin-bottom: 0.5em;
+  color: #4a4744;
+}
+
+.prose ul {
+  list-style-type: disc;
+}
+
+.prose ul ul {
+  list-style-type: circle;
+}
+
+.prose ol {
+  list-style-type: decimal;
+}
+
+.prose ol ol {
+  list-style-type: lower-alpha;
+}
+
+/* Tables */
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2em 0;
+}
+
+.prose thead {
+  border-bottom: 2px solid #8b6f3c;
+  background-color: #faf9f7;
+}
+
+.prose th {
+  font-weight: 600;
+  color: #2d2b29;
+  padding: 0.75em 1em;
+  text-align: left;
+}
+
+.prose td {
+  padding: 0.75em 1em;
+  border-bottom: 1px solid #d9d6d0;
+}
+
+.prose tbody tr:hover {
+  background-color: #faf9f7;
+}
+
+/* Horizontal rules */
+.prose hr {
+  border: none;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #d4bc8f, transparent);
+  margin: 3em 0;
+}
+
+/* Strong and emphasis */
+.prose strong {
+  font-weight: 700;
+  color: #2d2b29;
+}
+
+.prose em {
+  font-style: italic;
+  color: #6b6762;
+}
+
+/* Images */
+.prose img {
+  border-radius: 8px;
+  border: 2px solid #d9d6d0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin: 2em auto;
+  display: block;
+  max-width: 100%;
+}
+
+/* Smaller prose for replies */
+.prose-sm {
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.prose-sm p {
+  margin-bottom: 1em;
+}
+
+.prose-sm h1,
+.prose-sm h2,
+.prose-sm h3 {
+  margin-top: 1.25em;
+  margin-bottom: 0.5em;
+}
+
+.prose-sm h1 {
+  font-size: 1.75em;
+}
+
+.prose-sm h2 {
+  font-size: 1.5em;
+}
+
+.prose-sm h3 {
+  font-size: 1.25em;
+}
+
+/* Mention styling */
+.mention {
+  background-color: #e5d4b8;
+  color: #4a3a21;
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+/* Tag styling in content */
+.prose .tag-link {
+  display: inline-block;
+  background-color: #f0e6d6;
+  color: #8b6f3c;
+  padding: 0.2em 0.6em;
+  border-radius: 12px;
+  font-size: 0.85em;
+  margin-right: 0.5em;
+  margin-bottom: 0.5em;
+  text-decoration: none !important;
+}
+
+.prose .tag-link:hover {
+  background-color: #e5d4b8;
+}
+
+.prose .tag-link::before {
+  display: none;
+}
+
+/* Greek decorative elements */
+.greek-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 2em 0;
+  color: #8b6f3c;
+}
+
+.greek-divider::before,
+.greek-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #d4bc8f, transparent);
+}
+
+.greek-divider span {
+  font-size: 1.5em;
+}
+
+/* Custom scrollbar for code blocks */
+.prose pre::-webkit-scrollbar {
+  height: 8px;
+}
+
+.prose pre::-webkit-scrollbar-track {
+  background: #2d2b29;
+  border-radius: 4px;
+}
+
+.prose pre::-webkit-scrollbar-thumb {
+  background: #8b6f3c;
+  border-radius: 4px;
+}
+
+.prose pre::-webkit-scrollbar-thumb:hover {
+  background: #6b552e;
+}

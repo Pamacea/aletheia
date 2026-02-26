@@ -1,0 +1,233 @@
+/**
+ * Sens - Concept Data
+ * Signification ou direction de l'existence
+ */
+
+export const concept = {
+  // ===== IDENTITÉ =====
+  id: 'sens',
+  name: 'Sens',
+  slug: 'sens',
+  category: 'existentialisme',
+
+  // ===== MÉTADONNÉES =====
+  difficulty: 3,
+  importance: 5,
+  status: 'COMPLETE' as const,
+
+  // ===== DÉFINITIONS =====
+  definition: 'Le sens désigne la signification ou la direction de l\'existence. La question du sens (« Quel est le sens de la vie ? ») est centrale dans la philosophie existentialiste car elle interroge la valeur de l\'existence dans un monde qui n\'en a pas de lui-même. Pour les croyants, le sens est donné : il vient de Dieu ou d\'un ordre transcendant. Pour les existentialistes athées, le sens n\'est ni donné ni découvert, il est créé. Sartre affirme que « l\'existence précède l\'essence » : l\'homme existe d\'abord, sans sens prédéterminé, et crée ensuite son essence par ses choix. Camus, face à l\'absurde, conclut que « la vie sera vécue mieux, sans avoir besoin de sens ». Frankl, survivant des camps, fonde la logothérapie sur la « volonté de sens » : l\'homme peut trouver un sens même dans la souffrance la plus extrême. La question du sens n\'est pas théorique mais existentielle : c\'est en vivant qu\'on répond, pas en raisonnant.',
+  shortDefinition: 'Signification de l\'existence : donné (religion) ou créé (existentialisme)',
+
+  // ===== ÉTYMOLOGIE =====
+  etymology: {
+    latin: 'sensus',
+    root: 'sentire : percevoir, ressentir',
+    notes: 'Le sens est d\'abord la perception (les cinq sens), puis par métaphore la signification, la direction, la finalité'
+  },
+
+  // ===== VARIATIONS =====
+  variations: [
+    {
+      title: 'Sens donné - La perspective religieuse',
+      description: 'Dans la perspective religieuse, le sens de l\'existence est donné par Dieu ou par un ordre transcendant. La vie a une finalité qui la précède : connaître Dieu, le servir, participer à son plan. Le sens est découvert, non créé. Les religions proposent des réponses : le sens est le salut, la béatitude, l\'accomplissement d\'une volonté divine. Cette perspective rassure mais exige la foi.',
+    },
+    {
+      title: 'Sens créé - L\'existentialisme',
+      description: 'Pour les existentialistes athées (Sartre, Camus), il n\'y a pas de sens donné : « l\'existence précède l\'essence ». Le sens n\'est ni là ni à trouver, il est à inventer. Chaque homme crée son sens par ses choix, ses engagements, ses valeurs. Cette liberté est terrifiante (angoisse) mais aussi exaltante (responsabilité). Le sens est une œuvre, pas une découverte.',
+    },
+    {
+      title: 'Perte du sens - Le nihilisme',
+      description: 'Le nihilisme (Nietzsche) est la reconnaissance que « Dieu est mort » et avec lui tous les sens transcendants. Il n\'y a plus de sens donné, plus de valeur absolue. Le nihilisme passif est le désespoir devant ce vide (« rien n\'a de sens, tout est vain »). Le nihilisme actif est l\'affirmation créatrice : puisque aucun sens n\'est donné, je suis libre de créer les miens.',
+    },
+    {
+      title: 'Quête de sens - La logothérapie',
+      description: 'Viktor Frankl, psychiatre survivant d\'Auschwitz, fonde la logothérapie sur la « volonté de sens ». Contrairement à Freud (volonté de plaisir) et Adler (volonté de puissance), Frankl soutient que la motivation première de l\'homme est le sens. Même dans la souffrance extrême, l\'homme peut trouver un sens (ex : aimer, souffrir pour une cause). « Celui qui a un pourquoi de vivre peut supporter presque tous les comment. »',
+    },
+    {
+      title: 'Le sens sans l\'absurde - Camus',
+      description: 'Face à l\'absurde, la tentation est de nier l\'absurde en inventant un sens (espoir religieux ou idéologique). Camus refuse cette solution : le sens ne résout pas l\'absurde, il le nie. La réponse camusienne est la révolte : vivre sans espoir mais sans résignation, créer des valeurs locales et humaines sans prétendre à un sens absolu. « La vie sera vécue mieux, sans avoir besoin de sens. »'
+    }
+  ],
+
+  // ===== FIGURES CLÉS =====
+  keyFigures: [
+    { name: 'Viktor Frankl', period: '1905-1997', contribution: 'Fondateur de la logothérapie, théorie de la volonté de sens comme motivation fondamentale' },
+    { name: 'Albert Camus', period: '1913-1960', contribution: 'Analyse de l\'absurde et refus du sens comme solution, pour la révolte et la vie sans espoir' },
+    { name: 'Jean-Paul Sartre', period: '1905-1980', contribution: 'L\'existence précède l\'essence : le sens est créé par la liberté humaine' },
+    { name: 'Friedrich Nietzsche', period: '1844-1900', contribution: 'Critique du nihilisme, mort de Dieu, création de nouvelles valeurs par le surhomme' },
+    { name: 'Søren Kierkegaard', period: '1813-1855', contribution: 'Le sens comme choix personnel et engagement dans la foi' }
+  ],
+
+  // ===== EXEMPLES =====
+  examples: [
+    'Le survivant des camps : Dans Découvrir un sens à sa vie, Frankl raconte qu\'à Auschwitz, ceux qui survivaient étaient ceux qui avaient un sens (un proche à revoir, une œuvre à achever, une vérité à transmettre). Le sens rend supportable l\'insupportable.',
+    'Sisyphe : Le héros condamné à un travail inutile est l\'image de l\'absence de sens. Camus le transforme en héros : « Il faut imaginer Sisyphe heureux. » Le bonheur n\'est pas dans le sens du rocher mais dans la conscience claire de sa condition et la révolte.',
+    'L\'artiste : L\'artiste créateur ne « trouve » pas son œuvre, il la crée. De même, l\'homme ne trouve pas son sens, il le crée. L\'œuvre d\'art n\'a pas de sens préexistant : c\'est l\'artiste qui lui donne sens. Notre vie est cette œuvre.',
+    'Le parent : Pour un parent, la vie de son enfant donne un sens à sa propre vie (se sacrifier, éduquer, transmettre). Ce sens n\'est ni donné par la nature ni décrété par la société, il est choisi et créé quotidiennement par l\'engagement.',
+    'Le militant : Le militant qui se consacre à une cause (justice, écologie, liberté) crée un sens à sa vie par cet engagement. Le sens n\'est pas dans la réussite de la cause (incertaine) mais dans l\'acte même de se consacrer à elle.'
+  ],
+
+  // ===== SOURCES =====
+  sources: [
+    {
+      title: 'Découvrir un sens à sa vie',
+      author: 'Viktor Frankl',
+      year: 1946,
+      type: 'BOOK' as const,
+      reference: 'Traitement de logothérapie fondé sur l\'expérience des camps de concentration',
+      quotes: [
+        'Celui qui a un pourquoi de vivre peut supporter presque tous les comment.',
+        'La volonté de sens est la motivation fondamentale de l\'homme.',
+        'L\'homme peut tout supporter sauf un sens à sa vie.',
+        'Le sens n\'est pas donné, il est à découvrir.',
+        'La vie nous pose des questions, nous y répondons par nos actes.',
+        'L\'amour est la seule façon de saisir un autre être humain dans son être le plus profond.',
+        'Le bonheur ne peut être poursuivi, il doit s\'ensuivre.'
+      ]
+    },
+    {
+      title: 'Le Mythe de Sisyphe',
+      author: 'Albert Camus',
+      year: 1942,
+      type: 'BOOK' as const,
+      reference: 'Essai sur l\'absurde et la réponse de la révolte plutôt que du sens',
+      quotes: [
+        'Il n\'y a qu\'un problème philosophique vraiment sérieux : le suicide.',
+        'La vie sera vécue mieux, sans avoir besoin de sens.',
+        'Le combat suprême est celui de l\'homme contre l\'absurde.',
+        'Il faut imaginer Sisyphe heureux.',
+        'L\'absurde naît de cette confrontation entre l\'appel humain et le silence du monde.',
+        'Je tire de cette absurdité trois conséquences : ma révolte, ma liberté, ma passion.',
+        'Le sens de la vie est la question la plus urgente de l\'existence humaine.'
+      ]
+    },
+    {
+      title: 'L\'Existentialisme est un humanisme',
+      author: 'Jean-Paul Sartre',
+      year: 1946,
+      type: 'BOOK' as const,
+      reference: 'Conférence présentant l\'existentialisme comme philosophie de la liberté et de la responsabilité',
+      quotes: [
+        'L\'existence précède l\'essence.',
+        'L\'homme est d\'abord une existence qui se rencontre, surgit dans le monde, et se définit après.',
+        'Il n\'y a pas de nature humaine, car il n\'y a pas de Dieu pour la concevoir.',
+        'En choisissant pour moi, je choisis pour tous les hommes.',
+        'L\'homme est libre, l\'homme est liberté.',
+        'Nous sommes seuls, sans excuse.',
+        'L\'homme n\'est rien d\'autre que ce qu\'il fait de lui-même.'
+      ]
+    },
+    {
+      title: 'Ainsi parlait Zarathoustra',
+      author: 'Friedrich Nietzsche',
+      year: 1883,
+      type: 'BOOK' as const,
+      reference: 'Traité poétique sur la mort de Dieu et la création de nouvelles valeurs',
+      quotes: [
+        'Dieu est mort! Dieu reste mort! Et c\'est nous qui l\'avons tué!',
+        'Il faut porter encore un chaos en soi pour pouvoir enfanter une étoile dansante.',
+        'Je vous enseigne le surhomme. L\'homme est quelque chose qui doit être surmonté.',
+        'Devenir ce que l\'on est.',
+        'Crée, c\'est la grande rédemption de la souffrance.',
+        'Nier la vie est le péché le plus grave.',
+        'Le sens de la terre, pas de l\'au-delà.'
+      ]
+    },
+    {
+      title: 'Traité du bonheur',
+      author: 'Emil Cioran',
+      year: 1973,
+      type: 'BOOK' as const,
+      reference: 'Réflexions sur l\'absence de sens et l\'art de vivre sans illusion',
+      quotes: [
+        'Il faut avoir le courage de vivre sans but.',
+        'Le sens de la vie est dans le fait qu\'elle n\'en a pas.',
+        'Nous naissons tous des origines, nous finissons tous néant.',
+        'Vivre, c\'est perdre du terrain.',
+        'L\'homme est un animal qui a perdu le sens de sa propre existence.'
+      ]
+    },
+    {
+      title: 'Les Frères Karamazov',
+      author: 'Fyodor Dostoevsky',
+      year: 1880,
+      type: 'BOOK' as const,
+      reference: 'Roman sur la quête de sens, la foi et la révolte contre Dieu',
+      quotes: [
+        'Si Dieu n\'existe pas, tout est permis.',
+        'Le mystère de l\'homme est dans sa liberté, non dans sa destinée.',
+        'L\'harmonie du monde est inaccessible au cœur humain.',
+        'La souffrance d\'un enfant innocent rend le monde inacceptable.',
+        'La foi est le miracle de la vie éternelle.'
+      ]
+    }
+  ],
+
+  // ===== FLASHCARDS =====
+  flashcards: [
+    {
+      type: 'BASIC' as const,
+      front: 'Qu\'est-ce que la question du sens dans l\'existence ?',
+      back: 'La question du sens interroge la signification ou la direction de l\'existence : « Pourquoi vivons-nous ? », « Quelle est la valeur de la vie ? ». Pour les croyants, le sens est donné par Dieu. Pour les existentialistes athées, le sens est créé par la liberté humaine.',
+      difficulty: 2
+    },
+    {
+      type: 'CONNECTION' as const,
+      front: 'Quelle différence entre sens donné et sens créé ?',
+      back: 'Le sens donné (perspective religieuse) précède l\'existence : il vient de Dieu ou d\'un ordre transcendant, il est découvert. Le sens créé (existentialisme) succède à l\'existence : « l\'homme existe d\'abord, puis se définit », il invente son sens par ses choix. Le sens donné rassure, le sens créé responsabilise.',
+      difficulty: 3
+    },
+    {
+      type: 'CONNECTION' as const,
+      front: 'Comment Sartre résout-il la question du sens ?',
+      back: 'Sartre affirme que « l\'existence précède l\'essence » : il n\'y a pas de sens donné avant que nous existions. Le sens n\'est ni là ni à trouver, il est créé par chaque homme par ses choix et engagements. Cette liberté est angoissante mais exaltante : nous sommes responsables de créer notre propre sens.',
+      difficulty: 3
+    },
+    {
+      type: 'CONNECTION' as const,
+      front: 'Comment Frankl résout-il la question du sens ?',
+      back: 'Frankl fonde la logothérapie sur la « volonté de sens » : la motivation première de l\'homme est de trouver un sens, même dans la souffrance. Ce sens n\'est pas donné par la raison mais découvert dans l\'existence concrète : aimer quelqu\'un, accomplir une œuvre, souffrir pour une cause. « Celui qui a un pourquoi de vivre peut supporter presque tous les comment. »',
+      difficulty: 4
+    },
+    {
+      type: 'CONNECTION' as const,
+      front: 'Comment Camus résout-il la question du sens face à l\'absurde ?',
+      back: 'Camus refuse de nier l\'absurde en inventant un sens (religieux ou idéologique). Pour lui, le sens ne résout pas l\'absurde, il le nie. La réponse est la révolte : vivre sans espoir mais sans résignation, créer des valeurs humaines locales sans prétendre à un sens absolu. « La vie sera vécue mieux, sans avoir besoin de sens. »',
+      difficulty: 4
+    },
+    {
+      type: 'QUOTE' as const,
+      front: 'Quelle citation de Frankl résume la thérapie par le sens ?',
+      back: '« Celui qui a un pourquoi de vivre peut supporter presque tous les comment » (Découvrir un sens à sa vie, 1946) - Le sens rend supportable toute souffrance.',
+      difficulty: 1
+    },
+    {
+      type: 'QUOTE' as const,
+      front: 'Quelle citation de Sartre résume l\'existentialisme ?',
+      back: '« L\'existence précède l\'essence » (L\'Existentialisme est un humanisme, 1946) - L\'homme existe d\'abord, sans essence prédéterminée, et se définit ensuite par ses choix.',
+      difficulty: 1
+    },
+    {
+      type: 'CLOZE' as const,
+      front: 'Pour Frankl, la motivation fondamentale de l\'homme est la volonté de {{sens}}.',
+      back: 'sens',
+      difficulty: 1
+    },
+    {
+      type: 'CLOZE' as const,
+      front: 'Pour Camus, « La vie sera vécue {{mieux}}, sans avoir besoin de {{sens}}. »',
+      back: 'mieux | sens',
+      difficulty: 2
+    },
+    {
+      type: 'ESSAY' as const,
+      front: 'L\'homme peut-il vivre sans sens ?',
+      back: 'La question du sens se pose différemment selon les perspectives. Pour les croyants, vivre sans sens est impossible car Dieu donne un sens à toute vie. Pour les nihilistes, vivre sans sens est la vérité de la condition humaine, ce qui peut mener au désespoir (nihilisme passif). Pour Camus, on peut vivre sans sens absolu mais non sans valeurs : la révolte crée des sens locaux et humains. Pour Frankl, l\'homme ne peut pas vivre sans sens, c\'est sa « volonté de sens ». Pour Sartre, l\'homme peut vivre sans sens donné mais il doit créer le sien : la liberté n\'est pas l\'absence de sens mais la responsabilité de le créer. Vivre sans sens, ce n\'est pas vivre dans le vide mais créer des valeurs à chaque instant. Comme Sisyphe qui « doit s\'imaginer heureux », l\'homme trouve sa grandeur non dans un sens donné mais dans la révolte face à l\'absurde.',
+      difficulty: 5
+    }
+  ],
+
+  // ===== TAGS =====
+  tags: ['sens', 'existentialisme', 'absurde', 'camus', 'sartre', 'frankl', 'logothérapie', 'nihilisme', 'liberté', 'responsabilité', 'valeur', 'mort']
+};
