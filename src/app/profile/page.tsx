@@ -68,7 +68,7 @@ export default async function ProfilePage() {
    {/* Header */}
    <header className="with-sidebar border-b-2 border-sepia-600 bg-paper-50 py-4">
     <div className="w-full px-4 sm:px-6 lg:px-8">
-     <div className="max-w-7xl mx-auto flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
       <Link
        href="/"
        className="inline-flex items-center gap-2 px-4 py-2 bg-paper-50 text-sepia-600 hover:text-sepia-700 hover:bg-paper-100 border-2 border-paper-300 hover:border-sepia-600 transition-all duration-200"
@@ -94,6 +94,8 @@ export default async function ProfilePage() {
 
    {/* Main Content */}
    <main className="w-full px-4 py-8 sm:px-6 lg:px-8">
+    {/* Content Container - 2/3 WIDTH */}
+    <div className="content-2-3">
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
      {/* Left Column - Profile & Stats */}
      <div className="lg:col-span-1 space-y-8">
@@ -275,6 +277,7 @@ export default async function ProfilePage() {
        </div>
       </section>
      </div>
+    </div>
     </div>
    </main>
   </div>

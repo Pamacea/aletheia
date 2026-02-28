@@ -16,8 +16,75 @@ export const concept = {
   status: 'COMPLETE' as const,
 
   // ===== DÉFINITIONS =====
-  definition: 'La mauvaise foi est l\'auto-illusion par laquelle l\'être humain nie sa liberté absolue et sa responsabilité pour se conforter dans un déterminisme illusoire. Contrairement au mensonge qui trompe autrui, la mauvaise foi se ment à soi-même : elle est un « mensonge à soi » où le menteur et le trompé sont la même personne. Pour Sartre, la mauvaise foi cherche à fuir l\'angoisse de notre liberté en se réduisant à un objet, un rôle, une essence. Elle consiste à s\'identifier à ses déterminations (je suis « comme ça », je ne peux pas faire autrement) tout en sachant intimement que nous sommes libres. La mauvaise foi est une structure du « pour-soi » : c\'est la tentative contradictoire de se faire « en-soi », c\'est-à-dire d\'être une chose fixe et déterminée, sans liberté ni responsabilité.',
+  definition: 'La mauvaise foi est l\'auto-illusion par laquelle l\'être humain nie sa liberté absolue et sa responsabilité pour se conforter dans un déterminisme illusoire. Contrairement au mensonge qui trompe autrui, la mauvaise foi se ment à soi-même : elle est un « mensonge à soi » où le menteur et le trompé sont la même personne. Pour Sartre, la mauvaise foi cherche à fuir l\'angoisse de notre liberté en se réduisant à un objet, un rôle, une essence. Elle consiste à s\'identifier à ses déterminations (je suis « comme ça », je ne peux pas faire autrement) tout en sachant intimement que nous sommes libres. La mauvaise foi est une structure du « pour-soi » : c\'est la tentative contradictoire de se faire « en-soi », c\'est-à-dire d\'être une chose fixe et déterminée, sans liberté ni responsabilité. Cette tentative est vouée à l\'échec car la conscience ne peut jamais se réduire totalement à chose, mais elle structure néanmoins l\'existence inauthentique.',
   shortDefinition: 'Auto-illusion par laquelle l\'homme nie sa liberté absolue et sa responsabilité',
+
+  // ===== DÉFINITION PHILOSOPHIQUE =====
+  philosophicalDefinition: {
+    analysis: 'La mauvaise foi repose sur une structure paradoxale : je sais et je ne sais pas que je suis libre. Cette ambiguïté est possible car la conscience n\'est pas un savoir théorique mais existence engagée. La mauvaise foi n\'est pas une ignorance (je ne sais pas) mais un mode d\'être : je vis comme si je n\'étais pas libre tout en sachant que je le suis. Sartre analyse cette structure comme « dénégation » (Verleugnung) : je nie ce qui est, mais cette négation présuppose ce qu\'elle nie. La mauvaise foi est donc « croyance » qui nie ce qu\'elle croit, « savoir » qui s\'ignore soi-même.',
+    distinctions: [
+      'Mauvaise foi vs Mensonge : Le mensonge trompe autrui (je sais, je dis le contraire). La mauvaise foi se trompe soi-même (je sais et je ne sais pas).',
+      'Mauvaise foi vs Inconscient freudien : L\'inconscient est un refoulement inconscient. La mauvaise foi est un refus conscient de savoir ce qu\'on sait.',
+      'Mauvaise foi vs « On » heideggérien : Le « On » est la structure inauthentique du quotidien. La mauvaise foi est le choix individuel de s\'y abriter.'
+    ],
+    implications: 'La mauvaise foi implique que l\'inauthenticité n\'est pas une fatalité mais un choix. Nous choisissons de nous mentir pour fuir l\'angoisse de notre liberté. Ce choix est « responsabilité » : nous sommes responsables de notre mauvaise foi elle-même.'
+  },
+
+  // ===== RAISONNEMENTS PHILOSOPHIQUES =====
+  reasoning: [
+    {
+      title: 'L\'argument de la double conscience',
+      argument: 'La mauvaise foi est possible car la conscience est structurellement divisée : elle est conscience de soi (je sais que je suis libre) et négation de soi (je me nie comme libre). Cette division n\'est pas accidentelle mais essentielle à la conscience.',
+      premises: [
+        'La conscience est toujours « conscience de » (intentionnalité)',
+        'La conscience est conscience de soi (auto-réflexivité)',
+        'La conscience peut se nier elle-même (négation)',
+        'La mauvaise foi utilise cette négation pour se nier comme liberté'
+      ],
+      conclusion: 'La mauvaise foi est possible car la conscience peut savoir et ne pas savoir simultanément.',
+      objections: [
+        { philosopher: 'Merleau-Ponty', objection: 'Cette analyse de la conscience comme pure néantisation est abstraite. La mauvaise foi s\'enracine dans l\'ambiguïté du corps et du monde, pas dans une pure conscience de soi.' },
+        { philosopher: 'Les psychanalystes', objection: 'La « mauvaise foi » qui présuppose la conscience de soi ignore l\'inconscient. Le « je ne peux pas » peut être sincère, le refoulement existe.' }
+      ],
+      responses: [
+        { philosopher: 'Sartre', response: 'L\'inconscient freudien est une hypothèse inutile qui nie la liberté. La mauvaise foi n\'est pas refoulement mais choix de ne pas savoir ce qu\'on sait. Merleau-Ponty a raison de souligner l\'ancrage corporel, mais la mauvaise foi reste un mode d\'être du pour-soi.' }
+      ]
+    },
+    {
+      title: 'L\'argument de la facticité',
+      argument: 'La mauvaise foi consiste à privilégier la facticité (ce que je suis) sur la transcendance (ce que je ne suis pas encore). Elle réduit le pour-soi à l\'en-soi.',
+      premises: [
+        'L\'homme est à la fois facticité (corps, passé, situation) et transcendance (liberté, projet)',
+        'La mauvaise foi privilégie la facticité pour fuir la transcendance',
+        'Elle s\'identifie à ses déterminations (« je suis comme ça »)',
+        'Cette identification est impossible car la conscience ne peut se réduire à chose'
+      ],
+      conclusion: 'La mauvaise foi est tentative ratée de se faire chose, tentative qui révèle la liberté qu\'elle cherche à fuir.',
+      objections: [
+        { philosopher: 'Heidegger', objection: 'L\'opposition facticité/transcendance est une abstraction dualiste. L\'être-là est « être-jeté » (Geworfenheit) indissociablement projet et facticité.' }
+      ],
+      responses: [
+        { philosopher: 'Sartre', response: 'L\'opposition est réelle mais indissociable : la mauvaise foi est précisément le refus d\'assumer cette indissociabilité. Elle privilégie un aspect (facticité) pour fuir l\'autre (transcendance).' }
+      ]
+    },
+    {
+      title: 'L\'argument de la responsabilité',
+      argument: 'La mauvaise foi ne supprime pas la responsabilité, elle l\'aggrave. Nous sommes responsables non seulement de nos actes mais de notre auto-illusion elle-même.',
+      premises: [
+        'La mauvaise foi est un choix (choisir de se mentir)',
+        'Tout choix engage la responsabilité',
+        'Nous sommes responsables de nos choix',
+        'Donc nous sommes responsables de notre mauvaise foi'
+      ],
+      conclusion: '« Je suis responsable de tout, sauf de ma responsabilité elle-même » (Sartre) : la mauvaise foi ne dispense pas de répondre.',
+      objections: [
+        { philosopher: 'Les moralistes', objection: 'Si nous sommes responsables de notre mauvaise foi, alors la mauvaise foi est impossible (je ne peux pas choisir ce que je sais). C\'est un cercle vicieux.' }
+      ],
+      responses: [
+        { philosopher: 'Sartre', response: 'Le cercle n\'est pas vicieux mais structurel. La mauvaise foi est précisément ce choix de ne pas assumer sa responsabilité. Elle est possible car nous sommes libres, et elle est impossible car elle nie cette liberté. Cette contradiction est le « faiticité du pour-soi ».' }
+      ]
+    }
+  ],
 
   // ===== ÉTYMOLOGIE =====
   etymology: {
@@ -52,11 +119,134 @@ export const concept = {
 
   // ===== FIGURES CLÉS =====
   keyFigures: [
-    { name: 'Jean-Paul Sartre', period: '1905-1980', contribution: 'Analyse systématique de la mauvaise foi comme structure du pour-soi dans L\'Être et le Néant' },
-    { name: 'Simone de Beauvoir', period: '1908-1986', contribution: 'Développement du concept de mauvaise foi dans Pour une morale de l\'ambiguïté' },
-    { name: 'Maurice Merleau-Ponty', period: '1908-1961', contribution: 'Critique de la notion de mauvaise foi et analyse de l\'ambiguïté de la perception' },
-    { name: 'Albert Camus', period: '1913-1960', contribution: 'Critique de l\'auto-illusion et de la mauvaise foi dans Caligula et Le Mythe de Sisyphe' },
-    { name: 'Martin Heidegger', period: '1889-1976', contribution: 'Le « On » (das Man) comme structure de l\'inauthenticité' }
+    {
+      name: 'Jean-Paul Sartre',
+      period: '1905-1980',
+      contribution: 'Analyse systématique de la mauvaise foi comme structure du pour-soi dans L\'Être et le Néant (1943). Sartre développe le concept comme « mensonge à soi » et analyse ses mécanismes (dénégation, identification à l\'en-soi).',
+      works: ['L\'Être et le Néant', 'Huis clos', 'L\'Existentialisme est un humanisme'],
+      quotes: [
+        '« La mauvaise foi est un mensonge à soi. »',
+        '« L\'homme est condamné à être libre. »',
+        '« Je suis ce que je suis et je ne suis pas ce que je suis. »',
+        '« La mauvaise foi cherche à fuir l\'angoisse de la liberté. »'
+      ]
+    },
+    {
+      name: 'Simone de Beauvoir',
+      period: '1908-1986',
+      contribution: 'Développement du concept de mauvaise foi dans Pour une morale de l\'ambiguïté (1947). Beauvoir souligne que l\'authenticité est refus des excuses et des justifications.',
+      works: ['Pour une morale de l\'ambiguïté', 'Le Deuxième Sexe'],
+      quotes: [
+        '« L\'homme est libre, mais il est situé. »',
+        '« L\'authenticité est refus des excuses et des justifications. »',
+        '« On ne peut pas fonder la morale sur la mauvaise foi. »'
+      ]
+    },
+    {
+      name: 'Maurice Merleau-Ponty',
+      period: '1908-1961',
+      contribution: 'Critique de la notion de mauvaise foi dans Phénoménologie de la perception (1945). Merleau-Ponty analyse l\'ambiguïté de la perception et conteste l\'analyse sartrienne de la conscience.',
+      works: ['Phénoménologie de la perception', 'Le Visible et l\'Invisible'],
+      quotes: [
+        '« La conscience est originellement perception du monde. »',
+        '« Le corps est notre ancrage dans le monde. »'
+      ]
+    },
+    {
+      name: 'Albert Camus',
+      period: '1913-1960',
+      contribution: 'Critique de l\'auto-illusion dans Caligula (1944) et Le Mythe de Sisyphe (1942). Camus analyse la mauvaise foi comme refus de l\'absurde.',
+      works: ['Caligula', 'Le Mythe de Sisyphe', 'L\'Homme révolté'],
+      quotes: [
+        '« La révolte naît de la comparaison entre l\'homme et son destin. »',
+        '« Le sens de la vie est la question la plus urgente. »'
+      ]
+    },
+    {
+      name: 'Martin Heidegger',
+      period: '1889-1976',
+      contribution: 'Le « On » (das Man) comme structure de l\'inauthenticité dans Être et Temps (1927). Heidegger analyse la vie quotidienne comme fuite devant l\'angoisse.',
+      works: ['Être et Temps', 'Qu\'est-ce que la métaphysique?'],
+      quotes: [
+        '« Le « On » est l\'être-le-plus-proche de l\'être-là. »',
+        '« Le « On » divise toute décision authentique. »',
+        '« L\'angoisse nous arrache à l\'inauthenticité du quotidien. »'
+      ]
+    }
+  ],
+
+  // ===== CONCEPTS LIÉS =====
+  relatedConcepts: [
+    {
+      name: 'Authenticité',
+      type: 'OPPOSES',
+      description: 'L\'authenticité est le refus de la mauvaise foi. L\'homme authentique reconnaît sa liberté et sa responsabilité sans fuite ni excuse.',
+      bidirectional: true
+    },
+    {
+      name: 'Angoisse',
+      type: 'TRIGGERS',
+      description: 'La mauvaise foi cherche à fuir l\'angoisse de notre liberté absolue. L\'angoisse est la vérité que la mauvaise foi nie.',
+      bidirectional: true
+    },
+    {
+      name: 'Liberté',
+      type: 'DENIES',
+      description: 'La mauvaise foi nie notre liberté absolue en se réduisant à un rôle, une chose, une essence.',
+      bidirectional: false
+    },
+    {
+      name: 'Responsabilité',
+      type: 'DENIES',
+      description: 'La mauvaise foi nie notre responsabilité en invoquant un déterminisme illusoire (« je ne peux pas », « c\'est comme ça »).',
+      bidirectional: false
+    },
+    {
+      name: 'En-soi / Pour-soi',
+      type: 'RELATES_TO',
+      description: 'La mauvaise foi est la tentative du pour-soi (conscience libre) de se faire en-soi (chose déterminée). Cette tentative est vouée à l\'échec.',
+      bidirectional: true
+    },
+    {
+      name: 'Déterminisme',
+      type: 'INVOKES_ILLUSORY',
+      description: 'La mauvaise foi invoque un déterminisme illusoire pour fuir la liberté. Elle transforme « je ne veux pas » en « je ne peux pas ».',
+      bidirectional: false
+    }
+  ],
+
+  // ===== COURANTS PHILOSOPHIQUES =====
+  relatedMovements: [
+    {
+      name: 'Existentialisme sartrien',
+      description: 'La mauvaise foi est un concept central de l\'existentialisme de Sartre. Elle illustre la condition humaine comme « condamnation à être libre ».',
+      role: 'CONCEPT_CENTRAL',
+      keyPhilosophers: ['Jean-Paul Sartre', 'Simone de Beauvoir']
+    },
+    {
+      name: 'Phénoménologie',
+      description: 'La mauvaise foi est analysée à partir de la méthode phénoménologique : description des structures de la conscience.',
+      role: 'RELATED',
+      keyPhilosophers: ['Jean-Paul Sartre', 'Maurice Merleau-Ponty', 'Edmund Husserl']
+    },
+    {
+      name: 'Ontologie fondamentale',
+      description: 'Le « On » heideggérien comme structure de l\'inauthenticité est analogue à la mauvaise foi sartrienne.',
+      role: 'RELATED',
+      keyPhilosophers: ['Martin Heidegger', 'Jean-Paul Sartre']
+    },
+    {
+      name: 'Psychanalyse',
+      description: 'La mauvaise foi se distingue du refoulement freudien. Sartre critique l\'inconscient comme hypnèse qui nie la liberté.',
+      role: 'CONTRASTS_WITH',
+      keyPhilosophers: ['Sigmund Freud', 'Jean-Paul Sartre']
+    },
+    {
+      name: 'Absurdisme',
+      description: 'La mauvaise foi comme refus de l\'absurde. Camus analyse l\'auto-illusion comme négation de la condition humaine.',
+      role: 'RELATED',
+      keyPhilosophers: ['Albert Camus', 'Emil Cioran']
+    }
   ],
 
   // ===== EXEMPLES =====

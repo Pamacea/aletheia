@@ -3,23 +3,57 @@
  * Central export for all philosophical movements data
  */
 
-export { existentialisme, existentialismePhilosopherLinks } from './existentialisme';
-export { nihilisme, nihilismePhilosopherLinks } from './nihilisme';
-export { stoicisme, stoicismePhilosopherLinks } from './stoicisme';
-export { phenomenologie, phenomenologiePhilosopherLinks } from './phenomenologie';
+// Antiquity
+export { platonisme, platonismePhilosopherLinks } from './platonisme.ts';
+export { aristotelisme, aristotelismePhilosopherLinks } from './aristotelisme.ts';
+export { stoicismeAncien, stoicismeAncienPhilosopherLinks } from './stoicisme-ancien.ts';
+
+// Modern
+export { rationalisme, rationalismePhilosopherLinks } from './rationalisme.ts';
+export { empirisme, empirismePhilosopherLinks } from './empirisme.ts';
+export { idealismeAllemand, idealismeAllemandPhilosopherLinks } from './idealisme-allemand.ts';
+export { marxisme, marxismePhilosopherLinks } from './marxisme.ts';
+
+// Contemporary
+export { existentialisme, existentialismePhilosopherLinks } from './existentialisme.ts';
+export { nihilisme, nihilismePhilosopherLinks } from './nihilisme.ts';
+export { stoicisme, stoicismePhilosopherLinks } from './stoicisme.ts';
+export { phenomenologie, phenomenologiePhilosopherLinks } from './phenomenologie.ts';
+export { postmodernisme, postmodernismePhilosopherLinks } from './postmodernisme.ts';
 
 // Combined array of all movements
-import { MovementData, PhilosopherLink } from './existentialisme';
-import { existentialisme } from './existentialisme';
-import { nihilisme } from './nihilisme';
-import { stoicisme } from './stoicisme';
-import { phenomenologie } from './phenomenologie';
+import { MovementData, PhilosopherLink } from './existentialisme.ts';
+import { platonisme } from './platonisme.ts';
+import { aristotelisme } from './aristotelisme.ts';
+import { stoicismeAncien } from './stoicisme-ancien.ts';
+import { rationalisme } from './rationalisme.ts';
+import { empirisme } from './empirisme.ts';
+import { idealismeAllemand } from './idealisme-allemand.ts';
+import { marxisme } from './marxisme.ts';
+import { existentialisme } from './existentialisme.ts';
+import { nihilisme } from './nihilisme.ts';
+import { stoicisme } from './stoicisme.ts';
+import { phenomenologie } from './phenomenologie.ts';
+import { postmodernisme } from './postmodernisme.ts';
 
 export const allMovements: MovementData[] = [
+  // Antiquity
+  platonisme,
+  aristotelisme,
+  stoicismeAncien,
+
+  // Modern
+  rationalisme,
+  empirisme,
+  idealismeAllemand,
+  marxisme,
+
+  // Contemporary
   existentialisme,
   nihilisme,
   stoicisme,
   phenomenologie,
+  postmodernisme,
 ];
 
 // Helper function to get movement by slug

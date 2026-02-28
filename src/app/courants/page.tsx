@@ -71,7 +71,7 @@ export default async function CourantsPage() {
 
   return (
     <div className="min-h-screen bg-paper-50">
-      {/* Header */}
+      {/* Header - FULL WIDTH */}
       <header className="with-sidebar border-b-2 border-sepia-600 bg-paper-50 py-4">
         <div className="w-full px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
@@ -90,7 +90,7 @@ export default async function CourantsPage() {
         </div>
       </header>
 
-      {/* Main Content */}
+      {/* Main Content - FULL WIDTH */}
       <main className="w-full px-4 py-8 sm:px-6 lg:px-8">
         {/* Hero Section */}
         <div className="text-center mb-16">
@@ -123,8 +123,10 @@ export default async function CourantsPage() {
           </div>
         </div>
 
-        {/* Periods */}
-        {Object.entries(periods).map(([periodKey, periodMovements]) => {
+        {/* Content Container - 2/3 WIDTH */}
+        <div className="content-2-3">
+          {/* Periods */}
+          {Object.entries(periods).map(([periodKey, periodMovements]) => {
           if (periodMovements.length === 0) return null;
 
           const info = periodInfo[periodKey as keyof typeof periodInfo];
@@ -325,6 +327,7 @@ export default async function CourantsPage() {
             </div>
           </div>
         )}
+        </div>
       </main>
     </div>
   );

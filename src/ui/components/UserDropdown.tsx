@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { UserIcon, TrophyIcon, ActivityIcon, ChartIcon, MessageSquareIcon, BookOpenIcon, StarIcon, LogoutIcon, CloseIcon, BrainIcon } from './CustomIcons';
+import { UserIcon, TrophyIcon, ActivityIcon, ChartIcon, MessageSquareIcon, BookOpenIcon, StarIcon, LogoutIcon, BrainIcon } from './CustomIcons';
 
 interface UserDropdownProps {
   userName?: string;
@@ -13,69 +13,22 @@ interface UserDropdownProps {
 }
 
 const MENU_ITEMS = [
-  {
-    href: '/profile',
-    label: 'Mon Profil',
-    icon: UserIcon,
-    title: 'Mon Profil',
-  },
-  {
-    href: '/agora',
-    label: 'Agora',
-    icon: MessageSquareIcon,
-    title: 'Discussions philosophiques',
-  },
-  {
-    href: '/profile/flashcards',
-    label: 'Flashcards',
-    icon: BrainIcon,
-    title: 'Mes cartes de révision',
-  },
-  {
-    href: '/profile/achievements',
-    label: 'Achievements',
-    icon: TrophyIcon,
-    title: 'Mes succès et badges',
-  },
-  {
-    href: '/profile/activity',
-    label: 'Activité',
-    icon: ActivityIcon,
-    title: 'Mon historique d\'activité',
-  },
-  {
-    href: '/profile/stats',
-    label: 'Statistiques',
-    icon: ChartIcon,
-    title: 'Mes statistiques détaillées',
-  },
-  {
-    href: '/profile/notes',
-    label: 'Notes',
-    icon: BookOpenIcon,
-    title: 'Toutes mes notes',
-  },
-  {
-    href: '/profile/favorites',
-    label: 'Favoris',
-    icon: StarIcon,
-    title: 'Mes concepts favoris',
-  },
+  { href: '/profile', label: 'Profil', icon: UserIcon },
+  { href: '/agora', label: 'Forum', icon: MessageSquareIcon },
+  { href: '/profile/flashcards', label: 'Flashcards', icon: BrainIcon },
+  { href: '/profile/achievements', label: 'Succès', icon: TrophyIcon },
+  { href: '/profile/activity', label: 'Activité', icon: ActivityIcon },
+  { href: '/profile/stats', label: 'Stats', icon: ChartIcon },
+  { href: '/profile/notes', label: 'Notes', icon: BookOpenIcon },
+  { href: '/profile/favorites', label: 'Favoris', icon: StarIcon },
 ];
-
-const LOGOUT_ITEM = {
-  href: '/api/auth/signout',
-  label: 'Déconnexion',
-  icon: LogoutIcon,
-  title: 'Se déconnecter du compte',
-};
 
 export function UserDropdown({ userName, userImage, onCloseMobile, onMenuToggle }: UserDropdownProps) {
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
 
-  const handleToggle = (newState: boolean) => {
+  const toggleOpen = (newState: boolean) => {
     setIsOpen(newState);
     onMenuToggle?.(newState);
   };
@@ -84,123 +37,139 @@ export function UserDropdown({ userName, userImage, onCloseMobile, onMenuToggle 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
-        handleToggle(false);
+        toggleOpen(false);
       }
     }
 
     if (isOpen) {
       document.addEventListener('mousedown', handleClickOutside);
+      return () => document.removeEventListener('mousedown', handleClickOutside);
     }
-
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
   }, [isOpen]);
 
-  const handleItemClick = () => {
-    // Don't close the dropdown - keep it open for navigation
-    // Only close mobile menu if needed
+  const handleItemClick = (isLogout = false) => {
+    // Only close on logout or mobile navigation
+    if (isLogout) {
+      toggleOpen(false);
+    }
     if (window.innerWidth < 1024) {
       onCloseMobile?.();
     }
   };
 
+  const isActive = (href: string) => {
+    return pathname === href || pathname.startsWith(href + '/');
+  };
+
   return (
     <div className="relative" ref={containerRef}>
-      {/* Trigger Button */}
+      {/* Desktop trigger */}
       <button
-        onClick={() => handleToggle(!isOpen)}
-        className="group relative flex items-center justify-center w-12 h-12"
-        title={isOpen ? "Fermer le menu" : "Menu Utilisateur"}
-        aria-label={isOpen ? "Fermer le menu utilisateur" : "Menu utilisateur"}
+        onClick={() => toggleOpen(!isOpen)}
+        className="hidden lg:flex w-full items-center justify-center h-14 hover:bg-paper-50 transition-colors relative"
+        aria-label="Mon compte"
         aria-expanded={isOpen}
       >
-        <div
-          className={`
-            w-12 h-12 flex items-center justify-center cursor-pointer
-            border-2 transition-all duration-300 relative
-            ${isOpen
-              ? 'border-red-400 bg-red-50 hover:bg-red-100'
-              : 'border-[#d9d6d0] hover:border-[#8b6f3c] hover:bg-[#8b6f3c]/5'
-            }
-          `}
-        >
-          {isOpen ? (
-            <CloseIcon className="w-5 h-5 text-red-600" />
-          ) : userImage ? (
-            <img
-              src={userImage}
-              alt={userName || 'Avatar'}
-              className="w-5 h-5 rounded-full object-cover"
-            />
+        <div className={`relative ${isOpen ? 'text-sepia-600' : 'text-ink'}`}>
+          {userImage ? (
+            <img src={userImage} alt={userName || 'Avatar'} className="w-5 h-5 object-cover" />
           ) : (
-            <UserIcon className="w-5 h-5 text-[#4a4744]" />
+            <UserIcon className="w-5 h-5" />
           )}
+          {isOpen && <span className="absolute left-0 -bottom-2 w-full h-0.5 bg-sepia-600" />}
         </div>
-
-        {/* Status indicator - rectangle visible when OPEN (dropdown active), now on TOP */}
-        {isOpen && (
-          <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-red-500 rounded-sm" />
-        )}
-
-        {/* Label on hover - only show when dropdown is closed */}
-        {!isOpen && (
-          <span
-            className="absolute left-full ml-4 font-serif text-xs tracking-widest opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 whitespace-nowrap hidden lg:block text-[#4a4744]"
-          >
-            MON COMPTE
-          </span>
-        )}
       </button>
 
-      {/* Dropdown Menu - Absolute positioned ABOVE the button, going upward */}
+      {/* Mobile trigger */}
+      <button
+        onClick={() => toggleOpen(!isOpen)}
+        className="lg:hidden flex items-center gap-3 w-full h-14 px-4 hover:bg-paper-50 transition-colors"
+        aria-label="Mon compte"
+        aria-expanded={isOpen}
+      >
+        <div className="w-5 h-5 flex items-center justify-center">
+          {userImage ? (
+            <img src={userImage} alt={userName || 'Avatar'} className="w-5 h-5 object-cover" />
+          ) : (
+            <UserIcon className="w-5 h-5 text-ink" />
+          )}
+        </div>
+        <span className="flex-1 text-left text-sm text-ink">{userName || 'Mon compte'}</span>
+        <span className="text-xs text-sepia-600">{isOpen ? '▲' : '▼'}</span>
+      </button>
+
+      {/* Desktop dropdown - Remplace la nav principale */}
       {isOpen && (
-        <div className="absolute bottom-full left-0 right-0 flex flex-col gap-3 pb-4 animate-in fade-in slide-in-from-bottom-2 duration-200">
-          {[...MENU_ITEMS, LOGOUT_ITEM].map((item) => {
+        <div className="hidden lg:block absolute bottom-full left-0 right-0 bg-paper-50 border-t border-sepia-600/20">
+          {/* Les items sont exactement comme les boutons de la sidebar */}
+          {MENU_ITEMS.map((item) => {
             const Icon = item.icon;
-            const isActive = pathname === item.href || pathname.startsWith(item.href + '/');
-            const isLogout = item.href === '/api/auth/signout';
+            const active = isActive(item.href);
 
             return (
               <Link
                 key={item.href}
                 href={item.href}
-                onClick={handleItemClick}
-                className="group relative flex items-center justify-center"
-                title={item.title}
+                onClick={() => handleItemClick(false)}
+                className={`
+                  relative flex items-center justify-center h-16 px-0 my-4
+                  border-b border-paper-200/50
+                  ${active ? 'bg-sepia-50' : 'hover:bg-paper-50'}
+                  transition-colors
+                `}
+                title={item.label}
               >
-                <div
-                  className={`
-                    w-12 h-12 flex items-center justify-center cursor-pointer
-                    border-2 transition-all duration-300
-                    ${isActive
-                      ? 'border-[#8b6f3c] bg-[#8b6f3c]/10 shadow-glow-medium'
-                      : isLogout
-                      ? 'border-[#d9d6d0] hover:border-red-600 hover:bg-red-50'
-                      : 'border-[#d9d6d0] hover:border-[#8b6f3c] hover:bg-[#8b6f3c]/5'
-                    }
-                  `}
-                >
-                  <Icon
-                    className={`w-5 h-5 ${
-                      isActive
-                        ? 'text-[#8b6f3c]'
-                        : isLogout
-                        ? 'text-[#4a4744] group-hover:text-red-600'
-                        : 'text-[#4a4744]'
-                    }`}
-                  />
+                <div className={`relative ${active ? 'text-sepia-600' : 'text-ink'}`}>
+                  <Icon className="w-5 h-5" />
+                  {active && <span className="absolute left-0 -bottom-2 w-full h-0.5 bg-sepia-600" />}
                 </div>
-
-                {/* Label on hover */}
-                <span
-                  className="absolute left-full ml-4 font-serif text-xs tracking-widest opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 whitespace-nowrap text-[#4a4744]"
-                >
-                  {item.label}
-                </span>
               </Link>
             );
           })}
+          <Link
+            href="/api/auth/signout"
+            onClick={() => handleItemClick(true)}
+            className="flex items-center justify-center h-16 hover:bg-red-50 border-b border-paper-200/50 transition-colors"
+            title="Déconnexion"
+          >
+            <LogoutIcon className="w-5 h-5 text-red-600" />
+          </Link>
+        </div>
+      )}
+
+      {/* Mobile dropdown */}
+      {isOpen && (
+        <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-paper-50 z-50">
+          <div className="max-h-[60vh] overflow-y-auto">
+            {MENU_ITEMS.map((item) => {
+              const Icon = item.icon;
+              const active = isActive(item.href);
+
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => handleItemClick(false)}
+                  className={`
+                    flex items-center gap-3 h-14 px-4 border-b border-paper-200/50 text-sm
+                    ${active ? 'bg-sepia-50 text-sepia-600' : 'text-ink hover:bg-paper-50'}
+                  `}
+                >
+                  <Icon className="w-5 h-5 flex-shrink-0" />
+                  <span className="flex-1">{item.label}</span>
+                  {active && <span className="w-0.5 h-8 bg-sepia-600" />}
+                </Link>
+              );
+            })}
+            <Link
+              href="/api/auth/signout"
+              onClick={() => handleItemClick(true)}
+              className="flex items-center gap-3 h-14 px-4 text-sm text-red-600 hover:bg-red-50 border-b border-paper-200/50"
+            >
+              <LogoutIcon className="w-5 h-5 flex-shrink-0" />
+              <span>Déconnexion</span>
+            </Link>
+          </div>
         </div>
       )}
     </div>

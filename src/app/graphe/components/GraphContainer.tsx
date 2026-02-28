@@ -3,14 +3,32 @@
 import { useEffect, useRef, useState } from 'react';
 import cytoscape, { Core, NodeSingular } from 'cytoscape';
 import { GraphNode, GraphEdge } from '@/lib/actions/graph';
+import { getLayoutConfig, type LayoutType } from '../lib/graph-config';
+import { getStyles } from '../lib/graph-styles';
 
 interface GraphContainerProps {
   nodes: GraphNode[];
   edges: GraphEdge[];
-  layout?: string;
+  layout?: LayoutType;
   onNodeClick?: (node: GraphNode) => void;
 }
 
+/**
+ * GraphContainer Component
+ *
+ * Renders an interactive graph visualization using Cytoscape.js.
+ * Handles node selection, layout changes, and loading states.
+ *
+ * @example
+ * ```tsx
+ * <GraphContainer
+ *   nodes={nodes}
+ *   edges={edges}
+ *   layout="cose"
+ *   onNodeClick={(node) => console.log('Clicked:', node)}
+ * />
+ * ```
+ */
 export function GraphContainer({ nodes, edges, layout = 'cose', onNodeClick }: GraphContainerProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const cyRef = useRef<Core | null>(null);
@@ -47,7 +65,7 @@ export function GraphContainer({ nodes, edges, layout = 'cose', onNodeClick }: G
           ...nodes.map(n => ({ data: n })),
           ...edges.map(e => ({ data: e })),
         ],
-        style: getCytoscapeStyles() as any,
+        style: getStyles() as any,
         layout: getLayoutConfig(layout) as any,
         minZoom: 0.1,
         maxZoom: 3,
@@ -143,220 +161,4 @@ export function GraphContainer({ nodes, edges, layout = 'cose', onNodeClick }: G
       )}
     </div>
   );
-}
-
-function getCytoscapeStyles() {
-  return [
-    {
-      selector: 'node',
-      style: {
-        label: 'data(label)',
-        'text-valign': 'center',
-        'text-halign': 'center',
-        'text-wrap': 'wrap',
-        'text-max-width': '80px',
-        color: '#2d2b29',
-        'text-outline-color': '#faf9f7',
-        'text-outline-width': 2,
-        'border-width': 2,
-        'border-color': '#2d2b29',
-        transitionProperty: 'border-width, border-color, width, height',
-        transitionDuration: '0.2s',
-      },
-    },
-    {
-      selector: 'node[type="concept"]',
-      style: {
-        shape: 'ellipse',
-        'background-color': 'data(categoryColor)',
-        width: 'mapData(weight, 0, 10, 50, 100)',
-        height: 'mapData(weight, 0, 10, 50, 100)',
-        'font-size': '14px',
-      },
-    },
-    {
-      selector: 'node[type="philosophe"]',
-      style: {
-        shape: 'hexagon',
-        'background-color': '#2d2214',
-        width: 'mapData(weight, 0, 10, 60, 110)',
-        height: 'mapData(weight, 0, 10, 60, 110)',
-        'font-size': '13px',
-        'font-weight': 'bold',
-        'border-width': 3,
-        'border-color': '#a8864d',
-        color: '#faf9f7',
-        'text-outline-color': '#2d2214',
-        'text-outline-width': 3,
-      },
-    },
-    {
-      selector: 'node[type="courant"]',
-      style: {
-        shape: 'roundrectangle',
-        'background-color': 'data(categoryColor)',
-        width: 'mapData(weight, 0, 10, 120, 180)',
-        height: 'mapData(weight, 0, 10, 50, 70)',
-        'font-size': '15px',
-        'font-weight': 'bold',
-        'border-width': 3,
-        'border-color': '#8b6f3c',
-        'text-max-width': '120px',
-        color: '#faf9f7',
-        'text-outline-color': '#2d2214',
-        'text-outline-width': 3,
-      },
-    },
-    {
-      selector: 'node.faded',
-      style: {
-        opacity: 0.2,
-      },
-    },
-    {
-      selector: 'node:selected',
-      style: {
-        'border-width': 4,
-        'border-color': '#8b6f3c',
-      },
-    },
-    {
-      selector: 'edge',
-      style: {
-        width: 'mapData(strength, 1, 5, 1, 4)',
-        'line-color': '#d9d6d0',
-        'line-style': 'solid',
-        'curve-style': 'bezier',
-        'target-arrow-shape': 'none',
-        'source-arrow-shape': 'none',
-        opacity: 0.6,
-        'transition-property': 'line-color, width, opacity',
-        'transitionDuration': '0.2s',
-      },
-    },
-    {
-      selector: 'edge[type="concept_relation"]',
-      style: {
-        'line-color': '#a8864d',
-        width: 'mapData(strength, 1, 5, 2, 5)',
-        opacity: 0.7,
-      },
-    },
-    {
-      selector: 'edge[type="philosopher_concept"]',
-      style: {
-        'line-color': '#8b877f',
-        'line-style': 'dashed',
-        width: 1.5,
-        opacity: 0.5,
-      },
-    },
-    {
-      selector: 'edge[type="category_concept"]',
-      style: {
-        'line-color': '#6b552e',
-        'line-style': 'dotted',
-        width: 2,
-        opacity: 0.6,
-      },
-    },
-    {
-      selector: 'edge[type="author_concept"]',
-      style: {
-        'line-color': '#8b877f',
-        'line-style': 'dashed',
-        width: 1.5,
-        opacity: 0.5,
-      },
-    },
-    {
-      selector: 'edge[type="philosopher_concept_quote"]',
-      style: {
-        'line-color': '#a8864d',
-        'line-style': 'solid',
-        width: 1,
-        opacity: 0.4,
-      },
-    },
-    {
-      selector: 'edge.faded',
-      style: {
-        opacity: 0.1,
-      },
-    },
-    {
-      selector: 'edge:selected',
-      style: {
-        'line-color': '#8b6f3c',
-        width: 4,
-        opacity: 1,
-      },
-    },
-  ];
-}
-
-function getLayoutConfig(layoutName: string) {
-  const layouts: Record<string, any> = {
-    cose: {
-      name: 'cose',
-      animate: true,
-      animationDuration: 1000,
-      fit: true,
-      padding: 50,
-      idealEdgeLength: 100,
-      nodeOverlap: 20,
-      refresh: 20,
-      componentSpacing: 100,
-      nodeRepulsion: 400000,
-      edgeElasticity: 100,
-      nestingFactor: 5,
-      gravity: 80,
-      numIter: 1000,
-      initialTemp: 200,
-      coolingFactor: 0.95,
-      minTemp: 1.0,
-    },
-    circle: {
-      name: 'circle',
-      fit: true,
-      padding: 30,
-      avoidOverlap: true,
-      nodeDimensionsIncludeLabels: true,
-    },
-    concentric: {
-      name: 'concentric',
-      fit: true,
-      padding: 30,
-      startAngle: 3 / 2 * Math.PI,
-      sweep: 2 * Math.PI,
-      clockwise: true,
-      minNodeSpacing: 10,
-      concentric: (node: any) => node.data('weight') || 1,
-    },
-    grid: {
-      name: 'grid',
-      fit: true,
-      padding: 30,
-      avoidOverlap: true,
-      rows: undefined,
-      cols: undefined,
-      position: (node: any) => {
-        // Simple grid positioning based on node type
-        const type = node.data('type');
-        const id = node.id();
-        // Group by type in grid
-        const typeRow: Record<string, number> = {
-          'courant': 0,
-          'philosophe': 1,
-          'concept': 2,
-        };
-        return {
-          row: typeRow[type] || 0,
-          col: 0,
-        };
-      },
-    },
-  };
-
-  return layouts[layoutName] || layouts.cose;
 }

@@ -19,6 +19,78 @@ export const concept = {
   definition: 'L\'authenticité est le mode d\'existence où l\'individu assume pleinement sa liberté et sa responsabilité, vivant en accord avec lui-même plutôt que dans l\'illusion ou la mauvaise foi. Chez Heidegger, l\'existence authentique (Eigentlichkeit, « propreté ») s\'oppose à l\'inauthenticité (Uneigentlichkeit) du « On » (das Man) où l\'on vit selon les opinions reçues. L\'authenticité n\'est pas un état à atteindre mais une manière d\'être qui implique la « résolution » (Entschlossenheit) : se porter en avant vers sa mort, sa possibilité la plus propre. Pour Sartre, l\'authenticité est le refus de la mauvaise foi, l\'acceptation de notre condition d\'êtres libres et responsables. L\'authenticité exige le courage d\'être soi-même, non pas selon une essence prédéterminée mais comme projet à réaliser à chaque instant.',
   shortDefinition: 'Mode d\'existence où l\'individu assume sa liberté, sa responsabilité et sa mortalité',
 
+  // ===== DÉFINITION PHILOSOPHIQUE =====
+  philosophicalDefinition: {
+    analysis: 'L\'authenticité se distingue de la sincérité. La sincérité est adéquation entre ce qu\'on dit et ce qu\'on pense (ne pas mentir). L\'authenticité est adéquation entre ce qu\'on est et ce qu\'on fait (ne pas se mentir à soi). Pour Heidegger, l\'authenticité est « retour à soi » (Rückkehr zu mir selbst) : l\'être-là seapproprie son existence en se portant vers sa mort. Ce « porter-devant-soi » (Vorlaufen) n\'est pas morbidité mais lucidité : l\'authentique vit sa mortalité, l\'inauthentique la fuit. Pour Sartre, l\'authenticité est refus de la mauvaise foi : reconnaître qu\'on est « condamné à être libre » sans fuite dans l\'auto-illusion. Pour Kierkegaard, l\'authenticité est « choix de soi » : se recueillir dans l\'unité d\'un projet de vie.',
+    distinctions: [
+      'Authenticité vs Sincérité : La sincérité est ne pas mentir aux autres. L\'authenticité est ne pas se mentir à soi.',
+      'Authenticité vs Individualisme : L\'authenticité n\'est pas égoïsme. En devenant soi-même, on se découvre solidaire des autres.',
+      'Authenticité vs Perfection : L\'authenticité n\'est pas un idéal à atteindre. Elle est manière d\'être, vigilance constante.'
+    ],
+    implications: 'L\'authenticité implique que le « soi » n\'est pas donné mais à faire. On ne « est pas » authentique, on le devient. Cette tâche est infinie : on n\'est jamais « arrivé », toujours en devenir.'
+  },
+
+  // ===== RAISONNEMENTS PHILOSOPHIQUES =====
+  reasoning: [
+    {
+      title: 'L\'argument de la résolution',
+      argument: 'Pour Heidegger, l\'authenticité est « résolution » (Entschlossenheit) : se porter en avant vers sa mort, possibilité la plus propre.',
+      premises: [
+        'La mort est possibilité la plus propre de l\'être-là',
+        'Elle est « irréplaceable » (personne ne peut mourir à ma place)',
+        'L\'inauthentique fuit sa mort (« on meurt »)',
+        'L\'authentique se porte vers elle (« je meurs »)'
+      ],
+      conclusion: 'L\'authenticité est anticipation résolue de la mort. Cette anticipation donne son unité à l\'existence.',
+      objections: [
+        { philosopher: 'Sartre', objection: 'Cette analyse reste abstraite. L\'authenticité n\'est pas anticipation de la mort mais engagement concret dans le monde.' },
+        { philosopher: 'Les philosophes de la vie', objection: 'L\'authenticité ne peut se fonder sur la mort. La vie est affirmation, pas anticipation de la fin.' }
+      ],
+      responses: [
+        { philosopher: 'Heidegger', response: 'L\'anticipation de la mort n\'est pas morbide mais vivante. En anticipant ma mort, je découvre ce qui m\'importe vraiment. L\'authenticité est « souci de soi » (Sorge).' },
+        { philosopher: 'Sartre', response: 'L\'anticipation heideggérienne reste contemplation. L\'authenticité est action : engagement concret pour la liberté de tous.' }
+      ]
+    },
+    {
+      title: 'L\'argument du refus de la mauvaise foi',
+      argument: 'Pour Sartre, l\'authenticité est refus de la mauvaise foi. Elle reconnaît qu\'on est « condamné à être libre ».',
+      premises: [
+        'La mauvaise foi nie notre liberté',
+        'Elle se réduit à un rôle, une chose, une essence',
+        'L\'authenticité reconnaît la liberté',
+        'Cette reconnaissance est « condamnation » mais aussi grandeur'
+      ],
+      conclusion: 'L\'authenticité est le courage d\'être soi-même sans fuite ni excuse.',
+      objections: [
+        { philosopher: 'Merleau-Ponty', objection: 'Cette analyse présuppose une conscience purement libre, désincarnée. L\'authenticité doit tenir compte de l\'ancrage corporel et social.' },
+        { philosopher: 'Les psychanalystes', objection: 'L\'authenticité qui prétend se connaître soi-même ignore l\'inconscient. On ne peut pas être « authentique » si une partie de soi est inconsciente.' }
+      ],
+      responses: [
+        { philosopher: 'Sartre', response: 'L\'ancrage situationnel est donné mais le sens est choisi. L\'inconscient est hypokhèse qui nie la liberté. L\'authenticité est choix de soi dans la situation.' },
+        { philosopher: 'Merleau-Ponty', response: 'L\'authenticité n\'est pas pure conscience mais « incarnation ». Je suis mon corps, mon histoire, non pas comme choses mais comme situations à assumer.' }
+      ]
+    },
+    {
+      title: 'L\'argument du choix de soi',
+      argument: 'Pour Kierkegaard, l\'authenticité est « choix de soi » : se recueillir dans l\'unité d\'un projet de vie.',
+      premises: [
+        'Le mode esthétique est dispersé, sans engagement',
+        'Le mode éthique est choix de soi',
+        'Ce choix est dans l\'angoisse de la liberté',
+        'Le désespoir est refus de devenir soi'
+      ],
+      conclusion: 'L\'authenticité est tâche infinie : devenir soi est un projet qui n\'est jamais terminé.',
+      objections: [
+        { philosopher: 'Les individualistes', objection: 'Ce « choisir soi » est narcissique. L\'authenticité devrait être ouverture aux autres, pas repli sur soi.' },
+        { philosopher: 'Les religieux', objection: 'L\'authenticité véritable est devant Dieu, pas devant soi. Le « soi » est illusion, l\'authentique est perte de soi.' }
+      ],
+      responses: [
+        { philosopher: 'Kierkegaard', response: 'Choisir soi n\'est pas narcissisme. En me choisissant moi-même, je me découvre devant Dieu. L\'authenticité est relation à soi et à l\'Absolu.' },
+        { philosopher: 'Sartre', response: 'En choisissant pour moi, je choisis pour tous. L\'authenticité individuelle est universalité : j\'engage l\'humanité dans mes choix.' }
+      ]
+    }
+  ],
+
   // ===== ÉTYMOLOGIE =====
   etymology: {
     greek: 'authentikos (αὐθεντικός)',
@@ -52,11 +124,140 @@ export const concept = {
 
   // ===== FIGURES CLÉS =====
   keyFigures: [
-    { name: 'Martin Heidegger', period: '1889-1976', contribution: 'Analyse systématique de l\'authenticité comme Eigentlichkeit et du « On » comme inauthenticité' },
-    { name: 'Jean-Paul Sartre', period: '1905-1980', contribution: 'L\'authenticité comme refus de la mauvaise foi et acceptation de la liberté absolue' },
-    { name: 'Søren Kierkegaard', period: '1813-1855', contribution: 'Le choix de soi comme acte authentique vs le désespoir de la fuite' },
-    { name: 'Friedrich Nietzsche', period: '1844-1900', contribution: 'Devenir ce que l\'on est : l\'authenticité comme création de soi' },
-    { name: 'Simone de Beauvoir', period: '1908-1986', contribution: 'L\'authenticité comme refus des justifications et des excuses morales' }
+    {
+      name: 'Martin Heidegger',
+      period: '1889-1976',
+      contribution: 'Analyse systématique de l\'authenticité (Eigentlichkeit) dans Être et Temps (1927). Distinction entre authenticité et inauthenticité du « On » (das Man). La « résolution » comme mode d\'être authentique.',
+      works: ['Être et Temps', 'Qu\'est-ce que la métaphysique?', 'De l\'essence de la vérité'],
+      quotes: [
+        '« Le « On » est l\'être-le-plus-proche de l\'être-là. »',
+        '« Le « On » divise toute décision authentique. »',
+        '« L\'être-là authentique est celui qui se porte en avant vers sa mort. »',
+        '« La résolution est le mode d\'être authentique de l\'être-là. »'
+      ]
+    },
+    {
+      name: 'Jean-Paul Sartre',
+      period: '1905-1980',
+      contribution: 'L\'authenticité comme refus de la mauvaise foi dans L\'Être et le Néant (1943). L\'homme authentique reconnaît qu\'il est « condamné à être libre ».',
+      works: ['L\'Être et le Néant', 'L\'Existentialisme est un humanisme'],
+      quotes: [
+        '« L\'homme est condamné à être libre. »',
+        '« La mauvaise foi est le refus de reconnaître notre liberté. »',
+        '« L\'existence précède l\'essence. »',
+        '« L\'homme authentique est celui qui assume sa condition. »'
+      ]
+    },
+    {
+      name: 'Søren Kierkegaard',
+      period: '1813-1855',
+      contribution: 'Le choix de soi comme acte authentique dans Ou bien... ou bien (1843). Opposition du mode esthétique (inauthentique) et du mode éthique (authentique).',
+      works: ['Ou bien... ou bien', 'Le Concept de l\'angoisse', 'Traité du désespoir'],
+      quotes: [
+        '« Le moi est une relation qui se rapporte à elle-même. »',
+        '« Devenir soi est la tâche de la vie. »',
+        '« Choisir soi-même est la décision la plus profonde. »',
+        '« Le désespoir est le péché. »'
+      ]
+    },
+    {
+      name: 'Friedrich Nietzsche',
+      period: '1844-1900',
+      contribution: '« Devenir ce que l\'on est » : l\'authenticité comme création de soi dans Ainsi parlait Zarathoustra (1883). Le surhomme comme œuvre d\'art de soi.',
+      works: ['Ainsi parlait Zarathoustra', 'Généalogie de la morale', 'Ecce Homo'],
+      quotes: [
+        '« Devenir ce que l\'on est. »',
+        '« Il faut porter encore un chaos en soi pour pouvoir enfanter une étoile dansante. »',
+        '« Deviens qui tu es. »',
+        '« Crée, c\'est la grande rédemption de la souffrance. »'
+      ]
+    },
+    {
+      name: 'Simone de Beauvoir',
+      period: '1908-1986',
+      contribution: 'L\'authenticité comme refus des justifications et des excuses dans Pour une morale de l\'ambiguïté (1947). L\'homme est « libre mais situé ».',
+      works: ['Pour une morale de l\'ambiguïté', 'Le Deuxième Sexe'],
+      quotes: [
+        '« L\'homme est libre, mais il est situé. »',
+        '« L\'authenticité est refus des excuses et des justifications. »',
+        '« La liberté est la source de toute valeur. »',
+        '« Je veux être moi et être le monde. »'
+      ]
+    }
+  ],
+
+  // ===== CONCEPTS LIÉS =====
+  relatedConcepts: [
+    {
+      name: 'Mauvaise foi',
+      type: 'OPPOSES',
+      description: 'L\'authenticité est le refus de la mauvaise foi. L\'authentique reconnaît sa liberté, l\'inauthentique la nie.',
+      bidirectional: true
+    },
+    {
+      name: 'Angoisse',
+      type: 'REVEALS',
+      description: 'L\'angoisse est disposition qui nous ouvre à l\'authenticité. Elle nous arrache à l\'inauthenticité du « On ».',
+      bidirectional: true
+    },
+    {
+      name: 'Liberté',
+      type: 'REQUIRES',
+      description: 'L\'authenticité exige la reconnaissance de notre liberté absolue. Elle est le courage d\'être libre.',
+      bidirectional: true
+    },
+    {
+      name: 'Mort',
+      type: 'RELATES_TO',
+      description: 'Pour Heidegger, l\'authenticité est anticipation de sa mort, possibilité la plus propre. L\'inauthentique fuit sa mort.',
+      bidirectional: true
+    },
+    {
+      name: 'Responsabilité',
+      type: 'REQUIRES',
+      description: 'L\'authenticité exige d\'assumer sa responsabilité totale. L\'inauthentique cherche des excuses.',
+      bidirectional: true
+    },
+    {
+      name: '« On » (das Man)',
+      type: 'OPPOSES',
+      description: 'Le « On » est la structure de l\'inauthenticité. L\'authentique se détache du « On » pour vivre ses propres choix.',
+      bidirectional: true
+    }
+  ],
+
+  // ===== COURANTS PHILOSOPHIQUES =====
+  relatedMovements: [
+    {
+      name: 'Ontologie fondamentale',
+      description: 'L\'authenticité comme Eigentlichkeit de l\'être-là. Distinction entre authenticité et inauthenticité du « On ».',
+      role: 'CONCEPT_CENTRAL',
+      keyPhilosophers: ['Martin Heidegger', 'Karl Jaspers']
+    },
+    {
+      name: 'Existentialisme sartrien',
+      description: 'L\'authenticité comme refus de la mauvaise foi et acceptation de la liberté absolue.',
+      role: 'CONCEPT_CENTRAL',
+      keyPhilosophers: ['Jean-Paul Sartre', 'Simone de Beauvoir']
+    },
+    {
+      name: 'Existentialisme kierkegaardien',
+      description: 'L\'authenticité comme choix de soi et engagement dans l\'existence. Opposition esthétique/éthique.',
+      role: 'CONCEPT_CENTRAL',
+      keyPhilosophers: ['Søren Kierkegaard', 'Gabriel Marcel']
+    },
+    {
+      name: 'Philosophie de la vie',
+      description: 'L\'authenticité comme création de soi et affirmation de la vie. Devenir ce que l\'on est.',
+      role: 'RELATED',
+      keyPhilosophers: ['Friedrich Nietzsche', 'Henri Bergson']
+    },
+    {
+      name: 'Stoïcisme',
+      description: 'L\'authenticité comme accord avec la nature rationnelle et « vivre selon soi » (secundum naturam vivere).',
+      role: 'PRECEDES',
+      keyPhilosophers: ['Épictète', 'Marc Aurèle', 'Sénèque']
+    }
   ],
 
   // ===== EXEMPLES =====

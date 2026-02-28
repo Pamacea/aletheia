@@ -58,7 +58,7 @@ export default async function HomePage() {
       <section
         className="border-b border-paper-300 bg-gradient-to-b from-paper-50 to-paper-200 py-24"
       >
-        <div className="w-full px-4 sm:px-6 lg:px-8 max-w-2/3 mx-auto text-center">
+        <div className="w-full px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-6xl font-bold text-ink mb-4 font-serif" style={{ fontFamily: "var(--font-playfair), Georgia, serif" }}>
             <span className="title-breathe-word">ΑΛΗΘΕΙΑ</span>
           </h1>
@@ -103,8 +103,10 @@ export default async function HomePage() {
             </p>
           </div>
 
-          {/* Organic Grid - Asymmetrical layout */}
-          <div className="organic-grid-features">
+          {/* Content Container - 2/3 WIDTH */}
+          <div className="content-2-3">
+            {/* Organic Grid - Asymmetrical layout */}
+            <div className="organic-grid-features">
             {features.map((feature, index) => {
               // Asymétrie par TAILLE uniquement, PAS de translate-y
               const sizeVariants = [
@@ -142,12 +144,13 @@ export default async function HomePage() {
               );
             })}
           </div>
+          </div>
         </div>
       </section>
 
-      {/* Concepts Preview Section - Asymmetrical Masonry */}
-      <section className="py-20 bg-paper-50">
-        <div className="w-full px-4 sm:px-6 lg:px-8">
+        {/* Concepts Preview Section - Asymmetrical Masonry */}
+        <section className="py-20 bg-paper-50">
+          <div className="w-full px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-semibold text-ink mb-4 font-serif" style={{ fontFamily: "var(--font-playfair), Georgia, serif" }}>
               Concepts Philosophiques
@@ -157,6 +160,8 @@ export default async function HomePage() {
             </p>
           </div>
 
+          {/* Content Container - 2/3 WIDTH */}
+          <div className="content-2-3">
           {/* Masonry Grid - Asymmetrical cards */}
           <div className="masonry-grid">
             {concepts && concepts.slice(0, 8).map((concept: Concept, index) => {
@@ -287,6 +292,7 @@ export default async function HomePage() {
             >
               Voir tous les concepts →
             </Link>
+          </div>
           </div>
         </div>
       </section>

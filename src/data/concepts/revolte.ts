@@ -16,8 +16,76 @@ export const concept = {
   status: 'COMPLETE' as const,
 
   // ===== DÉFINITIONS =====
-  definition: 'La révolte est la réponse authentique à l\'absurde, consistant en le refus simultané du suicide et de l\'espoir. Elle est l\'affirmation de la dignité humaine face au silence du monde, le maintien de la confrontation avec l\'absurde sans céder ni à la résignation ni à la négation. Pour Camus, la révolte n\'est pas une recherche de solution mais une exigence de clarté : elle refuse l\'obscurité du monde tout en refusant de s\'y soustraire. La révolte fonde une solidarité humaine : « je me révolte, donc nous sommes ». Elle devient ensuite, dans l\'œuvre de Camus, une exigence morale et politique contre toute oppression qui nie la dignité humaine.',
+  definition: 'La révolte est la réponse authentique à l\'absurde, consistant en le refus simultané du suicide (fuite physique) et de l\'espoir (fuite spirituelle). Au plan ontologique, la révolte est « le mouvement même de la vie » (Camus) : l\'affirmation de la dignité humaine face au silence du monde par le maintien de la confrontation avec l\'absurde sans céder ni à la résignation ni à la négation. Au plan éthique, la révolte fonde une solidarité ontologique : « je me révolte, donc nous sommes ». En disant « non » à l\'oppresseur, le révolté affirme une limite qui vaut pour tous, fondant ainsi la communauté humaine. Au plan politique, la révolte devient une exigence morale contre toute oppression qui nie la dignité humaine, mais elle se distingue de la révolution totalitaire en refusant les moyens qui détruisent la fin qu\'elle poursuit.',
   shortDefinition: 'Le refus du suicide et de l\'espoir, affirmation de la dignité humaine face à l\'absurde',
+
+  // ===== DÉFINITION PHILOSOPHIQUE =====
+  philosophicalDefinition: {
+    analysis: 'La révolte chez Camus repose sur une structure aporétique : elle est à la fois refus et affirmation, négation et position. Elle nie l\'ordre inacceptable (l\'absurde, l\'injustice) tout en affirmant une valeur qui la dépasse (la dignité humaine). La révolte n\'est pas un projet (elle ne cherche pas à « résoudre » l\'absurde) mais une exigence : « la révolte est la confrontation constante de l\'homme et de son propre obscurcissement ». Cette confrontation crée une tension qui est « la passion même de l\'homme absurde ».',
+    distinctions: [
+      'Révolte vs Rébellion : La rébellion cherche à renverser un ordre pour en instaurer un nouveau (tentative de solution). La révolte est le refus permanent de l\'injuste, sans prétendre résoudre l\'absurde.',
+      'Révolte vs Révolution : La révolte est le « non » originel qui fonde la valeur humaine. La révolution prétend réaliser définitivement cette valeur mais risque de devenir tyrannique en absolutisant sa fin.',
+      'Révolte métaphysique vs Révolte historique : La révolte métaphysique s\'élève contre la condition humaine (mort, souffrance). La révolte historique s\'élève contre l\'injustice humaine.'
+    ],
+    implications: 'La révolte implique que la valeur humaine n\'est ni donnée (par un ordre transcendant) ni créée (par la liberté subjective), mais révélée dans l\'acte même de refuser ce qui la nie. Elle fonde une éthique de la mesure : le révolté refuse les moyens qui détruisent la dignité humaine au nom de sa défense.'
+  },
+
+  // ===== RAISONNEMENTS PHILOSOPHIQUES =====
+  reasoning: [
+    {
+      title: 'L\'argument de la valeur révélée',
+      argument: 'La révolte est l\'acte par lequel l\'homme découvre qu\'il y a des choses qu\'il ne peut pas accepter. Cette découverte n\'est pas déduction mais révélation : dans l\'acte de dire « non », l\'homme affirme qu\'il existe une limite que même le pire criminel ne peut franchir sans se contredire.',
+      premises: [
+        'L\'homme révolté dit « non » à l\'oppression',
+        'Ce « non » affirme une limite qui vaut pour tous',
+        'Cette limite fonde la valeur humaine',
+        'La valeur est donc révélée, non donnée ni créée'
+      ],
+      conclusion: 'La révolte fonde la première valeur : la dignité humaine comme limite intransgressible.',
+      objections: [
+        { philosopher: 'Hegel', objection: 'La révolte qui nie l\'ordre existant est négativité abstraite qui ne peut fonder aucune valeur positive. La valeur vient de la reconnaissance mutuelle, pas du refus.' },
+        { philosopher: 'Nietzsche', objection: 'La révolte qui se fonde sur la « valeur humaine » reste dans la morale du ressentiment. Le véritable révolté crée ses propres valeurs, il ne se contente pas de refuser.' }
+      ],
+      responses: [
+        { philosopher: 'Camus', response: 'La révolte n\'est pas négativité abstraite mais affirmation concrète : en disant non, j\'affirme qu\'il y a un « oui » qui dépasse mon individualité. Ce « oui » n\'est pas création arbitraire mais découverte d\'une limite commune.' },
+        { philosopher: 'Camus', response: 'La révolte nietzschéenne qui crée ses valeurs risque de justifier l\'horreur au nom de la création. La révolte camusienne reste mesurée : elle refuse les moyens qui détruisent la dignité qu\'elle prétend défendre.' }
+      ]
+    },
+    {
+      title: 'L\'argument de la solidarité ontologique',
+      argument: 'La révolte fonde une communauté qui n\'est pas contrat social mais appartenance ontologique. En disant « non » pour tous, le révolté découvre que sa liberté n\'est pas isolée mais solidaire.',
+      premises: [
+        'Le révolté dit « non » au nom de tous',
+        'Ce « non » affirme une valeur commune',
+        'La valeur commune fonde une communauté',
+        'La communauté est donc ontologique, pas contractuelle'
+      ],
+      conclusion: '« Je me révolte, donc nous sommes » : la révolte est l\'acte fondateur de la communauté humaine.',
+      objections: [
+        { philosopher: 'Sartre', objection: 'La solidarité ne peut être fondée sur l\'acte de révolte car chaque liberté est radicalement singulière. L\'universalité est un idéal, pas une donnée ontologique.' }
+      ],
+      responses: [
+        { philosopher: 'Camus', response: 'La révolte ne supprime pas la singularité mais la dépasse : en disant non pour tous, je découvre que ma liberté n\'est pas isolation mais appartenance à une condition commune.' }
+      ]
+    },
+    {
+      title: 'L\'argument de la mesure',
+      argument: 'La révolte authentique connaît des limites : elle refuse les moyens qui détruisent la fin qu\'elle poursuit. La révolte devient folle quand elle absolutise sa cause et justifie l\'horreur au nom de la justice.',
+      premises: [
+        'La révolte affirme la dignité humaine',
+        'La fin ne justifie pas les moyens',
+        'Les moyens qui détruisent la dignité contredisent la fin',
+        'La révolte authentique refuse donc ces moyens'
+      ],
+      conclusion: 'La révolte légitime est mesurée, la révolution totalitaire est démesurée.',
+      objections: [
+        { philosopher: 'Les révolutionnaires', objection: 'La révolte qui refuse la violence est impuissante. Pour vaincre l\'oppression, il faut parfois utiliser des moyens qui semblent contredire la fin.' }
+      ],
+      responses: [
+        { philosopher: 'Camus', response: 'La révolte qui utilise les moyens de l\'oppresseur devient l\'oppresseur elle-même. La seule révolte légitime est celle qui refuse de devenir ce qu\'elle combat.' }
+      ]
+    }
+  ],
 
   // ===== ÉTYMOLOGIE =====
   etymology: {
@@ -48,11 +116,131 @@ export const concept = {
 
   // ===== FIGURES CLÉS =====
   keyFigures: [
-    { name: 'Albert Camus', period: '1913-1960', contribution: 'Théorie de la révolte comme réponse à l\'absurde et fondement de la solidarité humaine' },
-    { name: 'Jean-Paul Sartre', period: '1905-1980', contribution: 'La révolte comme engagement politique et affirmation de la liberté' },
-    { name: 'Friedrich Nietzsche', period: '1844-1900', contribution: 'La révolte comme transvaluation des valeurs et affirmation de la vie' },
-    { name: 'André Breton', period: '1896-1966', contribution: 'La révolte surréaliste contre la raison et les conventions bourgeoises' },
-    { name: 'Rosa Luxemburg', period: '1871-1919', contribution: 'La révolte comme révolution socialiste et spontanéité des masses' }
+    {
+      name: 'Albert Camus',
+      period: '1913-1960',
+      contribution: 'Théorie de la révolte comme réponse à l\'absurde. Dans Le Mythe de Sisyphe (1942), il analyse la révolte comme « confrontation constante » avec l\'absurde. Dans L\'Homme révolté (1951), il développe une philosophie politique de la révolte fondée sur la mesure et la solidarité.',
+      works: ['Le Mythe de Sisyphe', 'L\'Homme révolté', 'L\'Étranger'],
+      quotes: [
+        '« Je me révolte, donc nous sommes. »',
+        '« La révolte est la confrontation constante de l\'homme et de son propre obscurcissement. »',
+        '« Une doctrine qui ne sauve pas chaque homme en particulier n\'a pas de valeur. »'
+      ]
+    },
+    {
+      name: 'Jean-Paul Sartre',
+      period: '1905-1980',
+      contribution: 'La révolte comme engagement politique et affirmation de la liberté. Pour Sartre, la révolte est la reconnaissance que ma liberté dépend de celle des autres.',
+      works: ['Les Chemins de la liberté', 'Critique de la raison dialectique'],
+      quotes: [
+        '« On est libre, il faut s\'en faire un devoir. »',
+        '« La révolte est la reconnaissance de ma liberté par celle de l\'autre. »'
+      ]
+    },
+    {
+      name: 'Friedrich Nietzsche',
+      period: '1844-1900',
+      contribution: 'La révolte comme transvaluation des valeurs et affirmation de la vie. Le surhomme est celui qui ose dire « non » à la morale du ressentiment pour créer de nouvelles valeurs.',
+      works: ['Ainsi parlait Zarathoustra', 'Généalogie de la morale'],
+      quotes: [
+        '« Il faut porter encore un chaos en soi pour pouvoir enfanter une étoile dansante. »',
+        '« Dieu est mort! Dieu reste mort! Et c\'est nous qui l\'avons tué! »'
+      ]
+    },
+    {
+      name: 'André Breton',
+      period: '1896-1966',
+      contribution: 'La révolte surréaliste contre la raison et les conventions bourgeoises. Le surréalisme comme « révolte absolue » de l\'esprit.',
+      works: ['Manifeste du surréalisme', 'Nadja'],
+      quotes: [
+        '« Le merveilleux est toujours beau, quel qu\'il soit. »',
+        '« Transformer le monde, a dit Marx, changer la vie, a dit Rimbaud : deux mots-clés pour nous. »'
+      ]
+    },
+    {
+      name: 'Rosa Luxemburg',
+      period: '1871-1919',
+      contribution: 'La révolte comme révolution socialiste fondée sur la spontanéité des masses et le refus du centralisme autoritaire.',
+      works: ['Réforme ou révolution', 'La Crise de la social-démocratie'],
+      quotes: [
+        '« La liberté est toujours et exclusivement la liberté de celui qui pense différemment. »',
+        '« Ceux qui ne bougent pas ne sentent pas leurs chaînes. »'
+      ]
+    }
+  ],
+
+  // ===== CONCEPTS LIÉS =====
+  relatedConcepts: [
+    {
+      name: 'Absurde',
+      type: 'OPPOSES_SEEKING_RESOLUTION',
+      description: 'La révolte est la réponse à l\'absurde. L\'absurde est le divorce entre l\'homme et le monde, la révolte est le refus de ce divorce sans prétendre le résoudre.',
+      bidirectional: true
+    },
+    {
+      name: 'Suicide',
+      type: 'REJECTS',
+      description: 'La révolte refuse le suicide comme fuite physique devant l\'absurde. Le suicide nie la valeur de la vie, la révolte l\'affirme.',
+      bidirectional: false
+    },
+    {
+      name: 'Espoir',
+      type: 'REJECTS',
+      description: 'La révolte refuse l\'espoir comme fuite spirituelle devant l\'absurde. L\'espoir nie l\'absurde en inventant un sens, la révolte l\'assume.',
+      bidirectional: false
+    },
+    {
+      name: 'Solidarité',
+      type: 'FOUNDS',
+      description: 'La révolte fonde la solidarité humaine : « je me révolte, donc nous sommes ». En disant non pour tous, le révolté affirme une communauté.',
+      bidirectional: true
+    },
+    {
+      name: 'Authenticité',
+      type: 'REQUIRES',
+      description: 'La révolte authentique exige l\'authenticité : elle refuse l\'auto-illusion et exige la clarté sur sa condition.',
+      bidirectional: true
+    },
+    {
+      name: 'Révolution',
+      type: 'DISTINCT_FROM_BUT_RELATED',
+      description: 'La révolte est le « non » originel qui fonde la valeur. La révolution prétend réaliser cette valeur mais risque de devenir tyrannique. Camus distingue la révolte mesurée de la révolution démesurée.',
+      bidirectional: true
+    }
+  ],
+
+  // ===== COURANTS PHILOSOPHIQUES =====
+  relatedMovements: [
+    {
+      name: 'Absurdisme',
+      description: 'Courant philosophique issu de l\'œuvre de Camus. L\'absurde est la condition fondamentale de l\'homme, la révolte est la réponse authentique.',
+      role: 'CONCEPT_CENTRAL',
+      keyPhilosophers: ['Albert Camus', 'Emil Cioran']
+    },
+    {
+      name: 'Existentialisme',
+      description: 'La révolte est une forme d\'engagement existentialiste : affirmation de la liberté et de la dignité dans un monde sans sens donné.',
+      role: 'IMPORTANT',
+      keyPhilosophers: ['Jean-Paul Sartre', 'Simone de Beauvoir', 'Albert Camus']
+    },
+    {
+      name: 'Surréalisme',
+      description: 'Le surréalisme comme « révolte absolue » contre la raison bourgeoise et les conventions morales.',
+      role: 'RELATED',
+      keyPhilosophers: ['André Breton', 'Georges Bataille']
+    },
+    {
+      name: 'Marxisme révolutionnaire',
+      description: 'La révolte comme révolution prolétarienne. Rosa Luxemburg et Sartre ont développé une pensée de la révolte dans une perspective marxiste.',
+      role: 'RELATED',
+      keyPhilosophers: ['Rosa Luxemburg', 'Jean-Paul Sartre', 'Herbert Marcuse']
+    },
+    {
+      name: 'Nihilisme',
+      description: 'La révolte comme réponse active au nihilisme : face à la mort de Dieu, l\'homme crée ses propres valeurs.',
+      role: 'RELATED',
+      keyPhilosophers: ['Friedrich Nietzsche', 'Albert Camus']
+    }
   ],
 
   // ===== EXEMPLES =====

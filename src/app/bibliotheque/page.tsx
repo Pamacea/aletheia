@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { SearchIcon, BookIcon, StarIcon, FilterIcon } from "@/ui/components/CustomIcons";
-import { LinkOrnate, ButtonOrnate } from "@/ui/components/LinkOrnate";
+import { LinkOrnate } from "@/ui/components/LinkOrnate";
+import { ButtonOrnate } from "@/ui/components/ButtonOrnate";
 import { CreateNoteButton } from "@/features/notes/components/CreateNoteButton";
 
 const books = [

@@ -5,6 +5,25 @@ All notable changes to Aletheia will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.5] - 2026-02-28
+
+### Added
+- **Philosophical Content**: 14 nouveaux concepts philosophiques (absurde, autrui, conscience, désir, engagement, être, justice, langage, liberté, pouvoir, sujet, temps, vérité)
+- **Movements**: 9 nouveaux courants philosophiques (aristotelisme, empirisme, idéalisme allemand, marxisme, platonisme, postmodernisme, rationalisme, stoïcisme ancien)
+- **UI Components**: ContentLayout, DesktopSidebar, MobileMenu, PageHeader, sidebar-navigation
+- **Hooks**: useFormState, useNavigation pour la gestion d'état des formulaires et navigation
+- **Profile**: ProfileEditForm pour l'édition du profil utilisateur
+- **Features Hooks**: Hooks personnalisés pour Agora, Graphe, et Profile
+
+### Changed
+- Amélioration de la structure de navigation
+- Refactorisation des composants d'authentification
+- Mise à jour des configurations Prisma et environnement
+
+### Fixed
+- Corrections mineures de style et de structure
+- Amélioration de l'organisation des hooks et lib
+
 ## [0.2.0] - 2025-02-26
 
 ### Added

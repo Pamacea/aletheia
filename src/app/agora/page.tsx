@@ -54,9 +54,9 @@ export default async function AgoraPage({ searchParams }: AgoraPageProps) {
 
   return (
     <div className="min-h-screen bg-paper-50">
-      {/* Header */}
+      {/* Header - FULL WIDTH */}
       <header className="with-sidebar border-b-2 border-sepia-600 bg-paper-50 py-4">
-        <div className="w-full px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="w-full px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             <Link
               href="/"
@@ -73,9 +73,9 @@ export default async function AgoraPage({ searchParams }: AgoraPageProps) {
         </div>
       </header>
 
-      {/* Main Content */}
-      <main className="w-full px-4 py-8 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        {/* Hero Section */}
+      {/* Main Content - FULL WIDTH */}
+      <main className="w-full px-4 py-8 sm:px-6 lg:px-8">
+        {/* Hero Section - FULL WIDTH */}
         <div className="text-center mb-12">
           <div className="mb-6">
             <NetworkIcon className="w-20 h-20 text-sepia-600 mx-auto" />
@@ -98,7 +98,9 @@ export default async function AgoraPage({ searchParams }: AgoraPageProps) {
           </div>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-8">
+        {/* Content Container - 2/3 WIDTH */}
+        <div className="content-2-3">
+          <div className="flex flex-col lg:flex-row gap-8">
           {/* Main Content */}
           <div className="flex-1 min-w-0">
             {/* Search and Sort Bar */}
@@ -269,6 +271,7 @@ export default async function AgoraPage({ searchParams }: AgoraPageProps) {
               </div>
             </div>
           </aside>
+        </div>
         </div>
       </main>
     </div>

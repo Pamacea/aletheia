@@ -36,6 +36,9 @@ const config: Config = {
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],
         hand: ["var(--font-caveat)", "cursive"],
       },
+      maxWidth: {
+        '2/3': '66.666667%',
+      },
     },
   },
   plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],

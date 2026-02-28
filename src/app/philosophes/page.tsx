@@ -33,9 +33,9 @@ export default async function PhilosophesPage() {
 
   return (
     <div className="min-h-screen bg-paper-50">
-      {/* Header */}
+      {/* Header - FULL WIDTH */}
       <header className="with-sidebar border-b-2 border-sepia-600 bg-paper-50 py-4">
-        <div className="w-full px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="w-full px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             <Link
               href="/"
@@ -52,7 +52,7 @@ export default async function PhilosophesPage() {
         </div>
       </header>
 
-      {/* Main Content */}
+      {/* Main Content - FULL WIDTH */}
       <main className="w-full px-4 py-8 sm:px-6 lg:px-8">
         {/* Hero Section */}
         <div className="text-center mb-12">
@@ -75,43 +75,44 @@ export default async function PhilosophesPage() {
           </div>
         </div>
 
-        {/* Movement Filter Tags */}
-        {movements.length > 0 && (
-          <section className="mb-12">
-            <h3 className="font-serif text-xl font-semibold text-ink mb-4">
-              Filtrer par <span className="living-word">Courant</span>
-            </h3>
-            <div className="flex flex-wrap gap-3">
-              <Link
-                href="/philosophes"
-                className="px-4 py-2 bg-sepia-600 text-white hover:bg-sepia-700 transition-colors living-word border-2 border-sepia-600"
-              >
-                Tous les philosophes
-              </Link>
-              {movements.map((movement) => (
+        {/* Content Container - 2/3 WIDTH */}
+        <div className="content-2-3">
+          {movements.length > 0 && (
+            <section className="mb-12">
+              <h3 className="font-serif text-xl font-semibold text-ink mb-4">
+                Filtrer par <span className="living-word">Courant</span>
+              </h3>
+              <div className="flex flex-wrap gap-3">
                 <Link
-                  key={movement.id}
-                  href={`/courants/${movement.slug}`}
-                  className="px-4 py-2 bg-white border-2 border-sepia-300 hover:border-sepia-600 hover:shadow-md transition-all living-word"
+                  href="/philosophes"
+                  className="px-4 py-2 bg-sepia-600 text-white hover:bg-sepia-700 transition-colors living-word border-2 border-sepia-600"
                 >
-                  <span className="font-medium">{movement.name}</span>
-                  {movement.period && (
-                    <span className="ml-2 text-sm text-ink-light">({movement.period})</span>
-                  )}
-                  <span className="ml-2 px-2 py-0.5 bg-sepia-100 text-sepia-700 text-xs rounded-full">
-                    {movement._count.movementPhilosophers}
-                  </span>
+                  Tous les philosophes
                 </Link>
-              ))}
-            </div>
-          </section>
-        )}
+                {movements.map((movement) => (
+                  <Link
+                    key={movement.id}
+                    href={`/courants/${movement.slug}`}
+                    className="px-4 py-2 bg-white border-2 border-sepia-300 hover:border-sepia-600 hover:shadow-md transition-all living-word"
+                  >
+                    <span className="font-medium">{movement.name}</span>
+                    {movement.period && (
+                      <span className="ml-2 text-sm text-ink-light">({movement.period})</span>
+                    )}
+                    <span className="ml-2 px-2 py-0.5 bg-sepia-100 text-sepia-700 text-xs rounded-full">
+                      {movement._count.movementPhilosophers}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </section>
+          )}
 
-        {/* Philosophers List */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {/* Philosophers List */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {philosophers.map((philosopher: any) => (
             <LinkOrnate
-              key={philosopher.name}
+              key={philosopher.id}
               href={`/philosophes/${encodeURIComponent(philosopher.name)}`}
               className="group bg-paper-50 border-2 border-paper-300 p-6 hover:shadow-glow-medium hover:border-sepia-600 transition-all duration-300"
             >
@@ -170,6 +171,7 @@ export default async function PhilosophesPage() {
               )}
             </LinkOrnate>
           ))}
+          </div>
         </div>
       </main>
     </div>

@@ -1,12 +1,57 @@
 import { cn } from '@/lib/utils/cn';
 import { SPACING } from '@/shared/constants/design-tokens';
 
+/**
+ * Props for LoadingState component
+ */
 export interface LoadingStateProps {
+  /**
+   * Type of loading indicator to display
+   * @default 'spinner'
+   */
   type?: 'spinner' | 'skeleton' | 'dots';
+
+  /**
+   * Size of the loading indicator
+   * @default 'md'
+   */
   size?: 'sm' | 'md' | 'lg';
+
+  /**
+   * Optional message to display below the indicator
+   */
   message?: string;
+
+  /**
+   * Additional CSS classes to apply
+   */
   className?: string;
 }
+
+/**
+ * LoadingState - Consistent loading UI across the application
+ *
+ * Provides three types of loading indicators:
+ * - **spinner**: Rotating circle (default)
+ * - **skeleton**: Pulsing placeholder content
+ * - **dots**: Bouncing dots animation
+ *
+ * @example
+ * ```tsx
+ * // Simple spinner
+ * <LoadingState />
+ *
+ * // With message
+ * <LoadingState message="Chargement..." />
+ *
+ * // Skeleton type
+ * <LoadingState type="skeleton" />
+ *
+ * // Different sizes
+ * <LoadingState size="sm" />
+ * <LoadingState size="lg" message="Traitement en cours..." />
+ * ```
+ */
 
 export function LoadingState({
   type = 'spinner',

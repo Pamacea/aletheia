@@ -1,12 +1,8 @@
 'use client'
 
-import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { PlusIcon, NetworkIcon, BookIcon } from '@/ui'
-import { ArrowLeftIcon } from '@/ui'
+import { PlusIcon, NetworkIcon, BookIcon, ArrowLeftIcon } from '@/ui'
 import Link from 'next/link'
-import { z } from 'zod'
-import { createPost } from '@/lib/actions/forum'
 import { Button } from '@/ui/atoms/Button'
 import { Input } from '@/ui/atoms/Input'
 import { Textarea } from '@/ui/atoms/Textarea'
@@ -14,12 +10,7 @@ import { Badge } from '@/ui/molecules/Badge'
 import { cn } from '@/lib/utils/cn'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
-
-const postSchema = z.object({
-  title: z.string().min(5, 'Le titre doit contenir au moins 5 caractères'),
-  content: z.string().min(20, 'Le contenu doit contenir au moins 20 caractères'),
-  categoryId: z.string().optional(),
-})
+import { usePostForm } from '../hooks/usePostForm'
 
 interface Category {
   id: string
@@ -35,68 +26,33 @@ interface CreatePostFormProps {
   categories: Category[]
 }
 
+/**
+ * CreatePostForm Component
+ *
+ * Form for creating new forum discussion posts with markdown support,
+ * category selection, and tag management.
+ */
 export function CreatePostForm({ categories }: CreatePostFormProps) {
   const router = useRouter()
-  const [title, setTitle] = useState('')
-  const [content, setContent] = useState('')
-  const [categoryId, setCategoryId] = useState<string | undefined>()
-  const [tags, setTags] = useState<string[]>([])
-  const [currentTag, setCurrentTag] = useState('')
-  const [showPreview, setShowPreview] = useState(false)
-  const [errors, setErrors] = useState<Record<string, string>>({})
-  const [isSubmitting, setIsSubmitting] = useState(false)
-
-  const handleAddTag = () => {
-    const tag = currentTag.trim().toLowerCase()
-    if (tag && !tags.includes(tag)) {
-      setTags([...tags, tag])
-      setCurrentTag('')
-    }
-  }
-
-  const handleRemoveTag = (tag: string) => {
-    setTags(tags.filter(t => t !== tag))
-  }
-
-  const handleTagKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter') {
-      e.preventDefault()
-      handleAddTag()
-    }
-  }
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    setErrors({})
-
-    try {
-      const validated = postSchema.parse({ title, content, categoryId })
-
-      await createPost({
-        title: validated.title,
-        content: validated.content,
-        categoryId: validated.categoryId,
-        tags,
-      })
-
-      router.push('/agora')
-    } catch (error) {
-      if (error instanceof z.ZodError) {
-        const fieldErrors: Record<string, string> = {}
-        error.errors.forEach(err => {
-          if (err.path[0]) {
-            fieldErrors[err.path[0].toString()] = err.message
-          }
-        })
-        setErrors(fieldErrors)
-      } else {
-        console.error('Failed to create post:', error)
-      }
-    } finally {
-      setIsSubmitting(false)
-    }
-  }
+  const {
+    title,
+    content,
+    categoryId,
+    tags,
+    currentTag,
+    errors,
+    isSubmitting,
+    showPreview,
+    setTitle,
+    setContent,
+    setCategoryId,
+    handleAddTag,
+    handleRemoveTag,
+    setCurrentTag,
+    handleTagKeyDown,
+    togglePreview,
+    handleSubmit,
+  } = usePostForm()
 
   return (
     <div className="min-h-screen bg-paper-50">
@@ -232,6 +188,9 @@ export function CreatePostForm({ categories }: CreatePostFormProps) {
                   <span className="living-word">Ajouter</span>
                 </Button>
               </div>
+              {errors.tag && (
+                <p className="text-sm text-red-600 mt-2 font-medium mb-3">{errors.tag}</p>
+              )}
               {tags.length > 0 && (
                 <div className="flex flex-wrap gap-2">
                   {tags.map(tag => (
@@ -258,7 +217,7 @@ export function CreatePostForm({ categories }: CreatePostFormProps) {
                 </label>
                 <button
                   type="button"
-                  onClick={() => setShowPreview(!showPreview)}
+                  onClick={togglePreview}
                   className="text-sm text-sepia-600 hover:text-sepia-700 font-medium px-3 py-1 border-2 border-sepia-300 hover:border-sepia-600 rounded transition-all"
                 >
                   <span className="living-word">{showPreview ? 'Modifier' : 'Aperçu'}</span>

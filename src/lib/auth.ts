@@ -2,43 +2,23 @@ import { betterAuth } from 'better-auth';
 import { prismaAdapter } from 'better-auth/adapters/prisma';
 import { prisma } from '@/lib/db/prisma';
 import { nextCookies } from 'better-auth/next-js';
-import { cookies } from 'next/headers';
 import { sendVerificationEmail, sendPasswordResetEmail } from '@/lib/email';
-
-// Get required env vars with fallbacks for development
-const getAuthSecret = () => {
-  const secret = process.env.BETTER_AUTH_SECRET;
-  if (!secret) {
-    // Only in development: use a fallback secret
-    if (process.env.NODE_ENV === 'development') {
-      return 'development-secret-change-in-production-min-32-chars';
-    }
-    throw new Error('BETTER_AUTH_SECRET environment variable is required in production');
-  }
-  return secret;
-};
+import { cookies } from 'next/headers';
 
 export const auth = betterAuth({
   database: prismaAdapter(prisma, {
     provider: 'postgresql',
   }),
-  secret: getAuthSecret(),
+  secret: process.env.BETTER_AUTH_SECRET || 'development-secret-change-in-production',
   baseURL: process.env.BETTER_AUTH_URL || process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000',
   emailAndPassword: {
     enabled: true,
     requireEmailVerification: process.env.NODE_ENV === "production",
-    sendVerificationEmail: async ({ user, url }: { user: { email: string; name: string | null }; url: string }) => {
-      await sendVerificationEmail(
-        user.email,
-        user.name || 'Utilisateur',
-        url
-      );
+    sendVerificationEmail: async ({ user, url }: { user: { email: string; name?: string | null }; url: string }) => {
+      await sendVerificationEmail(user.email, user.name || 'Utilisateur', url);
     },
     sendResetPasswordEmail: async ({ user, url }: { user: { email: string }; url: string }) => {
-      await sendPasswordResetEmail(
-        user.email,
-        url
-      );
+      await sendPasswordResetEmail(user.email, url);
     },
   },
   socialProviders: {
@@ -66,7 +46,7 @@ export const auth = betterAuth({
   session: {
     cookieCache: {
       enabled: true,
-      maxAge: 5 * 60, // 5 minutes
+      maxAge: 5 * 60,
     },
   },
 });

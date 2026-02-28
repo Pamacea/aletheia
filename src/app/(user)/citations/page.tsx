@@ -44,9 +44,9 @@ export default async function CitationsPage({
         </div>
       </header>
 
-      {/* Main Content */}
+      {/* Main Content - FULL WIDTH */}
       <main className="w-full px-4 py-8 sm:px-6 lg:px-8">
-        {/* Hero Section */}
+        {/* Hero Section - FULL WIDTH */}
         <div className="text-center mb-12">
           <div className="mb-6">
             <span className="text-6xl living-word">Σ</span>
@@ -67,8 +67,10 @@ export default async function CitationsPage({
           </div>
         </div>
 
-        {/* Search & Filters */}
-        <div className="mb-8 p-6 bg-paper-200 border-double-ornate shadow-glow-sm">
+        {/* Content Container - 2/3 WIDTH */}
+        <div className="content-2-3">
+          {/* Search & Filters */}
+          <div className="mb-8 p-6 bg-paper-200 border-double-ornate shadow-glow-sm">
           <CitationSearch
             defaultSearch={search}
             defaultAuthor={author}
@@ -221,6 +223,7 @@ export default async function CitationsPage({
             </nav>
           </div>
         )}
+        </div>
       </main>
     </div>
   );
