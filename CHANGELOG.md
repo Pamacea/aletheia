@@ -5,6 +5,18 @@ All notable changes to Aletheia will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.6] - 2026-02-28
+
+### Fixed
+- **UI**: Suppression des coins arrondis sur tous les boutons (rounded-lg/md)
+- **UI**: Réduction globale de la taille des boutons (sauf CTA hero)
+- **UI**: Réduction des boutons dans les headers (Retour, actions)
+- **Flashcards**: Correction du bug CLOZE - les filtres disparaissaient quand aucune carte n'était trouvée
+- **Flashcards**: Redesign du header - header compact avec stats inline, barre de recherche séparée
+- **Auth**: Correction de la gestion des erreurs OAuth - les redirect Next.js n'affichent plus d'erreur
+- **Auth**: Correction de la déconnexion dans UserDropdown - utilisation de Server Action au lieu de Link
+- **Auth**: Rafraîchissement de l'état sidebar après déconnexion avec router.refresh()
+
 ## [0.2.5] - 2026-02-28
 
 ### Added
