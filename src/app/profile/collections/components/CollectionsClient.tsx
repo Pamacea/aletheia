@@ -48,7 +48,7 @@ export function CollectionsClient({ initialCollections }: CollectionsClientProps
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
         <div className="flex items-center gap-3">
-          <div className="p-3 bg-sepia-100 rounded-lg">
+          <div className="p-3 bg-sepia-100 ">
             <BookmarkIcon className="w-8 h-8 text-sepia-700" />
           </div>
           <div>
@@ -63,7 +63,7 @@ export function CollectionsClient({ initialCollections }: CollectionsClientProps
 
         <button
           onClick={() => setIsModalOpen(true)}
-          className="flex items-center gap-2 px-4 py-2 bg-sepia-600 text-white hover:bg-sepia-700 transition-colors rounded-lg"
+          className="flex items-center gap-2 px-4 py-2 bg-sepia-600 text-white hover:bg-sepia-700 transition-colors "
           aria-label="Créer une nouvelle collection"
         >
           <PlusIcon className="w-5 h-5" />

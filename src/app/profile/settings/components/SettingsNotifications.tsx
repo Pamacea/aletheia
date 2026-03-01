@@ -64,7 +64,7 @@ export function SettingsNotifications({ initialData }: SettingsNotificationsProp
        type="checkbox"
        checked={emailNotifications}
        onChange={(e) => setEmailNotifications(e.target.checked)}
-       className="w-5 h-5 text-sepia-600 border-paper-300 focus:ring-sepia-600 "
+       className="w-4 h-4 text-sepia-600 border-paper-300 focus:ring-sepia-600 "
        disabled={isLoading}
       />
      </label>
@@ -79,7 +79,7 @@ export function SettingsNotifications({ initialData }: SettingsNotificationsProp
         type="checkbox"
         checked={pushNotifications}
         onChange={(e) => setPushNotifications(e.target.checked)}
-        className="w-5 h-5 text-sepia-600 border-paper-300 focus:ring-sepia-600 "
+        className="w-4 h-4 text-sepia-600 border-paper-300 focus:ring-sepia-600 "
         disabled={isLoading}
        />
       </label>
@@ -95,7 +95,7 @@ export function SettingsNotifications({ initialData }: SettingsNotificationsProp
         type="checkbox"
         checked={weeklyDigest}
         onChange={(e) => setWeeklyDigest(e.target.checked)}
-        className="w-5 h-5 text-sepia-600 border-paper-300 focus:ring-sepia-600 "
+        className="w-4 h-4 text-sepia-600 border-paper-300 focus:ring-sepia-600 "
         disabled={isLoading}
        />
       </label>
@@ -111,7 +111,7 @@ export function SettingsNotifications({ initialData }: SettingsNotificationsProp
         type="checkbox"
         checked={reviewReminders}
         onChange={(e) => setReviewReminders(e.target.checked)}
-        className="w-5 h-5 text-sepia-600 border-paper-300 focus:ring-sepia-600 "
+        className="w-4 h-4 text-sepia-600 border-paper-300 focus:ring-sepia-600 "
         disabled={isLoading}
        />
       </label>

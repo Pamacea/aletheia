@@ -80,3 +80,25 @@ export const SHADOWS = {
   lg: '0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)',
   xl: '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)',
 } as const;
+
+export const ANIMATION = {
+  duration: {
+    fast: 150,
+    base: 200,
+    slow: 300,
+    slower: 500,
+  },
+  easing: {
+    default: 'cubic-bezier(0.4, 0, 0.2, 1)',
+    spring: 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
+  }
+} as const;
+
+export const INTERACTIVE = {
+  hover: {
+    translateY: '-2px',
+  },
+  focus: {
+    ringColor: 'sepia-700',
+  }
+} as const;

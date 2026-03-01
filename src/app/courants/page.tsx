@@ -77,9 +77,9 @@ export default async function CourantsPage() {
           <div className="flex items-center justify-between">
             <Link
               href="/"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-paper-50 text-sepia-600 hover:text-sepia-700 hover:bg-paper-100 border-2 border-paper-300 hover:border-sepia-600 transition-all duration-200"
+              className="inline-flex items-center gap-2 px-2.5 py-1.5 text-sm bg-paper-50 text-sepia-600 hover:text-sepia-700 hover:bg-paper-100 border-2 border-paper-300 hover:border-sepia-600 transition-all duration-200"
             >
-              <ArrowLeftIcon className="w-5 h-5" />
+              <ArrowLeftIcon className="w-4 h-4" />
               <span className="living-word font-medium">Retour</span>
             </Link>
             <h1 className="font-serif text-2xl font-semibold text-ink">
@@ -107,14 +107,14 @@ export default async function CourantsPage() {
           {/* Stats */}
           <div className="flex justify-center gap-6 flex-wrap">
             <div className="h-16 px-6 border-double-ornate bg-paper-200 text-sepia-600 flex items-center gap-3">
-              <CurrentsIcon className="w-5 h-5" />
+              <CurrentsIcon className="w-4 h-4" />
               <div className="text-left">
                 <div className="text-xs text-ink-lighter">Courants</div>
                 <strong className="text-xl text-ink">{movements.length}</strong>
               </div>
             </div>
             <div className="h-16 px-6 border-double-ornate bg-paper-200 text-sepia-600 flex items-center gap-3">
-              <PhilosophersIcon className="w-5 h-5" />
+              <PhilosophersIcon className="w-4 h-4" />
               <div className="text-left">
                 <div className="text-xs text-ink-lighter">Philosophes</div>
                 <strong className="text-xl text-ink">{new Set(movements.flatMap(m => m.keyPhilosophers)).size}</strong>
@@ -260,7 +260,7 @@ export default async function CourantsPage() {
               {periodMovements.length > 0 && (
                 <div className="bg-paper-100 border-2 border-paper-300 p-6">
                   <h4 className="font-serif text-lg font-semibold text-ink mb-4 flex items-center gap-2">
-                    <ConceptIcon className="w-5 h-5 text-sepia-600" />
+                    <ConceptIcon className="w-4 h-4 text-sepia-600" />
                     Concepts clés de {info.title}
                   </h4>
                   <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-3">
@@ -319,9 +319,9 @@ export default async function CourantsPage() {
               </div>
               <Link
                 href="/"
-                className="inline-flex items-center gap-2 px-4 py-2 bg-paper-50 text-sepia-600 hover:text-sepia-700 hover:bg-paper-100 border-2 border-paper-300 hover:border-sepia-600 transition-all duration-200"
+                className="inline-flex items-center gap-2 px-2.5 py-1.5 text-sm bg-paper-50 text-sepia-600 hover:text-sepia-700 hover:bg-paper-100 border-2 border-paper-300 hover:border-sepia-600 transition-all duration-200"
               >
-                <ArrowLeftIcon className="w-5 h-5" />
+                <ArrowLeftIcon className="w-4 h-4" />
                 <span className="living-word font-medium">Retour à l'accueil</span>
               </Link>
             </div>

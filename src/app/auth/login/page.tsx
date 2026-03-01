@@ -40,24 +40,16 @@ export default function LoginPage() {
     setError('');
     setLoading(true);
 
-    try {
-      await signInWithGithub();
-    } catch (err) {
-      setError('Une erreur est survenue avec GitHub.');
-      setLoading(false);
-    }
+    // OAuth redirects, so no error handling needed
+    await signInWithGithub();
   };
 
   const handleDiscordSignIn = async () => {
     setError('');
     setLoading(true);
 
-    try {
-      await signInWithDiscord();
-    } catch (err) {
-      setError('Une erreur est survenue avec Discord.');
-      setLoading(false);
-    }
+    // OAuth redirects, so no error handling needed
+    await signInWithDiscord();
   };
 
   return (

@@ -14,6 +14,7 @@ interface NoteEditorProps {
   onSave?: (title: string, content: string) => void;
   onCancel?: () => void;
   readOnly?: boolean;
+  isSaving?: boolean;
   className?: string;
 }
 
@@ -25,6 +26,7 @@ export function NoteEditor({
   onSave,
   onCancel,
   readOnly = false,
+  isSaving = false,
   className,
 }: NoteEditorProps) {
   const [title, setTitle] = useState(initialTitle);
@@ -285,12 +287,13 @@ bloc de code
               variant="primary"
               size="md"
               onClick={handleSave}
-              disabled={!title.trim()}
+              disabled={!title.trim() || isSaving}
+              loading={isSaving}
             >
-              Sauvegarder
+              {isSaving ? 'Sauvegarde...' : 'Sauvegarder'}
             </Button>
             {onCancel && (
-              <Button variant="ghost" size="md" onClick={handleCancel}>
+              <Button variant="ghost" size="md" onClick={handleCancel} disabled={isSaving}>
                 Annuler
               </Button>
             )}

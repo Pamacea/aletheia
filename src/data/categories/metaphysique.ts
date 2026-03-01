@@ -21,17 +21,17 @@ export const concepts = [
     category: 'metaphysique',
     difficulty: 3,
     importance: 5,
-    definition: 'L\'aletheia chez les Grecs désigne le « dévoilement », le passage de l\'occulte à la manifeste. La vérité n\'est pas une adéquation entre intellect et chose, mais l\'émergence de la chose elle-même dans sa luminosité propre.',
+    definition: 'L\'aletheia chez les Grecs désigne le " dévoilement ", le passage de l\'occulte à la manifeste. La vérité n\'est pas une adéquation entre intellect et chose, mais l\'émergence de la chose elle-même dans sa luminosité propre.',
     shortDefinition: 'Le dévoilement de ce qui est, passage de l\'occulte à la manifeste',
     etymology: {
       greek: 'α-ληθής (a-lethes) : non-caché, non-oublié',
       root: 'ληθώ (lethô) : oublier, cacher',
-      notes: 'Littéralement « dévoilement » ou « non-occultation »'
+      notes: 'Littéralement " dévoilement " ou " non-occultation "'
     },
     variations: [
       {
         title: 'Étymologie grecque',
-        description: 'L\'aletheia n\'est pas une « vérité » au sens moderne (correspondance), mais le « dévoilement » - le passage de l\'occulte à la manifeste, où la chose apparaît elle-même.'
+        description: 'L\'aletheia n\'est pas une " vérité " au sens moderne (correspondance), mais le " dévoilement " - le passage de l\'occulte à la manifeste, où la chose apparaît elle-même.'
       },
       {
         title: 'Interprétation platonicienne',
@@ -39,7 +39,7 @@ export const concepts = [
       },
       {
         title: 'Interprétation aristotélicienne',
-        description: 'La vérité comme adéquation entre l\'intellect et la chose. « Dire de ce qui est qu\'il est, et de ce qui n\'est pas qu\'il n\'est pas. »'
+        description: 'La vérité comme adéquation entre l\'intellect et la chose. " Dire de ce qui est qu\'il est, et de ce qui n\'est pas qu\'il n\'est pas. "'
       },
       {
         title: 'Interprétation heideggerienne',
@@ -68,8 +68,8 @@ export const concepts = [
         type: 'BOOK',
         reference: 'Livre VI, 509d-511e',
         quotes: [
-          '« La vérité est donc ce qui est, et l\'erreur ce qui n\'est pas »',
-          '« Le soleil est le fils du bien, qui procède de la vérité »'
+          '" La vérité est donc ce qui est, et l\'erreur ce qui n\'est pas "',
+          '" Le soleil est le fils du bien, qui procède de la vérité "'
         ]
       },
       {
@@ -79,8 +79,8 @@ export const concepts = [
         type: 'BOOK',
         reference: '§44, Dévoilement',
         quotes: [
-          '« L\'αλήθεια est le caractère fondamental de l\'être »',
-          '« La vérité n\'est pas une propriété de la proposition, mais l\'ouverture de l\'être »'
+          '" L\'αλήθεια est le caractère fondamental de l\'être "',
+          '" La vérité n\'est pas une propriété de la proposition, mais l\'ouverture de l\'être "'
         ]
       }
     ],
@@ -88,7 +88,7 @@ export const concepts = [
       {
         type: 'BASIC',
         front: 'Qu\'est-ce que l\'aletheia chez les Grecs ?',
-        back: 'L\'aletheia signifie « dévoilement » ou « non-occultation » - le passage de l\'occulte à la manifeste, où la chose apparaît dans sa luminosité propre.',
+        back: 'L\'aletheia signifie " dévoilement " ou " non-occultation " - le passage de l\'occulte à la manifeste, où la chose apparaît dans sa luminosité propre.',
         difficulty: 2
       },
       {
@@ -100,7 +100,7 @@ export const concepts = [
       {
         type: 'QUOTE',
         front: 'Quelle citation illustre le mieux l\'aletheia ?',
-        back: '« L\'αλήθεια est le caractère fondamental de l\'être » - Heidegger, Être et Temps (1927)',
+        back: '" L\'αλήθεια est le caractère fondamental de l\'être " - Heidegger, Être et Temps (1927)',
         difficulty: 3
       }
     ],
@@ -121,12 +121,12 @@ export const concepts = [
     etymology: {
       greek: 'τὸ ὂν (to on) : l\'étant',
       participe: 'Participe présent du verbe εἶμί (eimi) : je suis',
-      notes: 'Désigne à la fois « ce qui est » et « l\'étant »'
+      notes: 'Désigne à la fois " ce qui est " et " l\'étant "'
     },
     variations: [
       {
         title: 'Approche parménidienne',
-        description: 'L\'Être est un, éternel, immobile. « L\'Être est, le non-être n\'est pas ». Le devenir n\'est qu\'illusion d\'optique. L\'unité de l\'Être exclut toute multiplicité réelle.'
+        description: 'L\'Être est un, éternel, immobile. " L\'Être est, le non-être n\'est pas ". Le devenir n\'est qu\'illusion d\'optique. L\'unité de l\'Être exclut toute multiplicité réelle.'
       },
       {
         title: 'Approche platonicienne',
@@ -138,11 +138,11 @@ export const concepts = [
       },
       {
         title: 'Approche heideggerienne',
-        description: 'La question du sens de l\'être. Différence ontologique entre l\'être et l\'étant. L\'Être n\'est pas une chose, mais « ce qui détermine l\'étant en tant qu\'étant ».'
+        description: 'La question du sens de l\'être. Différence ontologique entre l\'être et l\'étant. L\'Être n\'est pas une chose, mais " ce qui détermine l\'étant en tant qu\'étant ".'
       },
       {
         title: 'Approche existentialiste',
-        description: 'L\'être comme existence d\'abord. « L\'existence précède l\'essence ». L\'être humain se définit par son existence, non par une essence préalable.'
+        description: 'L\'être comme existence d\'abord. " L\'existence précède l\'essence ". L\'être humain se définit par son existence, non par une essence préalable.'
       }
     ],
     keyFigures: [
@@ -169,9 +169,9 @@ export const concepts = [
         type: 'POEM',
         reference: 'Fragments 1-8',
         quotes: [
-          '« Car c\'est la même chose de penser et d\'être »',
-          '« L\'être est, le non-être n\'est pas »',
-          '« Une seule route reste : « C\'est »'
+          '" Car c\'est la même chose de penser et d\'être "',
+          '" L\'être est, le non-être n\'est pas "',
+          '" Une seule route reste : " C\'est "'
         ]
       },
       {
@@ -181,8 +181,8 @@ export const concepts = [
         type: 'BOOK',
         reference: 'Livre Gamma',
         quotes: [
-          '« L\'être se dit de plusieurs façons, mais parpriorité selon la substance »',
-          '« L\'être désigne ce qui est, en tant que chose, ou comme substance »'
+          '" L\'être se dit de plusieurs façons, mais parpriorité selon la substance "',
+          '" L\'être désigne ce qui est, en tant que chose, ou comme substance "'
         ]
       }
     ],
@@ -190,7 +190,7 @@ export const concepts = [
       {
         type: 'BASIC',
         front: 'Qu\'est-ce que l\'être selon Parménide ?',
-        back: 'Pour Parménide, l\'être est un, immobile, éternel et continu. Le changement et le devenir sont illusoires. « L\'être est, le non-être n\'est pas ».',
+        back: 'Pour Parménide, l\'être est un, immobile, éternel et continu. Le changement et le devenir sont illusoires. " L\'être est, le non-être n\'est pas ".',
         difficulty: 3
       },
       {
@@ -202,7 +202,7 @@ export const concepts = [
       {
         type: 'QUOTE',
         front: 'Quelle citation résume le mieux l\'ontologie fondamentale ?',
-        back: '« Car c\'est la même chose de penser et d\'être » - Parménide, Poème (475 av. J.-C.)',
+        back: '" Car c\'est la même chose de penser et d\'être " - Parménide, Poème (475 av. J.-C.)',
         difficulty: 2
       }
     ],
@@ -236,15 +236,15 @@ export const concepts = [
       },
       {
         title: 'Substance spinoziste',
-        description: '« Deus sive Natura » - Dieu ou la Nature. Une substance unique infinie comprenant tout. Tout ce qui est est un mode de cette substance unique. Monisme radical.'
+        description: '" Deus sive Natura " - Dieu ou la Nature. Une substance unique infinie comprenant tout. Tout ce qui est est un mode de cette substance unique. Monisme radical.'
       },
       {
         title: 'Substance leibnizienne',
-        description: 'Les monades comme substances simples. Chaque monade est un « univers en diminutif », fenêtre sur l\'univers. Harmonie préétablie entre les monades sans causalité directe.'
+        description: 'Les monades comme substances simples. Chaque monade est un " univers en diminutif ", fenêtre sur l\'univers. Harmonie préétablie entre les monades sans causalité directe.'
       },
       {
         title: 'Critique lockéenne',
-        description: 'On ne connaît que les qualités, pas la substance même. La substance est un « je-ne-sais-quoi » supposé pour supporter les qualités que nous percevons.'
+        description: 'On ne connaît que les qualités, pas la substance même. La substance est un " je-ne-sais-quoi " supposé pour supporter les qualités que nous percevons.'
       }
     ],
     keyFigures: [
@@ -270,8 +270,8 @@ export const concepts = [
         type: 'BOOK',
         reference: 'Livre Lambda (Z)',
         quotes: [
-          '« La substance est ce qui est en soi et par soi, et qui ne se prédique d\'un sujet »',
-          '« La substance peut être conçue comme un sujet et comme un substrat »'
+          '" La substance est ce qui est en soi et par soi, et qui ne se prédique d\'un sujet "',
+          '" La substance peut être conçue comme un sujet et comme un substrat "'
         ]
       },
       {
@@ -281,8 +281,8 @@ export const concepts = [
         type: 'BOOK',
         reference: 'Partie I, Définition 3',
         quotes: [
-          '« Par substance, j\'entends ce qui est en soi, et qui est conçu par soi et par soi »',
-          '« Dieu est une substance infinie, consistante en une infinité d\'attributs »'
+          '" Par substance, j\'entends ce qui est en soi, et qui est conçu par soi et par soi "',
+          '" Dieu est une substance infinie, consistante en une infinité d\'attributs "'
         ]
       }
     ],
@@ -296,13 +296,13 @@ export const concepts = [
       {
         type: 'CONNECTION',
         front: 'Comment Spinoza modifie-t-il la notion aristotélicienne de substance ?',
-        back: 'Pour Spinoza, il n\'y a qu\'une seule substance infinie (Dieu/Nature). Les choses finies ne sont pas des substances mais des « modes » de cette substance unique.',
+        back: 'Pour Spinoza, il n\'y a qu\'une seule substance infinie (Dieu/Nature). Les choses finies ne sont pas des substances mais des " modes " de cette substance unique.',
         difficulty: 4
       },
       {
         type: 'QUOTE',
         front: 'Quelle citation définit le mieux la substance ?',
-        back: '« La substance est ce qui est en soi et par soi, et qui ne se prédique d\'un sujet » - Aristote, Métaphysique, Livre Z',
+        back: '" La substance est ce qui est en soi et par soi, et qui ne se prédique d\'un sujet " - Aristote, Métaphysique, Livre Z',
         difficulty: 3
       }
     ],
@@ -327,7 +327,7 @@ export const concepts = [
     variations: [
       {
         title: 'Bien platonicien',
-        description: 'L\'Idée du Bien comme principe suprême, analogue au soleil. Le Bien est « au-delà de l\'essence », source de toute vérité et de toute existence. Illumine l\'intelligible comme le soleil illumine le sensible.'
+        description: 'L\'Idée du Bien comme principe suprême, analogue au soleil. Le Bien est " au-delà de l\'essence ", source de toute vérité et de toute existence. Illumine l\'intelligible comme le soleil illumine le sensible.'
       },
       {
         title: 'Bien aristotélicien',
@@ -335,7 +335,7 @@ export const concepts = [
       },
       {
         title: 'Bien augustinien',
-        description: 'Dieu comme Bien souverain. « Tu nous as faits pour toi, et notre cœur est sans repos tant qu\'il ne repose en toi ». Le bien créature est participation au Bien divin.'
+        description: 'Dieu comme Bien souverain. " Tu nous as faits pour toi, et notre cœur est sans repos tant qu\'il ne repose en toi ". Le bien créature est participation au Bien divin.'
       },
       {
         title: 'Bien thomiste',
@@ -343,7 +343,7 @@ export const concepts = [
       },
       {
         title: 'Bien kantien',
-        description: 'Le bien moral comme duty for duty\'s sake. L\'impératif catégorique : « Agis uniquement d\'après la maxime qui fait que tu puisses vouloir en même temps qu\'elle devienne une loi universelle ».'
+        description: 'Le bien moral comme duty for duty\'s sake. L\'impératif catégorique : " Agis uniquement d\'après la maxime qui fait que tu puisses vouloir en même temps qu\'elle devienne une loi universelle ".'
       }
     ],
     keyFigures: [
@@ -370,8 +370,8 @@ export const concepts = [
         type: 'BOOK',
         reference: 'Livre VI, 509d-511e',
         quotes: [
-          '« Le Bien est donc ce qui donne la vérité aux choses connues et la puissance à qui connaît »',
-          '« Le Bien est le soleil du monde intelligible »'
+          '" Le Bien est donc ce qui donne la vérité aux choses connues et la puissance à qui connaît "',
+          '" Le Bien est le soleil du monde intelligible "'
         ]
       },
       {
@@ -381,8 +381,8 @@ export const concepts = [
         type: 'BOOK',
         reference: 'Livre I',
         quotes: [
-          '« Le bien est la fin de toute chose »',
-          '« Le bonheur est le bien suprême de l\'homme »'
+          '" Le bien est la fin de toute chose "',
+          '" Le bonheur est le bien suprême de l\'homme "'
         ]
       }
     ],
@@ -402,7 +402,7 @@ export const concepts = [
       {
         type: 'QUOTE',
         front: 'Quelle citation platonicienne sur le Bien ?',
-        back: '« Le Bien est donc ce qui donne la vérité aux choses connues et la puissance à qui connaît » - Platon, La République',
+        back: '" Le Bien est donc ce qui donne la vérité aux choses connues et la puissance à qui connaît " - Platon, La République',
         difficulty: 3
       }
     ],
@@ -427,7 +427,7 @@ export const concepts = [
     variations: [
       {
         title: 'Sagesse socratique',
-        description: '« Je sais que je ne sais rien ». La vraie sagesse est la conscience de sa propre ignorance. Le sage n\'est pas celui qui sait tout, mais qui sait qu\'il ne sait pas.'
+        description: '" Je sais que je ne sais rien ". La vraie sagesse est la conscience de sa propre ignorance. Le sage n\'est pas celui qui sait tout, mais qui sait qu\'il ne sait pas.'
       },
       {
         title: 'Sagesse platonicienne',
@@ -443,7 +443,7 @@ export const concepts = [
       },
       {
         title: 'Sagesse chrétienne',
-        description: 'Distinction pascalienne entre sagesse humaine (raison, philosophie) et sagesse chrétienne (foi, révélation). « La sagesse en ce monde est une folie devant Dieu ».'
+        description: 'Distinction pascalienne entre sagesse humaine (raison, philosophie) et sagesse chrétienne (foi, révélation). " La sagesse en ce monde est une folie devant Dieu ".'
       }
     ],
     keyFigures: [
@@ -453,9 +453,9 @@ export const concepts = [
       { name: 'Pascal', period: '1623-1662', contribution: 'Distinction entre sagesse humaine et sagesse chrétienne' }
     ],
     examples: [
-      'Le « Je sais que je ne sais rien » de Socrate',
+      'Le " Je sais que je ne sais rien " de Socrate',
       'La sagesse des anciens philosophes stoïciens',
-      'La sagesse biblique comme « crainte de Dieu »'
+      'La sagesse biblique comme " crainte de Dieu "'
     ],
     relatedConcepts: [
       { name: 'Vérité', relation: 'Suppose', description: 'La sagesse cherche la vérité' },
@@ -470,8 +470,8 @@ export const concepts = [
         type: 'BOOK',
         reference: '21d-23c',
         quotes: [
-          '« Je sais que je ne sais rien »',
-          '« La sagesse véritable est de savoir que l\'on ne sait pas »'
+          '" Je sais que je ne sais rien "',
+          '" La sagesse véritable est de savoir que l\'on ne sait pas "'
         ]
       },
       {
@@ -481,8 +481,8 @@ export const concepts = [
         type: 'BOOK',
         reference: 'Livre Alpha',
         quotes: [
-          '« La sagesse est la science des premiers principes et des premières causes »',
-          '« C\'est à cause de l\'étonnement que les hommes commencèrent à philosopher »'
+          '" La sagesse est la science des premiers principes et des premières causes "',
+          '" C\'est à cause de l\'étonnement que les hommes commencèrent à philosopher "'
         ]
       }
     ],
@@ -502,7 +502,7 @@ export const concepts = [
       {
         type: 'QUOTE',
         front: 'Quelle citation de Socrate sur la sagesse ?',
-        back: '« Je sais que je ne sais rien » - Socrate, Apologie de Socrate (Platon)',
+        back: '" Je sais que je ne sais rien " - Socrate, Apologie de Socrate (Platon)',
         difficulty: 2
       }
     ],
@@ -528,7 +528,7 @@ export const concepts = [
     variations: [
       {
         title: 'Logos héraclitéen',
-        description: 'La loi universelle qui gouverne le cosmos. « Tout est un, et le Un est le Logos ». Ce principe intelligent ordonne le devenir, rendant raison de la multiplicité dans l\'unité.'
+        description: 'La loi universelle qui gouverne le cosmos. " Tout est un, et le Un est le Logos ". Ce principe intelligent ordonne le devenir, rendant raison de la multiplicité dans l\'unité.'
       },
       {
         title: 'Logos stoïcien',
@@ -536,7 +536,7 @@ export const concepts = [
       },
       {
         title: 'Logos johannique',
-        description: '« Au commencement était le Logos ». Le Verbe de Dieu, seconde personne de la Trinité. Médiation entre Dieu transcendant et création. Le Logos se fait chair en Jésus-Christ.'
+        description: '" Au commencement était le Logos ". Le Verbe de Dieu, seconde personne de la Trinité. Médiation entre Dieu transcendant et création. Le Logos se fait chair en Jésus-Christ.'
       },
       {
         title: 'Logos philonien',
@@ -544,7 +544,7 @@ export const concepts = [
       },
       {
         title: 'Logos hégélien',
-        description: 'La Raison absolue se réalisant dans l\'histoire. « Ce qui est rationnel est réel, ce qui est réel est rationnel ». Le Logos comme processus dialectique de l\'Esprit.'
+        description: 'La Raison absolue se réalisant dans l\'histoire. " Ce qui est rationnel est réel, ce qui est réel est rationnel ". Le Logos comme processus dialectique de l\'Esprit.'
       }
     ],
     keyFigures: [
@@ -555,7 +555,7 @@ export const concepts = [
     ],
     examples: [
       'Le Logos héraclitéen comme loi du cosmos',
-      'Le Logos johannique : « Au commencement était le Verbe »',
+      'Le Logos johannique : " Au commencement était le Verbe "',
       'Le Logos stoïcien comme âme du monde'
     ],
     relatedConcepts: [
@@ -571,8 +571,8 @@ export const concepts = [
         type: 'TEXT',
         reference: 'Fragments 1, 2, 50',
         quotes: [
-          '« Bien que ce Logos soit toujours, les hommes sont incapables de le comprendre »',
-          '« Il est sage d\'écouter le Logos et de convenir que tout est un »'
+          '" Bien que ce Logos soit toujours, les hommes sont incapables de le comprendre "',
+          '" Il est sage d\'écouter le Logos et de convenir que tout est un "'
         ]
       },
       {
@@ -582,8 +582,8 @@ export const concepts = [
         type: 'TEXT',
         reference: 'Prologue, 1-18',
         quotes: [
-          '« Au commencement était le Verbe (Logos), et le Verbe était auprès de Dieu, et le Verbe était Dieu »',
-          '« Tout a été fait par lui »'
+          '" Au commencement était le Verbe (Logos), et le Verbe était auprès de Dieu, et le Verbe était Dieu "',
+          '" Tout a été fait par lui "'
         ]
       }
     ],
@@ -603,7 +603,7 @@ export const concepts = [
       {
         type: 'QUOTE',
         front: 'Quelle citation de Jean sur le Logos ?',
-        back: '« Au commencement était le Verbe, et le Verbe était auprès de Dieu, et le Verbe était Dieu » - Jean 1:1',
+        back: '" Au commencement était le Verbe, et le Verbe était auprès de Dieu, et le Verbe était Dieu " - Jean 1:1',
         difficulty: 2
       }
     ],
@@ -628,19 +628,19 @@ export const concepts = [
     variations: [
       {
         title: 'Devenir héraclitéen',
-        description: '« Panta rhei » - tout s\'écoule. Le devenir est la réalité fondamentale, l\'être est illusion. « On ne se baigne jamais deux fois dans le même fleuve ». Contradiction des opposés.'
+        description: '" Panta rhei " - tout s\'écoule. Le devenir est la réalité fondamentale, l\'être est illusion. " On ne se baigne jamais deux fois dans le même fleuve ". Contradiction des opposés.'
       },
       {
         title: 'Devenir platonicien',
-        description: 'Le devenir comme participation imparfaite à l\'Être. Le monde sensible est en devenir, perpétuel changement entre être et non-être. Le devenir est « ce qui est toujours en train de devenir et jamais n\'est ».'
+        description: 'Le devenir comme participation imparfaite à l\'Être. Le monde sensible est en devenir, perpétuel changement entre être et non-être. Le devenir est " ce qui est toujours en train de devenir et jamais n\'est ".'
       },
       {
         title: 'Devenir hégélien',
-        description: 'Le devenir comme moment dialectique de l\'Idée. Synthèse de l\'Être et du Néant. « Le pur être et le pur néant sont la même chose ». Le devenir est mouvement vers la vérité.'
+        description: 'Le devenir comme moment dialectique de l\'Idée. Synthèse de l\'Être et du Néant. " Le pur être et le pur néant sont la même chose ". Le devenir est mouvement vers la vérité.'
       },
       {
         title: 'Devenir bergsonien',
-        description: 'La durée comme devenir créateur, non mesurable. Le temps vécu comme innovation continue. « La durée est le progrès continu du passé qui ronge l\'avenir ». Élan vital.'
+        description: 'La durée comme devenir créateur, non mesurable. Le temps vécu comme innovation continue. " La durée est le progrès continu du passé qui ronge l\'avenir ". Élan vital.'
       },
       {
         title: 'Devenir nietzschéen',
@@ -648,13 +648,13 @@ export const concepts = [
       }
     ],
     keyFigures: [
-      { name: 'Héraclite', period: '544-480 av. J.-C.', contribution: '« Tout s\'écoule » (panta rhei), le devenir comme réalité fondamentale' },
+      { name: 'Héraclite', period: '544-480 av. J.-C.', contribution: '" Tout s\'écoule " (panta rhei), le devenir comme réalité fondamentale' },
       { name: 'Platon', period: '427-347 av. J.-C.', contribution: 'Le devenir comme participation à l\'être, monde sensible' },
       { name: 'Hegel', period: '1770-1831', contribution: 'La dialectique du devenir comme moment de l\'Idée' },
       { name: 'Bergson', period: '1859-1941', contribution: 'La durée comme devenir créateur' }
     ],
     examples: [
-      'Le fleuve d\'Héraclite : « On ne se baigne jamais deux fois dans le même fleuve »',
+      'Le fleuve d\'Héraclite : " On ne se baigne jamais deux fois dans le même fleuve "',
       'Le devenir-être chez Platon',
       'Devenir, être, dépassement chez Hegel'
     ],
@@ -671,8 +671,8 @@ export const concepts = [
         type: 'TEXT',
         reference: 'Fragments 12, 30',
         quotes: [
-          '« On ne descend jamais deux fois dans le même fleuve »',
-          '« Tout s\'écoule et rien ne reste »'
+          '" On ne descend jamais deux fois dans le même fleuve "',
+          '" Tout s\'écoule et rien ne reste "'
         ]
       },
       {
@@ -682,8 +682,8 @@ export const concepts = [
         type: 'BOOK',
         reference: '27d-28a',
         quotes: [
-          '« Il est difficile de voir le Créateur et Père de l\'univers, mais impossible de le dire à tous »',
-          '« Le monde devenu est l\'image du monde éternel »'
+          '" Il est difficile de voir le Créateur et Père de l\'univers, mais impossible de le dire à tous "',
+          '" Le monde devenu est l\'image du monde éternel "'
         ]
       }
     ],
@@ -697,13 +697,13 @@ export const concepts = [
       {
         type: 'CONNECTION',
         front: 'Quelle différence être/devenir chez Héraclite et Platon ?',
-        back: 'Héraclite : le devenir est la seule réalité (« tout s\'écoule »). Platon : le devenir est imparfait, participation à l\'être immuable.',
+        back: 'Héraclite : le devenir est la seule réalité (" tout s\'écoule "). Platon : le devenir est imparfait, participation à l\'être immuable.',
         difficulty: 4
       },
       {
         type: 'QUOTE',
         front: 'Quelle citation d\'Héraclite sur le devenir ?',
-        back: '« On ne descend jamais deux fois dans le même fleuve » - Héraclite, Fragments',
+        back: '" On ne descend jamais deux fois dans le même fleuve " - Héraclite, Fragments',
         difficulty: 2
       }
     ],
@@ -729,15 +729,15 @@ export const concepts = [
     variations: [
       {
         title: 'Néant parménidien',
-        description: '« L\'être est, le non-être n\'est pas ». Impossible de penser le néant, car penser c\'est penser quelque chose. La négation du néant fonde la rationalité occidentale.'
+        description: '" L\'être est, le non-être n\'est pas ". Impossible de penser le néant, car penser c\'est penser quelque chose. La négation du néant fonde la rationalité occidentale.'
       },
       {
         title: 'Néant heideggerien',
-        description: 'Le néant comme « négation de l\'être ». L\'angoisse nous révèle le néant - l\'être tout entier sombre dans l\'indifférence. Le néant n\'est pas un étant, mais l\'horizon de l\'être.'
+        description: 'Le néant comme " négation de l\'être ". L\'angoisse nous révèle le néant - l\'être tout entier sombre dans l\'indifférence. Le néant n\'est pas un étant, mais l\'horizon de l\'être.'
       },
       {
         title: 'Néant sartrien',
-        description: '« L\'être et le néant ». Le néant comme fond de la liberté humaine. L\'homme se « néantise » - peut toujours dire non à ce qu\'il est. La liberté est cette faille d\'être.'
+        description: '" L\'être et le néant ". Le néant comme fond de la liberté humaine. L\'homme se " néantise " - peut toujours dire non à ce qu\'il est. La liberté est cette faille d\'être.'
       },
       {
         title: 'Néant hégélien',
@@ -749,15 +749,15 @@ export const concepts = [
       }
     ],
     keyFigures: [
-      { name: 'Parménide', period: '515-450 av. J.-C.', contribution: '« L\'être est, le non-être n\'est pas » - impossibilité du néant' },
-      { name: 'Heidegger', period: '1889-1976', contribution: '« Qu\'est-ce que la métaphysique ? » - le néant comme négation de l\'être' },
+      { name: 'Parménide', period: '515-450 av. J.-C.', contribution: '" L\'être est, le non-être n\'est pas " - impossibilité du néant' },
+      { name: 'Heidegger', period: '1889-1976', contribution: '" Qu\'est-ce que la métaphysique ? " - le néant comme négation de l\'être' },
       { name: 'Sartre', period: '1905-1980', contribution: 'L\'être et le néant - le néant comme fond de la liberté' },
       { name: 'Hegel', period: '1770-1831', contribution: 'Le néant comme premier moment de la dialectique' }
     ],
     examples: [
       'L\'argument ontologique : le néant absolu ne peut être pensé',
       'La liberté sartrienne comme néantisation',
-      'Le « trou noir » comme néant physique'
+      'Le " trou noir " comme néant physique'
     ],
     relatedConcepts: [
       { name: 'Être', relation: 'Est lié à', description: 'Le néant comme négation de l\'être' },
@@ -772,8 +772,8 @@ export const concepts = [
         type: 'BOOK',
         reference: 'Introduction',
         quotes: [
-          '« Le néant est l\'horizon de la réalité humaine »',
-          '« La liberté est le néant qui sépare l\'homme de lui-même »'
+          '" Le néant est l\'horizon de la réalité humaine "',
+          '" La liberté est le néant qui sépare l\'homme de lui-même "'
         ]
       },
       {
@@ -783,8 +783,8 @@ export const concepts = [
         type: 'TEXT',
         reference: 'Conférence',
         quotes: [
-          '« Pourquoi y a-t-il quelque chose plutôt que rien ? »',
-          '« Le néant n\'est pas un objet, mais l\'autre par rapport à l\'étant »'
+          '" Pourquoi y a-t-il quelque chose plutôt que rien ? "',
+          '" Le néant n\'est pas un objet, mais l\'autre par rapport à l\'étant "'
         ]
       }
     ],
@@ -798,13 +798,13 @@ export const concepts = [
       {
         type: 'CONNECTION',
         front: 'Quelle différence être/néant chez Sartre ?',
-        back: 'L\'être est l\'en-soi (chose, pleine, identique). Le néant est le pour-soi (conscience, vide, liberté). L\'homme est « être qui fait surgir le néant dans le monde ».',
+        back: 'L\'être est l\'en-soi (chose, pleine, identique). Le néant est le pour-soi (conscience, vide, liberté). L\'homme est " être qui fait surgir le néant dans le monde ".',
         difficulty: 5
       },
       {
         type: 'QUOTE',
         front: 'Quelle citation de Sartre sur le néant ?',
-        back: '« Le néant est l\'horizon de la réalité humaine » - Sartre, L\'Être et le Néant (1943)',
+        back: '" Le néant est l\'horizon de la réalité humaine " - Sartre, L\'Être et le Néant (1943)',
         difficulty: 3
       }
     ],
@@ -830,19 +830,19 @@ export const concepts = [
     variations: [
       {
         title: 'Existence kierkegaardienne',
-        description: 'L\'existence comme subjectivité, engagement personnel. « La vérité est la subjectivité ». L\'individu devant l\'existence doit choisir, s\'engager, assumer. Le saut dans la foi.'
+        description: 'L\'existence comme subjectivité, engagement personnel. " La vérité est la subjectivité ". L\'individu devant l\'existence doit choisir, s\'engager, assumer. Le saut dans la foi.'
       },
       {
         title: 'Existence sartrienne',
-        description: '« L\'existence précède l\'essence ». L\'homme existe d\'abord, se rencontre, surgit dans le monde, et seulement ensuite se définit. L\'homme est « projet de soi », liberté radicale.'
+        description: '" L\'existence précède l\'essence ". L\'homme existe d\'abord, se rencontre, surgit dans le monde, et seulement ensuite se définit. L\'homme est " projet de soi ", liberté radicale.'
       },
       {
         title: 'Existence heideggerienne',
-        description: 'Dasein - être-là, être-jeté. L\'existence comme « être-au-monde », structure d\'être qui comprend l\'être. « L\'essence du Dasein réside dans son existence ».'
+        description: 'Dasein - être-là, être-jeté. L\'existence comme " être-au-monde ", structure d\'être qui comprend l\'être. " L\'essence du Dasein réside dans son existence ".'
       },
       {
         title: 'Existence marcelienne',
-        description: 'Distinction entre problème (résolvable par technique) et mystère (impliquant le sujet). « Je suis » vs « J\'ai ». L\'existence comme participation à l\'être, communion.'
+        description: 'Distinction entre problème (résolvable par technique) et mystère (impliquant le sujet). " Je suis " vs " J\'ai ". L\'existence comme participation à l\'être, communion.'
       },
       {
         title: 'Existentialisme chrétien',
@@ -852,12 +852,12 @@ export const concepts = [
     keyFigures: [
       { name: 'Kierkegaard', period: '1813-1855', contribution: 'L\'existence comme subjectivité, engagement personnel' },
       { name: 'Marcel', period: '1889-1973', contribution: 'Être et avoir, distinction entre problème et mystère' },
-      { name: 'Sartre', period: '1905-1980', contribution: '« L\'existence précède l\'essence » - l\'homme existe d\'abord' },
+      { name: 'Sartre', period: '1905-1980', contribution: '" L\'existence précède l\'essence " - l\'homme existe d\'abord' },
       { name: 'Heidegger', period: '1889-1976', contribution: 'Dasein, être-là, analytique existentiale' }
     ],
     examples: [
       'L\'existence comme choix et engagement chez Kierkegaard',
-      '« L\'existence précède l\'essence » chez Sartre',
+      '" L\'existence précède l\'essence " chez Sartre',
       'Le Dasein chez Heidegger : être-jeté dans le monde'
     ],
     relatedConcepts: [
@@ -873,8 +873,8 @@ export const concepts = [
         type: 'BOOK',
         reference: 'pp. 25-30',
         quotes: [
-          '« L\'existence précède l\'essence »',
-          '« L\'homme existe, se rencontre, surgit dans le monde, et seulement ensuite se définit »'
+          '" L\'existence précède l\'essence "',
+          '" L\'homme existe, se rencontre, surgit dans le monde, et seulement ensuite se définit "'
         ]
       },
       {
@@ -884,8 +884,8 @@ export const concepts = [
         type: 'BOOK',
         reference: 'Conclusion',
         quotes: [
-          '« La subjectivité est la vérité »',
-          '« L\'existence est l\'actualité de la liberté »'
+          '" La subjectivité est la vérité "',
+          '" L\'existence est l\'actualité de la liberté "'
         ]
       }
     ],
@@ -905,7 +905,7 @@ export const concepts = [
       {
         type: 'QUOTE',
         front: 'Quelle citation de Sartre sur l\'existence ?',
-        back: '« L\'existence précède l\'essence » - Sartre, L\'Existentialisme est un humanisme (1946)',
+        back: '" L\'existence précède l\'essence " - Sartre, L\'Existentialisme est un humanisme (1946)',
         difficulty: 2
       }
     ],
@@ -921,17 +921,17 @@ export const concepts = [
     category: 'metaphysique',
     difficulty: 4,
     importance: 3,
-    definition: 'Le « ce que c\'est » d\'une chose, sa nature propre, ce qui la définit. La quiddité correspond à l\'essence exprimée dans la définition : « l\'homme est un animal rationnel ».',
+    definition: 'Le " ce que c\'est " d\'une chose, sa nature propre, ce qui la définit. La quiddité correspond à l\'essence exprimée dans la définition : " l\'homme est un animal rationnel ".',
     shortDefinition: 'Ce que c\'est, nature propre d\'une chose',
     etymology: {
-      latin: 'quidditas : qualité de « ce que c\'est »',
+      latin: 'quidditas : qualité de " ce que c\'est "',
       greek: 'τὸ τί ἐστι (to ti esti) : le ce que c\'est',
       notes: 'Terme scolastique pour traduire le τί ἐστι d\'Aristote'
     },
     variations: [
       {
         title: 'Quiddité aristotélicienne',
-        description: 'Le « ti esti » - ce que c\'est. Définition par le genre et la différence spécifique. La quiddité est ce qui fait qu\'une chose est ce qu\'elle est, exprimée dans l\'essence.'
+        description: 'Le " ti esti " - ce que c\'est. Définition par le genre et la différence spécifique. La quiddité est ce qui fait qu\'une chose est ce qu\'elle est, exprimée dans l\'essence.'
       },
       {
         title: 'Quiddité thomiste',
@@ -969,8 +969,8 @@ export const concepts = [
         type: 'BOOK',
         reference: 'Livre Z, 1030a',
         quotes: [
-          '« La quiddité est ce qui est dit de la substance dans sa définition »',
-          '« La définition est la parole qui manifeste la quiddité »'
+          '" La quiddité est ce qui est dit de la substance dans sa définition "',
+          '" La définition est la parole qui manifeste la quiddité "'
         ]
       },
       {
@@ -980,8 +980,8 @@ export const concepts = [
         type: 'BOOK',
         reference: 'Partie I, Question 3',
         quotes: [
-          '« L\'essence est ce par quoi et ce quoi une chose est ce qu\'elle est »',
-          '« La quiddité est l\'essence exprimée par la définition »'
+          '" L\'essence est ce par quoi et ce quoi une chose est ce qu\'elle est "',
+          '" La quiddité est l\'essence exprimée par la définition "'
         ]
       }
     ],
@@ -989,7 +989,7 @@ export const concepts = [
       {
         type: 'BASIC',
         front: 'Qu\'est-ce que la quiddité ?',
-        back: 'La quiddité est le « ce que c\'est » d\'une chose, sa nature propre exprimée dans sa définition. Ex: la quiddité de l\'homme est « animal rationnel ».',
+        back: 'La quiddité est le " ce que c\'est " d\'une chose, sa nature propre exprimée dans sa définition. Ex: la quiddité de l\'homme est " animal rationnel ".',
         difficulty: 3
       },
       {
@@ -1001,7 +1001,7 @@ export const concepts = [
       {
         type: 'QUOTE',
         front: 'Quelle citation d\'Aristote sur la quiddité ?',
-        back: '« La quiddité est ce qui est dit de la substance dans sa définition » - Aristote, Métaphysique Z',
+        back: '" La quiddité est ce qui est dit de la substance dans sa définition " - Aristote, Métaphysique Z',
         difficulty: 4
       }
     ],
@@ -1035,11 +1035,11 @@ export const concepts = [
       },
       {
         title: 'Nature kantienne',
-        description: 'Distinction entre nature (phénomène, déterminisme) et liberté (noumène). La nature est le domaine de la causalité, la liberté celui de la moralité. « Je dus limiter le savoir pour faire place à la foi ».'
+        description: 'Distinction entre nature (phénomène, déterminisme) et liberté (noumène). La nature est le domaine de la causalité, la liberté celui de la moralité. " Je dus limiter le savoir pour faire place à la foi ".'
       },
       {
         title: 'Nature spinoziste',
-        description: '« Deus sive Natura » - Dieu ou la Nature. Substance unique infinie comprenant tout. La nature naturante (Dieu, cause) et la nature naturée (effets, modes). Panthéisme radical.'
+        description: '" Deus sive Natura " - Dieu ou la Nature. Substance unique infinie comprenant tout. La nature naturante (Dieu, cause) et la nature naturée (effets, modes). Panthéisme radical.'
       },
       {
         title: 'Nature romantique',
@@ -1070,8 +1070,8 @@ export const concepts = [
         type: 'BOOK',
         reference: 'Livre II, 192b-193b',
         quotes: [
-          '« La nature est principe de mouvement et de repos »',
-          '« La nature est une fin et un but »'
+          '" La nature est principe de mouvement et de repos "',
+          '" La nature est une fin et un but "'
         ]
       },
       {
@@ -1081,8 +1081,8 @@ export const concepts = [
         type: 'BOOK',
         reference: 'Partie IV',
         quotes: [
-          '« Dieu sive Natura »',
-          '« La liberté n\'est pas une liberté d\'indifférence, mais la connaissance de la nécessité »'
+          '" Dieu sive Natura "',
+          '" La liberté n\'est pas une liberté d\'indifférence, mais la connaissance de la nécessité "'
         ]
       }
     ],
@@ -1102,7 +1102,7 @@ export const concepts = [
       {
         type: 'QUOTE',
         front: 'Quelle citation d\'Aristote sur la nature ?',
-        back: '« La nature est principe de mouvement et de repos » - Aristote, Physique II',
+        back: '" La nature est principe de mouvement et de repos " - Aristote, Physique II',
         difficulty: 2
       }
     ],
@@ -1118,7 +1118,7 @@ export const concepts = [
     category: 'metaphysique',
     difficulty: 4,
     importance: 4,
-    definition: 'Ce qu\'une chose est, sa nature fondamentale, ce qui la définit et la rends ce qu\'elle est. L\'essence correspond à la quiddité, le « ce que c\'est » de la chose.',
+    definition: 'Ce qu\'une chose est, sa nature fondamentale, ce qui la définit et la rends ce qu\'elle est. L\'essence correspond à la quiddité, le " ce que c\'est " de la chose.',
     shortDefinition: 'La nature fondamentale d\'une chose, ce qui la définit',
     etymology: {
       greek: 'τὸ τί ἐστι (to ti esti) : le ce que c\'est',
@@ -1132,7 +1132,7 @@ export const concepts = [
       },
       {
         title: 'Essence aristotélicienne',
-        description: 'L\'essence comme « ce que c\'est », exprimée dans la définition. Distinction entre essence (quiddité) et existence. L\'essence définit la chose, mais ne garantit pas son existence effective.'
+        description: 'L\'essence comme " ce que c\'est ", exprimée dans la définition. Distinction entre essence (quiddité) et existence. L\'essence définit la chose, mais ne garantit pas son existence effective.'
       },
       {
         title: 'Essence thomiste',
@@ -1140,18 +1140,18 @@ export const concepts = [
       },
       {
         title: 'Essence existentialiste',
-        description: '« L\'existence précède l\'essence » (Sartre). L\'homme existe d\'abord, surgit dans le monde, et seulement ensuite se définit. Pas de nature humaine préalable : l\'homme est ce qu\'il fait de lui-même.'
+        description: '" L\'existence précède l\'essence " (Sartre). L\'homme existe d\'abord, surgit dans le monde, et seulement ensuite se définit. Pas de nature humaine préalable : l\'homme est ce qu\'il fait de lui-même.'
       },
       {
         title: 'Essence phénoménologique',
-        description: 'L\'essence comme structure de l\'expérience, accessible par intuition eidétique. Husserl : « Retour aux choses mêmes ». L\'essence est ce qui rend la chose intelligible.'
+        description: 'L\'essence comme structure de l\'expérience, accessible par intuition eidétique. Husserl : " Retour aux choses mêmes ". L\'essence est ce qui rend la chose intelligible.'
       }
     ],
     keyFigures: [
       { name: 'Platon', period: '427-347 av. J.-C.', contribution: 'Les Idées comme essences vraies et éternelles' },
       { name: 'Aristote', period: '384-322 av. J.-C.', contribution: 'Distinction essence/existence, définition par le genre et la différence' },
       { name: 'Thomas d\'Aquin', period: '1225-1274', contribution: 'Essence et existence dans la création, acte d\'être' },
-      { name: 'Sartre', period: '1905-1980', contribution: '« L\'existence précède l\'essence » - l\'homme existe d\'abord, se définit après' }
+      { name: 'Sartre', period: '1905-1980', contribution: '" L\'existence précède l\'essence " - l\'homme existe d\'abord, se définit après' }
     ],
     examples: [
       'L\'essence du triangle : figure à trois côtés',
@@ -1171,8 +1171,8 @@ export const concepts = [
         type: 'BOOK',
         reference: 'Partie I, Question 3',
         quotes: [
-          '« L\'essence est ce par quoi une chose est ce qu\'elle est »',
-          '« L\'essence se distingue de l\'existence, car on peut connaître l\'essence sans connaître l\'existence »'
+          '" L\'essence est ce par quoi une chose est ce qu\'elle est "',
+          '" L\'essence se distingue de l\'existence, car on peut connaître l\'essence sans connaître l\'existence "'
         ]
       },
       {
@@ -1182,8 +1182,8 @@ export const concepts = [
         type: 'BOOK',
         reference: 'pp. 25-30',
         quotes: [
-          '« L\'existence précède l\'essence »',
-          '« L\'homme existe, se rencontre, surgit dans le monde, et seulement ensuite se définit »'
+          '" L\'existence précède l\'essence "',
+          '" L\'homme existe, se rencontre, surgit dans le monde, et seulement ensuite se définit "'
         ]
       }
     ],
@@ -1191,7 +1191,7 @@ export const concepts = [
       {
         type: 'BASIC',
         front: 'Qu\'est-ce que l\'essence d\'une chose ?',
-        back: 'L\'essence est la nature fondamentale d\'une chose, ce qui la définit et la rend ce qu\'elle est. Ex: l\'essence du triangle est « figure à trois côtés égaux ».',
+        back: 'L\'essence est la nature fondamentale d\'une chose, ce qui la définit et la rend ce qu\'elle est. Ex: l\'essence du triangle est " figure à trois côtés égaux ".',
         difficulty: 2
       },
       {
@@ -1203,7 +1203,7 @@ export const concepts = [
       {
         type: 'QUOTE',
         front: 'Quelle citation de Sartre sur l\'essence ?',
-        back: '« L\'existence précède l\'essence » - Sartre, L\'Existentialisme est un humanisme (1946)',
+        back: '" L\'existence précède l\'essence " - Sartre, L\'Existentialisme est un humanisme (1946)',
         difficulty: 3
       }
     ],
@@ -1221,7 +1221,7 @@ export const concepts = [
     shortDefinition: 'Confrontation entre l\'appétit de sens humain et l\'irrationalité du monde',
     etymology: {
       latin: 'absurdus : dérisoire, ridicule, contraire à la raison',
-      notes: 'Étymologiquement : ce qui est « sourd » (incompréhensible) ou « dissonant »'
+      notes: 'Étymologiquement : ce qui est " sourd " (incompréhensible) ou " dissonant "'
     },
     variations: [
       {
@@ -1264,9 +1264,9 @@ export const concepts = [
         type: 'BOOK',
         reference: 'Essai philosophique',
         quotes: [
-          '« Il n\'y a qu\'un problème philosophique vraiment sérieux : le suicide »',
-          '« Je vois que cette_route mène à la philosophie. Je reviens à la réalité. Je me demande si un homme peut mourir de la peine qu\'a un autre »',
-          '« La lutte elle-même vers les sommets suffit à remplir le cœur d\'un homme. Il faut imaginer Sisyphe heureux »'
+          '" Il n\'y a qu\'un problème philosophique vraiment sérieux : le suicide "',
+          '" Je vois que cette_route mène à la philosophie. Je reviens à la réalité. Je me demande si un homme peut mourir de la peine qu\'a un autre "',
+          '" La lutte elle-même vers les sommets suffit à remplir le cœur d\'un homme. Il faut imaginer Sisyphe heureux "'
         ]
       },
       {
@@ -1276,8 +1276,8 @@ export const concepts = [
         type: 'BOOK',
         reference: 'Roman',
         quotes: [
-          '« Je m\'ouvrais pour la première fois à la tendre indifférence du monde »',
-          '« Cette parenthèse de ma vie était close »'
+          '" Je m\'ouvrais pour la première fois à la tendre indifférence du monde "',
+          '" Cette parenthèse de ma vie était close "'
         ]
       }
     ],
@@ -1297,7 +1297,7 @@ export const concepts = [
       {
         type: 'QUOTE',
         front: 'Comment Camus conclut-il le Mythe de Sisyphe ?',
-        back: '« La lutte elle-même vers les sommets suffit à remplir le cœur d\'un homme. Il faut imaginer Sisyphe heureux » - La révolte rend l\'absurde vivable.',
+        back: '" La lutte elle-même vers les sommets suffit à remplir le cœur d\'un homme. Il faut imaginer Sisyphe heureux " - La révolte rend l\'absurde vivable.',
         difficulty: 3
       }
     ],

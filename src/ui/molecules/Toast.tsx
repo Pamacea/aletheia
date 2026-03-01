@@ -71,7 +71,7 @@ export function Toast({ toast, onClose }: ToastProps) {
   return (
     <div
       className={cn(
-        'relative text-white px-4 sm:px-6 py-3 sm:py-4 rounded-lg shadow-lg border-2',
+        'relative text-white px-4 sm:px-6 py-3 sm:py-4  shadow-lg border-2',
         'flex items-start gap-3 sm:gap-4 w-full max-w-[clamp(20rem,90vw,40rem)]',
         'animate-toast-in',
         styles.bg,

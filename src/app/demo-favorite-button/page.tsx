@@ -110,7 +110,7 @@ export default function FavoriteButtonDemo() {
                   key={concept.id}
                   onClick={() => setSelectedConceptId(concept.id)}
                   className={`
-                    px-4 py-2 rounded-lg border-2 font-medium transition-all duration-200
+                    px-4 py-2  border-2 font-medium transition-all duration-200
                     ${
                       selectedConceptId === concept.id
                         ? 'bg-rose-100 border-rose-400 text-rose-700'
@@ -124,7 +124,7 @@ export default function FavoriteButtonDemo() {
             </div>
 
             {/* Selected Concept Card */}
-            <div className="bg-white border-2 border-paper-300 rounded-lg p-6">
+            <div className="bg-white border-2 border-paper-300  p-6">
               <div className="flex items-start justify-between mb-4">
                 <div>
                   <h3 className="font-serif text-2xl font-semibold text-ink mb-2">

@@ -55,9 +55,9 @@ export default async function NotesPage({ searchParams }: NotesPageProps) {
      <div className="max-w-7xl mx-auto flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
       <Link
        href="/"
-       className="inline-flex items-center gap-2 px-4 py-2 bg-paper-50 text-sepia-600 hover:text-sepia-700 hover:bg-paper-100 border-2 border-paper-300 hover:border-sepia-600 transition-all duration-200"
+       className="inline-flex items-center gap-2 px-2.5 py-1.5 text-sm bg-paper-50 text-sepia-600 hover:text-sepia-700 hover:bg-paper-100 border-2 border-paper-300 hover:border-sepia-600 transition-all duration-200"
       >
-       <ArrowLeftIcon className="w-5 h-5" />
+       <ArrowLeftIcon className="w-4 h-4" />
        <span className="living-word font-medium">Retour</span>
       </Link>
       <h1 className="font-serif text-2xl font-semibold text-ink">
@@ -65,9 +65,9 @@ export default async function NotesPage({ searchParams }: NotesPageProps) {
       </h1>
       <Link
        href="/profile/notes/new"
-       className="inline-flex items-center gap-2 px-4 py-2 bg-sepia-600 hover:bg-sepia-700 text-paper-50 font-medium border-2 border-sepia-600 transition-all duration-200"
+       className="inline-flex items-center gap-2 px-3 py-1.5 text-sm bg-sepia-600 hover:bg-sepia-700 text-paper-50 font-medium border-2 border-sepia-600 transition-all duration-200"
       >
-       <PlusIcon className="w-5 h-5" />
+       <PlusIcon className="w-4 h-4" />
        <span className="living-word">Nouvelle Note</span>
       </Link>
      </div>

@@ -1,8 +1,9 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useTransition } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
+import { signOut } from '@/lib/actions/auth';
 import { UserIcon, TrophyIcon, ActivityIcon, ChartIcon, MessageSquareIcon, BookOpenIcon, StarIcon, LogoutIcon, BrainIcon } from './CustomIcons';
 
 interface UserDropdownProps {
@@ -25,8 +26,10 @@ const MENU_ITEMS = [
 
 export function UserDropdown({ userName, userImage, onCloseMobile, onMenuToggle }: UserDropdownProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const [isPending, startTransition] = useTransition();
   const containerRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
+  const router = useRouter();
 
   const toggleOpen = (newState: boolean) => {
     setIsOpen(newState);
@@ -55,6 +58,15 @@ export function UserDropdown({ userName, userImage, onCloseMobile, onMenuToggle 
     if (window.innerWidth < 1024) {
       onCloseMobile?.();
     }
+  };
+
+  const handleSignOut = () => {
+    startTransition(async () => {
+      await signOut();
+      router.refresh();
+      toggleOpen(false);
+      onCloseMobile?.();
+    });
   };
 
   const isActive = (href: string) => {
@@ -126,14 +138,23 @@ export function UserDropdown({ userName, userImage, onCloseMobile, onMenuToggle 
               </Link>
             );
           })}
-          <Link
-            href="/api/auth/signout"
-            onClick={() => handleItemClick(true)}
-            className="flex items-center justify-center h-16 hover:bg-red-50 border-b border-paper-200/50 transition-colors"
-            title="Déconnexion"
-          >
-            <LogoutIcon className="w-5 h-5 text-red-600" />
-          </Link>
+          <form action={signOut}>
+            <button
+              type="submit"
+              onClick={() => {
+                handleItemClick(true);
+                startTransition(async () => {
+                  await signOut();
+                  router.refresh();
+                });
+              }}
+              disabled={isPending}
+              className="flex items-center justify-center w-full h-16 hover:bg-red-50 border-b border-paper-200/50 transition-colors disabled:opacity-50"
+              title="Déconnexion"
+            >
+              <LogoutIcon className="w-5 h-5 text-red-600" />
+            </button>
+          </form>
         </div>
       )}
 
@@ -161,14 +182,23 @@ export function UserDropdown({ userName, userImage, onCloseMobile, onMenuToggle 
                 </Link>
               );
             })}
-            <Link
-              href="/api/auth/signout"
-              onClick={() => handleItemClick(true)}
-              className="flex items-center gap-3 h-14 px-4 text-sm text-red-600 hover:bg-red-50 border-b border-paper-200/50"
-            >
-              <LogoutIcon className="w-5 h-5 flex-shrink-0" />
-              <span>Déconnexion</span>
-            </Link>
+            <form action={signOut} className="contents">
+              <button
+                type="submit"
+                onClick={() => {
+                  handleItemClick(true);
+                  startTransition(async () => {
+                    await signOut();
+                    router.refresh();
+                  });
+                }}
+                disabled={isPending}
+                className="flex items-center gap-3 w-full h-14 px-4 text-sm text-red-600 hover:bg-red-50 border-b border-paper-200/50 disabled:opacity-50"
+              >
+                <LogoutIcon className="w-5 h-5 flex-shrink-0" />
+                <span>Déconnexion</span>
+              </button>
+            </form>
           </div>
         </div>
       )}

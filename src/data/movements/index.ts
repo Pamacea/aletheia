@@ -4,37 +4,37 @@
  */
 
 // Antiquity
-export { platonisme, platonismePhilosopherLinks } from './platonisme.ts';
-export { aristotelisme, aristotelismePhilosopherLinks } from './aristotelisme.ts';
-export { stoicismeAncien, stoicismeAncienPhilosopherLinks } from './stoicisme-ancien.ts';
+export { platonisme, platonismePhilosopherLinks } from './platonisme';
+export { aristotelisme, aristotelismePhilosopherLinks } from './aristotelisme';
+export { stoicismeAncien, stoicismeAncienPhilosopherLinks } from './stoicisme-ancien';
 
 // Modern
-export { rationalisme, rationalismePhilosopherLinks } from './rationalisme.ts';
-export { empirisme, empirismePhilosopherLinks } from './empirisme.ts';
-export { idealismeAllemand, idealismeAllemandPhilosopherLinks } from './idealisme-allemand.ts';
-export { marxisme, marxismePhilosopherLinks } from './marxisme.ts';
+export { rationalisme, rationalismePhilosopherLinks } from './rationalisme';
+export { empirisme, empirismePhilosopherLinks } from './empirisme';
+export { idealismeAllemand, idealismeAllemandPhilosopherLinks } from './idealisme-allemand';
+export { marxisme, marxismePhilosopherLinks } from './marxisme';
 
 // Contemporary
-export { existentialisme, existentialismePhilosopherLinks } from './existentialisme.ts';
-export { nihilisme, nihilismePhilosopherLinks } from './nihilisme.ts';
-export { stoicisme, stoicismePhilosopherLinks } from './stoicisme.ts';
-export { phenomenologie, phenomenologiePhilosopherLinks } from './phenomenologie.ts';
-export { postmodernisme, postmodernismePhilosopherLinks } from './postmodernisme.ts';
+export { existentialisme, existentialismePhilosopherLinks } from './existentialisme';
+export { nihilisme, nihilismePhilosopherLinks } from './nihilisme';
+export { stoicisme, stoicismePhilosopherLinks } from './stoicisme';
+export { phenomenologie, phenomenologiePhilosopherLinks } from './phenomenologie';
+export { postmodernisme, postmodernismePhilosopherLinks } from './postmodernisme';
 
 // Combined array of all movements
-import { MovementData, PhilosopherLink } from './existentialisme.ts';
-import { platonisme } from './platonisme.ts';
-import { aristotelisme } from './aristotelisme.ts';
-import { stoicismeAncien } from './stoicisme-ancien.ts';
-import { rationalisme } from './rationalisme.ts';
-import { empirisme } from './empirisme.ts';
-import { idealismeAllemand } from './idealisme-allemand.ts';
-import { marxisme } from './marxisme.ts';
-import { existentialisme } from './existentialisme.ts';
-import { nihilisme } from './nihilisme.ts';
-import { stoicisme } from './stoicisme.ts';
-import { phenomenologie } from './phenomenologie.ts';
-import { postmodernisme } from './postmodernisme.ts';
+import { MovementData, PhilosopherLink } from './existentialisme';
+import { platonisme } from './platonisme';
+import { aristotelisme } from './aristotelisme';
+import { stoicismeAncien } from './stoicisme-ancien';
+import { rationalisme } from './rationalisme';
+import { empirisme } from './empirisme';
+import { idealismeAllemand } from './idealisme-allemand';
+import { marxisme } from './marxisme';
+import { existentialisme } from './existentialisme';
+import { nihilisme } from './nihilisme';
+import { stoicisme } from './stoicisme';
+import { phenomenologie } from './phenomenologie';
+import { postmodernisme } from './postmodernisme';
 
 export const allMovements: MovementData[] = [
   // Antiquity

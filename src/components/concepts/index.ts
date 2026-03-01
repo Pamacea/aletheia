@@ -5,3 +5,4 @@ export { ConceptSuggestions, ConceptSuggestionsSkeleton } from './concept-sugges
 export { LocalConceptGraph } from './local-graph';
 export { ConceptPathFinder } from './concept-path-finder';
 export { ConceptCard } from './ConceptCard';
+export { ConceptCardSkeleton } from './ConceptCardSkeleton';

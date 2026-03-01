@@ -25,12 +25,12 @@ export const concepts = [
       latin: 'absurdus',
       meaning: 'dissonant, ridicule, déraisonnable',
       root: 'ab-surdus : ce qui est sourd, sans harmonie',
-      notes: 'Étymologiquement, ce qui est « hors de toute proportion » ou « sans mélodie »'
+      notes: 'Étymologiquement, ce qui est "hors de toute proportion "ou "sans mélodie "'
     },
     variations: [
       {
         title: 'Camus - Le divorce',
-        description: 'L\'absurde comme « divorce entre l\'esprit qui cherche et l\'univers qui se tait ». Ce n\'est ni dans l\'homme ni dans le monde, mais dans leur présence simultanée. Il naît de la comparaison entre une exigence humaine de clarté et l\'obscurité du monde.'
+        description: 'L\'absurde comme "divorce entre l\'esprit qui cherche et l\'univers qui se tait ". Ce n\'est ni dans l\'homme ni dans le monde, mais dans leur présence simultanée. Il naît de la comparaison entre une exigence humaine de clarté et l\'obscurité du monde.'
       },
       {
         title: 'Kierkegaard - Le paradoxe',
@@ -38,7 +38,7 @@ export const concepts = [
       },
       {
         title: 'Sartre - La contingence',
-        description: 'L\'absurde comme contingence de l\'existence. Le monde est « de trop », sans raison d\'être. L\'existence précède l\'essence, et cette facticité sans fondement révèle l\'absence de sens prédéterminé.'
+        description: 'L\'absurde comme contingence de l\'existence. Le monde est "de trop ", sans raison d\'être. L\'existence précède l\'essence, et cette facticité sans fondement révèle l\'absence de sens prédéterminé.'
       },
       {
         title: 'Kafka - L\'impasse',
@@ -55,11 +55,11 @@ export const concepts = [
     examples: [
       {
         situation: 'Sisyphe',
-        explanation: 'Le héros mythique condamné par les dieux à rouler éternellement son rocher jusqu\'au sommet d\'une montagne d\'où il retombe. Son châtiment inutile est l\'image même de l\'absurde, mais Camus conclut « Il faut imaginer Sisyphe heureux ».'
+        explanation: 'Le héros mythique condamné par les dieux à rouler éternellement son rocher jusqu\'au sommet d\'une montagne d\'où il retombe. Son châtiment inutile est l\'image même de l\'absurde, mais Camus conclut "Il faut imaginer Sisyphe heureux ".'
       },
       {
         situation: 'Meursault dans L\'Étranger',
-        explanation: 'Le personnage qui découvre « la tendre indifférence du monde » lors de son exécution. Son refus de « mentir » et de jouer le jeu des convenances sociales le confronte à l\'absurde.'
+        explanation: 'Le personnage qui découvre "la tendre indifférence du monde "lors de son exécution. Son refus de "mentir "et de jouer le jeu des convenances sociales le confronte à l\'absurde.'
       },
       {
         situation: 'Le personnage de Kafka',
@@ -76,7 +76,7 @@ export const concepts = [
       { name: 'Sens', relation: 'S\'oppose à', description: 'L\'absurde révèle l\'absence de sens inhérente à l\'existence' },
       { name: 'Mort', relation: 'Est lié à', description: 'La conscience de la mort révèle l\'absurde de la condition humaine' },
       { name: 'Nihilisme', relation: 'S\'oppose à', description: 'Contrairement au nihilisme, l\'absurde refuse le désespoir et affirme la vie' },
-      { name: 'Suicide', relation: 'Interroge', description: 'Le suicide est la « véritable problème philosophique » face à l\'absurde' }
+      { name: 'Suicide', relation: 'Interroge', description: 'Le suicide est la " véritable problème philosophique " face à l\'absurde' }
     ],
     sources: [
       {
@@ -213,25 +213,25 @@ export const concepts = [
       },
       {
         type: 'BASIC',
-        front: 'Quel est le « problème philosophique vraiment sérieux » selon Camus ?',
+        front: 'Quel est le "problème philosophique vraiment sérieux "selon Camus ?',
         back: 'Le suicide, car il juge si la vie vaut la peine d\'être vécue face à l\'absurde.',
         difficulty: 1
       },
       {
         type: 'CLOZE',
-        front: 'Selon Camus, « Il faut imaginer {{Sisyphe}} »',
+        front: 'Selon Camus, "Il faut imaginer {{Sisyphe}} "',
         back: 'heureux',
         difficulty: 1
       },
       {
         type: 'CLOZE',
-        front: '« Je m\'ouvrais pour la première fois à la tendre {{indifférence}} du monde. »',
+        front: '"Je m\'ouvrais pour la première fois à la tendre {{indifférence}} du monde. "',
         back: 'indifférence',
         difficulty: 2
       },
       {
         type: 'CLOZE',
-        front: 'Selon Kierkegaard, « La {{foi}} est justement la passion de l\'absurde. »',
+        front: 'Selon Kierkegaard, "La {{foi}} est justement la passion de l\'absurde. "',
         back: 'foi',
         difficulty: 3
       },
@@ -261,31 +261,31 @@ export const concepts = [
       },
       {
         type: 'QUOTE',
-        front: 'De quelle œuvre cette citation est-elle extraite : « Il n\'y a qu\'un problème philosophique vraiment sérieux : le suicide » ?',
+        front: 'De quelle œuvre cette citation est-elle extraite : "Il n\'y a qu\'un problème philosophique vraiment sérieux : le suicide "?',
         back: 'Le Mythe de Sisyphe, Albert Camus (1942)',
         difficulty: 2
       },
       {
         type: 'QUOTE',
-        front: 'De quelle œuvre cette citation est-elle extraite : « Il faut imaginer Sisyphe heureux » ?',
+        front: 'De quelle œuvre cette citation est-elle extraite : "Il faut imaginer Sisyphe heureux "?',
         back: 'Le Mythe de Sisyphe, Albert Camus (1942)',
         difficulty: 1
       },
       {
         type: 'QUOTE',
-        front: 'De quelle œuvre cette citation est-elle extraite : « Je m\'ouvrais pour la première fois à la tendre indifférence du monde » ?',
+        front: 'De quelle œuvre cette citation est-elle extraite : "Je m\'ouvrais pour la première fois à la tendre indifférence du monde "?',
         back: 'L\'Étranger, Albert Camus (1942)',
         difficulty: 2
       },
       {
         type: 'QUOTE',
-        front: 'De quelle œuvre cette citation est-elle extraite : « La foi est justement la passion de l\'absurde » ?',
+        front: 'De quelle œuvre cette citation est-elle extraite : "La foi est justement la passion de l\'absurde "?',
         back: 'Crainte et Tremblement, Søren Kierkegaard (1843)',
         difficulty: 3
       },
       {
         type: 'QUOTE',
-        front: 'De quelle œuvre cette citation est-elle extraite : « Si Dieu n\'existe pas, tout est permis » ?',
+        front: 'De quelle œuvre cette citation est-elle extraite : "Si Dieu n\'existe pas, tout est permis "?',
         back: 'Les Frères Karamazov, Fyodor Dostoevsky (1880) - prononcé par Ivan',
         difficulty: 2
       },
@@ -298,7 +298,7 @@ export const concepts = [
       {
         type: 'ESSAY',
         front: 'En quoi Sisyphe est-il le héros de l\'absurde ?',
-        back: "Sisyphe incarne la condition absurde : condamné à un travail inutile et sans fin, il est l'image de l'homme confronté à l'absence de sens. Mais Camus le transforme en héros tragique : « Le lutteur lui-même bout à bout ses pensées [...] La lutte elle-même vers les sommets suffit à remplir un cœur d'homme. Il faut imaginer Sisyphe heureux. » Le bonheur de Sisyphe vient de sa pleine conscience de l'absurde et de sa révolte, qui affirment sa dignité humaine face à son destin.",
+        back: "Sisyphe incarne la condition absurde : condamné à un travail inutile et sans fin, il est l'image de l'homme confronté à l'absence de sens. Mais Camus le transforme en héros tragique : "Le lutteur lui-même bout à bout ses pensées [...] La lutte elle-même vers les sommets suffit à remplir un cœur d'homme. Il faut imaginer Sisyphe heureux. "Le bonheur de Sisyphe vient de sa pleine conscience de l'absurde et de sa révolte, qui affirment sa dignité humaine face à son destin.",
         difficulty: 5
       },
       {

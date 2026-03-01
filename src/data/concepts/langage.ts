@@ -8,7 +8,7 @@ export const concept = {
   id: 'langage',
   name: 'Langage',
   slug: 'langage',
-  category: 'philosophie_du_langage',
+  category: 'semiotique',
 
   // ===== MÉTADONNÉES =====
   difficulty: 4,
@@ -363,7 +363,7 @@ export const concept = {
     {
       title: 'Quand dire, c\'est faire',
       author: 'John Austin',
-      year: 1962,
+      year: 196,
       type: 'BOOK' as const,
       reference: 'Théorie des actes de langage',
       quotes: [
@@ -449,19 +449,19 @@ export const concept = {
       type: 'QUOTE' as const,
       front: 'Quelle citation de Wittgenstein résume sa théorie du sens ?',
       back: '« Le sens d\'un mot est son usage dans le langage » (Recherches philosophiques, 1953)',
-      difficulty: 2
+      difficulty: 1
     },
     {
       type: 'QUOTE' as const,
       front: 'Quelle citation de Heidegger caractérise le langage ?',
       back: '« Le langage est la maison de l\'être » (Lettre sur l\'humanisme, 1947)',
-      difficulty: 2
+      difficulty: 1
     },
     {
       type: 'CLOZE' as const,
       front: 'Pour Saussure, le lien entre {{signifiant}} et {{signifié}} est {{arbitraire}}.',
       back: 'signifiant | signifié | arbitraire',
-      difficulty: 2
+      difficulty: 1
     },
     {
       type: 'ESSAY' as const,

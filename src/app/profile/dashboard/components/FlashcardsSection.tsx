@@ -92,7 +92,7 @@ export function FlashcardsSection({
                     </p>
                   )}
                 </div>
-                <ZapIcon className="w-5 h-5 text-sepia-600 flex-shrink-0 ml-2" />
+                <ZapIcon className="w-4 h-4 text-sepia-600 flex-shrink-0 ml-2" />
               </div>
               <div className="flex items-center gap-2 text-xs text-ink-light mt-2">
                 <ClockIcon className="w-3 h-3" />

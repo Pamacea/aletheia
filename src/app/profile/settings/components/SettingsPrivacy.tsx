@@ -125,7 +125,7 @@ export function SettingsPrivacy({ initialData }: SettingsPrivacyProps) {
        type="checkbox"
        checked={showProgress}
        onChange={(e) => setShowProgress(e.target.checked)}
-       className="w-5 h-5 text-sepia-600 border-paper-300 focus:ring-sepia-600 "
+       className="w-4 h-4 text-sepia-600 border-paper-300 focus:ring-sepia-600 "
        disabled={isLoading}
       />
      </label>
@@ -140,7 +140,7 @@ export function SettingsPrivacy({ initialData }: SettingsPrivacyProps) {
         type="checkbox"
         checked={showReadingList}
         onChange={(e) => setShowReadingList(e.target.checked)}
-        className="w-5 h-5 text-sepia-600 border-paper-300 focus:ring-sepia-600 "
+        className="w-4 h-4 text-sepia-600 border-paper-300 focus:ring-sepia-600 "
         disabled={isLoading}
        />
       </label>

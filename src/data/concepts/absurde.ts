@@ -458,13 +458,13 @@ export const concept = {
       type: 'QUOTE' as const,
       front: 'Quelle citation de Camus résume la condition absurde ?',
       back: '« Il faut imaginer Sisyphe heureux » (Le Mythe de Sisyphe, 1942) - Dans la conscience lucide de sa tâche sans issue, Sisyphe découvre une liberté supérieure.',
-      difficulty: 2
+      difficulty: 1
     },
     {
       type: 'QUOTE' as const,
       front: 'Quelle citation de Camus définit le problème philosophique suprême ?',
       back: '« Il y a seulement un problème philosophique vraiment sérieux : le suicide » (Le Mythe de Sisyphe, 1942) - Le suicide est la question fondamentale de l\'absurde : la vie vaut-elle d\'être vécue ?',
-      difficulty: 2
+      difficulty: 1
     },
     {
       type: 'QUOTE' as const,
@@ -476,7 +476,7 @@ export const concept = {
       type: 'CLOZE' as const,
       front: 'Pour Camus, l\'absurde est un {{état}} fait pour {{durer}}.',
       back: 'état | durer',
-      difficulty: 2
+      difficulty: 1
     },
     {
       type: 'CLOZE' as const,

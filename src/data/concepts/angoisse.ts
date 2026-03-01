@@ -218,6 +218,12 @@ export const concept = {
       type: 'DISTINCT_FROM',
       description: 'La peur a un objet précis (danger). L\'angoisse n\'a pas d\'objet : elle est devant l\'être lui-même.',
       bidirectional: false
+    },
+    {
+      name: 'Avenir',
+      type: 'OPENS_TO',
+      description: 'L\'angoisse est ouverture sur l\'avenir comme indétermination. Kierkegaard : le vertige devant les possibles. Sartre : l\'angoisse devant ce que je serai.',
+      bidirectional: true
     }
   ],
 
@@ -349,7 +355,7 @@ export const concept = {
       type: 'BASIC' as const,
       front: 'Qu\'est-ce que l\'angoisse selon Kierkegaard ?',
       back: 'L\'angoisse est « le vertige de la liberté » : le saisissement devant l\'ouverture infinie des possibles et la responsabilité de nos choix. Elle est différente de la peur qui a un objet précis.',
-      difficulty: 2
+      difficulty: 1
     },
     {
       type: 'CONNECTION' as const,
@@ -379,7 +385,7 @@ export const concept = {
       type: 'QUOTE' as const,
       front: 'Quelle œuvre contient cette citation : « L\'angoisse est le vertige de la liberté » ?',
       back: 'Le Concept de l\'angoisse, Søren Kierkegaard (1844)',
-      difficulty: 2
+      difficulty: 1
     },
     {
       type: 'QUOTE' as const,

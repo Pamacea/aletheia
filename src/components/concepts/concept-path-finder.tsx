@@ -113,13 +113,13 @@ export function ConceptPathFinder({ fromSlug, fromName }: ConceptPathFinderProps
               value={targetSlug}
               onChange={(e) => setTargetSlug(e.target.value)}
               placeholder="Entrez le slug du concept cible"
-              className="flex-1 px-4 py-2 border-2 border-paper-300 rounded-lg focus:border-sepia-600 focus:outline-none"
+              className="flex-1 px-4 py-2 border-2 border-paper-300  focus:border-sepia-600 focus:outline-none"
             />
             <button
               type="submit"
               disabled={isLoading}
               className={cn(
-                'px-6 py-2 rounded-lg font-medium transition-colors',
+                'px-6 py-2  font-medium transition-colors',
                 'bg-sepia-600 text-paper-50 hover:bg-sepia-700',
                 'disabled:bg-paper-200 disabled:text-ink-light'
               )}
@@ -131,7 +131,7 @@ export function ConceptPathFinder({ fromSlug, fromName }: ConceptPathFinderProps
 
         {/* Error message */}
         {error && (
-          <div className="mb-4 sm:mb-6 p-3 sm:p-4 bg-red-50 border-2 border-red-200 rounded-lg">
+          <div className="mb-4 sm:mb-6 p-3 sm:p-4 bg-red-50 border-2 border-red-200 ">
             <p className="text-sm sm:text-base text-red-700">{error}</p>
           </div>
         )}
@@ -150,7 +150,7 @@ export function ConceptPathFinder({ fromSlug, fromName }: ConceptPathFinderProps
                   <button
                     onClick={() => handleConceptClick(step.slug)}
                     className={cn(
-                      'px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg border-2 transition-all text-sm sm:text-base',
+                      'px-3 py-1.5 sm:px-4 sm:py-2  border-2 transition-all text-sm sm:text-base',
                       'hover:shadow-md hover:scale-105',
                       index === 0
                         ? 'bg-sepia-600 text-paper-50 border-sepia-800'
@@ -192,7 +192,7 @@ export function ConceptPathFinder({ fromSlug, fromName }: ConceptPathFinderProps
             </div>
 
             {/* Path details */}
-            <div className="mt-4 sm:mt-6 p-3 sm:p-4 bg-paper-50 rounded-lg">
+            <div className="mt-4 sm:mt-6 p-3 sm:p-4 bg-paper-50 ">
               <h3 className="font-semibold text-ink mb-2 sm:mb-3 text-sm sm:text-base">Détails du parcours</h3>
               <div className="space-y-1.5 sm:space-y-2">
                 {path.relations.map((relation, index) => {

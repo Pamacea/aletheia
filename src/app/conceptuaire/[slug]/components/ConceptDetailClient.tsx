@@ -229,32 +229,95 @@ export function ConceptDetailClient({ concept }: ConceptDetailClientProps) {
         </section>
 
         {/* Reasoning */}
-        {concept.reasoning && Array.isArray(concept.reasoning) && concept.reasoning.length > 0 && (
+        {concept.reasoning && (
           <section className="mb-12">
             <div className="bg-white border-2 border-paper-300 p-8">
               <h2 className="font-serif text-2xl font-semibold text-ink mb-6">
                 <span className="living-word">Raisonnement</span>
               </h2>
-              <div className="space-y-6">
-                {concept.reasoning.map((step, index) => (
-                  <div
-                    key={index}
-                    className="flex gap-4"
-                  >
-                    <div className="flex-shrink-0 w-8 h-8 bg-sepia-600 text-white rounded-full flex items-center justify-center font-semibold text-sm">
-                      {index + 1}
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-semibold text-ink mb-2">
-                        <span className="living-word">{step.title}</span>
+
+              {/* New format: object with thesis, arguments, counterArguments */}
+              {!Array.isArray(concept.reasoning) && (
+                <div className="space-y-8">
+                  {/* Thesis */}
+                  {(concept.reasoning as any).thesis && (
+                    <div className="p-6 bg-sepia-50 border-l-4 border-sepia-600">
+                      <h3 className="font-semibold text-ink mb-3 text-lg">
+                        <span className="living-word">Thèse</span>
                       </h3>
                       <p className="text-ink-light leading-relaxed">
-                        <span className="living-word">{step.description}</span>
+                        <span className="living-word">{(concept.reasoning as any).thesis}</span>
                       </p>
                     </div>
-                  </div>
-                ))}
-              </div>
+                  )}
+
+                  {/* Arguments */}
+                  {(concept.reasoning as any).arguments && Array.isArray((concept.reasoning as any).arguments) && (concept.reasoning as any).arguments.length > 0 && (
+                    <div>
+                      <h3 className="font-semibold text-ink mb-4 text-lg">
+                        <span className="living-word">Arguments</span>
+                      </h3>
+                      <div className="space-y-4">
+                        {(concept.reasoning as any).arguments.map((arg: any, idx: number) => (
+                          <div key={idx} className="p-4 bg-paper-100 border border-paper-300">
+                            <h4 className="font-semibold text-sepia-700 mb-2">
+                              <span className="living-word">{arg.title}</span>
+                            </h4>
+                            <p className="text-ink-light leading-relaxed text-sm">
+                              <span className="living-word">{arg.content}</span>
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Counter Arguments */}
+                  {(concept.reasoning as any).counterArguments && Array.isArray((concept.reasoning as any).counterArguments) && (concept.reasoning as any).counterArguments.length > 0 && (
+                    <div>
+                      <h3 className="font-semibold text-ink mb-4 text-lg">
+                        <span className="living-word">Objections</span>
+                      </h3>
+                      <div className="space-y-4">
+                        {(concept.reasoning as any).counterArguments.map((arg: any, idx: number) => (
+                          <div key={idx} className="p-4 bg-paper-100 border-l-2 border-sepia-400">
+                            <h4 className="font-semibold text-sepia-700 mb-2">
+                              <span className="living-word">{arg.title}</span>
+                            </h4>
+                            <p className="text-ink-light leading-relaxed text-sm">
+                              <span className="living-word">{arg.content}</span>
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* Legacy format: array of steps */}
+              {Array.isArray(concept.reasoning) && concept.reasoning.length > 0 && (
+                <div className="space-y-6">
+                  {concept.reasoning.map((step, index) => (
+                    <div
+                      key={index}
+                      className="flex gap-4"
+                    >
+                      <div className="flex-shrink-0 w-8 h-8 bg-sepia-600 text-white rounded-full flex items-center justify-center font-semibold text-sm">
+                        {index + 1}
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="font-semibold text-ink mb-2">
+                          <span className="living-word">{(step as any).title}</span>
+                        </h3>
+                        <p className="text-ink-light leading-relaxed">
+                          <span className="living-word">{(step as any).description || (step as any).content}</span>
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           </section>
         )}

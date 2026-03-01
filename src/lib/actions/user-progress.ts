@@ -370,6 +370,7 @@ async function checkAchievements(userId: string) {
           userId,
           achievementId: achievement.id,
           progress: requirements.count,
+          unlockedAt: new Date(),  // Only set when actually unlocked
         },
       });
 
@@ -425,22 +426,46 @@ export async function getUserAchievements(userId: string) {
     },
   });
 
-  const unlockedIds = userAchievements.map((ua) => ua.achievementId);
-  const userProgressMap = new Map(
-    userAchievements.map((ua) => [ua.achievementId, ua.progress])
+  // Build map of achievement data
+  const userAchievementMap = new Map(
+    userAchievements.map((ua) => [
+      ua.achievementId,
+      {
+        progress: ua.progress,
+        unlockedAt: ua.unlockedAt,  // Check actual unlock time
+      }
+    ])
   );
+
+  // Get current user progress for real-time validation
+  const userProgress = await prisma.userProgress.findUnique({
+    where: { userId },
+  });
 
   return achievements.map((achievement) => {
     const requirements = achievement.requirements as any;
-    const isUnlocked = unlockedIds.includes(achievement.id);
-    const progress = userProgressMap.get(achievement.id) || 0;
+    const userAchievement = userAchievementMap.get(achievement.id);
+
+    // Check if actually unlocked (has unlockedAt timestamp)
+    const isUnlocked = userAchievement?.unlockedAt !== null && userAchievement?.unlockedAt !== undefined;
+    const progress = userAchievement?.progress || 0;
 
     return {
-      ...achievement,
-      isUnlocked,
+      id: achievement.id,
+      name: achievement.name,
+      description: achievement.description,
+      icon: achievement.icon || '',
+      category: achievement.category,
+      xpReward: achievement.xpReward || 0,
+      earned: isUnlocked,
+      earnedAt: userAchievement?.unlockedAt || undefined,
       progress,
+      target: requirements.count || 0,
+      // Keep additional fields for compatibility
+      isUnlocked,
       maxProgress: requirements.count || 0,
       requirements,
+      unlockedAt: userAchievement?.unlockedAt,
     };
   });
 }

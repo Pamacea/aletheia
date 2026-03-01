@@ -216,6 +216,24 @@ export const concept = {
       type: 'DISTINCT_FROM',
       description: 'L\'espoir est l\'attente d\'un sens à venir (salut, paradis). Le sens existentialiste est immanent : il est créé ici et maintenant.',
       bidirectional: false
+    },
+    {
+      name: 'Signification',
+      type: 'RELATES_TO',
+      description: 'Le sens est la signification globale de l\'existence, par opposition à la signification des éléments particuliers. Chercher le sens, c\'est chercher une signification de la vie dans son ensemble.',
+      bidirectional: true
+    },
+    {
+      name: 'Quête',
+      type: 'EXPRESSED_IN',
+      description: 'La question du sens s\'exprime comme quête existentielle. L\'homme est en quête de sens comme le chercheur est en quête de vérité.',
+      bidirectional: true
+    },
+    {
+      name: 'But',
+      type: 'DISTINCT_FROM',
+      description: 'Le but est une fin vers laquelle on tend. Le sens est plus vaste : il peut exister sans but précis, comme dans la création artistique.',
+      bidirectional: true
     }
   ],
 
@@ -364,7 +382,7 @@ export const concept = {
       type: 'BASIC' as const,
       front: 'Qu\'est-ce que la question du sens dans l\'existence ?',
       back: 'La question du sens interroge la signification ou la direction de l\'existence : « Pourquoi vivons-nous ? », « Quelle est la valeur de la vie ? ». Pour les croyants, le sens est donné par Dieu. Pour les existentialistes athées, le sens est créé par la liberté humaine.',
-      difficulty: 2
+      difficulty: 1
     },
     {
       type: 'CONNECTION' as const,
@@ -412,7 +430,7 @@ export const concept = {
       type: 'CLOZE' as const,
       front: 'Pour Camus, « La vie sera vécue {{mieux}}, sans avoir besoin de {{sens}}. »',
       back: 'mieux | sens',
-      difficulty: 2
+      difficulty: 1
     },
     {
       type: 'ESSAY' as const,

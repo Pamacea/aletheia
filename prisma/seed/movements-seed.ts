@@ -160,6 +160,12 @@ async function main() {
   console.log('');
 }
 
+// Export function for use in main seed
+export async function seedMovements() {
+  await main();
+}
+
+// Run if called directly
 main()
   .catch((e) => {
     console.error('❌ Seeding failed:', e);

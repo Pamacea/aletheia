@@ -1,12 +1,14 @@
 'use client';
 
-import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { formatDistanceToNow } from 'date-fns';
 import { fr } from 'date-fns/locale';
 import { PencilIcon, Trash2Icon, EyeIcon, EyeOffIcon, FileTextIcon } from 'lucide-react';
 import { cn } from '@/lib/utils/cn';
 import ReactMarkdown from 'react-markdown';
-import { Badge } from '@/ui/molecules/Badge';
+import { Badge, ConfirmDialog } from '@/ui/molecules';
+import Link from 'next/link';
+import { useRef, useState } from 'react';
 
 interface NoteCardProps {
   id: string;
@@ -39,6 +41,10 @@ export function NoteCard({
   onToggleVisibility,
   className,
 }: NoteCardProps) {
+  const router = useRouter();
+  const actionsRef = useRef<HTMLDivElement>(null);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [isDeleting, setIsDeleting] = useState(false);
   // Strip markdown for preview
   const getPreview = (markdown: string, maxLength = 150) => {
     const plainText = markdown
@@ -64,33 +70,59 @@ export function NoteCard({
     locale: fr,
   });
 
-  const handleDelete = (e: React.MouseEvent) => {
+  const handleDelete = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     e.stopPropagation();
-    if (window.confirm('Êtes-vous sûr de vouloir supprimer cette note ?')) {
-      onDelete?.(id);
+    e.nativeEvent.stopImmediatePropagation();
+    setIsDeleteModalOpen(true);
+  };
+
+  const handleConfirmDelete = async () => {
+    setIsDeleting(true);
+    try {
+      await onDelete?.(id);
+      setIsDeleteModalOpen(false);
+    } finally {
+      setIsDeleting(false);
     }
   };
 
-  const handleToggleVisibility = (e: React.MouseEvent) => {
+  const handleCancelDelete = () => {
+    if (!isDeleting) {
+      setIsDeleteModalOpen(false);
+    }
+  };
+
+  const handleToggleVisibility = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     e.stopPropagation();
     e.nativeEvent.stopImmediatePropagation();
     onToggleVisibility?.(id, isPublic);
   };
 
-  const handleEdit = (e: React.MouseEvent) => {
+  const handleEdit = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     e.stopPropagation();
     e.nativeEvent.stopImmediatePropagation();
     onEdit?.(id);
   };
 
+  const handleCardClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    // Don't navigate if clicking on actions area or links
+    const target = e.target as HTMLElement;
+    const isActionsArea = actionsRef.current?.contains(target);
+    const isLink = target.closest('a');
+
+    if (!isActionsArea && !isLink) {
+      router.push(`/profile/notes/${id}`);
+    }
+  };
+
   return (
-    <Link
-      href={`/profile/notes/${id}`}
+    <div
+      onClick={handleCardClick}
       className={cn(
-        "group block bg-white border-2 border-paper-300 p-5",
+        "group block bg-white border-2 border-paper-300 p-5 cursor-pointer",
         "hover:shadow-lg hover:border-sepia-600 transition-all duration-300",
         "relative overflow-hidden",
         className
@@ -103,16 +135,17 @@ export function NoteCard({
             {title}
           </h3>
         </div>
-        <div className="flex items-center gap-1 flex-shrink-0">
+        <div ref={actionsRef} className="flex items-center gap-1 flex-shrink-0">
           <button
             type="button"
             onClick={handleToggleVisibility}
             className={cn(
-              "p-1.5 transition-colors",
-              "hover:bg-paper-200",
+              "p-1.5 rounded transition-all duration-200",
+              "hover:bg-paper-200 hover:shadow-sm",
+              "active:scale-95",
               isPublic ? "text-sepia-600" : "text-paper-400"
             )}
-            title={isPublic ? 'Note publique' : 'Note privée'}
+            title={isPublic ? 'Rendre privée (note publique actuellement)' : 'Rendre publique (note privée actuellement)'}
           >
             {isPublic ? (
               <EyeIcon className="w-4 h-4" />
@@ -123,16 +156,26 @@ export function NoteCard({
           <button
             type="button"
             onClick={handleEdit}
-            className="p-1.5 text-ink-light hover:text-sepia-600 hover:bg-paper-200 transition-colors"
-            title="Modifier"
+            className={cn(
+              "p-1.5 rounded transition-all duration-200",
+              "text-ink-light hover:text-sepia-600",
+              "hover:bg-paper-200 hover:shadow-sm",
+              "active:scale-95"
+            )}
+            title="Modifier cette note"
           >
             <PencilIcon className="w-4 h-4" />
           </button>
           <button
             type="button"
             onClick={handleDelete}
-            className="p-1.5 text-ink-light hover:text-red-600 hover:bg-red-50 transition-colors"
-            title="Supprimer"
+            className={cn(
+              "p-1.5 rounded transition-all duration-200",
+              "text-ink-light hover:text-red-600",
+              "hover:bg-red-50 hover:shadow-sm",
+              "active:scale-95"
+            )}
+            title="Supprimer cette note de manière irréversible"
           >
             <Trash2Icon className="w-4 h-4" />
           </button>
@@ -199,7 +242,7 @@ export function NoteCard({
       </div>
 
       {/* Decorative corner */}
-      <div className="absolute top-0 right-0 w-16 h-16 opacity-0 group-hover:opacity-5 transition-opacity">
+      <div className="absolute top-0 right-0 w-16 h-16 opacity-0 group-hover:opacity-5 transition-opacity pointer-events-none">
         <svg viewBox="0 0 100 100" className="w-full h-full text-sepia-600">
           <path
             fill="currentColor"
@@ -207,6 +250,19 @@ export function NoteCard({
           />
         </svg>
       </div>
-    </Link>
+
+      {/* Delete Confirmation Dialog */}
+      <ConfirmDialog
+        isOpen={isDeleteModalOpen}
+        title="Supprimer la note ?"
+        message={`Êtes-vous sûr de vouloir supprimer cette note ?\n\nTitre: ${title}\n\nCette action est irréversible et toutes les données associées seront perdues.`}
+        confirmLabel="Supprimer"
+        cancelLabel="Annuler"
+        variant="danger"
+        onConfirm={handleConfirmDelete}
+        onCancel={handleCancelDelete}
+        isConfirming={isDeleting}
+      />
+    </div>
   );
 }

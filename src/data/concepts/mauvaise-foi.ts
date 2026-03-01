@@ -360,7 +360,7 @@ export const concept = {
       type: 'BASIC' as const,
       front: 'Qu\'est-ce que la mauvaise foi selon Sartre ?',
       back: 'La mauvaise foi est l\'auto-illusion par laquelle l\'être humain nie sa liberté absolue et sa responsabilité. C\'est un « mensonge à soi » où l\'on se réduit à un rôle, une chose, une essence, pour fuir l\'angoisse de notre liberté.',
-      difficulty: 2
+      difficulty: 1
     },
     {
       type: 'BASIC' as const,
@@ -372,7 +372,7 @@ export const concept = {
       type: 'BASIC' as const,
       front: 'Quel est l\'exemple du garçon de café chez Sartre ?',
       back: 'Le garçon de café qui joue son rôle avec une application excessive, comme s\'il était ce rôle. Il se réduit à être « garçon de café » comme si c\'était sa nature, pour fuir sa liberté d\'être autre chose. C\'est un exemple de mauvaise foi : identification à un rôle.',
-      difficulty: 2
+      difficulty: 1
     },
     {
       type: 'BASIC' as const,
@@ -414,7 +414,7 @@ export const concept = {
       type: 'CLOZE' as const,
       front: 'La mauvaise foi cherche à fuir l\'{{angoisse}} de la {{liberté}}.',
       back: 'angoisse | liberté',
-      difficulty: 2
+      difficulty: 1
     },
     {
       type: 'ESSAY' as const,

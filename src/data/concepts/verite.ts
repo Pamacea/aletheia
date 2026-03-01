@@ -24,22 +24,46 @@ export const concept = {
     latin: 'veritas',
     greek: 'alètheia (ἀλήθεια)',
     root: 'verus : vrai / lethe : oubli + a- : non-oubli',
-    notes: 'Alètheia signifie « dévoilement » : le vrai est ce qui n\'est pas caché, ce qui est manifesté'
+    notes: 'Alètheia signifie " dévoilement " : le vrai est ce qui n\'est pas caché, ce qui est manifesté'
   },
 
   // ===== RAISONNEMENT PHILOSOPHIQUE =====
   reasoning: {
+    // Perspectives par école philosophique
+    perspectives: [
+      {
+        school: 'Théorie de la correspondance',
+        philosopher: 'Aristote',
+        thesis: 'La vérité est adéquation entre la pensée et la réalité',
+        argument: 'Dire de ce qui est qu\'il est, et de ce qui n\'est pas qu\'il n\'est pas. La proposition "la neige est blanche" est vraie si la neige est effectivement blanche. La vérité est correspondance, adéquation, accord entre l\'intellect et la chose. Cette conception est réaliste : il y a une réalité indépendante à laquelle nos pensées correspondent.',
+        conclusion: 'La vérité comme adéquation rei et intellectus (de la chose et de l\'esprit)'
+      },
+      {
+        school: 'Théorie de la cohérence',
+        philosopher: 'Georg Wilhelm Friedrich Hegel',
+        thesis: 'La vérité est cohérence interne du système',
+        argument: 'Le Vrai est le Tout, le système. Une proposition est vraie si elle s\'intègre de manière cohérente dans l\'ensemble du savoir. La vérité n\'est pas correspondance avec une chose externe mais accord avec la totalité du système philosophique. Le réel est rationnel et le rationnel est réel.',
+        conclusion: 'La vérité comme cohérence systématique et totale'
+      },
+      {
+        school: 'Pragmatisme',
+        philosopher: 'William James',
+        thesis: 'La vérité est ce qui fonctionne, ce qui se vérifie dans l\'expérience',
+        argument: 'Une idée est vraie si elle "marche", si elle résiste à l\'épreuve de l\'expérience. La vérité n\'est pas propriété statique mais processus de validation. "Le vrai est seulement l\'expédient dans notre façon de penser". La vérité se fait, ne se trouve pas. Elle est outil pour agir dans le monde.',
+        conclusion: 'La vérité comme processus dynamique de vérification pratique'
+      }
+    ],
     principalArguments: [
       {
         argument: 'Argument de la correspondance (Aristote)',
-        explanation: 'La vérité est adéquation entre ce qui est dit ou pensé et ce qui est. « Dire de ce qui est qu\'il est, et de ce qui n\'est pas qu\'il n\'est pas ». La proposition « la neige est blanche » est vraie si la neige est effectivement blanche.',
+        explanation: 'La vérité est adéquation entre ce qui est dit ou pensé et ce qui est. " Dire de ce qui est qu\'il est, et de ce qui n\'est pas qu\'il n\'est pas ". La proposition " la neige est blanche " est vraie si la neige est effectivement blanche.',
         premises: ['Une proposition est vraie ou fausse', 'La vérité ou fausseté dépend de son rapport à la réalité', 'Si la proposition correspond à la réalité, elle est vraie', 'Si elle ne correspond pas, elle est fausse'],
         conclusion: 'Donc la vérité est correspondance entre pensée et réalité'
       },
       {
         argument: 'Argument pragmatiste (James)',
-        explanation: 'La vérité n\'est pas une propriété statique mais dynamique. Une idée est vraie si elle « marche », si elle résiste à l\'épreuve de l\'expérience. La vérité se fait, ne se trouve pas.',
-        premises: ['Les idées sont des outils pour agir dans le monde', 'Un outil qui marche est « vrai » en ce sens', 'Les idées se valident par leur succès pratique', 'La vérité est processus de validation'],
+        explanation: 'La vérité n\'est pas une propriété statique mais dynamique. Une idée est vraie si elle " marche ", si elle fonctionne dans la pratique. La vérité se vérifie dans l\'expérience.',
+        premises: ['Les idées sont des outils pour agir dans le monde', 'Un outil qui marche est " vrai "', 'La vérité est processus de validation'],
         conclusion: 'Donc la vérité est ce qui fonctionne, ce qui se vérifie dans l\'expérience'
       },
       {
@@ -57,7 +81,7 @@ export const concept = {
       },
       {
         objection: 'Objection nietzschéenne',
-        content: 'La vérité est une illusion dont on a oublié qu\'elle en était une. Il n\'y a pas de faits, seulement des interprétations. La « volonté de vérité » est expression du ressentiment.',
+        content: 'La vérité est une illusion dont on a oublié qu\'elle en était une. Il n\'y a pas de faits, seulement des interprétations. La " volonté de vérité " est expression du ressentiment.',
         response: 'Si toute vérité est illusion, cette proposition elle-même est illusion, donc elle ne s\'invalidate pas mais se renforce. Mais comment alors critiquer les fake news ?'
       },
       {
@@ -95,8 +119,9 @@ export const concept = {
     },
     {
       conceptId: 'connaissance',
-      relation: 'BUILDS_ON',
-      explanation: 'La connaissance est croyance vraie justifiée. La vérité est une condition nécessaire de la connaissance.'
+      relation: 'REQUIRES',
+      explanation: 'La connaissance est toujours connaissance de la vérité. On ne peut pas " connaître " le faux, seulement le croire. La vérité est condition de la connaissance.',
+      bidirectional: true
     },
     {
       conceptId: 'opinion',
@@ -122,6 +147,47 @@ export const concept = {
       conceptId: 'interpretation',
       relation: 'CRITICAL',
       explanation: 'Nietzsche : il n\'y a pas de faits, seulement des interprétations. La vérité est interprétation stabilisée. Critique radicale du concept de vérité.'
+    },
+    {
+      conceptId: 'science',
+      relation: 'BUILDS_ON',
+      explanation: 'La science recherche la vérité par la méthode expérimentale. La vérité scientifique est vérification, réfutation, consensus.',
+      bidirectional: true
+    },
+    {
+      conceptId: 'etre',
+      relation: 'REVEALS',
+      explanation: 'Pour Heidegger, la vérité est alètheia, dévoilement de l\'être. La vérité n\'est pas propriété des propositions mais événement où l\'être se manifeste.',
+      bidirectional: true,
+      category: 'metaphysique'
+    },
+    {
+      conceptId: 'authenticite',
+      relation: 'REQUIRES',
+      explanation: 'L\'authenticité est adéquation entre ce qu\'on est et ce qu\'on fait. C\'est être vrai, pas seulement dire vrai (sincérité). La vérité comme mode d\'être.',
+      bidirectional: true,
+      category: 'existentialisme'
+    },
+    {
+      conceptId: 'sens',
+      relation: 'GIVES',
+      explanation: 'La vérité donne sens à l\'existence. Pour Platon, la contemplation des vérités (Idées) donne sens à la vie du philosophe.',
+      bidirectional: true,
+      category: 'existentialisme'
+    },
+    {
+      conceptId: 'beaute',
+      relation: 'ALLIED',
+      explanation: 'Pour Platon, le beau et le vrai sont alliés : le Beau est aussi vrai que le Vrai est beau. L\'expérience du beau est expérience de vérité.',
+      bidirectional: true,
+      category: 'esthetique'
+    },
+    {
+      conceptId: 'bien',
+      relation: 'CONVERGES',
+      explanation: 'Pour Platon, le Bien et le Vrai convergent dans l\'Idée suprême. Le Vrai est bon, le Bon est vrai. L\'unité du vrai, du beau et du bien.',
+      bidirectional: true,
+      category: 'ethique'
     }
   ],
 
@@ -150,7 +216,7 @@ export const concept = {
     {
       movement: 'Nietzschéisme',
       role: 'CRITICAL',
-      description: 'Nietzsche : la vérité comme illusion, interprétation stabilisée. Critique radicale de la « volonté de vérité ».'
+      description: 'Nietzsche : la vérité comme illusion, interprétation stabilisée. Critique radicale de la " volonté de vérité ".'
     },
     {
       movement: 'Constructivisme',
@@ -161,44 +227,44 @@ export const concept = {
 
   // ===== ANALYSE PHILOSOPHIQUE =====
   philosophicalAnalysis: {
-    history: `La question de la vérité commence avec les Grecs. Parménide oppose « voie de la vérité » (être, immobile) et « voie de l'opinion » (devenir, changement). Platon systématise : le monde sensible est opinion (doxa), le monde des Idées est vérité (épistémè). La vérité est contemplation des êtres éternels.
+    history: `La question de la vérité commence avec les Grecs. Parménide oppose " voie de la vérité " (être, immobile) et " voie de l'opinion " (devenir, changement). Platon systématise : le monde sensible est opinion (doxa), le monde des Idées est vérité (épistémè). La vérité est contemplation des êtres éternels.
 
-Aristote donne la définition classique : « dire de ce qui est qu'il est, et de ce qui n'est pas qu'il n'est pas ». C'est la théorie de la correspondance : adéquation entre pensée et réalité. Cette définition domine la philosophie médiévale (Thomas d'Aquin : « adæquatio rei et intellectus »).
+Aristote donne la définition classique : ' dire de ce qui est qu'il est, et de ce qui n'est pas qu'il n'est pas ". C'est la théorie de la correspondance : adéquation entre pensée et réalité. Cette définition domine la philosophie médiévale (Thomas d'Aquin : " adæquatio rei et intellectus ").
 
 Descartes (1641) fonde la vérité sur l'évidence : ce qui est perçu clairement et distinctement est vrai. Le critère de la vérité devient subjectif (clarté, distinction) plutôt qu'objectif (correspondance).
 
-Spinoza (1677) définit la vérité comme « index d'elle-même » : la vérité se reconnaît elle-même. Le faux est connaître inadéquatement.
+Spinoza (1677) définit la vérité comme " index d'elle-même " : la vérité se reconnaît elle-même. Le faux est connaître inadéquatement.
 
 Leibniz (1704) distingue vérités de raison (nécessaires, analytiques) et vérités de fait (contingentes, synthétiques). Ces dernières reposent sur le principe de raison suffisante.
 
-Kant (1781) transforme la question : la vérité est « accord de la connaissance avec son objet ». Mais il distingue vérité formelle (logique) et vérité matérielle (empirique).
+Kant (1781) transforme la question : la vérité est " accord de la connaissance avec son objet ". Mais il distingue vérité formelle (logique) et vérité matérielle (empirique).
 
 Hegel (1807) voit la vérité comme processus historique : le Vrai est le tout (le système). La vérité se fait dans l'histoire, elle n'est pas donnée d'avance.
 
-Nietzsche (1873) critique radicalement : « la vérité est une illusion dont on a oublié qu'elle en était une ». Il n'y a pas de faits, seulement des interprétations. La « volonté de vérité » est expression du ressentiment.
+Nietzsche (1873) critique radicalement : ' la vérité est une illusion dont on a oublié qu'elle en était une ". Il n'y a pas de faits, seulement des interprétations. La " volonté de vérité " est expression du ressentiment.
 
-James (1907) développe le pragmatisme : la vérité est ce qui fonctionne, ce qui se vérifie dans l'expérience. « Le vrai est seulement l'expédient dans notre façon de penser ».
+James (1907) développe le pragmatisme : la vérité est ce qui fonctionne, ce qui se vérifie dans l'expérience. " Le vrai est seulement l'expédient dans notre façon de penser ".
 
 Heidegger (1943) retourne à l'étymologie grecque alètheia : la vérité comme dévoilement. La vérité n'est pas une propriété des propositions mais un événement où l'être se manifeste.
 
-Aujourd'hui, la « post-vérité » semble confirmer Nietzsche : la vérité devient une construction narrative parmi d'autres. Mais la question de la vérité reste politiquement cruciale pour critiquer les fake news et les manipulations.`,
+Aujourd'hui, la " post-vérité " semble confirmer Nietzsche : la vérité devient une construction narrative parmi d'autres. Mais la question de la vérité reste politiquement cruciale pour critiquer les fake news et les manipulations.`,
 
     problems: [
       {
         problem: 'Problème du critère de la vérité',
-        description: 'Comment distinguer le vrai du faux ? Descartes propose l'évidence, mais on peut avoir des évidences fausses. L'empirisme propose l'expérience, mais nos sens peuvent nous tromper. Quel est le critère infaillible ?'
+        description: 'Comment distinguer le vrai du faux ? Descartes propose l\'évidence, mais on peut avoir des évidences fausses. L\'empirisme propose l\'expérience, mais nos sens peuvent nous tromper. Quel est le critère infaillible ?'
       },
       {
         problem: 'Problème de la correspondance',
-        description: 'La théorie de la correspondance semble intuitive, mais comment comparer pensée et réalité ? Nous n'avons accès à la réalité qu'à travers nos pensées. La correspondance est-elle vérifiable ?'
+        description: 'La théorie de la correspondance semble intuitive, mais comment comparer pensée et réalité ? Nous n\'avons accès à la réalité qu\'à travers nos pensées. La correspondance est-elle vérifiable ?'
       },
       {
         problem: 'Problème du relativisme',
-        description: 'Si la vérité est cohérence (cohérentisme) ou construction sociale (constructivisme), des systèmes contradictoires peuvent chacun être « vrais ». Comment éviter le relativisme ?'
+        description: 'Si la vérité est cohérence (cohérentisme) ou construction sociale (constructivisme), des systèmes contradictoires peuvent chacun être " vrais ". Comment éviter le relativisme ?'
       },
       {
         problem: 'Problème de la post-vérité',
-        description: 'À l'ère des fake news et des bulles de filtre, la vérité devient-elle une opinion parmi d'autres ? Comment critiquer les manipulations si la vérité est construction ?'
+        description: 'À l\'ère des fake news et des bulles de filtre, la vérité devient-elle une opinion parmi d\'autres ? Comment critiquer les manipulations si la vérité est construction ?'
       }
     ],
 
@@ -208,7 +274,7 @@ Aujourd'hui, la « post-vérité » semble confirmer Nietzsche : la vérité dev
         positions: [
           {
             philosopher: 'Aristote',
-            position: 'Théorie de la correspondance : la vérité est adéquation entre ce qui est dit et ce qui est. « Dire de ce qui est qu\'il est ».'
+            position: 'Théorie de la correspondance : la vérité est adéquation entre ce qui est dit et ce qui est. " Dire de ce qui est qu\'il est ".'
           },
           {
             philosopher: 'James',
@@ -252,8 +318,8 @@ Aujourd'hui, la « post-vérité » semble confirmer Nietzsche : la vérité dev
   variations: [
     {
       title: 'Théorie de la correspondance (Aristote)',
-      description: 'La vérité comme adéquation entre ce qui est dit et ce qui est. Aristote définit la vérité comme « dire de ce qui est qu\'il est, et de ce qui n\'est pas qu\'il n\'est pas ». La proposition « la neige est blanche » est vraie si la neige est effectivement blanche. C\'est la conception classique et la plus intuitive : la vérité comme correspondance entre pensée et réalité.',
-      philosophicalContext: 'Cette conception domine la philosophie occidentale, de Thomas d\'Aquin (« adæquatio rei et intellectus ») à la philosophie analytique contemporaine. Elle repose sur le réalisme : il y a une réalité indépendante à laquelle nos pensées correspondent.'
+      description: 'La vérité comme adéquation entre ce qui est dit et ce qui est. Aristote définit la vérité comme " dire de ce qui est qu\'il est, et de ce qui n\'est pas qu\'il n\'est pas ". La proposition " la neige est blanche " est vraie si la neige est blanche.',
+      philosophicalContext: 'Cette conception domine la philosophie occidentale, de Thomas d\'Aquin (" adæquatio rei et intellectus ") à la philosophie analytique contemporaine. Elle repose sur le réalisme : il y a une réalité indépendante à laquelle nos pensées correspondent.'
     },
     {
       title: 'Théorie de la cohérence',
@@ -261,7 +327,7 @@ Aujourd'hui, la « post-vérité » semble confirmer Nietzsche : la vérité dev
     },
     {
       title: 'Théorie pragmatiste (James, Peirce)',
-      description: 'Pour les pragmatistes, la vérité n\'est pas une propriété statique mais dynamique : une idée est vraie si elle « fonctionne », si elle résiste à l\'épreuve de l\'expérience. William James : « Le vrai est seulement l\'expédient dans notre façon de penser ». Charles Sanders Peirce définit la vérité comme l\'opinion finale vers laquelle converge la communauté scientifique à long terme.'
+      description: 'Pour les pragmatistes, la vérité n\'est pas une propriété statique mais dynamique : une idée est vraie si elle " fonctionne ", si elle résiste à l\'épreuve de l\'expérience. William James : " Le vrai est seulement l\'expédient dans notre façon de penser ". Charles Sanders Peirce définit la vérité comme l\'opinion finale vers laquelle converge la communauté scientifique à long terme.'
     },
     {
       title: 'Vérité comme dévoilement (Heidegger)',
@@ -269,15 +335,15 @@ Aujourd'hui, la « post-vérité » semble confirmer Nietzsche : la vérité dev
     },
     {
       title: 'Vérité et interprétation (Nietzsche)',
-      description: 'Pour Nietzsche, la vérité est une illusion dont on a oublié qu\'elle en était une. Il n\'y a pas de faits, seulement des interprétations. Ce que nous appelons « vérité » est une interprétation qui s\'est stabilisée, qui a fait oublier son caractère d\'interprétation. La « volonté de vérité » est une forme du ressentiment : les faibles veulent des vérités absolues pour se protéger du chaos du devenir.'
+      description: 'Pour Nietzsche, la vérité est une illusion dont on a oublié qu\'elle en était une. Il n\'y a pas de faits, seulement des interprétations. Ce que nous appelons " vérité " est une interprétation qui s\'est stabilisée, qui a fait oublier son caractère d\'interprétation. La " volonté de vérité " est une forme du ressentiment : les faibles veulent des vérités absolues pour se protéger du chaos du devenir.',
     },
     {
       title: 'Vérité et consensus (Habermas)',
-      description: 'Pour Habermas, la vérité est le résultat d\'une communication idéale : ce sur quoi s\'accorderaient des participants à une discussion libre, sans contrainte, avec égalité de parole. La vérité n\'est pas une correspondance avec une réalité indépendante mais l\'aboutissement d\'un processus de dialogue rationnel. C\'est la « théorie consensuelle de la vérité ».'
+      description: 'Pour Habermas, la vérité est le résultat d\'une communication idéale : ce sur quoi s\'accorderaient des participants à une discussion libre, sans contrainte, avec égalité de parole. La vérité n\'est pas une correspondance avec une réalité indépendante mais l\'aboutissement d\'un processus de dialogue rationnel. C\'est la " théorie consensuelle de la vérité ".'
     },
     {
       title: 'Vérité formelle vs matérielle (Kant)',
-      description: 'Kant distingue la vérité formelle (accord de la connaissance avec les lois de l\'entendement) de la vérité matérielle (accord de la connaissance avec son objet). La logique traite de la vérité formelle, la connaissance de la vérité matérielle. La « vérité logique » est la conformité aux règles de la pensée ; la « vérité réelle » est l\'adéquation à l\'objet.'
+      description: 'Kant distingue la vérité formelle (accord de la connaissance avec les lois de l\'entendement) de la vérité matérielle (accord de la connaissance avec son objet). La logique traite de la vérité formelle, la connaissance de la vérité matérielle. La " vérité logique " est la conformité aux règles de la pensée ; la " vérité réelle " est l\'adéquation à l\'objet.'
     }
   ],
 
@@ -294,9 +360,9 @@ Aujourd'hui, la « post-vérité » semble confirmer Nietzsche : la vérité dev
 
   // ===== EXEMPLES =====
   examples: [
-    'Le paradoxe du menteur : « Cette phrase est fausse ». Si elle est vraie, alors elle est fausse. Si elle est fausse, alors elle est vraie. Ce paradoxe, découvert par Euboulide, montre que la définition classique de la vérité (adéquation) peut mener à des contradictions logiques inquiétantes.',
-    'La table blanche : La proposition « la table est blanche » est vraie si la table est effectivement blanche. C\'est la théorie de la correspondance. Mais comment vérifier que la table est blanche ? Par ma perception ? Mais ma perception peut me tromper. Par accord avec d\'autres ? Mais là on glisse vers la théorie de la cohérence.',
-    'Le modèle scientifique : La théorie de la relativité est « vraie » non pas parce qu\'elle correspondrait à une réalité ultime, mais parce qu\'elle fait des prédictions précises et résiste à l\'expérience. C\'est la conception pragmatiste : est vrai ce qui fonctionne, ce qui est vérifié dans la pratique.',
+    'Le paradoxe du menteur : "Cette phrase est fausse" si elle est fausse, elle est vraie. Si elle est vraie, elle est fausse. Ce paradoxe interroge la définition de la vérité.',
+    'La table blanche : La proposition "la table est blanche" est vraie si la table est effectivement blanche. C\'est la théorie de la correspondance : adéquation entre proposition et réalité.',
+    'Le modèle scientifique : La théorie de la relativité est "vraie" car elle fait des prédictions vérifiées. Mais pour le pragmatisme, la vérité n\'est pas l\'adéquation avec une réalité indépendante, mais ce qui fonctionne dans la pratique.',
     'L\'œuvre d\'art : Pour Heidegger, le temple grec ne représente pas la vérité, il est vérité qui se met en œuvre. En érigeant le temple, un peuple se comprend lui-même, son monde se dévoile. La vérité n\'est pas une copie de la réalité mais l\'événement où la réalité advient dans sa luminosité.',
     'Le mythe de la caverne : Les prisonniers prennent les ombres pour la vérité. Libéré, le philosophe découvre que les ombres étaient illusion et les vraies choses sont celles qui projettent les ombres. Platon oppose ici connaissance sensible (doxa, opinion) et connaissance intelligible (épistémè, vérité).'
   ],
@@ -400,59 +466,59 @@ Aujourd'hui, la « post-vérité » semble confirmer Nietzsche : la vérité dev
     {
       type: 'BASIC' as const,
       front: 'Quelle est la définition classique de la vérité selon Aristote ?',
-      back: 'Aristote définit la vérité comme « dire de ce qui est qu\'il est, et de ce qui n\'est pas qu\'il n\'est pas ». C\'est la théorie de la correspondance : la vérité est l\'adéquation entre ce qui est dit ou pensé et ce qui est. La proposition « la neige est blanche » est vraie si la neige est effectivement blanche.',
-      difficulty: 2
+      back: 'Aristote définit la vérité comme "dire de ce qui est qu\'il est, et de ce qui n\'est pas qu\'il n\'est pas". C\'est la théorie de la correspondance : la vérité est l\'adéquation entre ce qui est dit ou pensé et ce qui est. La proposition "la neige est blanche" est vraie si la neige est effectivement blanche.',
+      difficulty: 1
     },
     {
       type: 'CONNECTION' as const,
       front: 'Quelle différence entre théorie de la correspondance et théorie de la cohérence ?',
-      back: 'La théorie de la correspondance (Aristote) définit la vérité comme adéquation entre proposition et réalité. La théorie de la cohérence définit la vérité comme cohérence interne d\'un système de croyances. La correspondance demande : « Est-ce que ma pensée correspond à la réalité? » La cohérence demande : « Est-ce que ma pensée est cohérente avec mes autres pensées? » La première semble plus intuitive, mais la seconde résout le problème de comment comparer pensée et réalité.',
+      back: 'La théorie de la correspondance (Aristote) définit la vérité comme adéquation entre proposition et réalité. La théorie de la cohérence définit la vérité comme cohérence interne d\'un système de croyances. La correspondance demande : " Est-ce que ma pensée correspond à la réalité? " La cohérence demande : " Est-ce que ma pensée est cohérente avec mes autres pensées? "',
       difficulty: 3
     },
     {
       type: 'CONNECTION' as const,
       front: 'Comment Heidegger réinterprète-t-il la vérité comme alètheia ?',
-      back: 'Heidegger revient à l\'étymologie grecque alètheia : « dévoilement » (a- privatif + lethe = oubli). La vérité n\'est pas une propriété des propositions (correspondance avec la réalité) mais un événement où l\'être se manifeste, se dévoile dans sa luminosité. L\'œuvre d\'art est « vérité qui se met en œuvre » : elle ne représente pas la réalité mais permet à la réalité d\'advenir. La vérité n\'est pas à découvrir mais à laisser advenir.',
+      back: 'Heidegger revient à l\'étymologie grecque alètheia : " dévoilement " (a- privatif + lethe = oubli). La vérité n\'est pas une propriété des propositions (correspondance avec la réalité) mais un événement où l\'être se manifeste, se dévoile dans sa luminosité. L\'œuvre d\'art est " vérité qui se met en œuvre ".',
       difficulty: 4
     },
     {
       type: 'CONNECTION' as const,
       front: 'Quelle critique Nietzsche fait-il du concept de vérité ?',
-      back: 'Pour Nietzsche, la vérité est « une illusion dont on a oublié qu\'elle en était une ». Il n\'y a pas de faits, seulement des interprétations. Ce que nous appelons « vérité » est une interprétation qui s\'est stabilisée, qui a fait oublier qu\'elle est interprétation. La « volonté de vérité » exprime le refus du devenir, du chaos : les faibles veulent des vérités immuables pour se protéger de la réalité du monde. Ce n\'est pas que la vérité n\'existe pas, mais qu\'elle est toujours perspective, toujours liée à des intérêts vitaux.',
+      back: 'Pour Nietzsche, la vérité est " une illusion dont on a oublié qu\'elle en était une ". Il n\'y a pas de faits, seulement des interprétations. Ce que nous appelons " vérité " est une interprétation qui s\'est stabilisée, qui a fait oublier qu\'elle est interprétation. La " volonté de vérité " est ressentiment.',
       difficulty: 4
     },
     {
       type: 'CONNECTION' as const,
       front: 'Qu\'est-ce que la théorie pragmatiste de la vérité ?',
-      back: 'Pour les pragmatistes (James, Peirce), la vérité n\'est pas une propriété statique mais dynamique : une idée est vraie si elle « marche », si elle résiste à l\'épreuve de l\'expérience. William James : « Le vrai est seulement l\'expédient dans notre façon de penser ». Peirce définit la vérité comme « l\'opinion finale vers laquelle converge la communauté scientifique à long terme ». La vérité n\'est pas à découvrir mais à construire par la recherche collective.',
+      back: 'Pour les pragmatistes (James, Peirce), la vérité n\'est pas une propriété statique mais dynamique : une idée est vraie si elle " marche ", si elle résiste à l\'épreuve de l\'expérience. William James : " Le vrai est seulement l\'expédient dans notre façon de penser ". Peirce définit la vérité comme " l\'opinion finale vers laquelle converge la communauté scientifique à long terme ".',
       difficulty: 4
     },
     {
       type: 'QUOTE' as const,
       front: 'Quelle citation d\'Aristote résume la conception classique de la vérité ?',
-      back: '« Dire de ce qui est qu\'il est, et de ce qui n\'est pas qu\'il n\'est pas » (Métaphysique, IVe siècle av. J.-C.)',
-      difficulty: 2
+      back: '" Dire de ce qui est qu\'il est, et de ce qui n\'est pas qu\'il n\'est pas "',
+      difficulty: 1
     },
     {
       type: 'QUOTE' as const,
       front: 'Quelle citation de Nietzsche résume sa critique de la vérité ?',
-      back: '« Il n\'y a pas de faits, seulement des interprétations »',
-      difficulty: 2
+      back: '" Il n\'y a pas de faits, seulement des interprétations "',
+      difficulty: 1
     },
     {
       type: 'CLOZE' as const,
       front: 'Pour Heidegger, la vérité est {{dévoilement}} (grec : {{alètheia}}).',
       back: 'dévoilement | alètheia',
-      difficulty: 2
+      difficulty: 1
     },
     {
       type: 'ESSAY' as const,
       front: 'La vérité est-elle correspondence avec la réalité ou construction de l\'esprit ?',
-      back: 'Le débat sur la nature de la vérité oppose deux conceptions. La théorie de la correspondance (Aristote) : la vérité est adéquation entre pensée et réalité, indépendante de nous. La théorie cohérentiste ou pragmatiste : la vérité est cohérence interne de nos croyances ou résultat d\'un processus de validation. La première correspond à l\'intuition (la vérité « dehors »), mais se heurte au problème de comment comparer pensée et réalité. La seconde résout ce problème mais risque le relativisme (des systèmes cohérents contradictoires). Heidegger propose une troisième voie : la vérité comme dévoilement, événement où la réalité advient pour nous. Nietzsche pousse plus loin : la vérité est illusion nécessaire, perspective vitale. Aujourd\'hui, la « post-vérité » semble confirmer Nietzsche : la vérité devient une construction narrative parmi d\'autres. Mais comment alors critiquer les fake news ? La question de la vérité reste ouverte et politiquement cruciale.',
+      back: 'Le débat sur la nature de la vérité oppose deux conceptions. La théorie de la correspondance (Aristote) : la vérité est adéquation entre pensée et réalité, indépendante de nous. La théorie cohérentiste ou pragmatiste : la vérité est cohérence interne de nos croyances ou résultat d\'un processus de validation. La première correspond à l\'intuition (la vérité " dehors "), mais se heurte au problème de comment comparer pensée et réalité. La seconde résout ce problème mais risque le relativisme (des systèmes cohérents contradictoires). Heidegger propose une troisième voie : la vérité comme dévoilement, événement où la réalité advient pour nous. Nietzsche pousse plus loin : la vérité est illusion nécessaire, perspective vitale. Aujourd\'hui, la " post-vérité " semble confirmer Nietzsche mais la question reste politiquement cruciale.',
       difficulty: 5
     }
   ],
 
   // ===== TAGS =====
-  tags: ['vérité', 'aristote', 'heidegger', 'nietzsche', 'épistémologie', 'connaissance', 'correspondance', 'alètheia', 'pragmatisme', 'réalité']
+  tags: ['verite', 'aristote', 'heidegger', 'nietzsche', 'epistemologie', 'connaissance', 'correspondance', 'aletheia', 'pragmatisme', 'realite']
 };

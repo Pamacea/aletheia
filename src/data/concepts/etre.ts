@@ -29,6 +29,30 @@ export const concept = {
 
   // ===== RAISONNEMENT PHILOSOPHIQUE =====
   reasoning: {
+    // Perspectives par école philosophique
+    perspectives: [
+      {
+        school: 'Essentialisme',
+        philosopher: 'Platon',
+        thesis: 'L\'être est les Idées éternelles, parfaites, immuables',
+        argument: 'Le monde sensible est devenir, changement, imperfection. Les vrais êtres sont les Idées (ou Formes) : éternelles, immuables, parfaites, intelligibles. Les choses sensibles participent de l\'être sans l\'être pleinement. L\'Être suprême est l\'Idée du Bien, principe de tout ce qui est. La connaissance est anamnèse, ressouvenir des Idées.',
+        conclusion: 'L\'être comme monde intelligible des Idées, opposé au monde sensible'
+      },
+      {
+        school: 'Existentialisme',
+        philosopher: 'Jean-Paul Sartre',
+        thesis: 'L\'existence précède l\'essence : l\'homme est liberté absolue',
+        argument: 'Il n\'y a pas de nature humaine donnée. L\'homme existe d\'abord, se rencontre, surgit dans le monde, et seulement ensuite se définit. L\'homme est condamné à être libre : il doit s\'inventer, choisir qui il est. L\'être se divise en en-soi (être massif des choses) et pour-soi (être conscient de soi). Le pour-soi est néantisation de l\'en-soi.',
+        conclusion: 'L\'être comme liberté absolue et projet existentiel de soi'
+      },
+      {
+        school: 'Nihilisme',
+        philosopher: 'Friedrich Nietzsche',
+        thesis: 'Il n\'y a pas d\'être en soi, seulement devenir et volonté de puissance',
+        argument: '"Dieu est mort" : pas de monde vrai, pas d\'être en soi, seulement interprétations. L\'être est une illusion grammaticale. Il n\'y a pas de faits, seulement des interprétations. Le devenir est primordial : tout est flux, changement, volonté de puissance. Le vrai monde (des platoniciens) est une fable dont nous avons cessé de croire.',
+        conclusion: 'L\'être comme illusion, le devenir comme seule réalité'
+      }
+    ],
     principalArguments: [
       {
         argument: 'Argument de Parménide sur l\'impossibilité du non-être',
@@ -117,6 +141,48 @@ export const concept = {
       conceptId: 'substance',
       relation: 'BUILDS_ON',
       explanation: 'La substance est l\'être par excellence, ce qui est par soi et non par autre (Aristote, Descartes, Spinoza).'
+    },
+    {
+      conceptId: 'authenticite',
+      relation: 'THEMATIZES',
+      explanation: 'L\'authenticité est le mode d\'existence où l\'être humain s\'approprie son être. Pour Heidegger, l\'authenticité est le « retour à soi » de l\'être-là qui assume son être-jeté et sa mortalité.',
+      bidirectional: true,
+      category: 'existentialisme'
+    },
+    {
+      conceptId: 'connaissance',
+      relation: 'REVEALS',
+      explanation: 'La connaissance est toujours connaissance de l\'être. Pour Heidegger, la vérité est dévoilement de l\'être. La question de l\'être précède toute connaissance.',
+      bidirectional: true,
+      category: 'epistemologie'
+    },
+    {
+      conceptId: 'verite',
+      relation: 'FOUNDATIONAL',
+      explanation: 'La vérité est dévoilement de l\'être (alètheia). Pour Heidegger, l\'être se manifeste dans la vérité comme événement de révélation.',
+      bidirectional: true,
+      category: 'epistemologie'
+    },
+    {
+      conceptId: 'bien',
+      relation: 'TRANSCENDS',
+      explanation: 'Pour Platon, l\'Être suprême est l\'Idée du Bien, qui dépasse l\'être en dignity et en puissance. L\'être participe du Bien qui est sa source.',
+      bidirectional: true,
+      category: 'ethique'
+    },
+    {
+      conceptId: 'responsabilite',
+      relation: 'IMPLIES',
+      explanation: 'L\'être humain se caractérise par sa responsabilité : être signifie être responsable. L\'être-pour-soi est conscience de sa responsabilité ontologique.',
+      bidirectional: true,
+      category: 'ethique'
+    },
+    {
+      conceptId: 'dieu',
+      relation: 'PARADIGMATIC',
+      explanation: 'Dieu est l\'Être par excellence, acte pur d\'être (Thomas d\'Aquin). L\'être fini (créature) se définit par rapport à l\'Être infini (créateur).',
+      bidirectional: true,
+      category: 'spiritualite'
     }
   ],
 
@@ -383,7 +449,7 @@ Heidegger renverse la tradition : la métaphysique a oublié la « différence o
     {
       title: 'Science de la logique',
       author: 'Georg Wilhelm Friedrich Hegel',
-      year: 1812,
+      year: 181,
       type: 'BOOK' as const,
       reference: 'Dialectique de l\'être, du néant et du devenir',
       quotes: [
@@ -439,7 +505,7 @@ Heidegger renverse la tradition : la métaphysique a oublié la « différence o
       type: 'QUOTE' as const,
       front: 'Quelle question radicale Leibniz formule-t-il sur l\'être ?',
       back: '« Pourquoi y a-t-il quelque chose plutôt que rien? » - Cette question interroge la raison même de l\'existence de l\'être.',
-      difficulty: 2
+      difficulty: 1
     },
     {
       type: 'CLOZE' as const,

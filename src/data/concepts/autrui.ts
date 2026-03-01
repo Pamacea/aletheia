@@ -429,13 +429,13 @@ export const concept = {
       type: 'BASIC' as const,
       front: 'Qu\'est-ce qu\'autrui selon Sartre ?',
       back: 'Pour Sartre, autrui est un autre sujet qui me regarde et m\'objective. Le regard d\'autrui me vole mon monde et me transforme en objet pour un sujet. Cette expérience est conflictuelle : « l\'enfer, c\'est les autres ».',
-      difficulty: 2
+      difficulty: 1
     },
     {
       type: 'BASIC' as const,
       front: 'Qu\'est-ce qu\'autrui selon Levinas ?',
       back: 'Pour Levinas, autrui est « visage » qui me convoque à la responsabilité éthique. Le visage dit « tu ne tueras point » et m\'assigne à une responsabilité infinie. L\'éthique est « philosophie première ».',
-      difficulty: 2
+      difficulty: 1
     },
     {
       type: 'CONNECTION' as const,
@@ -477,13 +477,13 @@ export const concept = {
       type: 'QUOTE' as const,
       front: 'Quelle œuvre contient cette citation : « Le visage est l\'épiphanie du faible » ?',
       back: 'Totalité et Infini, Emmanuel Levinas (1961)',
-      difficulty: 2
+      difficulty: 1
     },
     {
       type: 'QUOTE' as const,
       front: 'Quelle œuvre contient cette citation : « Dans le commencement est la relation » ?',
       back: 'Je et Tu, Martin Buber (1923)',
-      difficulty: 2
+      difficulty: 1
     },
     {
       type: 'CLOZE' as const,
@@ -501,7 +501,7 @@ export const concept = {
       type: 'CLOZE' as const,
       front: 'Pour Merleau-Ponty, nous sommes en {{intercorporéité}}.',
       back: 'intercorporéité',
-      difficulty: 2
+      difficulty: 1
     },
     {
       type: 'ESSAY' as const,

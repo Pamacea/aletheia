@@ -8,7 +8,7 @@ export const concept = {
   id: 'conscience',
   name: 'Conscience',
   slug: 'conscience',
-  category: 'philosophie_de_lesprit',
+  category: 'psychologie',
 
   // ===== MÉTADONNÉES =====
   difficulty: 5,
@@ -375,7 +375,7 @@ Aujourd'hui, la philosophie de l'esprit (Chalmers, Nagel) pose le « problème d
     {
       title: 'L\'Émile',
       author: 'Jean-Jacques Rousseau',
-      year: 1762,
+      year: 176,
       type: 'BOOK' as const,
       reference: 'Traité d\'éducation et analyse de la conscience morale',
       quotes: [
@@ -446,13 +446,13 @@ Aujourd'hui, la philosophie de l'esprit (Chalmers, Nagel) pose le « problème d
       type: 'QUOTE' as const,
       front: 'Quelle citation de Husserl résume l\'intentionnalité ?',
       back: '« Toute conscience est conscience de quelque chose » (Idées directrices, 1913)',
-      difficulty: 2
+      difficulty: 1
     },
     {
       type: 'CLOZE' as const,
       front: 'Pour Husserl, la conscience est toujours {{conscience de quelque chose}}. C\'est le principe d\'{{intentionnalité}}.',
       back: 'conscience de quelque chose | intentionnalité',
-      difficulty: 2
+      difficulty: 1
     },
     {
       type: 'ESSAY' as const,

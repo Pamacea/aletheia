@@ -91,7 +91,7 @@ export function RelationBadge({
   return (
     <div
       className={cn(
-        'inline-flex items-center gap-1.5 px-2 py-1 rounded-md border',
+        'inline-flex items-center gap-1.5 px-2 py-1  border',
         config.bgColor,
         config.color,
         'border-current/20',

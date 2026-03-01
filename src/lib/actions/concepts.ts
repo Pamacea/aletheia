@@ -30,11 +30,13 @@ export interface QuoteWithSource {
 // SERVER ACTIONS - CONCEPTS
 // ============================================================================
 
-export async function getConcepts(params?: { search?: string; category?: string }): Promise<ConceptWithCategory[]> {
+export async function getConcepts(params?: { search?: string; category?: string; page?: number; limit?: number }): Promise<ConceptWithCategory[]> {
   'use server';
 
   const search = params?.search || '';
   const categorySlug = params?.category || '';
+  const page = params?.page || 1;
+  const limit = params?.limit || 24; // 24 concepts par page (grid responsive)
 
   const concepts = await prisma.concept.findMany({
     where: {
@@ -57,7 +59,9 @@ export async function getConcepts(params?: { search?: string; category?: string 
         }
       }
     },
-    orderBy: { name: 'asc' }
+    orderBy: { name: 'asc' },
+    take: limit,
+    skip: (page - 1) * limit
   });
 
   return concepts.map(concept => ({
@@ -140,6 +144,31 @@ export async function getCategories(): Promise<Category[]> {
     icon: cat.icon ?? null,
     parentId: cat.parentId ?? null,
   }));
+}
+
+/**
+ * Count total concepts for pagination
+ */
+export async function getConceptsCount(params?: { search?: string; category?: string }): Promise<number> {
+  'use server';
+
+  const search = params?.search || '';
+  const categorySlug = params?.category || '';
+
+  const count = await prisma.concept.count({
+    where: {
+      ...(categorySlug ? { category: { slug: categorySlug } } : {}),
+      ...(search ? {
+        OR: [
+          { name: { contains: search, mode: 'insensitive' } },
+          { shortDefinition: { contains: search, mode: 'insensitive' } },
+          { tags: { hasSome: [search] } }
+        ]
+      } : {})
+    }
+  });
+
+  return count;
 }
 
 /**

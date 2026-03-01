@@ -29,8 +29,8 @@ export default async function StatsPage() {
   return (
     <div className="min-h-screen bg-paper-50">
       {/* Header */}
-      <header className="bg-white border-b border-paper-200">
-        <div className="w-full px-4 py-6 sm:px-6 lg:px-8">
+      <header className="with-sidebar bg-white border-b-2 border-sepia-600">
+        <div className="w-full px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto flex items-center gap-3">
             <div className="w-12 h-12 bg-sepia-100 rounded-lg flex items-center justify-center">
               <ChartIcon className="w-6 h-6 text-sepia-600" />

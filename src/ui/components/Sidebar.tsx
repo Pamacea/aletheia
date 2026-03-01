@@ -23,7 +23,7 @@ export function Sidebar() {
       {!isMobileOpen && (
         <button
           onClick={() => setIsMobileOpen(true)}
-          className="lg:hidden fixed top-4 left-4 z-50 flex items-center justify-center w-12 h-12 bg-sepia-600 text-paper-50 border-2 border-sepia-700 hover:bg-sepia-700 transition-all duration-300 shadow-lg"
+          className="lg:hidden fixed top-0 left-0 z-50 flex items-center justify-center w-8 h-16 bg-sepia-600 text-paper-50 border-2 border-sepia-700 hover:bg-sepia-700 transition-all duration-300 shadow-lg"
           aria-label="Menu"
         >
           <MenuIcon className="w-6 h-6" />

@@ -13,6 +13,9 @@ export type { BadgeProps, BadgeVariant } from './Badge';
 export { Card } from './Card';
 export type { CardProps } from './Card';
 
+export { ConfirmDialog } from './ConfirmDialog';
+export type { ConfirmDialogProps, ConfirmVariant } from './ConfirmDialog';
+
 export { Modal } from './Modal';
 export type { ModalProps } from './Modal';
 

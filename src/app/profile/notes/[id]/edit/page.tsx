@@ -78,9 +78,9 @@ export default async function NoteEditPage({ params }: NoteEditPageProps) {
      <div className="flex items-center justify-between">
       <Link
        href={`/profile/notes/${id}`}
-       className="inline-flex items-center gap-2 px-4 py-2 bg-paper-50 text-sepia-600 hover:text-sepia-700 hover:bg-paper-100 border-2 border-paper-300 hover:border-sepia-600 transition-all duration-200"
+       className="inline-flex items-center gap-2 px-2.5 py-1.5 text-sm bg-paper-50 text-sepia-600 hover:text-sepia-700 hover:bg-paper-100 border-2 border-paper-300 hover:border-sepia-600 transition-all duration-200"
       >
-       <ArrowLeftIcon className="w-5 h-5" />
+       <ArrowLeftIcon className="w-4 h-4" />
        <span className="living-word font-medium">Retour</span>
       </Link>
       <h1 className="font-serif text-2xl font-semibold text-ink">

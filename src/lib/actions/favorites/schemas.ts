@@ -5,6 +5,16 @@ import { ENTITY_TYPES } from '@/lib/constants';
  * Validation schemas for favorites and collections
  */
 
+// Custom validation for entity IDs based on type
+const entityIdValidation = z.string().min(1, 'Entity ID is required').refine(
+  (val) => {
+    // Accept both CUIDs (25 chars, alphanumeric) and slugs (for concepts)
+    // CUIDs are 25 characters, slugs are shorter with hyphens
+    return /^[a-z0-9]{25}$/.test(val) || /^[a-z0-9-]+$/.test(val);
+  },
+  { message: 'Entity ID must be a valid CUID or slug' }
+);
+
 export const favoriteSchema = z.object({
   entityType: z.enum([
     ENTITY_TYPES.CONCEPT,
@@ -14,7 +24,7 @@ export const favoriteSchema = z.object({
     ENTITY_TYPES.SOURCE,
     ENTITY_TYPES.QUOTE,
   ]),
-  entityId: z.string().cuid(),
+  entityId: entityIdValidation,
 });
 
 export const collectionSchema = z.object({
@@ -26,7 +36,7 @@ export const collectionSchema = z.object({
 });
 
 export const addToCollectionSchema = z.object({
-  collectionId: z.string().cuid(),
+  collectionId: z.string().min(1, 'Collection ID is required'),
   entityType: z.enum([
     ENTITY_TYPES.CONCEPT,
     ENTITY_TYPES.PHILOSOPHER,
@@ -35,12 +45,12 @@ export const addToCollectionSchema = z.object({
     ENTITY_TYPES.SOURCE,
     ENTITY_TYPES.QUOTE,
   ]),
-  entityId: z.string().cuid(),
+  entityId: entityIdValidation,
   note: z.string().max(1000).optional(),
 });
 
 export const updateCollectionSchema = z.object({
-  id: z.string().cuid(),
+  id: z.string().min(1, 'ID is required'),
   name: z.string().min(1).max(100).optional(),
   description: z.string().max(500).optional(),
   isPublic: z.boolean().optional(),

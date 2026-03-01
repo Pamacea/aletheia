@@ -223,6 +223,53 @@ export const concept = {
       type: 'OPPOSES',
       description: 'Le « On » est la structure de l\'inauthenticité. L\'authentique se détache du « On » pour vivre ses propres choix.',
       bidirectional: true
+    },
+    {
+      name: 'Sincérité',
+      type: 'DISTINCT_FROM',
+      description: 'La sincérité est adéquation entre ce qu\'on dit et ce qu\'on pense (ne pas mentir aux autres). L\'authenticité est adéquation entre ce qu\'on est et ce qu\'on fait (ne pas se mentir à soi).',
+      bidirectional: true
+    },
+    {
+      name: 'Identité',
+      type: 'EXPRESSES',
+      description: 'L\'authenticité est devenir soi-même, accomplissement de l\'identité comme projet. L\'inauthentique se dissout dans le « On ».',
+      bidirectional: true
+    },
+    {
+      conceptId: 'etre',
+      relation: 'APPROPRIATES',
+      explanation: 'L\'authenticité est le mode où l\'être-là s\'approprie son être au lieu de le vivre dans le « On ». Pour Heidegger, l\'authentique est « retour à soi » de l\'être.',
+      bidirectional: true,
+      category: 'metaphysique'
+    },
+    {
+      conceptId: 'existence',
+      relation: 'MODE_OF',
+      explanation: 'L\'authenticité est le mode d\'existence où l\'individu assume sa liberté et sa responsabilité. L\'existence authentique vs inauthentique.',
+      bidirectional: true,
+      category: 'metaphysique'
+    },
+    {
+      conceptId: 'connaissance',
+      relation: 'LIMITS',
+      explanation: 'L\'authenticité se vit plus qu\'elle ne se connaît. Pour Kierkegaard, la connaissance systématique ne peut capturer l\'existence authentique.',
+      bidirectional: true,
+      category: 'epistemologie'
+    },
+    {
+      conceptId: 'verite',
+      relation: 'ALIGNMENT',
+      explanation: 'L\'authenticité est adéquation entre ce qu\'on est et ce qu\'on fait. Ce n\'est pas seulement dire vrai (sincérité) mais être vrai (authenticité).',
+      bidirectional: true,
+      category: 'epistemologie'
+    },
+    {
+      conceptId: 'bien',
+      relation: 'MORAL',
+      explanation: 'L\'authenticité est une valeur morale : être fidèle à soi-même. Pour Nietzsche, devenir ce qu\'on est est la tâche éthique suprême.',
+      bidirectional: true,
+      category: 'ethique'
     }
   ],
 
@@ -392,19 +439,19 @@ export const concept = {
       type: 'QUOTE' as const,
       front: 'Quelle citation de Nietzsche résume le projet authentique ?',
       back: '« Devenir ce que l\'on est » (Also sprach Zarathoustra, 1883) - L\'authenticité n\'est pas découvrir une essence mais se créer soi-même comme œuvre.',
-      difficulty: 2
+      difficulty: 1
     },
     {
       type: 'QUOTE' as const,
       front: 'Quelle citation de Sartre résume la condition authentique ?',
       back: '« L\'homme est condamné à être libre » (L\'Être et le Néant, 1943) - L\'authenticité est d\'accepter cette condamnation sans fuite dans la mauvaise foi.',
-      difficulty: 2
+      difficulty: 1
     },
     {
       type: 'CLOZE' as const,
       front: 'Pour Heidegger, l\'inauthenticité est la vie dans le {{On}} (das {{Man}}).',
       back: 'On | Man',
-      difficulty: 2
+      difficulty: 1
     },
     {
       type: 'ESSAY' as const,

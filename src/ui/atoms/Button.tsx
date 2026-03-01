@@ -1,5 +1,8 @@
+'use client';
+
 import { forwardRef, type ButtonHTMLAttributes, type AnchorHTMLAttributes } from "react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils/cn";
 import { LoadingState } from "@/shared/components";
 
@@ -20,10 +23,13 @@ const buttonVariants = {
     "bg-red-600 text-paper-50 hover:bg-red-700 active:bg-red-800 border border-red-600 shadow-sm hover:shadow-md",
 };
 
+const MotionButton = motion.button;
+const MotionLink = motion(Link);
+
 const sizeStyles = {
-  sm: "px-3 py-1.5 text-sm",
-  md: "px-4 py-2 text-base",
-  lg: "px-6 py-3 text-lg",
+  sm: "px-2.5 py-1 text-xs",
+  md: "px-3 py-1.5 text-sm",
+  lg: "px-5 py-2.5 text-base",
 };
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
@@ -36,14 +42,16 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     // If href is provided, render as Link (anchor tag)
     if (href) {
       return (
-        <Link
+        <MotionLink
           href={href}
+          whileHover={{ scale: 1.02, y: -2 }}
+          whileTap={{ scale: 0.98 }}
+          transition={{ duration: 0.15 }}
           className={cn(
-            "inline-flex items-center justify-center gap-2 font-medium rounded-lg",
+            "inline-flex items-center justify-center gap-2 font-medium",
             "transition-all duration-200",
-            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sepia-600 focus-visible:ring-offset-2",
+            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sepia-700 focus-visible:ring-offset-2",
             "disabled:pointer-events-none disabled:opacity-50",
-            "hover:-translate-y-0.5 active:translate-y-0",
             buttonVariants[variant],
             sizeStyles[size],
             className
@@ -59,27 +67,29 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           ) : (
             children
           )}
-        </Link>
+        </MotionLink>
       );
     }
 
     // Otherwise, render as button
     return (
-      <button
+      <MotionButton
         ref={ref}
         disabled={isDisabled}
+        whileHover={{ scale: 1.02, y: -2 }}
+        whileTap={{ scale: 0.98 }}
+        transition={{ duration: 0.15 }}
         className={cn(
-          "inline-flex items-center justify-center gap-2 font-medium rounded-lg",
+          "inline-flex items-center justify-center gap-2 font-medium",
           "transition-all duration-200",
-          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sepia-600 focus-visible:ring-offset-2",
+          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sepia-700 focus-visible:ring-offset-2",
           "disabled:pointer-events-none disabled:opacity-50",
-          "hover:-translate-y-0.5 active:translate-y-0",
           buttonVariants[variant],
           sizeStyles[size],
           className
         )}
         aria-busy={loading}
-        {...props}
+        {...(props as any)}
       >
         {loading ? (
           <>
@@ -89,7 +99,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         ) : (
           children
         )}
-      </button>
+      </MotionButton>
     );
   }
 );

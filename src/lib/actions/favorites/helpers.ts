@@ -46,6 +46,7 @@ export async function getEntityData(entityType: EntityType, entityId: string) {
       });
 
     case 'MOVEMENT':
+    case 'CURRENT':
       return prisma.category.findUnique({
         where: { id: entityId },
         select: { id: true, name: true, slug: true, description: true }

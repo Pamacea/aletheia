@@ -29,6 +29,30 @@ export const concept = {
 
   // ===== RAISONNEMENT PHILOSOPHIQUE =====
   reasoning: {
+    // Perspectives par école philosophique
+    perspectives: [
+      {
+        school: 'Présocratique',
+        philosopher: 'Héraclite',
+        thesis: 'Le temps est flux perpétuel, tout s\'écoule',
+        argument: '"Tout s\'écoule" (panta rhei). On ne se baigne pas deux fois dans le même fleuve. Rien n\'est stable, tout devient. Le temps est succession, changement, contraste des opposés. L\'être est devenir. Cette vision dynamique oppose la permanence parménidienne. Le temps est la réalité même, pas une apparence.',
+        conclusion: 'Le temps comme devenir universel et flux perpétuel'
+      },
+      {
+        school: 'Médiéval',
+        philosopher: 'Saint Augustin',
+        thesis: 'Le temps est distension de l\'âme, les trois temps sont dans l\'esprit',
+        argument: 'Le passé n\'est plus, l\'avenir n\'est pas encore, le présent est sans dimension. Comment le temps existe-t-il ? Solution : les trois temps sont dans l\'âme - présent des choses passées (mémoire), présent des choses présentes (attention), présent des choses futures (attente). Le temps est distension de l\'âme, stretch de la conscience.',
+        conclusion: 'Le temps comme structure de la conscience et distension de l\'âme'
+      },
+      {
+        school: 'Moderne',
+        philosopher: 'Immanuel Kant et Henri Bergson',
+        thesis: 'Le temps est forme a priori de la sensibilité (Kant) ou durée vécue (Bergson)',
+        argument: 'Kant : le temps n\'est pas une chose en soi mais une forme subjective de notre sensibilité. C\'est la condition de toute expérience. Bergson : il y a deux temps - le temps spatialisé (physique, mesurable) et la durée (temps vécu, qualitatif, indivisible où les moments se pénètrent). La durée est la texture même de la conscience.',
+        conclusion: 'Le temps comme structure subjective (Kant) ou vécue (Bergson) de l\'existence'
+      }
+    ],
     principalArguments: [
       {
         argument: 'Argument de la réalité du présent (Augustin)',
@@ -112,6 +136,18 @@ export const concept = {
       conceptId: 'mort',
       relation: 'INFLUENCES',
       explanation: 'La mort donne son sens au temps. L\'être-là est « être-pour-la-mort » : sa finitude temporelle définit son existence.'
+    },
+    {
+      conceptId: 'memoire',
+      relation: 'BUILDS_ON',
+      explanation: 'La mémoire est ce qui rend le temps mémorable. Sans mémoire, pas de passé, pas d\'identité temporelle. Augustin : le passé est présent de la mémoire.',
+      bidirectional: true
+    },
+    {
+      conceptId: 'histoire',
+      relation: 'EXPRESSES',
+      explanation: 'Le temps est la forme de l\'histoire. L\'histoire est devenir temporel, succession d\'événements significatifs.',
+      bidirectional: true
     }
   ],
 
@@ -404,7 +440,7 @@ La physique moderne (Einstein) découvre que le temps est relatif : il dépend d
     {
       type: 'CONNECTION' as const,
       front: 'Comment Heidegger distingue-t-il temps originaire et temps vulgaire ?',
-      back: 'Le temps vulgaire est le temps de la chronologie : succession linéaire de maintenan (t1, t2, t3...), mesurable, objectivable. Le temps originaire est le temps de l\'existence : extatique, je suis hors de moi vers l\'avenir (projection), enraciné dans mon passé (être-jeté), absorbé par le présent (chute). Le temps originaire est la source du temps vulgaire, non l\'inverse.',
+      back: 'Le temps vulgaire est le temps de la chronologie : succession linéaire de maintenants (t1, t2, t3...), mesurable, objectivable. Le temps originaire est le temps de l\'existence : extatique, je suis hors de moi vers l\'avenir (projection), enraciné dans mon passé (être-jeté), absorbé par le présent (chute). Le temps originaire est la source du temps vulgaire, non l\'inverse.',
       difficulty: 4
     },
     {
@@ -423,19 +459,19 @@ La physique moderne (Einstein) découvre que le temps est relatif : il dépend d
       type: 'QUOTE' as const,
       front: 'Quelle citation de Platon définit le temps ?',
       back: '« Le temps est l\'image mobile de l\'éternité » (Timée, IVe siècle av. J.-C.)',
-      difficulty: 2
+      difficulty: 1
     },
     {
       type: 'QUOTE' as const,
       front: 'Quelle citation d\'Augustin exprime le paradoxe du temps ?',
       back: '« Qu\'est-ce que le temps ? Si personne ne me le demande, je le sais. Si je veux l\'expliquer à quelqu\'un qui me pose la question, je ne le sais plus. » (Confessions, 397)',
-      difficulty: 2
+      difficulty: 1
     },
     {
       type: 'CLOZE' as const,
       front: 'Pour Bergson, la {{durée}} est le temps vécu, par opposition au temps {{spatialisé}} de la physique.',
       back: 'durée | spatialisé',
-      difficulty: 2
+      difficulty: 1
     },
     {
       type: 'ESSAY' as const,

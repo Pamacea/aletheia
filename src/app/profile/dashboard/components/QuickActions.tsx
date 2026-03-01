@@ -20,7 +20,7 @@ export function QuickActions() {
           living
           className="flex items-center gap-3 p-3 border-2 border-paper-300 hover:border-sepia-600 hover:bg-sepia-50 transition-all"
         >
-          <LayoutGridIcon className="w-5 h-5 text-sepia-600" />
+          <LayoutGridIcon className="w-4 h-4 text-sepia-600" />
           <span className="font-medium text-ink">Explorer les concepts</span>
         </LinkOrnate>
 
@@ -29,7 +29,7 @@ export function QuickActions() {
           living
           className="flex items-center gap-3 p-3 border-2 border-paper-300 hover:border-sepia-600 hover:bg-sepia-50 transition-all"
         >
-          <ZapIcon className="w-5 h-5 text-sepia-600" />
+          <ZapIcon className="w-4 h-4 text-sepia-600" />
           <span className="font-medium text-ink">Pratiquer les flashcards</span>
         </LinkOrnate>
 
@@ -38,7 +38,7 @@ export function QuickActions() {
           living
           className="flex items-center gap-3 p-3 border-2 border-paper-300 hover:border-sepia-600 hover:bg-sepia-50 transition-all"
         >
-          <PhilosophersIcon className="w-5 h-5 text-sepia-600" />
+          <PhilosophersIcon className="w-4 h-4 text-sepia-600" />
           <span className="font-medium text-ink">Voir le graphe de connaissances</span>
         </LinkOrnate>
 
@@ -47,7 +47,7 @@ export function QuickActions() {
           living
           className="flex items-center gap-3 p-3 border-2 border-paper-300 hover:border-sepia-600 hover:bg-sepia-50 transition-all"
         >
-          <BookOpenIcon className="w-5 h-5 text-sepia-600" />
+          <BookOpenIcon className="w-4 h-4 text-sepia-600" />
           <span className="font-medium text-ink">Bibliothèque philosophique</span>
         </LinkOrnate>
 
@@ -56,7 +56,7 @@ export function QuickActions() {
           living
           className="flex items-center gap-3 p-3 border-2 border-paper-300 hover:border-sepia-600 hover:bg-sepia-50 transition-all"
         >
-          <MessageSquareIcon className="w-5 h-5 text-sepia-600" />
+          <MessageSquareIcon className="w-4 h-4 text-sepia-600" />
           <span className="font-medium text-ink">Forum - Agora</span>
         </LinkOrnate>
       </div>

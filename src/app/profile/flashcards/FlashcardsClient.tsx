@@ -53,86 +53,109 @@ export default function FlashcardsClient({ userId, flashcards, stats, dueCardsCo
 
   return (
     <div className="min-h-screen bg-paper-50">
-      {/* Header */}
-      <header className="bg-white border-b border-paper-200 sticky top-0 z-10">
-        <div className="w-full px-4 py-4 sm:px-6 lg:px-8">
-          <div className="max-w-7xl mx-auto flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
-            <div>
-              <h1 className="text-3xl font-serif font-bold text-ink mb-1">
+      {/* Header - COMPACT */}
+      <header className="with-sidebar bg-white border-b-2 border-sepia-600">
+        <div className="w-full px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto flex items-center justify-between gap-4 py-3">
+            {/* Left: Title + Stats Badges */}
+            <div className="flex items-center gap-3 flex-wrap">
+              <h1 className="text-xl sm:text-2xl font-serif font-bold text-ink">
                 Flashcards
               </h1>
-              <p className="text-ink-light">
-                {stats.totalCards} cartes au total
-              </p>
+              {/* Compact Stats Badges */}
+              <div className="flex items-center gap-2 flex-wrap">
+                <span className="inline-flex items-center gap-1 px-2 py-1 text-xs bg-sepia-100 text-sepia-700 border border-sepia-300">
+                  <Clock className="w-3 h-3" />
+                  {dueCardsCount}
+                </span>
+                <span className="inline-flex items-center gap-1 px-2 py-1 text-xs bg-green-100 text-green-700 border border-green-300">
+                  <CheckCircle2 className="w-3 h-3" />
+                  {stats.cardsMastered}
+                </span>
+                <span className="inline-flex items-center gap-1 px-2 py-1 text-xs bg-blue-100 text-blue-700 border border-blue-300">
+                  {Math.round(stats.successRate)}%
+                </span>
+                <span className="hidden sm:inline-flex items-center gap-1 px-2 py-1 text-xs bg-purple-100 text-purple-700 border border-purple-300">
+                  🔥 {stats.currentStreak || 0}
+                </span>
+              </div>
             </div>
-            <Link href="/profile/flashcards/create">
-              <Button>
-                <Plus className="w-4 h-4 mr-2" />
-                Nouvelle Carte
-              </Button>
-            </Link>
-          </div>
 
-          {/* Stats Bar */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
-            <div className="bg-paper-50 border border-paper-200 p-3">
-              <div className="flex items-center gap-2 text-sepia-600 mb-1">
-                <Clock className="w-4 h-4" />
-                <span className="text-sm font-medium">À réviser</span>
-              </div>
-              <div className="text-2xl font-bold text-ink">{dueCardsCount}</div>
+            {/* Right: Actions */}
+            <div className="flex items-center gap-2">
+              <Link href="/profile/flashcards/create">
+                <Button>
+                  <Plus className="w-3.5 h-3.5" />
+                  <span className="hidden sm:inline">Nouvelle</span>
+                </Button>
+              </Link>
             </div>
-            <div className="bg-paper-50 border border-paper-200 p-3">
-              <div className="flex items-center gap-2 text-green-600 mb-1">
-                <CheckCircle2 className="w-4 h-4" />
-                <span className="text-sm font-medium">Maîtrisées</span>
-              </div>
-              <div className="text-2xl font-bold text-ink">{stats.cardsMastered}</div>
-            </div>
-            <div className="bg-paper-50 border border-paper-200 p-3">
-              <div className="flex items-center gap-2 text-blue-600 mb-1">
-                <TrendingUp className="w-4 h-4" />
-                <span className="text-sm font-medium">Taux de réussite</span>
-              </div>
-              <div className="text-2xl font-bold text-ink">{Math.round(stats.successRate)}%</div>
-            </div>
-            <div className="bg-paper-50 border border-paper-200 p-3">
-              <div className="flex items-center gap-2 text-purple-600 mb-1">
-                <Sparkles className="w-4 h-4" />
-                <span className="text-sm font-medium">Série actuelle</span>
-              </div>
-              <div className="text-2xl font-bold text-ink">{stats.currentStreak || 0}</div>
-            </div>
-          </div>
-
-          {/* Search and Filters */}
-          <div className="flex items-center gap-3">
-            <div className="relative flex-1">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-ink-light" />
-              <input
-                type="text"
-                placeholder="Rechercher des cartes..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 border-2 border-paper-300 focus:border-sepia-600 focus:outline-none"
-              />
-            </div>
-            <button className="p-2 border-2 border-paper-300 hover:border-sepia-600">
-              <Filter className="w-5 h-5" />
-            </button>
-            <button
-              onClick={() => setViewMode(viewMode === 'grid' ? 'list' : 'grid')}
-              className="p-2 border-2 border-paper-300 hover:border-sepia-600"
-            >
-              <Target className="w-5 h-5" />
-            </button>
           </div>
         </div>
       </header>
 
+      {/* Search & Filters Bar - SEPARATE */}
+      <div className="bg-white border-b border-paper-200 px-4 py-3 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto flex items-center gap-3">
+          {/* Search */}
+          <div className="relative flex-1 max-w-md">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-ink-light" />
+            <input
+              type="text"
+              placeholder="Rechercher..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full pl-9 pr-3 py-1.5 text-sm border-2 border-paper-300 focus:border-sepia-600 focus:outline-none"
+            />
+          </div>
+
+          {/* View Toggle */}
+          <button
+            onClick={() => setViewMode(viewMode === 'grid' ? 'list' : 'grid')}
+            className={`px-3 py-1 border-2 transition-all flex items-center justify-center ${
+              viewMode === 'grid'
+                ? 'bg-sepia-50 border-sepia-600 text-sepia-700'
+                : 'border-paper-300 hover:border-sepia-600 text-ink-light'
+            }`}
+            title={viewMode === 'grid' ? 'Vue grille' : 'Vue liste'}
+          >
+            {viewMode === 'grid' ? '⊞' : '☰'}
+          </button>
+        </div>
+      </div>
+
       {/* Content */}
-      <main className="w-full px-4 py-8 sm:px-6 lg:px-8">
+      <main className="w-full px-4 py-6 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
+        {/* Filter Tags - ALWAYS VISIBLE */}
+        {(allTags.length > 0 || cardTypes.length > 0) && (
+          <div className="mb-6 p-3 bg-white border border-paper-200">
+            <div className="flex flex-wrap gap-2 items-center">
+              <span className="text-xs font-medium text-ink mr-2">Types:</span>
+              {cardTypes.map((type) => (
+                <button
+                  key={type}
+                  onClick={() => {
+                    setFilters((prev) => ({
+                      ...prev,
+                      types: prev.types?.includes(type)
+                        ? prev.types.filter((t) => t !== type)
+                        : [...(prev.types || []), type],
+                    }));
+                  }}
+                  className={`px-2.5 py-1 text-xs border-2 transition-all ${
+                    filters.types?.includes(type)
+                      ? 'bg-sepia-600 border-sepia-600 text-white'
+                      : 'border-paper-300 hover:border-sepia-600'
+                  }`}
+                >
+                  {type}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+
         {filteredCards.length === 0 ? (
           <div className="text-center py-24">
             <Brain className="w-16 h-16 mx-auto mb-4 text-ink-light" />
@@ -154,39 +177,9 @@ export default function FlashcardsClient({ userId, flashcards, stats, dueCardsCo
             )}
           </div>
         ) : (
-          <>
-            {/* Filter Tags */}
-            {(allTags.length > 0 || cardTypes.length > 0) && (
-              <div className="mb-6 p-4 bg-white border border-paper-200">
-                <div className="flex flex-wrap gap-2 items-center">
-                  <span className="text-sm font-medium text-ink mr-2">Types:</span>
-                  {cardTypes.map((type) => (
-                    <button
-                      key={type}
-                      onClick={() => {
-                        setFilters((prev) => ({
-                          ...prev,
-                          types: prev.types?.includes(type)
-                            ? prev.types.filter((t) => t !== type)
-                            : [...(prev.types || []), type],
-                        }));
-                      }}
-                      className={`px-3 py-1 text-sm border-2 transition-all ${
-                        filters.types?.includes(type)
-                          ? 'bg-sepia-600 border-sepia-600 text-white'
-                          : 'border-paper-300 hover:border-sepia-600'
-                      }`}
-                    >
-                      {type}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* Cards Grid */}
-            <div className={viewMode === 'grid' ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4' : 'space-y-3'}>
-              {filteredCards.map((card) => (
+          /* Cards Grid */
+          <div className={viewMode === 'grid' ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4' : 'space-y-3'}>
+            {filteredCards.map((card) => (
                 <motion.div
                   key={card.id}
                   initial={{ opacity: 0, y: 20 }}
@@ -233,7 +226,6 @@ export default function FlashcardsClient({ userId, flashcards, stats, dueCardsCo
                 </motion.div>
               ))}
             </div>
-          </>
         )}
         </div>
       </main>

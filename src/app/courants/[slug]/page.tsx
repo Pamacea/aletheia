@@ -40,7 +40,7 @@ export default async function CurrentPage({
           <p className="text-xl text-ink-light mb-4">Courant non trouvé</p>
           <a
             href="/courants"
-            className="inline-flex items-center gap-2 px-4 py-2 bg-paper-50 text-sepia-600 hover:text-sepia-700 hover:bg-paper-100 border-2 border-paper-300 hover:border-sepia-600 transition-all duration-200"
+            className="inline-flex items-center gap-2 px-2.5 py-1.5 text-sm bg-paper-50 text-sepia-600 hover:text-sepia-700 hover:bg-paper-100 border-2 border-paper-300 hover:border-sepia-600 transition-all duration-200"
           >
             <span className="living-word font-medium">Retour aux courants</span>
           </a>

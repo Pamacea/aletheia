@@ -316,7 +316,7 @@ export const concept = {
     {
       title: 'La Naissance de la tragédie',
       author: 'Friedrich Nietzsche',
-      year: 1872,
+      year: 187,
       type: 'BOOK' as const,
       reference: 'Essai sur l\'art tragique comme révolte métaphysique contre la souffrance',
       quotes: [
@@ -333,7 +333,7 @@ export const concept = {
       type: 'BASIC' as const,
       front: 'Qu\'est-ce que la révolte selon Camus ?',
       back: 'La révolte est la réponse authentique à l\'absurde qui refuse le suicide et l\'espoir. Elle maintient la confrontation avec l\'absurde pour affirmer la dignité humaine.',
-      difficulty: 2
+      difficulty: 1
     },
     {
       type: 'CONNECTION' as const,
@@ -369,7 +369,7 @@ export const concept = {
       type: 'CLOZE' as const,
       front: 'La révolte refuse le {{suicide}} et l\'{{espoir}}.',
       back: 'suicide | espoir',
-      difficulty: 2
+      difficulty: 1
     },
     {
       type: 'CONNECTION' as const,

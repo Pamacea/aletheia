@@ -36,8 +36,8 @@ export function CreateNoteButton({
         href={href}
         className={cn(
           "fixed bottom-8 right-8 z-50",
-          "inline-flex items-center justify-center gap-2",
-          "px-6 py-4 bg-sepia-600 hover:bg-sepia-700 text-paper-50",
+          "inline-flex items-center justify-center gap-1.5",
+          "px-2.5 py-1.5 bg-sepia-600 hover:bg-sepia-700 text-paper-50 text-xs",
           "shadow-lg hover:shadow-xl",
           "transition-all duration-300",
           "group",
@@ -45,7 +45,7 @@ export function CreateNoteButton({
         )}
         title="Créer une note"
       >
-        <PlusIcon className="w-6 h-6 group-hover:rotate-90 transition-transform duration-300" />
+        <PlusIcon className="w-3.5 h-3.5 group-hover:rotate-90 transition-transform duration-300" />
         <span className="living-word font-medium hidden sm:inline">Note</span>
       </Link>
     );
@@ -55,15 +55,15 @@ export function CreateNoteButton({
     <Link
       href={href}
       className={cn(
-        "inline-flex items-center gap-2",
-        "px-4 py-2 bg-sepia-600 hover:bg-sepia-700 text-paper-50",
+        "inline-flex items-center gap-1.5",
+        "px-2 py-1 bg-sepia-600 hover:bg-sepia-700 text-paper-50 text-xs",
         "font-medium",
         "transition-all duration-200",
         "border-2 border-sepia-600",
         className
       )}
     >
-      <FileTextIcon className="w-4 h-4" />
+      <FileTextIcon className="w-3 h-3" />
       <span className="living-word">Créer une note</span>
     </Link>
   );

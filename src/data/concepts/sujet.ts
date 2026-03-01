@@ -436,7 +436,7 @@ export const concept = {
       type: 'BASIC' as const,
       front: 'Qu\'est-ce que le cogito cartésien ?',
       back: 'Le cogito (« je pense, donc je suis ») est la découverte de Descartes : en doutant de tout, je découvre que je ne peux douter que je doute. Cette pensée consciente qui doute devient le sujet indubitable, fondement absolu de toute connaissance. Le sujet cartésien est substance pensante, transparente à soi, centre de la connaissance.',
-      difficulty: 2
+      difficulty: 1
     },
     {
       type: 'CONNECTION' as const,
@@ -478,7 +478,7 @@ export const concept = {
       type: 'QUOTE' as const,
       front: 'Quelle citation de Freud exprime le décentrement du sujet ?',
       back: '« Le Moi n\'est pas maître dans sa propre maison » (Introduction à la psychanalyse, 1917)',
-      difficulty: 2
+      difficulty: 1
     },
     {
       type: 'CLOZE' as const,

@@ -177,7 +177,7 @@ export function CurrentPageClient({ current, relatedCurrents }: CurrentPageClien
               return (
                 <div key={stat.label} className="flex items-center gap-2">
                   <div className={`p-2 ${current.color ? 'bg-opacity-10' : 'bg-sepia-50'}`} style={current.color ? { backgroundColor: `${current.color}20` } : {}}>
-                    <Icon className={`w-5 h-5 ${current.color || 'text-sepia-600'}`} style={current.color ? { color: current.color } : {}} />
+                    <Icon className={`w-4 h-4 ${current.color || 'text-sepia-600'}`} style={current.color ? { color: current.color } : {}} />
                   </div>
                   <div>
                     <div className="text-2xl font-bold text-ink">{stat.value}</div>
@@ -276,7 +276,7 @@ export function CurrentPageClient({ current, relatedCurrents }: CurrentPageClien
                 >
                   <div className="flex items-center gap-3">
                     <div className="p-2 bg-sepia-50 group-hover:bg-sepia-100 transition-colors">
-                      <PhilosophersIcon className="w-5 h-5 text-sepia-600" />
+                      <PhilosophersIcon className="w-4 h-4 text-sepia-600" />
                     </div>
                     <span className="font-medium text-ink living-word group-hover:text-sepia-600 transition-colors">
                       {philosopher.name}

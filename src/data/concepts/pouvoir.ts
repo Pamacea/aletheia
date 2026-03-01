@@ -8,7 +8,7 @@ export const concept = {
   id: 'pouvoir',
   name: 'Pouvoir',
   slug: 'pouvoir',
-  category: 'philosophie_politique',
+  category: 'politique',
 
   // ===== MÉTADONNÉES =====
   difficulty: 4,
@@ -392,7 +392,7 @@ export const concept = {
     {
       title: 'Du contrat social',
       author: 'Jean-Jacques Rousseau',
-      year: 1762,
+      year: 176,
       type: 'BOOK' as const,
       reference: 'Souveraineté du peuple et volonté générale',
       quotes: [
@@ -442,13 +442,13 @@ export const concept = {
       type: 'QUOTE' as const,
       front: 'Quelle citation d\'Arendt résume le pouvoir ?',
       back: '« Le pouvoir correspond à la capacité humaine non seulement d\'agir mais de se réunir et d\'agir de concert » (La Condition de l\'homme moderne, 1958)',
-      difficulty: 2
+      difficulty: 1
     },
     {
       type: 'QUOTE' as const,
       front: 'Quelle citation de Foucault caractérise le pouvoir moderne ?',
       back: '« Le pouvoir n\'est pas une institution mais une relation »',
-      difficulty: 2
+      difficulty: 1
     },
     {
       type: 'CLOZE' as const,

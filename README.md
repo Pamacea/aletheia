@@ -31,18 +31,6 @@ Aletheia n'est pas une encyclopédie. C'est un **outil d'appropriation** — pou
 
 ---
 
-## Quick Start
-
-```bash
-git clone <repo-url> && cd aletheia
-npm install
-npm run dev && npm run db:seed
-```
-
-Ouvrez [localhost:3000](http://localhost:3000) — commencez votre voyage.
-
----
-
 ## L'esprit du projet
 
 **Aletheia est construit différemment :**
@@ -65,16 +53,6 @@ La philosophie n'est pas un luxe. C'est une **nécessité** pour tout être huma
 | Literary Paper Theme | Better Auth OAuth | D3.js visualisations |
 
 **Stack moderne au service d'une tradition millénaire.**
-
----
-
-## Documentation
-
-- **[GUIDE.md](GUIDE.md)** — Documentation complète
-- **[CHANGELOG.md](CHANGELOG.md)** — Évolutions du projet
-- **[Production Setup](docs/PRODUCTION_SETUP.md)** — Configuration pour la production
-- **[Production Install](docs/PRODUCTION_INSTALL.md)** — Installation des dépendances de production
-- **[Quick Reference](docs/PRODUCTION_QUICK_REFERENCE.md)** — Référence rapide production
 
 ---
 

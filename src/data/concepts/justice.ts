@@ -8,7 +8,7 @@ export const concept = {
   id: 'justice',
   name: 'Justice',
   slug: 'justice',
-  category: 'philosophie_morale_et_politique',
+  category: 'politique',
 
   // ===== MÉTADONNÉES =====
   difficulty: 4,
@@ -29,6 +29,30 @@ export const concept = {
 
   // ===== REASONING (ARGUMENTS PHILOSOPHIQUES) =====
   reasoning: {
+    // Perspectives par école philosophique
+    perspectives: [
+      {
+        school: 'Utilitarisme',
+        philosopher: 'Jeremy Bentham',
+        thesis: 'La justice est maximisation du bonheur du plus grand nombre',
+        argument: 'Le principe d\'utilité : la meilleure action est celle qui maximise le bonheur global. La justice consiste à faire le plus de bonheur possible au plus grand nombre. Le calcul fécond (intensité x durée x certitude x proximité x fécondité x pureté x étendue) détermine ce qui est juste. Chacun compte pour un, personne pour plus d\'un.',
+        conclusion: 'La justice comme calcul utilitaire et maximisation du bien-être général'
+      },
+      {
+        school: 'Déontologie',
+        philosopher: 'Immanuel Kant',
+        thesis: 'La justice est respect de la loi morale et de la dignité humaine',
+        argument: 'L\'impératif catégorique : agis seulement selon la maxime que tu peux vouloir voir devenir une loi universelle. La justice exige de traiter chaque personne comme une fin en soi, jamais comme un moyen seulement. Les droits humains sont inaliénables car fondés sur la dignité rationnelle de chaque être humain.',
+        conclusion: 'La justice comme respect du droit moral et de la dignité universelle'
+      },
+      {
+        school: 'Contractualisme',
+        philosopher: 'John Rawls',
+        thesis: 'La justice est équité choisie derrière un voile d\'ignorance',
+        argument: 'Imaginons une position originelle où des personnes libres et égales choisissent les principes de justice derrière un voile d\'ignorance (sans savoir leur place dans la société). Deux principes émergent : 1) égalité des libertés de base ; 2) inégalités acceptables seulement si elles bénéficient aux plus défavorisés (principe de différence).',
+        conclusion: 'La justice comme équité garantissant les libertés égales et le bénéfice des plus défavorisés'
+      }
+    ],
     thesis: 'La justice est la première vertu des institutions sociales et le fondement de la vie morale',
     arguments: [
       {
@@ -447,19 +471,19 @@ export const concept = {
       type: 'QUOTE' as const,
       front: 'Quelle citation de Platon résume sa conception de la justice ?',
       back: '« La justice est faire ce qui nous convient » (République, IVe siècle av. J.-C.)',
-      difficulty: 2
+      difficulty: 1
     },
     {
       type: 'QUOTE' as const,
       front: 'Quelle citation de Rawls résume la justice ?',
       back: '« La justice est la première vertu des institutions sociales » (Théorie de la justice, 1971)',
-      difficulty: 2
+      difficulty: 1
     },
     {
       type: 'CLOZE' as const,
       front: 'Pour Aristote, la justice {{commutative}} règle les échanges, la justice {{distributive}} règle la répartition.',
       back: 'commutative | distributive',
-      difficulty: 2
+      difficulty: 1
     },
     {
       type: 'ESSAY' as const,

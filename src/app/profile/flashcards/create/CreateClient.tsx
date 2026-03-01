@@ -40,8 +40,8 @@ export function CreateClient({ userId }: CreateClientProps) {
   return (
     <div className="min-h-screen bg-paper-50">
       {/* Header */}
-      <header className="bg-white border-b border-paper-200">
-        <div className="max-w-7xl mx-auto px-4 py-4">
+      <header className="with-sidebar bg-white border-b-2 border-sepia-600">
+        <div className="w-full px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             <div>
               <h1 className="text-2xl font-bold text-sepia-900">Create Flashcard</h1>

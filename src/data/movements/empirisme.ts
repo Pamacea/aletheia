@@ -134,7 +134,7 @@ L'empirisme influence profondément la philosophie moderne. Kant, éveillé de s
     },
     {
       name: "Immatérialisme",
-      description: "Berkeley - "Être c'est être perçu". Critique de la matière comme substance inconnue. Les objets sont des collections d'idées dans les esprits humains et divin. Dieu garantit l'existence du monde.",
+      description: "Berkeley - \"Être c'est être perçu\". Critique de la matière comme substance inconnue. Les objets sont des collections d'idées dans les esprits humains et divin. Dieu garantit l'existence du monde.",
       philosophers: ['george-berkeley']
     },
     {

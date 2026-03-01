@@ -16,12 +16,12 @@ export const concept = {
   status: 'COMPLETE' as const,
 
   // ===== DÉFINITIONS =====
-  definition: 'L\'engagement est l\'acte par lequel la liberté se concrétise dans le monde en choisissant une orientation et en assumant la responsabilité de ce choix. Pour Sartre, "en choisissant pour moi, je choisis pour tous les hommes" : chaque choix personnel engage l\'humanité entière car il affirme une conception de l\'homme. L\'engagement n\'est ni adhésion aveugle à une cause ni activisme aveugle, mais décision lucide prenant en compte sa responsabilité universelle. L\'écrivain engagé, par exemple, ne fait pas de propagande mais révèle le monde pour le transformer. L\'engagement est la réponse existentialiste à l\'angoisse de la liberté : loin d\'être paralysé par sa responsabilité, l\'homme s\'engage et, par cet engagement, se donne une essence tout en affirmant la valeur de son choix pour tous.',
+  definition: 'L\'engagement est l\'acte par lequel la liberté se concrétise dans le monde en choisissant une orientation et en assumant la responsabilité de ce choix. Pour Sartre, "en choisissant pour moi, je choisis pour tous les hommes".',
   shortDefinition: 'Concrétisation de la liberté dans l\'action, engageant sa responsabilité envers tous les hommes',
 
   // ===== DÉFINITION PHILOSOPHIQUE =====
   philosophicalDefinition: {
-    analysis: 'L\'engagement sartrien repose sur deux piliers : l\'unité de la liberté et l\'universalisation du choix. D\'abord, la liberté n\'est pas contemplation mais action : l\'homme est "faire" et se définit par ses actes, non par ses rêves ou intentions. Ensuite, chaque choix engage l\'humanité car il affirme implicitement une valeur. En choisissant le courage plutôt que la lâcheté, j\'affirme que le courage est une valeur et, par là, je "veux" que tous les hommes choisissent le courage. L\'engagement n\'est pas sacrifice de sa liberté mais affirmation de celle-ci : je m\'engage parce que je suis libre et cette liberté se réalise dans l\'action. L\'engagement authentique se distingue de l\'activisme (action sans réflexion) et du parti-pris (soumission à une doctrine).',
+    analysis: 'L\'engagement sartrien repose sur deux piliers : l\'unité de la liberté et l\'universalisation du choix. D\'abord, la liberté n\'est pas contemplation mais action : l\'homme est "faire" et se définit par ses actes, non par ses rêves ou intentions. Ensuite, chaque choix engage l\'humanité car il affirme implicitement une valeur. En choisissant le courage plutôt que la lâcheté, j\'affirme que le courage est une valeur et, par là, je "veux" cette universalité.',
     distinctions: [
       'Engagement vs Parti-pris : Le parti-pris est soumission à une doctrine. L\'engagement est choix lucide assumant sa responsabilité.',
       'Engagement vs Activisme : L\'activisme est action aveugle. L\'engagement est action réfléchie, consciente de ses enjeux.',
@@ -56,7 +56,7 @@ export const concept = {
       title: 'L\'argument de la liberté comme action',
       argument: 'La liberté n\'est pas contemplation mais concrétisation dans le monde. L\'engagement est réalisation de la liberté.',
       premises: [
-        'L\'homme est existence, non essence : il est "faire", pas "être"',
+        'L\'homme est existence, non essence : il est "faire", pas "être".',
         'La liberté n\'existe que dans les choix concrets',
         'Un choix non réalisé n\'est pas un choix',
         'S\'engager, c\'est choisir dans le monde'
@@ -80,7 +80,7 @@ export const concept = {
         'En publiant, il propose au monde sa vision',
         'Cette vision influence les choix des autres'
       ],
-      conclusion: 'L\'intellectuel ne peut pas ne pas s\'engager. Son "neutre" est encore position qui engage.',
+      conclusion: 'L\'intellectuel ne peut pas ne pas s\'engager. Son "neutre" est déjà un choix.',
       objections: [
         { philosopher: 'L\'art pour l\'art', objection: 'La beauté pure existe. L\'art n\'a pas à s\'engager, il doit être désintéressé.' },
         { philosopher: 'Les formalistes', objection: 'La forme prime sur le fond. L\'engagement politise l\'art et le dénature.' }
@@ -200,7 +200,7 @@ export const concept = {
     {
       name: 'Émile Zola',
       period: '1840-1902',
-      contribution: 'L\'intellectuel comme témoin engagé. "J\'accuse" comme exemple d\'engagement littéraire et politique.',
+      contribution: 'L\'intellectuel comme témoin engagé. "J\'accuse...!" montre que l\'écrivain a pouvoir de dévoiler et donc de transformer.',
       works: ['J\'accuse...!', 'Germinal', 'Les Rougon-Macquart'],
       quotes: [
         '« J\'accuse...! »',
@@ -286,8 +286,8 @@ export const concept = {
 
   // ===== EXEMPLES =====
   examples: [
-    'L\'engagement d\'Émile Zola dans l\'affaire Dreyfus : En publiant "J\'accuse...!" dans L\'Aurore en 1898, Zola prend le risque de la prison pour dénoncer une injustice judiciaire. Son geste engage l\'intellectuel comme témoin de la vérité contre le pouvoir.',
-    'L\'engagement littéraire de Sartre : Pendant la Seconde Guerre mondiale, Sartre choisit de rester à Paris et d\'écrire. Pour lui, ce n\'est pas neutralité mais engagement : écrire, c\'est agir. Après-guerre, il théorise la "littérature engagée" dans Qu\'est-ce que la littérature?.',
+    'L\'engagement d\'Émile Zola dans l\'affaire Dreyfus : En publiant "J\'accuse...!" dans L\'Aurore en 1898, Zola prend le risque de la prison pour défendre la vérité et la justice.',
+    'L\'engagement littéraire de Sartre : Pendant la Seconde Guerre mondiale, Sartre choisit de rester à Paris et d\'écrire. Pour lui, ce n\'est pas neutralité mais engagement : écrire, c\'est agir. Après-guerre, il théorise la "littérature engagée".',
     'L\'engagement féministe de Simone de Beauvoir : Dans Le Deuxième Sexe (1949), Beauvoir analyse la condition des femmes et propose une éthique de la liberté réciproque. Son œuvre engage le féminisme philosophique et politique.',
     'L\'engagement anti-colonial de Camus : Journaliste à Alger, Camus dénonce la misère et l\'injustice coloniale. Dans L\'Homme révolté, il théorise un engagement révolté qui refuse la violence totalitaire.',
     'L\'engagement écologique contemporain : Aujourd\'hui, s\'engager pour le climat, c\'est choisir un mode de vie (alimentation, transport, consommation) qui affirme une valeur : la préservation de la planète. Ce choix personnel engage, pour celui qui s\'engage, une conception de l\'humanité responsable de son environnement.',
@@ -324,7 +324,7 @@ export const concept = {
         'L\'écrivain est en situation : ses mots ont un poids.',
         'La prose est engagement par essence.',
         'Le silence de l\'écrivain est encore un choix.',
-        'Écrire, c\'s\'agir pour changer le monde.',
+        'Écrire, c\'est agir pour changer le monde.',
         'Le lecteur est collaborateur de l\'écrivain.',
         'La littérature est dévoilement du monde.'
       ]
@@ -395,8 +395,8 @@ export const concept = {
     {
       type: 'BASIC' as const,
       front: 'Qu\'est-ce que l\'engagement selon Sartre ?',
-      back: 'L\'engagement est la concrétisation de la liberté dans l\'action. Pour Sartre, "en choisissant pour moi, je choisis pour tous les hommes" : chaque choix personnel affirme une valeur qui engage l\'humanité entière.',
-      difficulty: 2
+      back: 'L\'engagement est la concrétisation de la liberté dans l\'action. Pour Sartre, "en choisissant pour moi, je choisis pour tous les hommes". Chaque choix personnel affirme une valeur que je propose à l\'humanité entière. L\'engagement n\'est pas sacrifice de sa liberté mais sa réalisation : ma liberté se concrétise dans mes actes.',
+      difficulty: 1
     },
     {
       type: 'CONNECTION' as const,
@@ -412,7 +412,7 @@ export const concept = {
     },
     {
       type: 'CONNECTION' as const,
-      front: 'Qu\'est-ce que la "littérature engagée" selon Sartre ?',
+      front: 'Qu\'est-ce que la "littérature engagée"?',
       back: 'La littérature engagée est la théorie selon laquelle l\'écrivain a responsabilité de dévoiler le monde pour le transformer. En écrivant, l\'écrivain agit et engage le lecteur dans une collaboration créatrice. Le silence de l\'écrivain est aussi un choix qui engage (complicité).',
       difficulty: 4
     },
@@ -424,31 +424,31 @@ export const concept = {
     },
     {
       type: 'CONNECTION' as const,
-      front: 'Qu\'est-ce que la "révolte" chez Camus ?',
-      back: 'Dans L\'Homme révolté, Camus analyse la révolte comme engagement originaire : dire "non" à l\'injustice, c\'affirmer une valeur commune à tous les hommes. La révolte est affirmation d\'une limite qu\'aucun homme ne doit franchir. Elle se distingue de la révolution totale qui nie la liberté d\'autrui.',
+      front: 'Qu\'est-ce que la "révolte" selon Camus?',
+      back: 'Dans L\'Homme révolté, Camus analyse la révolte comme engagement originaire : dire "non" à l\'injustice, c\'affirmer une valeur commune à tous les hommes. La révolte n\'est pas égoïsme mais affirmation d\'une limite qu\'aucun homme ne doit franchir.',
       difficulty: 4
     },
     {
       type: 'CONNECTION' as const,
-      front: 'Qu\'est-ce que la "résolution" chez Heidegger ?',
-      back: 'Dans Être et Temps, Heidegger analyse la résolution (Entschlossenheit) comme mode d\'existence authentique. Résoudre, c\'se porter en avant vers sa mort, choisir soi-même en assumant son être-jeté. La résolution est engagement ontologique plus que politique.',
+      front: 'Qu\'est-ce que la "résolution" chez Heidegger?',
+      back: 'Dans Être et Temps, Heidegger analyse la résolution (Entschlossenheit) comme mode d\'existence authentique. Résoudre, c\'est se porter en avant vers sa mort, choisir soi-même en assumant son être-jeté. La résolution est engagement ontologique plus que politique.',
       difficulty: 5
     },
     {
       type: 'QUOTE' as const,
-      front: 'Quelle œuvre contient cette citation : "En choisissant pour moi, je choisis pour tous les hommes" ?',
+      front: 'Quelle œuvre contient cette citation : "En choisissant pour moi, je choisis pour tous les hommes"?',
       back: 'L\'Existentialisme est un humanisme, Jean-Paul Sartre (1946)',
       difficulty: 1
     },
     {
       type: 'QUOTE' as const,
-      front: 'Quelle œuvre contient cette citation : "Je me révolte, donc nous sommes" ?',
+      front: 'Quelle œuvre contient cette citation : "Je me révolte, donc nous sommes"?',
       back: 'L\'Homme révolté, Albert Camus (1951)',
-      difficulty: 2
+      difficulty: 1
     },
     {
       type: 'QUOTE' as const,
-      front: 'Quelle œuvre contient cette citation : "J\'accuse...!" ?',
+      front: 'Quelle œuvre contient cette citation : "J\'accuse...!"?',
       back: 'Article publié dans L\'Aurore, Émile Zola (1898)',
       difficulty: 1
     },
@@ -468,18 +468,18 @@ export const concept = {
       type: 'CLOZE' as const,
       front: 'Pour Camus, {{je me révolte}}, donc {{nous sommes}}.',
       back: 'je me révolte | nous sommes',
-      difficulty: 2
+      difficulty: 1
     },
     {
       type: 'ESSAY' as const,
       front: 'En quoi l\'engagement est-il la réalisation de la liberté ?',
-      back: 'Pour Sartre, la liberté n\'est pas contemplation mais action : "l\'homme est condamné à être libre" signifie que sa liberté se réalise dans ses choix. L\'engagement est cette concrétisation : en choisissant, je me donne une essence (je deviens ce que je fais). De plus, chaque choix engage l\'humanité entière car il affirme une valeur ("en choisissant pour moi, je choisis pour tous les hommes"). L\'engagement transforme l\'angoisse de la liberté en action responsable. L\'homme s\'engage non pas malgré sa liberté mais parce qu\'il est libre : cette liberté ne devient réalité que dans l\'action engagée.',
+      back: 'Pour Sartre, la liberté n\'est pas contemplation mais action : "l\'homme est condamné à être libre" signifie que sa liberté se réalise dans ses choix. L\'engagement est cette concrétisation : en choisissant, je me donne une essence (je deviens ce que je fais). De plus, chaque choix engage l\'humanité entière car il affirme une valeur ("en choisissant pour moi, je choisis pour tous les hommes").',
       difficulty: 5
     },
     {
       type: 'ESSAY' as const,
       front: 'Quelle différence entre engagement et activisme ?',
-      back: 'L\'activisme est action aveugle, action pour l\'action sans réflexion sur les enjeux. L\'engagement authentique se distingue par la lucidité : l\'homme engagé sait pourquoi il s\'engage, comprend les conséquences, reste critique de sa propre action. Pour Sartre, l\'écrivain engagé ne fait pas de propagande (manipulation) mais révèle le monde pour que le lecteur puisse librement le transformer. L\'engagement respecte la liberté d\'autrui, l\'activisme peut la sacrifier pour une "bonne cause". La distinction centrale est : l\'activisme soumet à une fin, l\'engagement assume une responsabilité.',
+      back: 'L\'activisme est action aveugle, action pour l\'action sans réflexion sur les enjeux. L\'engagement authentique se distingue par la lucidité : l\'homme engagé sait pourquoi il s\'engage, comprend les conséquences, reste critique de sa propre action. Pour Sartre, l\'écrivain engagé ne fait pas de propagande (manipulation) mais révèle le monde pour que le lecteur puisse librement le transformer. L\'engagement respecte la liberté d\'autrui, l\'activisme peut la sacrifier pour une "bonne cause".',
       difficulty: 5
     }
   ],

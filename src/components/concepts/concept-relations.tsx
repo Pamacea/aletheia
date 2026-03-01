@@ -61,7 +61,7 @@ export function ConceptRelations({ conceptSlug, relations }: ConceptRelationsPro
           <button
             onClick={() => setSelectedType('ALL')}
             className={cn(
-              'px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg font-medium text-sm sm:text-base transition-colors',
+              'px-3 py-1.5 sm:px-4 sm:py-2  font-medium text-sm sm:text-base transition-colors',
               selectedType === 'ALL'
                 ? 'bg-sepia-600 text-paper-50'
                 : 'bg-paper-100 text-ink hover:bg-paper-200'
@@ -69,35 +69,30 @@ export function ConceptRelations({ conceptSlug, relations }: ConceptRelationsPro
           >
             Toutes ({relations.length})
           </button>
-          {RELATION_TYPES.map((type) => {
-            const count = getTypeCount(type);
-            if (count === 0) return null;
-
-            return (
-              <button
-                key={type}
-                onClick={() => setSelectedType(type)}
-                className={cn(
-                  'px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg font-medium text-sm sm:text-base transition-colors',
-                  selectedType === type
-                    ? 'bg-sepia-600 text-paper-50'
-                    : 'bg-paper-100 text-ink hover:bg-paper-200'
-                )}
-              >
-                {type === RelationType.RELATED && 'Connexes'}
-                {type === RelationType.OPPOSES && 'Oppose'}
-                {type === RelationType.BUILDS_ON && 'Construit'}
-                {type === RelationType.INFLUENCES && 'Influence'}
-                {type === RelationType.CRITIQUES && 'Critique'}
-                {type === RelationType.EXTENDS && 'Étend'}
-                {type === RelationType.CLARIFIES && 'Clarifie'}
-                {type === RelationType.EXEMPLIFIES && 'Exemplifie'}
-                {' ('}
-                {count}
-                {')'}
-              </button>
-            );
-          })}
+          {RELATION_TYPES.filter((type) => getTypeCount(type) > 0).map((type) => (
+            <button
+              key={type}
+              onClick={() => setSelectedType(type)}
+              className={cn(
+                'px-3 py-1.5 sm:px-4 sm:py-2  font-medium text-sm sm:text-base transition-colors',
+                selectedType === type
+                  ? 'bg-sepia-600 text-paper-50'
+                  : 'bg-paper-100 text-ink hover:bg-paper-200'
+              )}
+            >
+              {type === RelationType.RELATED && 'Connexes'}
+              {type === RelationType.OPPOSES && 'Oppose'}
+              {type === RelationType.BUILDS_ON && 'Construit'}
+              {type === RelationType.INFLUENCES && 'Influence'}
+              {type === RelationType.CRITIQUES && 'Critique'}
+              {type === RelationType.EXTENDS && 'Étend'}
+              {type === RelationType.CLARIFIES && 'Clarifie'}
+              {type === RelationType.EXEMPLIFIES && 'Exemplifie'}
+              {' ('}
+              {getTypeCount(type)}
+              {')'}
+            </button>
+          ))}
         </div>
 
         {/* Relations Grid */}

@@ -88,7 +88,7 @@ export default async function CategoryPage({
               {trending.length > 0 && (
                 <div className="bg-paper-50 border-2 border-paper-300 border-double-ornate p-5">
                   <h3 className="font-serif font-semibold text-ink mb-4 flex items-center gap-2">
-                    <TrendingUpIcon className="w-5 h-5 text-sepia-600" />
+                    <TrendingUpIcon className="w-4 h-4 text-sepia-600" />
                     <span className="living-word">Discussions Tendances</span>
                   </h3>
                   <div className="space-y-3">
@@ -132,7 +132,7 @@ export default async function CategoryPage({
               {/* All Categories */}
               <div className="bg-gradient-to-br from-sepia-50 to-paper-50 border-2 border-sepia-300 border-double-ornate p-5">
                 <h3 className="font-serif font-semibold text-sepia-800 mb-3 flex items-center gap-2">
-                  <NetworkIcon className="w-5 h-5" />
+                  <NetworkIcon className="w-4 h-4" />
                   <span className="living-word">Catégories</span>
                 </h3>
                 <div className="space-y-2">
@@ -143,7 +143,7 @@ export default async function CategoryPage({
                       className="flex items-center justify-between py-2 px-3 hover:bg-paper-100 transition-colors group"
                     >
                       <span className="flex items-center gap-2">
-                        <BookIcon className="w-5 h-5 text-sepia-600" />
+                        <BookIcon className="w-4 h-4 text-sepia-600" />
                         <span className="text-sm text-ink group-hover:text-sepia-700 living-word">
                           {cat.name}
                         </span>

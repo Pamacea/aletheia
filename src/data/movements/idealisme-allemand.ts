@@ -79,7 +79,7 @@ L'idéalisme allemand a une influence immense. Il inspire le romantisme, le marx
       "Rationalisme dogmatique - Leibniz, Wolff",
       "Empirisme sceptique - Hume",
       "Dualisme cartésien - âme et corps comme substances séparées",
-      "Métaphysique traditionnelle - Kant la critique comme "dogmatisme"",
+      "Métaphysique traditionnelle - Kant la critique comme \"dogmatisme\"",
       "Matérialisme - l'âme réduite à la matière",
       "Positivisme - réduction du réel au sensible"
     ]

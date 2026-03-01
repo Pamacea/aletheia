@@ -60,9 +60,9 @@ export default async function AgoraPage({ searchParams }: AgoraPageProps) {
           <div className="flex items-center justify-between">
             <Link
               href="/"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-paper-50 text-sepia-600 hover:text-sepia-700 hover:bg-paper-100 border-2 border-paper-300 hover:border-sepia-600 transition-all duration-200"
+              className="inline-flex items-center gap-2 px-2.5 py-1.5 text-sm bg-paper-50 text-sepia-600 hover:text-sepia-700 hover:bg-paper-100 border-2 border-paper-300 hover:border-sepia-600 transition-all duration-200"
             >
-              <ArrowLeftIcon className="w-5 h-5" />
+              <ArrowLeftIcon className="w-4 h-4" />
               <span className="living-word font-medium">Retour</span>
             </Link>
             <h1 className="font-serif text-2xl font-semibold text-ink">
@@ -91,7 +91,7 @@ export default async function AgoraPage({ searchParams }: AgoraPageProps) {
           <div className="flex justify-center gap-4">
             <Link href="/agora/create">
               <Button className="gap-2 rounded-none">
-                <BookIcon className="w-5 h-5" />
+                <BookIcon className="w-4 h-4" />
                 <span className="living-word">Nouvelle Discussion</span>
               </Button>
             </Link>
@@ -106,7 +106,7 @@ export default async function AgoraPage({ searchParams }: AgoraPageProps) {
             {/* Search and Sort Bar */}
             <div className="flex flex-col sm:flex-row gap-4 mb-6">
               <div className="relative flex-1">
-                <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-paper-500" />
+                <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-paper-500" />
                 <Input
                   type="search"
                   name="search"
@@ -200,7 +200,7 @@ export default async function AgoraPage({ searchParams }: AgoraPageProps) {
             {trending.length > 0 && (
               <div className="bg-paper-50 border-2 border-paper-300 border-double-ornate p-5">
                 <h3 className="font-serif font-semibold text-ink mb-4 flex items-center gap-2">
-                  <TrendingUpIcon className="w-5 h-5 text-sepia-600" />
+                  <TrendingUpIcon className="w-4 h-4 text-sepia-600" />
                   <span className="living-word">Discussions Tendances</span>
                 </h3>
                 <div className="space-y-3">
@@ -247,7 +247,7 @@ export default async function AgoraPage({ searchParams }: AgoraPageProps) {
             {/* Categories Info */}
             <div className="bg-gradient-to-br from-sepia-50 to-paper-50 border-2 border-sepia-300 border-double-ornate p-5">
               <h3 className="font-serif font-semibold text-sepia-800 mb-3 flex items-center gap-2">
-                <NetworkIcon className="w-5 h-5" />
+                <NetworkIcon className="w-4 h-4" />
                 <span className="living-word">Catégories</span>
               </h3>
               <div className="space-y-2">
@@ -258,7 +258,7 @@ export default async function AgoraPage({ searchParams }: AgoraPageProps) {
                     className="flex items-center justify-between py-2 px-3 hover:bg-paper-100 transition-colors group"
                   >
                     <span className="flex items-center gap-2">
-                      <BookIcon className="w-5 h-5 text-sepia-600" />
+                      <BookIcon className="w-4 h-4 text-sepia-600" />
                       <span className="text-sm text-ink group-hover:text-sepia-700 living-word">
                         {cat.name}
                       </span>

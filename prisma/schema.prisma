@@ -690,7 +690,7 @@ model UserAchievement {
   id            String      @id @default(cuid())
   userId        String
   achievementId String
-  unlockedAt    DateTime    @default(now())
+  unlockedAt    DateTime?   // Optional - only set when achievement is actually unlocked
   progress      Int         @default(0)
   achievement   Achievement @relation(fields: [achievementId], references: [id], onDelete: Cascade)
   user          User        @relation(fields: [userId], references: [id], onDelete: Cascade)

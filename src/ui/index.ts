@@ -30,6 +30,11 @@ export * from './molecules/Toast';
 export { ToastProvider, useToast } from './molecules/ToastProvider';
 
 // ============================================================================
+// ANIMATIONS
+// ============================================================================
+export * from './animations';
+
+// ============================================================================
 // COMPONENTS
 // ============================================================================
 export { Sidebar, SidebarSkeleton } from './components/Sidebar';
