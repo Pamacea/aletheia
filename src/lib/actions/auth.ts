@@ -6,6 +6,60 @@ import { redirect } from 'next/navigation';
 import { checkAuthRateLimit } from '@/lib/rate-limit';
 import { sendVerificationEmail } from '@/lib/email';
 
+/**
+ * Allowed hosts for OAuth callbacks
+ * Prevents host header injection attacks
+ */
+const ALLOWED_HOSTS = [
+  'localhost:3000',
+  'localhost:3001',
+  '127.0.0.1:3000',
+  '127.0.0.1:3001',
+  'https://aletheia.oalacea.fr',
+];
+
+// Add production hosts from environment variable
+if (process.env.ALLOWED_HOSTS) {
+  ALLOWED_HOSTS.push(...process.env.ALLOWED_HOSTS.split(','));
+}
+
+/**
+ * Get and validate the host header
+ * Throws error if host is not in allowlist
+ */
+async function getValidatedHost(): Promise<string> {
+  const headersList = await headers();
+  const host = headersList.get('host');
+
+  if (!host) {
+    throw new Error('Host header is required');
+  }
+
+  // Remove port for localhost checks if needed
+  const hostWithPort = host;
+  const hostWithoutPort = host.split(':')[0];
+
+  // Check if host is allowed (with or without port)
+  const isAllowed = ALLOWED_HOSTS.some(allowed =>
+    allowed === hostWithPort ||
+    allowed === hostWithoutPort ||
+    allowed.startsWith(hostWithoutPort)
+  );
+
+  if (!isAllowed) {
+    throw new Error(`Invalid host header: ${host}`);
+  }
+
+  return hostWithPort;
+}
+
+/**
+ * Get protocol based on host (http for localhost, https otherwise)
+ */
+function getProtocol(host: string): string {
+  return host.includes('localhost') || host.includes('127.0.0.1') ? 'http' : 'https';
+}
+
 export async function signInWithEmail(email: string, password: string) {
   'use server';
 

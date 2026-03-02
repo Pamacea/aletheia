@@ -77,11 +77,15 @@ export function validatePassword(password: string): {
 
 /**
  * Sanitize a string for safe HTML display
+ * Uses DOMPurify for comprehensive XSS protection (works server & client)
  * @param str - The string to sanitize
- * @returns Sanitized string
+ * @returns Sanitized string safe for use in dangerouslySetInnerHTML
  */
 export function sanitizeHTML(str: string): string {
-  const div = document.createElement('div');
-  div.textContent = str;
-  return div.innerHTML;
+  // Use isomorphic-dompurify for server and client-side sanitization
+  const DOMPurify = require('isomorphic-dompurify');
+  return DOMPurify.sanitize(str, {
+    ALLOWED_TAGS: ['p', 'br', 'strong', 'em', 'u', 'a', 'ul', 'ol', 'li', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'code', 'pre'],
+    ALLOWED_ATTR: ['href', 'title', 'class'],
+  });
 }

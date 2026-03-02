@@ -9,7 +9,13 @@ export const auth = betterAuth({
   database: prismaAdapter(prisma, {
     provider: 'postgresql',
   }),
-  secret: process.env.BETTER_AUTH_SECRET || 'development-secret-change-in-production',
+  secret: (() => {
+    const secret = process.env.BETTER_AUTH_SECRET;
+    if (process.env.NODE_ENV === 'production' && !secret) {
+      throw new Error('BETTER_AUTH_SECRET environment variable must be set in production');
+    }
+    return secret || 'development-secret-change-in-production';
+  })(),
   baseURL: process.env.BETTER_AUTH_URL || process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000',
   emailAndPassword: {
     enabled: true,

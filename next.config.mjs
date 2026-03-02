@@ -24,6 +24,10 @@ const nextConfig = {
         source: '/:path*',
         headers: [
           {
+            key: 'X-Powered-By',
+            value: ''  // Explicitly remove X-Powered-By header
+          },
+          {
             key: 'X-DNS-Prefetch-Control',
             value: 'on'
           },
