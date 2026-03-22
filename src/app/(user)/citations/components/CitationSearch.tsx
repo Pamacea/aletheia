@@ -1,25 +1,14 @@
 'use client';
 
 import { useRouter, useSearchParams } from 'next/navigation';
-import { SearchIcon, ChevronDownIcon } from '@/ui/components/CustomIcons';
-import { useEffect, useRef, useState } from 'react';
+import { SearchIcon } from '@/ui/icons/ActionIcons';
+import { ChevronDownIcon } from '@/ui/icons/UIIcons';
+import { useEffect, useRef, useState, useTransition } from 'react';
 
 const AUTHORS = [
-  'Platon',
-  'Aristote',
-  'Descartes',
-  'Kant',
-  'Nietzsche',
-  'Sartre',
-  'Camus',
-  'Épictète',
-  'Marc Aurèle',
-  'Sénèque',
-  'Montaigne',
-  'Pascal',
-  'Spinoza',
-  'Hegel',
-  'Heidegger',
+  'Platon', 'Aristote', 'Descartes', 'Kant', 'Nietzsche',
+  'Sartre', 'Camus', 'Épictète', 'Marc Aurèle', 'Sénèque',
+  'Montaigne', 'Pascal', 'Spinoza', 'Hegel', 'Heidegger',
 ];
 
 interface CitationSearchProps {
@@ -39,13 +28,17 @@ export function CitationSearch({
   const [author, setAuthor] = useState(defaultAuthor);
   const [authorOpen, setAuthorOpen] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const [isPending, startTransition] = useTransition();
 
   const updateURL = (searchValue: string, authorValue: string) => {
     const params = new URLSearchParams();
     if (searchValue) params.set('search', searchValue);
     if (authorValue) params.set('author', authorValue);
-    params.set('page', '1'); // Reset to page 1 on new search
-    router.push(`/citations?${params.toString()}`);
+    params.set('page', '1');
+    // startTransition allows React to abort previous render if a new one starts
+    startTransition(() => {
+      router.push(`/citations?${params.toString()}`);
+    });
   };
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -58,7 +51,7 @@ export function CitationSearch({
 
     timeoutRef.current = setTimeout(() => {
       updateURL(newValue, author);
-    }, 300);
+    }, 600);
   };
 
   const handleAuthorChange = (newAuthor: string) => {
@@ -68,6 +61,9 @@ export function CitationSearch({
   };
 
   const handleClear = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
     setSearch('');
     setAuthor('');
     updateURL('', '');
@@ -98,11 +94,14 @@ export function CitationSearch({
           placeholder="Rechercher une citation..."
           value={search}
           onChange={handleSearchChange}
-          className="w-full h-12 pl-10 pr-4 border-2 border-paper-300 focus:outline-none focus:ring-2 focus:ring-sepia-600 focus:border-transparent bg-paper-50 text-ink placeholder:text-ink-lighter transition-colors"
+          className="w-full h-12 pl-10 pr-10 border-2 border-paper-300 focus:outline-none focus:ring-2 focus:ring-sepia-600 focus:border-transparent bg-paper-50 text-ink placeholder:text-ink-lighter transition-colors"
         />
+        {isPending && (
+          <div className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 border-2 border-sepia-600 border-t-transparent rounded-full animate-spin" />
+        )}
       </div>
 
-      {/* Author filter - Improved with site's DA */}
+      {/* Author filter */}
       <div className="relative min-w-[200px]">
         <button
           type="button"
@@ -122,7 +121,6 @@ export function CitationSearch({
           <ChevronDownIcon className={`w-4 h-4 text-ink-light transition-transform duration-200 ${authorOpen ? 'rotate-180' : ''}`} />
         </button>
 
-        {/* Dropdown */}
         {authorOpen && (
           <div className="absolute top-full left-0 right-0 mt-1 bg-paper-50 border-2 border-sepia-300 shadow-glow-medium z-10 max-h-60 overflow-y-auto">
             <button

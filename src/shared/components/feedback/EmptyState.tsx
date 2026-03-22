@@ -1,11 +1,11 @@
+'use client';
+
 import { cn } from '@/lib/utils/cn';
 import { Button } from '@/ui/atoms/Button';
-import {
-  InboxIcon,
-  SearchIcon,
-  BookIcon,
-  SparklesIcon,
-} from '@/ui/components/CustomIcons';
+import { BookIcon } from '@/ui/icons/NavigationIcons';
+import { SearchIcon } from '@/ui/icons/ActionIcons';
+import { InboxIcon } from '@/ui/icons/StatusIcons';
+import { SparklesIcon } from '@/ui/icons/SocialIcons';
 
 export type EmptyStateIcon = 'inbox' | 'search' | 'file' | 'sparkles' | 'custom';
 

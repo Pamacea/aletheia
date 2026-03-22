@@ -1,7 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { UserIcon, CameraIcon } from '@/ui/components/CustomIcons';
+import { CameraIcon } from '@/ui/icons/ActionIcons';
+import { UserIcon } from '@/ui/icons/UserIcons';
 import { updateProfile, deleteAvatar } from '@/lib/actions/settings';
 
 interface SettingsProfileProps {

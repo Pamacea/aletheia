@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowLeftIcon } from '@/ui/components/CustomIcons';
+import { ArrowLeftIcon } from '@/ui/icons/UIIcons';
 import { BreadcrumbNav } from './BreadcrumbNav';
 import { ActionButtons } from './ActionButton';
 

@@ -1,5 +1,5 @@
 import { LinkOrnate } from '@/ui/components/LinkOrnate';
-import { BrainIcon } from '@/ui/components/CustomIcons';
+import { BrainIcon } from '@/ui/icons/FeatureIcons';
 
 interface RecommendationsSectionProps {
   recommendations: {
@@ -10,7 +10,7 @@ interface RecommendationsSectionProps {
 
 export function RecommendationsSection({ recommendations }: RecommendationsSectionProps) {
   return (
-    <section className="card-parchment border-2 border-sepia-300 p-6">
+    <section className="bg-white border-2 border-paper-300 p-4 sm:p-6">
       <div className="flex items-center gap-3 mb-6">
         <BrainIcon className="w-6 h-6 text-sepia-600" />
         <h3 className="font-serif text-xl font-semibold text-ink">

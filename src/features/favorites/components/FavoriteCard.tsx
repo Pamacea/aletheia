@@ -1,7 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { StarIcon, TrashIcon } from '@/ui/components/CustomIcons';
+import { TrashIcon } from '@/ui/icons/ActionIcons';
+import { StarIcon } from '@/ui/icons/StatusIcons';
 import { toggleFavorite } from '@/lib/actions/favorites';
 import { useRouter } from 'next/navigation';
 

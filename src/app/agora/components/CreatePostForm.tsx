@@ -1,8 +1,9 @@
 'use client'
 
 import { useRouter } from 'next/navigation'
-import { PlusIcon, NetworkIcon, BookIcon, ArrowLeftIcon } from '@/ui'
-import Link from 'next/link'
+import { PlusIcon } from '@/ui/icons/ActionIcons'
+import { NetworkIcon, BookIcon } from '@/ui/icons/NavigationIcons'
+import { BackButton } from '@/ui/components/BackButton'
 import { Button } from '@/ui/atoms/Button'
 import { Input } from '@/ui/atoms/Input'
 import { Textarea } from '@/ui/atoms/Textarea'
@@ -60,13 +61,7 @@ export function CreatePostForm({ categories }: CreatePostFormProps) {
       <header className="with-sidebar border-b-2 border-sepia-600 bg-paper-50 py-4">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center justify-between">
-            <Link
-              href="/agora"
-              className="inline-flex items-center gap-2 px-2.5 py-1.5 text-sm bg-paper-50 text-sepia-600 hover:text-sepia-700 hover:bg-paper-100 border-2 border-paper-300 hover:border-sepia-600 transition-all duration-200"
-            >
-              <ArrowLeftIcon className="w-4 h-4" />
-              <span className="living-word font-medium">Retour</span>
-            </Link>
+            <BackButton href="/agora" label="Retour" />
             <h1 className="font-serif text-2xl font-semibold text-ink">
               <span className="living-word">Nouvelle Discussion</span>
             </h1>

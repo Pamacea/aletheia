@@ -3,10 +3,12 @@
 import { motion } from 'framer-motion';
 import { Avatar } from '@/ui/molecules/Avatar';
 import { Button } from '@/ui/atoms/Button';
-import { EditIcon, CalendarIcon, ShieldIcon } from '@/ui/components/CustomIcons';
+import { PhilosophersIcon } from '@/ui/icons/NavigationIcons';
+import { EditIcon } from '@/ui/icons/ActionIcons';
+import { ShieldIcon } from '@/ui/icons/UserIcons';
+import { CalendarIcon } from '@/ui/icons/StatusIcons';
 import { useProfile, getInitials, formatJoinDate } from '../hooks/useProfile';
 import { ProfileEditForm } from './ProfileEditForm';
-import { PhilosophersIcon } from '@/ui/components/CustomIcons';
 
 interface ProfileHeroProps {
   name: string;

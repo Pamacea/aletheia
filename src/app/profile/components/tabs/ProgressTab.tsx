@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { PhilosophersIcon } from '@/ui/components/CustomIcons';
+import { PhilosophersIcon } from '@/ui/icons/NavigationIcons';
 
 export interface ProgressItem {
   id: string;

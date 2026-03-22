@@ -104,6 +104,7 @@ export async function getConcept(slug: string): Promise<ConceptWithRelations | n
   return {
     ...concept,
     relations: concept.relations.map(rel => ({
+      id: rel.id,
       relatedConcept: {
         id: rel.relatedConcept.id,
         name: rel.relatedConcept.name,
@@ -200,6 +201,7 @@ export async function getConceptsForGraph(categoryId?: string): Promise<ConceptW
   return concepts.map(concept => ({
     ...concept,
     relations: concept.relations.map(rel => ({
+      id: rel.id,
       relatedConcept: {
         id: rel.relatedConcept.id,
         name: rel.relatedConcept.name,
@@ -277,20 +279,19 @@ export async function getRandomQuote(): Promise<QuoteWithSource | null> {
 export async function getFeaturedConcepts(): Promise<Concept[]> {
   'use server';
 
-  // Get all concepts first
-  const allConcepts = await prisma.concept.findMany({
+  // Only fetch 30 random-ish concepts (by updatedAt desc for variety), then pick 8
+  const recentConcepts = await prisma.concept.findMany({
     include: { category: true },
-    orderBy: { name: 'asc' },
+    take: 30,
   });
 
-  // Shuffle array using Fisher-Yates algorithm
-  const shuffled = [...allConcepts];
+  // Shuffle the small subset
+  const shuffled = [...recentConcepts];
   for (let i = shuffled.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
   }
 
-  // Take first 8 random concepts and map to proper types
   return shuffled.slice(0, 8) as unknown as Concept[];
 }
 
@@ -309,7 +310,8 @@ export async function getConceptRelations(slug: string) {
             include: { category: true }
           }
         },
-        orderBy: { strength: 'desc' }
+        orderBy: { strength: 'desc' },
+        take: 50
       }
     }
   });

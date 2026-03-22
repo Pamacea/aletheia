@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { Button } from '@/ui/atoms/Button'
 import { Textarea } from '@/ui/atoms/Textarea'
 import { createReply } from '@/lib/actions/forum'
-import { BookIcon } from '@/ui'
+import { BookIcon } from '@/ui/icons/NavigationIcons'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 

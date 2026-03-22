@@ -4,6 +4,7 @@ import { prisma } from '@/lib/db/prisma';
 import { nextCookies } from 'better-auth/next-js';
 import { sendVerificationEmail, sendPasswordResetEmail } from '@/lib/email';
 import { cookies } from 'next/headers';
+import { cache } from 'react';
 
 export const auth = betterAuth({
   database: prismaAdapter(prisma, {
@@ -61,9 +62,9 @@ export type Session = typeof auth.$Infer.Session;
 
 /**
  * Helper function to get the current session in Server Components
- * Uses better-auth's session retrieval with Next.js cookies
+ * Uses React cache to deduplicate calls within a single request
  */
-export async function getSession() {
+export const getSession = cache(async () => {
   const cookieStore = await cookies();
   const session = await auth.api.getSession({
     headers: new Headers({
@@ -73,8 +74,7 @@ export async function getSession() {
 
   // If session exists, fetch user with role
   if (session?.user?.id) {
-    const { prisma: prismaClient } = await import('@/lib/db/prisma');
-    const userWithRole = await prismaClient.user.findUnique({
+    const userWithRole = await prisma.user.findUnique({
       where: { id: session.user.id },
       select: { role: true },
     });
@@ -85,4 +85,4 @@ export async function getSession() {
   }
 
   return session;
-}
+});

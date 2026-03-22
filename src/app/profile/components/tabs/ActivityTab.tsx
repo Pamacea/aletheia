@@ -3,14 +3,10 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { ScrollReveal, StaggerContainer } from '@/ui/animations';
-import {
-  PhilosophersIcon,
-  BookIcon,
-  MessageSquareIcon,
-  ZapIcon,
-  FilterIcon,
-  EditIcon,
-} from '@/ui/components/CustomIcons';
+import { PhilosophersIcon, BookIcon } from '@/ui/icons/NavigationIcons';
+import { FilterIcon, EditIcon } from '@/ui/icons/ActionIcons';
+import { ZapIcon } from '@/ui/icons/StatusIcons';
+import { MessageSquareIcon } from '@/ui/icons/SocialIcons';
 import { cn } from '@/lib/utils/cn';
 
 /**

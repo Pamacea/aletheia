@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Inter, Caveat } from "next/font/google";
 import { QueryClientProvider } from "@/lib/react-query/providers";
-import { Sidebar } from "@/ui/components/Sidebar";
-import { PageEffects } from "@/ui/components/PageEffects";
+import { SidebarWrapper } from "@/ui/components/SidebarWrapper";
 import { ToastProvider } from "@/ui/molecules/ToastProvider";
 import { JsonLd } from "@/ui/atoms/JsonLd";
 import { getWebSiteSchema } from "@/lib/utils/structured-data";
@@ -99,14 +98,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={`${playfair.variable} ${inter.variable} ${caveat.variable} font-serif bg-paper-50 text-ink m-0 p-0`}>
         <QueryClientProvider>
           <ToastProvider>
-            <PageEffects>
               <div className="flex min-h-screen">
-                <Sidebar />
-                <main className="main-content-with-sidebar">
+                <SidebarWrapper />
+                <main className="main-content-with-sidebar w-full min-w-0 overflow-x-hidden">
                   {children}
                 </main>
               </div>
-            </PageEffects>
           </ToastProvider>
         </QueryClientProvider>
         <Analytics />

@@ -3,7 +3,9 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { PhilosophersIcon, CheckCircleIcon, AlertCircleIcon, Loader2Icon } from '@/ui/components/CustomIcons';
+import { PhilosophersIcon } from '@/ui/icons/NavigationIcons';
+import { Loader2Icon } from '@/ui/icons/UIIcons';
+import { CheckCircleIcon, AlertCircleIcon } from '@/ui/icons/StatusIcons';
 import { ButtonOrnate } from '@/ui/components/ButtonOrnate';
 
 type VerificationStatus = 'loading' | 'success' | 'error';

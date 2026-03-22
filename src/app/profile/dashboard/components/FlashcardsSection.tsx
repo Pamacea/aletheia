@@ -1,11 +1,7 @@
 import Link from 'next/link';
-import { LinkOrnate } from '@/ui/components/LinkOrnate';
-import {
-  ZapIcon,
-  TargetIcon,
-  ClockIcon,
-  ArrowRightIcon,
-} from '@/ui/components/CustomIcons';
+import { ArrowRightIcon } from '@/ui/icons/UIIcons';
+import { ZapIcon, ClockIcon } from '@/ui/icons/StatusIcons';
+import { TargetIcon } from '@/ui/icons/FeatureIcons';
 
 interface FlashcardsSectionProps {
   dueFlashcards: any[];
@@ -25,23 +21,22 @@ export function FlashcardsSection({
   progressPercent,
 }: FlashcardsSectionProps) {
   return (
-    <section className="card-parchment border-2 border-sepia-300 p-6">
-      <div className="flex items-center justify-between mb-6">
+    <section className="bg-white border-2 border-paper-300 p-4 sm:p-6">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4 sm:mb-6">
         <div className="flex items-center gap-3">
-          <ZapIcon className="w-6 h-6 text-sepia-600" />
-          <h3 className="font-serif text-xl font-semibold text-ink">
+          <ZapIcon className="w-5 h-5 sm:w-6 sm:h-6 text-sepia-600" />
+          <h3 className="font-serif text-lg sm:text-xl font-semibold text-ink">
             Flashcards à Réviser
           </h3>
         </div>
         {dueFlashcards.length > 0 && (
-          <LinkOrnate
+          <Link
             href="/profile/flashcards?mode=review"
-            living
             className="inline-flex items-center gap-2 px-4 py-2 bg-sepia-600 text-paper-50 hover:bg-sepia-700 transition-colors"
           >
             Commencer
             <ArrowRightIcon className="w-4 h-4" />
-          </LinkOrnate>
+          </Link>
         )}
       </div>
 
@@ -66,22 +61,15 @@ export function FlashcardsSection({
       {dueFlashcards.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {dueFlashcards.slice(0, 6).map((card: any) => (
-            <LinkOrnate
+            <Link
               key={card.id}
               href={`/conceptuaire/${card.concept.slug}`}
-              living
-              className="block p-4 border-2 border-paper-300 hover:border-sepia-600 hover:shadow-md transition-all"
+              className="block p-4 border-2 border-paper-300 hover:border-sepia-600 hover:shadow-md transition-all text-inherit no-underline"
             >
               <div className="flex items-start justify-between mb-2">
                 <div className="flex-1">
-                  <span
-                    className="inline-block px-2 py-0.5 text-xs font-medium mb-2"
-                    style={{
-                      backgroundColor: card.concept.category.color || '#d4bc8f',
-                      color: '#2d2b29',
-                    }}
-                  >
-                    {card.concept.category.name}
+                  <span className="inline-block px-2 py-0.5 text-xs font-medium mb-2 bg-paper-200 text-sepia-700 border border-paper-400">
+                    {card.concept.category?.name || 'Concept'}
                   </span>
                   <h4 className="font-serif font-semibold text-ink mb-1">
                     {card.concept.name}
@@ -108,7 +96,7 @@ export function FlashcardsSection({
                   jour(s)
                 </span>
               </div>
-            </LinkOrnate>
+            </Link>
           ))}
         </div>
       ) : (
@@ -118,13 +106,12 @@ export function FlashcardsSection({
           <p className="text-sm text-ink-light mb-4">
             Explorez de nouveaux concepts pour continuer votre apprentissage
           </p>
-          <LinkOrnate
+          <Link
             href="/conceptuaire"
-            living
             className="inline-flex items-center gap-2 px-4 py-2 bg-sepia-600 text-paper-50 hover:bg-sepia-700 transition-colors"
           >
             Explorer les concepts
-          </LinkOrnate>
+          </Link>
         </div>
       )}
     </section>

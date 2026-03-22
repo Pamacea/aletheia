@@ -47,39 +47,10 @@ export { CursorCustom } from './components/CursorCustom';
 export { Navigation } from './components/Navigation';
 export { NavigationWrapper } from './components/NavigationWrapper';
 export { Footer } from './components/Footer';
+export { BackButton } from './components/BackButton';
 
 // ============================================================================
 // ICONS
 // ============================================================================
 // Export all icons from the icons directory
 export * from './icons';
-
-// Legacy: Also export from CustomIcons for backward compatibility
-export {
-  HomeIcon,
-  NetworkIcon,
-  GraphIcon,
-  QuoteIcon,
-  PhilosophersIcon,
-  CurrentsIcon,
-  SparklesIcon,
-  UserIcon,
-  LoginIcon,
-  LogoutIcon,
-  MenuIcon,
-  CloseIcon,
-  SearchIcon,
-  BookOpenIcon,
-  LightbulbIcon,
-  GitBranchIcon,
-  ArrowRightIcon,
-  ArrowLeftIcon,
-  Loader2Icon,
-  TrendingUpIcon,
-  ConceptIcon,
-} from './components/CustomIcons';
-
-// ============================================================================
-// RE-EXPORT ALL ICONS (convenience)
-// ============================================================================
-export * as Icons from './icons';

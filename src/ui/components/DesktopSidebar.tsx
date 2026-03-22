@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useNavigation } from '@/ui/hooks/useNavigation';
 import { NAV_ITEMS } from './sidebar-navigation';
-import { LoginIcon } from '@/ui/icons';
+import { LoginIcon } from '@/ui/icons/UserIcons';
 import { UserDropdown } from './UserDropdown';
 
 interface DesktopSidebarProps {

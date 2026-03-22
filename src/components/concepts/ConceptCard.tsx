@@ -1,7 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowRightIcon, HeartIcon } from '@/ui/components/CustomIcons';
+import { ArrowRightIcon } from '@/ui/icons/UIIcons';
+import { HeartIcon } from '@/ui/icons/StatusIcons';
 import { LinkOrnate } from '@/ui/components/LinkOrnate';
 import { useFavorite } from '@/features/favorites/hooks';
 import { useRouter } from 'next/navigation';
@@ -93,7 +94,7 @@ export function ConceptCard({
 
   return (
     <div
-      className={`group relative w-full bg-white border border-paper-300 p-4 sm:p-6 hover:shadow-lg hover:border-sepia-600 transition-all duration-300 ${isGrid ? '' : 'flex flex-col sm:flex-row gap-4 sm:gap-6'}`}
+      className={`group relative w-full min-w-0 overflow-hidden bg-white border border-paper-300 p-4 sm:p-6 hover:shadow-lg hover:border-sepia-600 transition-all duration-300 ${isGrid ? '' : 'flex flex-col sm:flex-row gap-4 sm:gap-6'}`}
     >
       {/* Category Badge */}
       {concept.category && (
@@ -128,10 +129,10 @@ export function ConceptCard({
           living={true}
           className="block"
         >
-          <h3 className="font-serif text-xl font-semibold text-ink mb-2 group-hover:text-sepia-600 transition-colors">
+          <h3 className="font-serif text-xl font-semibold text-ink mb-2 group-hover:text-sepia-600 transition-colors break-words">
             <span className="living-word">{concept.name}</span>
             {concept.etymology?.greek && (
-              <span className="ml-2 text-base text-sepia-600 font-normal">
+              <span className="block text-sm text-sepia-600 font-normal mt-1 break-words">
                 ({concept.etymology.greek})
               </span>
             )}

@@ -4,13 +4,13 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="py-12 bg-ink text-paper-200 border-t-2 border-sepia-600">
-      <div className="max-w-7xl mx-auto px-4">
+    <footer className="py-8 sm:py-10 lg:py-12 bg-ink text-paper-200 border-t-2 border-sepia-600">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Footer Content */}
         <div className="flex flex-col items-center gap-6 mb-8">
           {/* Title */}
           <div className="text-center">
-            <h2 className="text-4xl text-paper-50 font-serif mb-2" style={{ fontFamily: "var(--font-playfair), Georgia, serif" }}>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl text-paper-50 font-serif mb-2" style={{ fontFamily: "var(--font-playfair), Georgia, serif" }}>
               ΑΛΗΘΕΙΑ
             </h2>
             <p className="text-sepia-600 text-lg italic">
@@ -19,7 +19,7 @@ export function Footer() {
           </div>
 
           {/* Navigation Links */}
-          <nav className="flex flex-wrap justify-center gap-6 text-sm" aria-label="Footer navigation">
+          <nav className="flex flex-wrap justify-center gap-4 sm:gap-6 text-sm" aria-label="Footer navigation">
             <Link
               href="/a-propos"
               className="text-paper-300 hover:text-sepia-600 transition-colors duration-200"

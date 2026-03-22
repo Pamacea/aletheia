@@ -1,4 +1,4 @@
-import { AwardIcon, TrendingUpIcon } from '@/ui/components/CustomIcons';
+import { AwardIcon, TrendingUpIcon } from '@/ui/icons/StatusIcons';
 import { cn } from '@/lib/utils/cn';
 
 interface LevelProgressProps {

@@ -3,6 +3,8 @@ const nextConfig = {
   turbopack: {
     root: process.cwd(),
   },
+  // Optimize package imports for tree-shaking
+  serverExternalPackages: ['@prisma/client', 'pg'],
   // Performance optimizations
   compress: true,
   poweredByHeader: false,
@@ -55,13 +57,14 @@ const nextConfig = {
             key: 'Content-Security-Policy',
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://vercel.live",
+              "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://vercel.live https://va.vercel-scripts.com",
               "style-src 'self' 'unsafe-inline'",
               "img-src 'self' data: https: blob:",
               "font-src 'self'",
               "object-src 'none'",
+              "connect-src 'self' https://discord.com https://github.com https://va.vercel-scripts.com",
               "base-uri 'self'",
-              "form-action 'self'",
+              "form-action 'self' https://discord.com https://github.com",
               "frame-ancestors 'none'",
               "upgrade-insecure-requests"
             ].join('; ')
@@ -76,6 +79,15 @@ const nextConfig = {
       allowedOrigins: ['localhost:3000', 'localhost:3001'],
       bodySizeLimit: '2mb',
     },
+    optimizePackageImports: [
+      'lucide-react',
+      '@tanstack/react-query',
+      '@tanstack/react-query-devtools',
+      'framer-motion',
+      'date-fns',
+      'd3',
+      'zod',
+    ],
   },
 };
 

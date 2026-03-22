@@ -5,13 +5,8 @@ import { PostCard } from '../components/PostCard'
 import { Button } from '@/ui/atoms/Button'
 import { ContentLayout } from '@/ui/components/ContentLayout'
 import { PageHeader } from '@/ui/components/PageHeader'
-import {
-  ArrowLeftIcon,
-  BookOpenIcon,
-  BookIcon,
-  NetworkIcon,
-  TrendingUpIcon,
-} from '@/ui'
+import { BookOpenIcon, BookIcon, NetworkIcon } from '@/ui/icons/NavigationIcons'
+import { TrendingUpIcon } from '@/ui/icons/StatusIcons'
 
 interface CategoryPageProps {
   params: Promise<{

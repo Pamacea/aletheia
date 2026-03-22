@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { AwardIcon } from '@/ui/components/CustomIcons';
+import { AwardIcon } from '@/ui/icons/StatusIcons';
 import { cn } from '@/lib/utils/cn';
 
 interface Achievement {

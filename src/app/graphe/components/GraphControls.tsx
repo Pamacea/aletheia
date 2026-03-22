@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { SearchIcon, FilterIcon } from '@/ui/components/CustomIcons';
+import { SearchIcon, FilterIcon } from '@/ui/icons/ActionIcons';
 
 interface GraphControlsProps {
   onSearch: (query: string) => void;

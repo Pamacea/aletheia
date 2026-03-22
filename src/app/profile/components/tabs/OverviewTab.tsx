@@ -1,11 +1,5 @@
-import {
-  PhilosophersIcon,
-  TrendingUpIcon,
-  AwardIcon,
-  ClockIcon,
-  BookIcon,
-  ZapIcon,
-} from '@/ui/components/CustomIcons';
+import { PhilosophersIcon, BookIcon } from '@/ui/icons/NavigationIcons';
+import { ClockIcon, TrendingUpIcon, AwardIcon, ZapIcon } from '@/ui/icons/StatusIcons';
 import { cn } from '@/lib/utils/cn';
 
 export interface OverviewTabProps {

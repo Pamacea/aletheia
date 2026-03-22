@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { BellIcon } from '@/ui/components/CustomIcons';
+import { BellIcon } from '@/ui/icons/UIIcons';
 import { updateNotifications } from '@/lib/actions/settings';
 
 interface SettingsNotificationsProps {

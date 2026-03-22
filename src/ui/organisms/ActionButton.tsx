@@ -2,7 +2,10 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { StarIcon, NetworkIcon, Share2Icon, CheckIcon } from '@/ui/components/CustomIcons';
+import { NetworkIcon } from '@/ui/icons/NavigationIcons';
+import { CheckIcon } from '@/ui/icons/ActionIcons';
+import { StarIcon } from '@/ui/icons/StatusIcons';
+import { Share2Icon } from '@/ui/icons/SocialIcons';
 
 interface ActionButtonProps {
   variant: 'favorite' | 'connections' | 'graph' | 'share' | 'link';

@@ -2,7 +2,7 @@
 
 import { useState, useTransition } from 'react';
 import Link from 'next/link';
-import { QuoteIcon } from '@/ui/components/CustomIcons';
+import { QuoteIcon } from '@/ui/icons/NavigationIcons';
 import { LinkOrnate } from '@/ui/components/LinkOrnate';
 import { SlugHeader } from '@/ui/organisms/SlugHeader';
 import { ActionButtons } from '@/ui/organisms/ActionButton';

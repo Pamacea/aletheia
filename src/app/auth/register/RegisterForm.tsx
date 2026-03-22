@@ -6,7 +6,9 @@ import { useRouter } from 'next/navigation';
 import { signUpWithEmail } from '@/lib/actions/auth';
 import { LinkOrnate } from '@/ui/components/LinkOrnate';
 import { ButtonOrnate } from '@/ui/components/ButtonOrnate';
-import { PhilosophersIcon, UserIcon, MailIcon, LockIcon, AlertCircleIcon, CheckCircleIcon } from '@/ui/components/CustomIcons';
+import { PhilosophersIcon } from '@/ui/icons/NavigationIcons';
+import { UserIcon, MailIcon, LockIcon } from '@/ui/icons/UserIcons';
+import { AlertCircleIcon, CheckCircleIcon } from '@/ui/icons/StatusIcons';
 
 interface RegisterFormProps {
   email?: string;

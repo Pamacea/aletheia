@@ -40,7 +40,8 @@ export function UserDropdown({ userName, userImage, onCloseMobile, onMenuToggle 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
-        toggleOpen(false);
+        setIsOpen(false);
+        onMenuToggle?.(false);
       }
     }
 
@@ -48,7 +49,7 @@ export function UserDropdown({ userName, userImage, onCloseMobile, onMenuToggle 
       document.addEventListener('mousedown', handleClickOutside);
       return () => document.removeEventListener('mousedown', handleClickOutside);
     }
-  }, [isOpen]);
+  }, [isOpen, onMenuToggle]);
 
   const handleItemClick = (isLogout = false) => {
     // Only close on logout or mobile navigation

@@ -44,7 +44,7 @@ export async function toggleFavorite(data: { entityType: EntityType; entityId: s
       where: { id: existing.id },
     });
 
-    revalidatePath('/favorites');
+    revalidatePath('/profile/favorites');
     return { favorited: false };
   } else {
     const favorite = await prisma.favorite.create({
@@ -89,7 +89,7 @@ export async function toggleFavorite(data: { entityType: EntityType; entityId: s
       console.error('Failed to add XP:', error);
     }
 
-    revalidatePath('/favorites');
+    revalidatePath('/profile/favorites');
     return { favorited: true };
   }
 }
@@ -136,7 +136,7 @@ export async function createCollection(data: {
     },
   });
 
-  revalidatePath('/collections');
+  revalidatePath('/profile/collections');
   return collection;
 }
 
@@ -180,8 +180,8 @@ export async function updateCollection(data: {
     data: updateData,
   });
 
-  revalidatePath('/collections');
-  revalidatePath(`/collections/${validated.id}`);
+  revalidatePath('/profile/collections');
+  revalidatePath(`/profile/collections/${validated.id}`);
   return updated;
 }
 
@@ -209,7 +209,7 @@ export async function deleteCollection(id: string) {
     where: { id },
   });
 
-  revalidatePath('/collections');
+  revalidatePath('/profile/collections');
   return { success: true };
 }
 
@@ -257,8 +257,8 @@ export async function addToCollection(data: {
     },
   });
 
-  revalidatePath('/collections');
-  revalidatePath(`/collections/${validated.collectionId}`);
+  revalidatePath('/profile/collections');
+  revalidatePath(`/profile/collections/${validated.collectionId}`);
   return item;
 }
 
@@ -284,8 +284,8 @@ export async function removeFromCollection(collectionItemId: string) {
     where: { id: collectionItemId },
   });
 
-  revalidatePath('/collections');
-  revalidatePath(`/collections/${item.collectionId}`);
+  revalidatePath('/profile/collections');
+  revalidatePath(`/profile/collections/${item.collectionId}`);
   return { success: true };
 }
 
@@ -319,8 +319,8 @@ export async function updateCollectionItem(data: {
     },
   });
 
-  revalidatePath('/collections');
-  revalidatePath(`/collections/${item.collectionId}`);
+  revalidatePath('/profile/collections');
+  revalidatePath(`/profile/collections/${item.collectionId}`);
   return updated;
 }
 
@@ -354,7 +354,7 @@ export async function reorderCollectionItems(collectionId: string, itemIds: stri
     )
   );
 
-  revalidatePath('/collections');
-  revalidatePath(`/collections/${collectionId}`);
+  revalidatePath('/profile/collections');
+  revalidatePath(`/profile/collections/${collectionId}`);
   return { success: true };
 }

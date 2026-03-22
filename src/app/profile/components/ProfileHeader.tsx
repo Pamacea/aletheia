@@ -3,13 +3,10 @@
 import { Avatar } from '@/ui/molecules/Avatar';
 import { Button } from '@/ui/atoms/Button';
 import { Badge } from '@/ui/molecules/Badge';
-import {
-  EditIcon,
-  CheckIcon,
-  XIcon,
-  CalendarIcon,
-  ShieldIcon,
-} from '@/ui/components/CustomIcons';
+import { EditIcon, CheckIcon } from '@/ui/icons/ActionIcons';
+import { XIcon } from '@/ui/icons/UIIcons';
+import { ShieldIcon } from '@/ui/icons/UserIcons';
+import { CalendarIcon } from '@/ui/icons/StatusIcons';
 import { useProfile, getInitials, formatJoinDate } from '../hooks/useProfile';
 import { ProfileEditForm } from './ProfileEditForm';
 

@@ -3,7 +3,8 @@
 import Link from 'next/link';
 import { useNavigation } from '@/ui/hooks/useNavigation';
 import { NAV_ITEMS } from './sidebar-navigation';
-import { CloseIcon, LoginIcon } from '@/ui/icons';
+import { CloseIcon } from '@/ui/icons/UIIcons';
+import { LoginIcon } from '@/ui/icons/UserIcons';
 
 interface MobileMenuProps {
   isOpen: boolean;

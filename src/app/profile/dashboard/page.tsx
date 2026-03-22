@@ -10,12 +10,8 @@ import {
   getUserStreak,
 } from '@/lib/actions/user';
 import { ProfileLayout, ProfileContentGrid, ProfileSidebar } from '@/shared/components';
-import {
-  FlameIcon,
-  AwardIcon,
-  HomeIcon,
-  BookOpenIcon,
-} from '@/ui/components/CustomIcons';
+import { BookOpenIcon } from '@/ui/icons/NavigationIcons';
+import { FlameIcon, AwardIcon } from '@/ui/icons/StatusIcons';
 import { DashboardStats } from './components/DashboardStats';
 import { FlashcardsSection } from './components/FlashcardsSection';
 import { RecentAnnotations } from './components/RecentAnnotations';
@@ -48,22 +44,13 @@ export default async function DashboardPage() {
   return (
     <ProfileLayout
       title="Tableau de Bord"
-      subtitle={`Bienvenue, ${session.user.name || 'Philosophe'}`}
+      subtitle={`Bienvenue'`}
     >
       <ProfileContentGrid sidebar={<ProfileSidebar />}>
         <div className="space-y-6">
-          {/* Back to Home Link */}
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 px-2.5 py-1.5 text-sm bg-paper-50 text-sepia-600 hover:text-sepia-700 hover:bg-paper-100 border-2 border-paper-300 hover:border-sepia-600 transition-all duration-200"
-          >
-            <HomeIcon className="w-5 h-5" />
-            <span className="living-word font-medium">Accueil</span>
-          </Link>
-
         {/* Hero Section */}
         <section className="mb-8">
-          <div className="card-parchment border-2 border-sepia-600 p-8">
+          <div className="bg-white border-2 border-sepia-600 p-4 sm:p-6 lg:p-8">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
               <div>
                 <h2 className="font-serif text-3xl md:text-4xl font-semibold text-ink mb-2">
@@ -120,10 +107,10 @@ export default async function DashboardPage() {
 
             {/* Reading Progress Section */}
             {readingProgress.length > 0 && (
-              <section className="card-parchment border-2 border-sepia-300 p-6">
-                <div className="flex items-center gap-3 mb-6">
-                  <BookOpenIcon className="w-6 h-6 text-sepia-600" />
-                  <h3 className="font-serif text-xl font-semibold text-ink">
+              <section className="bg-white border-2 border-paper-300 p-4 sm:p-6">
+                <div className="flex items-center gap-3 mb-4 sm:mb-6">
+                  <BookOpenIcon className="w-5 h-5 sm:w-6 sm:h-6 text-sepia-600" />
+                  <h3 className="font-serif text-lg sm:text-xl font-semibold text-ink">
                     Lectures en Cours
                   </h3>
                 </div>

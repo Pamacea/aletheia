@@ -1,7 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { LockIcon, DownloadIcon } from '@/ui/components/CustomIcons';
+import { DownloadIcon } from '@/ui/icons/ActionIcons';
+import { LockIcon } from '@/ui/icons/UserIcons';
 import { updatePrivacy, exportData } from '@/lib/actions/settings';
 
 interface SettingsPrivacyProps {

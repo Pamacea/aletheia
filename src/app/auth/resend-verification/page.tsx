@@ -4,7 +4,11 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { resendVerificationEmail } from '@/lib/actions/auth';
-import { PhilosophersIcon, MailIcon, CheckCircleIcon, AlertCircleIcon, Loader2Icon, ArrowLeftIcon } from '@/ui/components/CustomIcons';
+import { PhilosophersIcon } from '@/ui/icons/NavigationIcons';
+import { Loader2Icon } from '@/ui/icons/UIIcons';
+import { BackButton } from '@/ui/components/BackButton';
+import { MailIcon } from '@/ui/icons/UserIcons';
+import { CheckCircleIcon, AlertCircleIcon } from '@/ui/icons/StatusIcons';
 import { ButtonOrnate } from '@/ui/components/ButtonOrnate';
 
 export default function ResendVerificationPage() {
@@ -115,11 +119,8 @@ export default function ResendVerificationPage() {
           )}
 
           {/* Back Link */}
-          <div className="mt-6 flex items-center justify-center gap-2 text-sm text-ink-light">
-            <Link href="/auth/login" className="flex items-center gap-1 text-sepia-600 hover:text-sepia-700 font-medium">
-              <ArrowLeftIcon className="w-4 h-4" />
-              Retour à la connexion
-            </Link>
+          <div className="mt-6 flex items-center justify-center">
+            <BackButton href="/auth/login" label="Retour à la connexion" />
           </div>
         </div>
 

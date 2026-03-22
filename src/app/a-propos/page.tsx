@@ -15,10 +15,10 @@ export default function AboutPage() {
       <div className="w-full px-4 py-16 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-ink mb-4 font-serif" style={{ fontFamily: "var(--font-playfair), Georgia, serif" }}>
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-ink mb-4 font-serif" style={{ fontFamily: "var(--font-playfair), Georgia, serif" }}>
             À Propos d&apos;ΑΛΗΘΕΙΑ
           </h1>
-          <p className="text-xl text-sepia-600 italic">
+          <p className="text-base sm:text-lg lg:text-xl text-sepia-600 italic">
             La vérité dévoilée
           </p>
         </div>
@@ -26,8 +26,8 @@ export default function AboutPage() {
         {/* Main Content */}
         <div className="prose prose-lg max-w-none">
           {/* Origin */}
-          <section className="mb-12 p-8 bg-white border-2 border-paper-300">
-            <h2 className="text-3xl font-semibold text-ink mb-6 font-serif" style={{ fontFamily: "var(--font-playfair), Georgia, serif" }}>
+          <section className="mb-8 sm:mb-12 p-4 sm:p-6 lg:p-8 bg-white border-2 border-paper-300">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-ink mb-4 sm:mb-6 font-serif" style={{ fontFamily: "var(--font-playfair), Georgia, serif" }}>
               L&apos;Origine du Projet
             </h2>
             <div className="text-ink-light leading-relaxed space-y-4">
@@ -51,8 +51,8 @@ export default function AboutPage() {
           </section>
 
           {/* Features */}
-          <section className="mb-12 p-8 bg-white border-2 border-paper-300">
-            <h2 className="text-3xl font-semibold text-ink mb-6 font-serif" style={{ fontFamily: "var(--font-playfair), Georgia, serif" }}>
+          <section className="mb-8 sm:mb-12 p-4 sm:p-6 lg:p-8 bg-white border-2 border-paper-300">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-ink mb-4 sm:mb-6 font-serif" style={{ fontFamily: "var(--font-playfair), Georgia, serif" }}>
               Ce Que Propose Aletheia
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -99,8 +99,8 @@ export default function AboutPage() {
           </section>
 
           {/* Philosophy */}
-          <section className="mb-12 p-8 bg-white border-2 border-paper-300 -lg">
-            <h2 className="text-3xl font-semibold text-ink mb-6 font-serif" style={{ fontFamily: "var(--font-playfair), Georgia, serif" }}>
+          <section className="mb-8 sm:mb-12 p-4 sm:p-6 lg:p-8 bg-white border-2 border-paper-300">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-ink mb-4 sm:mb-6 font-serif" style={{ fontFamily: "var(--font-playfair), Georgia, serif" }}>
               Philosophie du Projet
             </h2>
             <div className="text-ink-light leading-relaxed space-y-4">
@@ -124,8 +124,8 @@ export default function AboutPage() {
           </section>
 
           {/* Technical */}
-          <section className="mb-12 p-8 bg-white border-2 border-paper-300">
-            <h2 className="text-3xl font-semibold text-ink mb-6 font-serif" style={{ fontFamily: "var(--font-playfair), Georgia, serif" }}>
+          <section className="mb-8 sm:mb-12 p-4 sm:p-6 lg:p-8 bg-white border-2 border-paper-300">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-ink mb-4 sm:mb-6 font-serif" style={{ fontFamily: "var(--font-playfair), Georgia, serif" }}>
               Aspects Techniques
             </h2>
             <div className="text-ink-light leading-relaxed space-y-4">
@@ -143,7 +143,7 @@ export default function AboutPage() {
           </section>
 
           {/* Legal Notice */}
-          <section className="p-6 bg-sepia-50 border-2 border-sepia-300">
+          <section className="p-4 sm:p-6 bg-sepia-50 border-2 border-sepia-300">
             <h2 className="text-2xl font-semibold text-ink mb-4 font-serif" style={{ fontFamily: "var(--font-playfair), Georgia, serif" }}>
               Notice Légale
             </h2>

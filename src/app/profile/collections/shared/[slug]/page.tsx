@@ -1,6 +1,7 @@
 import { getPublicCollection } from '@/lib/actions/favorites';
 import { notFound } from 'next/navigation';
-import { BookmarkIcon, GlobeIcon, LockIcon } from '@/ui/components/CustomIcons';
+import { LockIcon } from '@/ui/icons/UserIcons';
+import { BookmarkIcon, GlobeIcon } from '@/ui/icons/SocialIcons';
 import Link from 'next/link';
 
 interface SharedCollectionPageProps {

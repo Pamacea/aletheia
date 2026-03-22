@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { CameraIcon } from '@/ui/components/CustomIcons';
+import { CameraIcon } from '@/ui/icons/ActionIcons';
 import { Button } from '@/ui/atoms/Button';
 import { Avatar } from '@/ui/molecules/Avatar';
 import { getInitials } from '../hooks/useProfile';

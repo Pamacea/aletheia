@@ -3,18 +3,14 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils/cn';
-import { useEffect, useRef } from 'react';
-import {
-  LayoutDashboardIcon,
-  FileTextIcon,
-  ZapIcon,
-  HeartIcon,
-  FolderIcon,
-  AwardIcon,
-  SettingsIcon,
-  TrendingUpIcon,
-  type LucideIcon,
-} from '@/ui/components/CustomIcons';
+import { useEffect, useRef, useState } from 'react';
+import { FileTextIcon } from '@/ui/icons/NavigationIcons';
+import { SettingsIcon } from '@/ui/icons/UIIcons';
+import { ZapIcon, HeartIcon, AwardIcon, TrendingUpIcon } from '@/ui/icons/StatusIcons';
+import { FolderIcon } from '@/ui/icons/SocialIcons';
+import { LayoutDashboardIcon } from '@/ui/icons/FeatureIcons';
+// Icon type - same shape used by all icon components
+type LucideIcon = React.ComponentType<{ className?: string; style?: React.CSSProperties }>;
 
 export interface SidebarNavItem {
   icon: LucideIcon;
@@ -48,8 +44,12 @@ export function ProfileSidebar({
 }: ProfileSidebarProps) {
   const pathname = usePathname();
   const sidebarRef = useRef<HTMLUListElement>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => { setMounted(true); }, []);
 
   const isActive = (href: string) => {
+    if (!mounted) return false; // Avoid hydration mismatch
     if (href === '/profile/dashboard') {
       return pathname === '/profile/dashboard' || pathname === '/profile';
     }
@@ -94,7 +94,7 @@ export function ProfileSidebar({
   return (
     <nav
       className={cn(
-        'card-parchment border-2 border-sepia-200 overflow-hidden',
+        'bg-white border-2 border-paper-300 overflow-hidden',
         className
       )}
       aria-label="Navigation du profil"

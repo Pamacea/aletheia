@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { KeyIcon, TrashIcon } from '@/ui/components/CustomIcons';
+import { TrashIcon } from '@/ui/icons/ActionIcons';
+import { KeyIcon } from '@/ui/icons/UserIcons';
 import { updateEmail, deleteAccount } from '@/lib/actions/settings';
 
 interface SettingsAccountProps {

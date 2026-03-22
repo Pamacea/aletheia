@@ -2,7 +2,8 @@
 
 import Link from 'next/link';
 import { useState, useTransition } from 'react';
-import { QuoteIcon, PhilosophersIcon, BookIcon, ClockIcon, AwardIcon, TrendingUpIcon, CalendarIcon } from '@/ui/components/CustomIcons';
+import { QuoteIcon, PhilosophersIcon, BookIcon } from '@/ui/icons/NavigationIcons';
+import { ClockIcon, AwardIcon, TrendingUpIcon, CalendarIcon } from '@/ui/icons/StatusIcons';
 import { ConnectionSidebar, ConnectionToggle } from '@/ui/organisms/ConnectionSidebar';
 import { RelatedContent } from '@/ui/organisms/RelatedContent';
 import { LinkOrnate } from '@/ui/components/LinkOrnate';

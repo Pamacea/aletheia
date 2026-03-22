@@ -9,11 +9,9 @@ import { cn } from '@/lib/utils/cn'
 import { Button } from '@/ui/atoms/Button'
 import { toggleLikeReply, deleteReply } from '@/lib/actions/forum'
 import { Textarea } from '@/ui/atoms/Textarea'
-import {
-  HeartIcon,
-  MessageSquareIcon,
-  TrashIcon,
-} from '@/ui'
+import { HeartIcon } from '@/ui/icons/StatusIcons'
+import { MessageSquareIcon } from '@/ui/icons/SocialIcons'
+import { TrashIcon } from '@/ui/icons/ActionIcons'
 
 export interface Reply {
   id: string

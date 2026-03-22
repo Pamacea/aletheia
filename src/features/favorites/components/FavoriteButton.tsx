@@ -1,6 +1,6 @@
 'use client';
 
-import { HeartIcon } from '@/ui/icons';
+import { HeartIcon } from '@/ui/icons/StatusIcons';
 import { useFavorite } from '../hooks/useFavorite';
 
 interface FavoriteButtonProps {

@@ -2,7 +2,7 @@
  * Navigation configuration for Sidebar and UserDropdown
  */
 
-import { HomeIcon, NetworkIcon, GraphIcon, QuoteIcon, PhilosophersIcon, CurrentsIcon } from '@/ui/icons';
+import { HomeIcon, NetworkIcon, GraphIcon, QuoteIcon, PhilosophersIcon, CurrentsIcon } from '@/ui/icons/NavigationIcons';
 
 export interface NavItem {
   href: string;

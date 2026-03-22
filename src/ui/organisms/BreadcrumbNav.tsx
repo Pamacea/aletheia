@@ -1,7 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { ChevronRightIcon, HomeIcon } from '@/ui/components/CustomIcons';
+import { HomeIcon } from '@/ui/icons/NavigationIcons';
+import { ChevronRightIcon } from '@/ui/icons/UIIcons';
 
 interface BreadcrumbItem {
  label: string;

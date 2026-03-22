@@ -1,11 +1,14 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { ArrowLeftIcon, Edit3Icon, EyeIcon } from 'lucide-react';
+import { Edit3Icon, EyeIcon } from 'lucide-react';
+import { BackButton } from '@/ui/components/BackButton';
 import { getNote } from '@/lib/actions/notes';
 import { NoteEditor } from '@/features/notes/components/NoteEditor';
 import { NoteVisibilityToggle } from '@/features/notes/components/NoteVisibilityToggle';
 import { NoteDeleteButton } from '@/features/notes/components/NoteDeleteButton';
 import { getSession } from '@/lib/auth';
+
+export const revalidate = 60;
 
 interface NotePageProps {
  params: Promise<{ id: string }>;
@@ -29,10 +32,10 @@ export async function generateMetadata({ params }: NotePageProps) {
 }
 
 export default async function NotePage({ params }: NotePageProps) {
- const { id } = await params;
-
- // Get session first
- const session = await getSession();
+ const [{ id }, session] = await Promise.all([
+   params,
+   getSession(),
+ ]);
  const userId = session?.user?.id;
 
  // Get the note with userId for proper access check
@@ -50,13 +53,7 @@ export default async function NotePage({ params }: NotePageProps) {
    <header className="with-sidebar border-b-2 border-sepia-600 bg-paper-50 py-4">
     <div className="max-w-5xl mx-auto px-4">
      <div className="flex items-center justify-between">
-      <Link
-       href="/profile/notes"
-       className="inline-flex items-center gap-2 px-2.5 py-1.5 text-sm bg-paper-50 text-sepia-600 hover:text-sepia-700 hover:bg-paper-100 border-2 border-paper-300 hover:border-sepia-600 transition-all duration-200"
-      >
-       <ArrowLeftIcon className="w-4 h-4" />
-       <span className="living-word font-medium">Retour</span>
-      </Link>
+      <BackButton href="/profile/notes" label="Retour" />
 
       {isOwner && (
        <div className="flex items-center gap-2">

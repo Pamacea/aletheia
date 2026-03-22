@@ -20,6 +20,8 @@ playwright/.cache
 # Ex-g-se
 .ex-g-se/
 .guardian/
+.smite/
 
 # Claude
 .claude/
+nul

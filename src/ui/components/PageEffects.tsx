@@ -1,18 +1,9 @@
-'use client';
-
-import { useEffect, useState } from 'react';
+import type { ReactNode } from 'react';
 
 interface PageEffectsProps {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 export function PageEffects({ children }: PageEffectsProps) {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  // Simplified - no custom cursor for better performance
   return <>{children}</>;
 }

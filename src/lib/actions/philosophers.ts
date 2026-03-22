@@ -55,68 +55,50 @@ export interface MovementRelation {
  * Get all philosophers from the Philosopher model
  */
 export async function getPhilosophers(): Promise<Philosopher[]> {
-  const philosophers = await prisma.philosopher.findMany({
-    orderBy: {
-      name: 'asc',
-    },
-    include: {
-      movementPhilosophers: {
-        include: {
-          movement: {
-            select: {
-              id: true,
-              slug: true,
-              name: true,
-              shortDefinition: true,
-              period: true,
+  // Execute all queries in parallel
+  const [philosophers, allQuoteCounts, allWorks] = await Promise.all([
+    prisma.philosopher.findMany({
+      orderBy: { name: 'asc' },
+      include: {
+        movementPhilosophers: {
+          include: {
+            movement: {
+              select: {
+                id: true, slug: true, name: true, shortDefinition: true, period: true,
+              },
             },
           },
         },
       },
-    },
-  });
-
-  // Get quote counts for each philosopher
-  const philosopherIds = philosophers.map(p => p.id);
-  const quoteCounts = await prisma.quote.groupBy({
-    by: ['philosopherId'],
-    where: {
-      philosopherId: { in: philosopherIds },
-      isPublic: true,
-    },
-    _count: {
-      id: true,
-    },
-  });
+    }),
+    prisma.quote.groupBy({
+      by: ['philosopherId'],
+      where: { isPublic: true },
+      _count: { id: true },
+    }),
+    prisma.source.findMany({
+      select: { author: true, title: true, year: true, type: true },
+    }),
+  ]);
 
   const countMap = new Map(
-    quoteCounts.map(q => [q.philosopherId, q._count.id])
+    allQuoteCounts.map(q => [q.philosopherId, q._count.id])
   );
 
-  // Get works from sources for each philosopher
-  const worksByPhilosopher = await prisma.source.findMany({
-    where: {
-      author: { in: philosophers.map(p => p.name) },
-    },
-    select: {
-      author: true,
-      title: true,
-      year: true,
-      type: true,
-    },
-  });
-
-  // Group works by philosopher
+  // Group works by philosopher name
   const worksMap = new Map<string, PhilosopherWork[]>();
-  for (const work of worksByPhilosopher) {
-    if (!worksMap.has(work.author!)) {
-      worksMap.set(work.author!, []);
+  const philosopherNames = new Set(philosophers.map(p => p.name));
+  for (const work of allWorks) {
+    if (work.author && philosopherNames.has(work.author)) {
+      if (!worksMap.has(work.author)) {
+        worksMap.set(work.author, []);
+      }
+      worksMap.get(work.author)!.push({
+        title: work.title,
+        year: work.year,
+        type: work.type as SourceType,
+      });
     }
-    worksMap.get(work.author!)!.push({
-      title: work.title,
-      year: work.year,
-      type: work.type as SourceType,
-    });
   }
 
   return philosophers.map(philosopher => ({
@@ -177,23 +159,16 @@ export async function getPhilosopherBySlug(slug: string): Promise<Philosopher | 
 
   if (!philosopher) return undefined;
 
-  // Get quote count
-  const quoteCount = await prisma.quote.count({
-    where: {
-      philosopherId: philosopher.id,
-      isPublic: true,
-    },
-  });
-
-  // Get works
-  const works = await prisma.source.findMany({
-    where: { author: philosopher.name },
-    select: {
-      title: true,
-      year: true,
-      type: true,
-    },
-  });
+  // Parallel fetch quote count and works
+  const [quoteCount, works] = await Promise.all([
+    prisma.quote.count({
+      where: { philosopherId: philosopher.id, isPublic: true },
+    }),
+    prisma.source.findMany({
+      where: { author: philosopher.name },
+      select: { title: true, year: true, type: true },
+    }),
+  ]);
 
   return {
     id: philosopher.id,

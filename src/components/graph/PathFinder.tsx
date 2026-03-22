@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import { usePathFinder } from '@/lib/graph/hooks';
-import { SearchIcon, ArrowRightIcon } from '@/ui';
+import { SearchIcon } from '@/ui/icons/ActionIcons';
+import { ArrowRightIcon } from '@/ui/icons/UIIcons';
 
 interface PathFinderProps {
   concepts: Map<string, { name: string; category?: string }>;

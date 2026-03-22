@@ -32,13 +32,28 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     async function loadSession() {
       try {
+        // Check sessionStorage first to avoid redundant fetches
+        const cached = sessionStorage.getItem('auth_session');
+        if (cached) {
+          const { user: cachedUser, ts } = JSON.parse(cached);
+          // Use cache if less than 5 minutes old
+          if (Date.now() - ts < 5 * 60 * 1000) {
+            setUser(cachedUser);
+            setLoading(false);
+            return;
+          }
+        }
+
         const response = await fetch('/api/auth/session');
         if (response.ok) {
           const data = await response.json();
-          // BetterAuth returns null when no session exists
-          setUser(data?.user ?? null);
+          const sessionUser = data?.user ?? null;
+          setUser(sessionUser);
+          // Cache in sessionStorage
+          sessionStorage.setItem('auth_session', JSON.stringify({ user: sessionUser, ts: Date.now() }));
         } else {
           setUser(null);
+          sessionStorage.removeItem('auth_session');
         }
       } catch (error) {
         console.error('Failed to load session:', error);

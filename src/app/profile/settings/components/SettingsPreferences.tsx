@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { CogIcon } from '@/ui/components/CustomIcons';
+import { CogIcon } from '@/ui/icons/UIIcons';
 import { updatePreferences } from '@/lib/actions/settings';
 
 interface SettingsPreferencesProps {

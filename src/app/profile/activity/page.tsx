@@ -1,9 +1,12 @@
-import { ActivityIcon } from '@/ui/components/CustomIcons';
+import { ActivityIcon } from '@/ui/icons/StatusIcons';
 import { getSession } from '@/lib/auth';
 import { redirect } from 'next/navigation';
 import { getUserActivities } from '@/lib/actions/user-progress';
 import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
+import { Suspense } from 'react';
+
+export const revalidate = 60;
 
 export default async function ActivityPage() {
   const session = await getSession();
@@ -12,7 +15,52 @@ export default async function ActivityPage() {
     redirect('/auth/login');
   }
 
-  const activities = await getUserActivities(session.user.id, 50);
+  return (
+    <div className="min-h-screen bg-paper-50">
+      {/* Header */}
+      <header className="with-sidebar bg-white border-b-2 border-sepia-600">
+        <div className="w-full px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center gap-3">
+            <div className="w-12 h-12 bg-sepia-100 rounded-lg flex items-center justify-center">
+              <ActivityIcon className="w-6 h-6 text-sepia-600" />
+            </div>
+            <div>
+              <h1 className="text-2xl font-bold text-sepia-900">Activité Récente</h1>
+              <p className="text-sm text-ink-light">Mon historique d'activité</p>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* Main Content */}
+      <main className="max-w-4xl mx-auto px-4 py-8">
+        <Suspense fallback={<ActivitySkeleton />}>
+          <ActivityContent userId={session.user.id} />
+        </Suspense>
+      </main>
+    </div>
+  );
+}
+
+function ActivitySkeleton() {
+  return (
+    <div className="animate-pulse space-y-6">
+      {[1, 2, 3].map((i) => (
+        <div key={i}>
+          <div className="h-5 bg-paper-200 rounded w-32 mb-4" />
+          <div className="space-y-3">
+            {[1, 2, 3].map((j) => (
+              <div key={j} className="bg-white border-2 border-paper-300 rounded-lg p-4 h-20" />
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+async function ActivityContent({ userId }: { userId: string }) {
+  const activities = await getUserActivities(userId, 50);
 
   // Group activities by date
   const groupedActivities = activities.reduce((acc: any, activity: any) => {
@@ -106,24 +154,7 @@ export default async function ActivityPage() {
   };
 
   return (
-    <div className="min-h-screen bg-paper-50">
-      {/* Header */}
-      <header className="with-sidebar bg-white border-b-2 border-sepia-600">
-        <div className="w-full px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-3">
-            <div className="w-12 h-12 bg-sepia-100 rounded-lg flex items-center justify-center">
-              <ActivityIcon className="w-6 h-6 text-sepia-600" />
-            </div>
-            <div>
-              <h1 className="text-2xl font-bold text-sepia-900">Activité Récente</h1>
-              <p className="text-sm text-ink-light">Mon historique d'activité</p>
-            </div>
-          </div>
-        </div>
-      </header>
-
-      {/* Main Content */}
-      <main className="max-w-4xl mx-auto px-4 py-8">
+    <>
         {activities.length === 0 ? (
           <div className="bg-white border-2 border-paper-300 rounded-lg p-12 text-center">
             <ActivityIcon className="w-16 h-16 text-sepia-300 mx-auto mb-4" />
@@ -184,7 +215,6 @@ export default async function ActivityPage() {
             })}
           </div>
         )}
-      </main>
-    </div>
+    </>
   );
 }

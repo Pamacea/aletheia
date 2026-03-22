@@ -1,5 +1,5 @@
-import { LinkOrnate } from '@/ui/components/LinkOrnate';
-import { MessageSquareIcon } from '@/ui/components/CustomIcons';
+import Link from 'next/link';
+import { MessageSquareIcon } from '@/ui/icons/SocialIcons';
 
 interface RecentAnnotationsProps {
   recentAnnotations: any[];
@@ -7,10 +7,10 @@ interface RecentAnnotationsProps {
 
 export function RecentAnnotations({ recentAnnotations }: RecentAnnotationsProps) {
   return (
-    <section className="card-parchment border-2 border-sepia-300 p-6">
-      <div className="flex items-center gap-3 mb-6">
-        <MessageSquareIcon className="w-6 h-6 text-sepia-600" />
-        <h3 className="font-serif text-xl font-semibold text-ink">
+    <section className="bg-white border-2 border-paper-300 p-4 sm:p-6">
+      <div className="flex items-center gap-3 mb-4 sm:mb-6">
+        <MessageSquareIcon className="w-5 h-5 sm:w-6 sm:h-6 text-sepia-600" />
+        <h3 className="font-serif text-lg sm:text-xl font-semibold text-ink">
           Dernières Annotations
         </h3>
       </div>
@@ -25,14 +25,13 @@ export function RecentAnnotations({ recentAnnotations }: RecentAnnotationsProps)
               <div className="flex items-start justify-between mb-2">
                 <div className="flex-1">
                   {annotation.text && (
-                    <LinkOrnate
+                    <Link
                       href={`/bibliotheque/${annotation.text.slug}`}
-                      living
                       className="text-sm font-semibold text-sepia-600 hover:underline"
                     >
                       {annotation.text.title}
                       {annotation.chapter && ` - ${annotation.chapter.title}`}
-                    </LinkOrnate>
+                    </Link>
                   )}
                   {annotation.quote && (
                     <p className="text-sm italic text-ink-light mt-1 line-clamp-2">
@@ -57,13 +56,12 @@ export function RecentAnnotations({ recentAnnotations }: RecentAnnotationsProps)
           <p className="text-sm text-ink-light mb-4">
             Ajoutez des notes pendant vos lectures pour vous souvenir des idées importantes
           </p>
-          <LinkOrnate
+          <Link
             href="/bibliotheque"
-            living
             className="inline-flex items-center gap-2 px-4 py-2 bg-sepia-600 text-paper-50 hover:bg-sepia-700 transition-colors"
           >
             Explorer la bibliothèque
-          </LinkOrnate>
+          </Link>
         </div>
       )}
     </section>

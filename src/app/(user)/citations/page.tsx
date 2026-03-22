@@ -1,8 +1,12 @@
 import Link from 'next/link';
 import { LinkOrnate } from '@/ui/components/LinkOrnate';
-import { QuoteIcon, PhilosophersIcon } from '@/ui/components/CustomIcons';
-import { getQuotes, getQuoteAuthors, getQuoteStats } from '@/lib/actions/citations';
+import { BackButton } from '@/ui/components/BackButton';
+import { QuoteIcon } from '@/ui/icons/NavigationIcons';
+import { getQuotes } from '@/lib/actions/citations';
+import { getCachedQuoteAuthors, getCachedQuoteStats } from '@/lib/cache/queries';
 import { CitationSearch } from './components/CitationSearch';
+
+export const revalidate = 120;
 
 export const metadata = {
   title: 'Citations Philosophiques - Aletheia',
@@ -19,9 +23,12 @@ export default async function CitationsPage({
   const author = params.author;
   const search = params.search;
 
-  const data = await getQuotes({ page, author, search });
-  const authors = await getQuoteAuthors();
-  const stats = await getQuoteStats();
+  // Parallel data fetching (authors + stats from cache)
+  const [data, authors, stats] = await Promise.all([
+    getQuotes({ page, author, search }),
+    getCachedQuoteAuthors(),
+    getCachedQuoteStats(),
+  ]);
 
   return (
     <div className="min-h-screen bg-paper-50">
@@ -29,13 +36,7 @@ export default async function CitationsPage({
       <header className="with-sidebar border-b-2 border-sepia-600 bg-paper-50 py-4">
         <div className="w-full px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
-            <Link
-              href="/"
-              className="flex items-center gap-2 text-sepia-600 hover:text-sepia-700 transition-colors"
-            >
-              <PhilosophersIcon className="w-5 h-5" />
-              <span className="living-word">Retour</span>
-            </Link>
+            <BackButton label="Retour" />
             <h1 className="font-serif text-2xl font-semibold text-ink">
               <span className="living-word">Citations</span>
             </h1>

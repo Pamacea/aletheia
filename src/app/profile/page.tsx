@@ -9,7 +9,7 @@ import {
   getExtendedUserStats,
 } from '@/lib/actions/profile';
 import { getUserAchievements } from '@/lib/actions/user-progress';
-import { ArrowLeftIcon } from '@/ui/components/CustomIcons';
+import { BackButton } from '@/ui/components/BackButton';
 import { PageTransition } from '@/ui/animations/PageTransition';
 import { ProfileHero } from './components/ProfileHero';
 import { ProfileTabs } from './components/ProfileTabs';
@@ -48,17 +48,11 @@ export default async function ProfilePage() {
         <header className="with-sidebar border-b-2 border-sepia-600 bg-paper-50 py-4">
           <div className="w-full px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between">
-              <Link
-                href="/"
-                className="inline-flex items-center gap-2 px-2.5 py-2 text-sm bg-paper-50 text-sepia-600 hover:text-sepia-700 hover:bg-paper-100 border-2 border-paper-300 hover:border-sepia-600 transition-all duration-200"
-              >
-                <ArrowLeftIcon className="w-4 h-4" />
-                <span className="living-word font-medium">Retour</span>
-              </Link>
-              <h1 className="font-serif text-2xl font-semibold text-ink">
+              <BackButton />
+              <h1 className="font-serif text-lg sm:text-xl lg:text-2xl font-semibold text-ink truncate">
                 Mon Profil
               </h1>
-              <div className="w-32" />{/* Spacer for alignment */}
+              <div className="w-10 sm:w-20 lg:w-32 flex-shrink-0" />
             </div>
           </div>
         </header>

@@ -1,6 +1,7 @@
 'use server';
 
 import { prisma } from '@/lib/db/prisma';
+import { unstable_cache } from 'next/cache';
 
 // Version: 1.0.0 - Unified graph data fetcher for concepts, philosophers, and categories
 
@@ -96,8 +97,6 @@ export async function getUnifiedGraphData(
       },
       take: limit,
     });
-
-    console.log(`[Graph] Loaded ${concepts.length} concepts with bidirectional relations`);
 
     // Add concept nodes (including related concepts from BOTH directions)
     concepts.forEach((concept) => {
@@ -211,8 +210,6 @@ export async function getUnifiedGraphData(
     // Log statistics
     const totalRelations = concepts.reduce((sum, c) =>
       sum + (c.relations?.length || 0) + (c.relatedRelations?.length || 0), 0);
-    console.log(`[Graph] Created ${edges.length} edges from ${totalRelations} total relations`);
-
     // If no edges found, create some demo edges between concepts
     if (edges.length === 0 && concepts.length > 1) {
       for (let i = 0; i < concepts.length - 1; i++) {
@@ -427,8 +424,6 @@ export async function getUnifiedGraphData(
         take: limit,
       });
 
-      console.log(`[Graph] Loaded ${movements.length} movements with philosopher connections`);
-
       const movementNodeIds = new Set<string>();
 
       // Create Movement nodes
@@ -547,7 +542,6 @@ export async function getUnifiedGraphData(
         }
       });
 
-      console.log(`[Graph] Created Movement edges: ${edges.filter(e => e.type.startsWith('movement')).length} total`);
     } catch (error) {
       console.error('[Graph] Error loading movements:', error);
       // Silently fail - movements are optional

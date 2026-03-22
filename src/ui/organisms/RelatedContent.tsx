@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { BookIcon, PhilosophersIcon, QuoteIcon, ArrowRightIcon } from '@/ui/components/CustomIcons';
+import { BookIcon, PhilosophersIcon, QuoteIcon } from '@/ui/icons/NavigationIcons';
+import { ArrowRightIcon } from '@/ui/icons/UIIcons';
 import { LinkOrnate } from '@/ui/components/LinkOrnate';
 
 export interface RelatedItem {

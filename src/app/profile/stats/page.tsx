@@ -1,7 +1,10 @@
-import { ChartIcon } from '@/ui/components/CustomIcons';
+import { ChartIcon } from '@/ui/icons/FeatureIcons';
 import { getSession } from '@/lib/auth';
 import { redirect } from 'next/navigation';
 import { getUserStats } from '@/lib/actions/user-progress';
+import { Suspense } from 'react';
+
+export const revalidate = 60;
 
 export default async function StatsPage() {
   const session = await getSession();
@@ -9,22 +12,6 @@ export default async function StatsPage() {
   if (!session?.user?.id) {
     redirect('/auth/login');
   }
-
-  const stats = await getUserStats(session.user.id);
-
-  // Calculate level title
-  const getLevelTitle = (level: number) => {
-    if (level === 1) return 'Novice';
-    if (level === 2) return 'Apprenti';
-    if (level === 3) return 'Érudiant';
-    if (level === 4) return 'Sage';
-    if (level === 5) return 'Maître';
-    if (level === 6) return 'Expert';
-    if (level >= 7) return 'Philosophe';
-    return 'Légende';
-  };
-
-  const levelTitle = getLevelTitle(stats.level);
 
   return (
     <div className="min-h-screen bg-paper-50">
@@ -46,6 +33,51 @@ export default async function StatsPage() {
       {/* Main Content */}
       <main className="w-full px-4 py-8 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
+          <Suspense fallback={<StatsSkeleton />}>
+            <StatsContent userId={session.user.id} />
+          </Suspense>
+        </div>
+      </main>
+    </div>
+  );
+}
+
+function StatsSkeleton() {
+  return (
+    <div className="animate-pulse">
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+        {[1, 2, 3, 4].map((i) => (
+          <div key={i} className="bg-white border-2 border-paper-300 rounded-lg p-6 h-28" />
+        ))}
+      </div>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {[1, 2].map((i) => (
+          <div key={i} className="bg-white border-2 border-paper-300 rounded-lg p-6 h-64" />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+async function StatsContent({ userId }: { userId: string }) {
+  const stats = await getUserStats(userId);
+
+  // Calculate level title
+  const getLevelTitle = (level: number) => {
+    if (level === 1) return 'Novice';
+    if (level === 2) return 'Apprenti';
+    if (level === 3) return 'Érudiant';
+    if (level === 4) return 'Sage';
+    if (level === 5) return 'Maître';
+    if (level === 6) return 'Expert';
+    if (level >= 7) return 'Philosophe';
+    return 'Légende';
+  };
+
+  const levelTitle = getLevelTitle(stats.level);
+
+  return (
+    <>
         {/* Stats Overview Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
           {/* XP Card */}
@@ -231,8 +263,6 @@ export default async function StatsPage() {
             </div>
           </div>
         </div>
-        </div>
-      </main>
-    </div>
+    </>
   );
 }

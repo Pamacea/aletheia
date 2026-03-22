@@ -1,10 +1,8 @@
 import { cn } from '@/lib/utils/cn';
 import { Button } from '@/ui/atoms/Button';
-import {
-  AlertCircleIcon,
-  RefreshCwIcon,
-  HomeIcon,
-} from '@/ui/components/CustomIcons';
+import { HomeIcon } from '@/ui/icons/NavigationIcons';
+import { RefreshCwIcon } from '@/ui/icons/UIIcons';
+import { AlertCircleIcon } from '@/ui/icons/StatusIcons';
 
 export interface ErrorStateProps {
   title?: string;

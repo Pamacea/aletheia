@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { HeartIcon } from '@/ui'
+import { HeartIcon } from '@/ui/icons/StatusIcons'
 import { toggleLikePost } from '@/lib/actions/forum'
 
 interface LikePostButtonProps {

@@ -1,7 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { XIcon, PlusIcon } from '@/ui/components/CustomIcons';
+import { PlusIcon } from '@/ui/icons/ActionIcons';
+import { XIcon } from '@/ui/icons/UIIcons';
 import { createCollection } from '@/lib/actions/favorites';
 import { useRouter } from 'next/navigation';
 

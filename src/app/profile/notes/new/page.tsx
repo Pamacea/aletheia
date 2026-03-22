@@ -1,7 +1,6 @@
 import { redirect } from 'next/navigation';
-import Link from 'next/link';
-import { ArrowLeftIcon } from 'lucide-react';
 import { createNote } from '@/lib/actions/notes';
+import { BackButton } from '@/ui/components/BackButton';
 import { NoteFormWrapper } from '@/features/notes/components/NoteFormWrapper';
 import { revalidatePath } from 'next/cache';
 import { getSession } from '@/lib/auth';
@@ -64,13 +63,7 @@ export default async function NewNotePage({ searchParams }: NewNotePageProps) {
    <header className="with-sidebar border-b-2 border-sepia-600 bg-paper-50 py-4">
     <div className="max-w-5xl mx-auto px-4">
      <div className="flex items-center justify-between">
-      <Link
-       href="/profile/notes"
-       className="inline-flex items-center gap-2 px-2.5 py-1.5 text-sm bg-paper-50 text-sepia-600 hover:text-sepia-700 hover:bg-paper-100 border-2 border-paper-300 hover:border-sepia-600 transition-all duration-200"
-      >
-       <ArrowLeftIcon className="w-4 h-4" />
-       <span className="living-word font-medium">Retour</span>
-      </Link>
+      <BackButton href="/profile/notes" label="Retour" />
       <h1 className="font-serif text-2xl font-semibold text-ink">
        Nouvelle Note
       </h1>

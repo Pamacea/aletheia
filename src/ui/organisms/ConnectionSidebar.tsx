@@ -1,7 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import { ChevronDownIcon, ChevronRightIcon, XIcon, BookIcon, PhilosophersIcon, QuoteIcon, ZapIcon } from '@/ui/components/CustomIcons';
+import { BookIcon, PhilosophersIcon, QuoteIcon } from '@/ui/icons/NavigationIcons';
+import { ChevronDownIcon, ChevronRightIcon, XIcon } from '@/ui/icons/UIIcons';
+import { ZapIcon } from '@/ui/icons/StatusIcons';
 import { LinkOrnate } from '@/ui/components/LinkOrnate';
 
 interface ConnectionItem {

@@ -2,7 +2,8 @@
 
 import Link from 'next/link'
 import { cn } from '@/lib/utils/cn'
-import { MessageSquareIcon, NetworkIcon, BookIcon } from '@/ui'
+import { MessageSquareIcon } from '@/ui/icons/SocialIcons'
+import { NetworkIcon, BookIcon } from '@/ui/icons/NavigationIcons'
 
 export interface Category {
   id: string

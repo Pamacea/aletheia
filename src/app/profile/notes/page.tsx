@@ -1,6 +1,7 @@
 import Link from 'next/link';
-import { ArrowLeftIcon, PlusIcon, SearchIcon, FilterIcon } from 'lucide-react';
+import { PlusIcon, SearchIcon, FilterIcon } from 'lucide-react';
 import { getNotes, getUserTags, getNotesStats } from '@/lib/actions/notes';
+import { BackButton } from '@/ui/components/BackButton';
 import { NotesListClient } from '@/features/notes/components/NotesListClient';
 import { Input } from '@/ui/atoms/Input';
 import { Badge } from '@/ui/molecules/Badge';
@@ -52,23 +53,18 @@ export default async function NotesPage({ searchParams }: NotesPageProps) {
    {/* Header */}
    <header className="with-sidebar border-b-2 border-sepia-600 bg-paper-50 py-4">
     <div className="w-full px-4 sm:px-6 lg:px-8">
-     <div className="max-w-7xl mx-auto flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-      <Link
-       href="/"
-       className="inline-flex items-center gap-2 px-2.5 py-1.5 text-sm bg-paper-50 text-sepia-600 hover:text-sepia-700 hover:bg-paper-100 border-2 border-paper-300 hover:border-sepia-600 transition-all duration-200"
-      >
-       <ArrowLeftIcon className="w-4 h-4" />
-       <span className="living-word font-medium">Retour</span>
-      </Link>
-      <h1 className="font-serif text-2xl font-semibold text-ink">
+     <div className="flex items-center justify-between gap-2">
+      <BackButton href="/profile/dashboard" label="Retour" />
+      <h1 className="font-serif text-lg sm:text-xl lg:text-2xl font-semibold text-ink truncate">
        Mes Notes
       </h1>
       <Link
        href="/profile/notes/new"
-       className="inline-flex items-center gap-2 px-3 py-1.5 text-sm bg-sepia-600 hover:bg-sepia-700 text-paper-50 font-medium border-2 border-sepia-600 transition-all duration-200"
+       className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs sm:text-sm bg-sepia-600 hover:bg-sepia-700 text-paper-50 font-medium transition-colors flex-shrink-0"
       >
-       <PlusIcon className="w-4 h-4" />
-       <span className="living-word">Nouvelle Note</span>
+       <PlusIcon className="w-3.5 h-3.5" />
+       <span className="hidden sm:inline">Nouvelle Note</span>
+       <span className="sm:hidden">Créer</span>
       </Link>
      </div>
     </div>

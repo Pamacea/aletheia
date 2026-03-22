@@ -4,15 +4,12 @@ import { getPostBySlug } from '@/lib/actions/forum'
 import { toggleLikePost } from '@/lib/actions/forum'
 import { ReplyThread } from '../../components/ReplyThread'
 import { Button } from '@/ui/atoms/Button'
-import {
-  ArrowLeftIcon,
-  MessageSquareIcon,
-  HeartIcon,
-  EyeIcon,
-  LockIcon,
-  PinIcon,
-  PhilosophersIcon
-} from '@/ui'
+import { BackButton } from '@/ui/components/BackButton'
+import { EyeIcon, PinIcon } from '@/ui/icons/UIIcons'
+import { MessageSquareIcon } from '@/ui/icons/SocialIcons'
+import { HeartIcon } from '@/ui/icons/StatusIcons'
+import { LockIcon } from '@/ui/icons/UserIcons'
+import { PhilosophersIcon } from '@/ui/icons/NavigationIcons'
 import { formatDistanceToNow } from 'date-fns'
 import { fr } from 'date-fns/locale'
 import ReactMarkdown from 'react-markdown'
@@ -26,6 +23,8 @@ interface PostPageProps {
     slug: string
   }>
 }
+
+export const revalidate = 60;
 
 export const metadata = {
   title: 'Discussion - Agora - Aletheia',
@@ -46,13 +45,7 @@ export default async function PostPage({ params }: PostPageProps) {
       <header className="with-sidebar border-b-2 border-sepia-600 bg-paper-50 py-4">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center justify-between">
-            <Link
-              href={post.category ? `/agora/${post.category.slug}` : '/agora'}
-              className="inline-flex items-center gap-2 px-2.5 py-1.5 text-sm bg-paper-50 text-sepia-600 hover:text-sepia-700 hover:bg-paper-100 border-2 border-paper-300 hover:border-sepia-600 transition-all duration-200"
-            >
-              <ArrowLeftIcon className="w-4 h-4" />
-              <span className="living-word font-medium">Retour</span>
-            </Link>
+            <BackButton href={post.category ? `/agora/${post.category.slug}` : '/agora'} label="Retour" />
             <h1 className="font-serif text-2xl font-semibold text-ink">
               <span className="living-word">Discussion</span>
             </h1>

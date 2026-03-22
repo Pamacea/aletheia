@@ -1,8 +1,14 @@
 import Link from 'next/link';
 import { getMovements } from '@/lib/actions/courants';
 import { getConcepts } from '@/lib/actions/concepts';
-import { LinkOrnate } from '@/ui';
-import { PhilosophersIcon, CurrentsIcon, TrendingUpIcon, SparklesIcon, ArrowLeftIcon, ConceptIcon } from '@/ui';
+import { LinkOrnate } from '@/ui/components/LinkOrnate';
+import { PhilosophersIcon, CurrentsIcon } from '@/ui/icons/NavigationIcons';
+import { TrendingUpIcon } from '@/ui/icons/StatusIcons';
+import { SparklesIcon } from '@/ui/icons/SocialIcons';
+import { BackButton } from '@/ui/components/BackButton';
+import { ConceptIcon } from '@/ui/icons/FeatureIcons';
+
+export const revalidate = 60;
 
 export const metadata = {
   title: 'Courants Philosophiques - Aletheia',
@@ -10,8 +16,11 @@ export const metadata = {
 };
 
 export default async function CourantsPage() {
-  const movements = await getMovements();
-  const allConcepts = await getConcepts();
+  // Parallel data fetching
+  const [movements, allConcepts] = await Promise.all([
+    getMovements(),
+    getConcepts(),
+  ]);
 
   // Classify movements by period
   const periods = {
@@ -75,17 +84,11 @@ export default async function CourantsPage() {
       <header className="with-sidebar border-b-2 border-sepia-600 bg-paper-50 py-4">
         <div className="w-full px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
-            <Link
-              href="/"
-              className="inline-flex items-center gap-2 px-2.5 py-1.5 text-sm bg-paper-50 text-sepia-600 hover:text-sepia-700 hover:bg-paper-100 border-2 border-paper-300 hover:border-sepia-600 transition-all duration-200"
-            >
-              <ArrowLeftIcon className="w-4 h-4" />
-              <span className="living-word font-medium">Retour</span>
-            </Link>
-            <h1 className="font-serif text-2xl font-semibold text-ink">
+            <BackButton />
+            <h1 className="font-serif text-lg sm:text-xl lg:text-2xl font-semibold text-ink truncate">
               <span className="living-word">Courants Philosophiques</span>
             </h1>
-            <div className="w-20" />
+            <div className="w-10 sm:w-20 flex-shrink-0" />
           </div>
         </div>
       </header>
@@ -93,19 +96,19 @@ export default async function CourantsPage() {
       {/* Main Content - FULL WIDTH */}
       <main className="w-full px-4 py-8 sm:px-6 lg:px-8">
         {/* Hero Section */}
-        <div className="text-center mb-16">
-          <div className="mb-6">
-            <span className="text-7xl living-word text-sepia-600">Κ</span>
+        <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+          <div className="mb-4 sm:mb-6">
+            <span className="text-5xl sm:text-6xl lg:text-7xl living-word text-sepia-600">Κ</span>
           </div>
-          <h2 className="font-serif text-4xl font-semibold text-ink mb-4">
+          <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-semibold text-ink mb-4">
             À Travers les <span className="living-word">Âges</span>
           </h2>
-          <p className="text-ink-light text-lg max-w-3xl mx-auto mb-8">
+          <p className="text-ink-light text-base sm:text-lg max-w-3xl mx-auto mb-6 sm:mb-8">
             Explorez l'<span className="living-word">évolution</span> de la pensée philosophique, des <span className="living-word">premiers penseurs grecs</span> jusqu'à la philosophie contemporaine.
           </p>
 
           {/* Stats */}
-          <div className="flex justify-center gap-6 flex-wrap">
+          <div className="flex justify-center gap-4 sm:gap-6 flex-wrap">
             <div className="h-16 px-6 border-double-ornate bg-paper-200 text-sepia-600 flex items-center gap-3">
               <CurrentsIcon className="w-4 h-4" />
               <div className="text-left">
@@ -134,12 +137,12 @@ export default async function CourantsPage() {
           return (
             <section key={periodKey} className="mb-16">
               {/* Period Header */}
-              <div className="mb-8 p-6 border-double-ornate bg-paper-200 flex items-center gap-4">
-                <div className="w-16 h-16 border-2 border-sepia-600 flex items-center justify-center bg-paper-50">
-                  <span className="text-3xl font-serif text-sepia-600">{info.rune}</span>
+              <div className="mb-6 sm:mb-8 p-4 sm:p-6 border-double-ornate bg-paper-200 flex items-center gap-3 sm:gap-4">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 border-2 border-sepia-600 flex items-center justify-center bg-paper-50 flex-shrink-0">
+                  <span className="text-2xl sm:text-3xl font-serif text-sepia-600">{info.rune}</span>
                 </div>
-                <div className="flex-1">
-                  <h3 className="font-serif text-3xl font-semibold text-ink mb-1">
+                <div className="flex-1 min-w-0">
+                  <h3 className="font-serif text-xl sm:text-2xl lg:text-3xl font-semibold text-ink mb-1">
                     {info.title}
                   </h3>
                   <p className="text-ink-light mb-2">{info.description}</p>
@@ -184,7 +187,7 @@ export default async function CourantsPage() {
                     >
                       <div className="mb-4">
                         <div className="flex items-center justify-between mb-3">
-                          <h4 className="font-serif text-2xl font-semibold text-ink group-hover:text-sepia-600 transition-colors">
+                          <h4 className="font-serif text-lg sm:text-xl lg:text-2xl font-semibold text-ink group-hover:text-sepia-600 transition-colors">
                             <span className="living-word">{movement.name}</span>
                           </h4>
                         </div>
@@ -317,13 +320,7 @@ export default async function CourantsPage() {
                   <code className="bg-paper-200 px-3 py-1.5 text-xs font-mono">npm run db:seed:obsidian</code>
                 </div>
               </div>
-              <Link
-                href="/"
-                className="inline-flex items-center gap-2 px-2.5 py-1.5 text-sm bg-paper-50 text-sepia-600 hover:text-sepia-700 hover:bg-paper-100 border-2 border-paper-300 hover:border-sepia-600 transition-all duration-200"
-              >
-                <ArrowLeftIcon className="w-4 h-4" />
-                <span className="living-word font-medium">Retour à l'accueil</span>
-              </Link>
+              <BackButton label="Retour à l'accueil" />
             </div>
           </div>
         )}

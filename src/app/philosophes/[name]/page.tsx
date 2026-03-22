@@ -10,15 +10,9 @@ import { ConnectionSidebar, ConnectionToggle } from '@/ui/organisms/ConnectionSi
 import { RelatedContent } from '@/ui/organisms/RelatedContent';
 import { PhilosopherClient } from './PhilosopherClient';
 import { JsonLd } from '@/ui/atoms/JsonLd';
-import {
-  UserIcon,
-  PhilosophersIcon,
-  QuoteIcon,
-  BookIcon,
-  ClockIcon,
-  AwardIcon,
-  TrendingUpIcon
-} from '@/ui/components/CustomIcons';
+import { PhilosophersIcon, QuoteIcon, BookIcon } from '@/ui/icons/NavigationIcons';
+import { UserIcon } from '@/ui/icons/UserIcons';
+import { ClockIcon, AwardIcon, TrendingUpIcon } from '@/ui/icons/StatusIcons';
 
 export async function generateMetadata({ params }: { params: Promise<{ name: string }> }) {
   const { name } = await params;

@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useMemo } from 'react';
 import { useConceptSuggestions } from '@/lib/graph/hooks';
-import { ArrowRightIcon } from '@/ui';
+import { ArrowRightIcon } from '@/ui/icons/UIIcons';
 
 interface ConceptSuggestionsProps {
   conceptSlug: string;

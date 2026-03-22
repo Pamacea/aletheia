@@ -23,23 +23,25 @@ export function ProfileLayout({
     <div className={cn('min-h-screen bg-paper-50', className)}>
       {/* Page Header */}
       {(title || subtitle) && (
-        <header className="border-b-2 border-sepia-600 bg-paper-50 py-6">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <header className="with-sidebar border-b-2 border-sepia-600 bg-paper-50 py-4">
+          <div className="w-full px-4 sm:px-6 lg:px-8">
             {title && (
-              <h1 className="font-serif text-3xl font-semibold text-ink">
+              <h1 className="font-serif text-lg sm:text-xl lg:text-2xl font-semibold text-ink">
                 {title}
               </h1>
             )}
             {subtitle && (
-              <p className="text-ink-light mt-1">{subtitle}</p>
+              <p className="text-ink-light text-sm mt-1">{subtitle}</p>
             )}
           </div>
         </header>
       )}
 
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {children}
+      <main className="w-full px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+        <div className="max-w-7xl mx-auto">
+          {children}
+        </div>
       </main>
     </div>
   );
@@ -60,14 +62,14 @@ export function ProfileContentGrid({
   className,
 }: ProfileContentGridProps) {
   return (
-    <div className={cn('grid grid-cols-1 lg:grid-cols-4 gap-6', className)}>
-      {/* Sidebar */}
-      <aside className="lg:col-span-1">
+    <div className={cn('flex flex-col lg:grid lg:grid-cols-4 gap-6', className)}>
+      {/* Sidebar — hidden on mobile (accessible via mobile dock) */}
+      <aside className="hidden lg:block lg:col-span-1">
         <div className="sticky top-6">{sidebar}</div>
       </aside>
 
       {/* Main Content */}
-      <div className="lg:col-span-3">{children}</div>
+      <div className="lg:col-span-3 min-w-0">{children}</div>
     </div>
   );
 }

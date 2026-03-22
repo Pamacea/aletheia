@@ -1,0 +1,6 @@
+# Force LF for encrypted files (SOPS doesn't support CRLF)
+*.enc.env text eol=lf
+.enc.env text eol=lf
+
+# Default behavior
+* text=auto

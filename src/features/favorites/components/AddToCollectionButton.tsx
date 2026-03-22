@@ -1,7 +1,8 @@
 'use client';
 
 import { useState, useTransition } from 'react';
-import { BookmarkIcon, PlusIcon, CheckIcon } from '@/ui/components/CustomIcons';
+import { PlusIcon, CheckIcon } from '@/ui/icons/ActionIcons';
+import { BookmarkIcon } from '@/ui/icons/SocialIcons';
 import { addToCollection, getCollections } from '@/lib/actions/favorites';
 
 interface AddToCollectionButtonProps {

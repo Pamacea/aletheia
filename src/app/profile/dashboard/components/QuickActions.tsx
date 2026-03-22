@@ -1,64 +1,35 @@
-import { LinkOrnate } from '@/ui/components/LinkOrnate';
-import {
-  LayoutGridIcon,
-  ZapIcon,
-  PhilosophersIcon,
-  BookOpenIcon,
-  MessageSquareIcon,
-} from '@/ui/components/CustomIcons';
+import Link from 'next/link';
+import { PhilosophersIcon, BookOpenIcon } from '@/ui/icons/NavigationIcons';
+import { ZapIcon } from '@/ui/icons/StatusIcons';
+import { MessageSquareIcon } from '@/ui/icons/SocialIcons';
+import { LayoutGridIcon } from '@/ui/icons/FeatureIcons';
+
+const ACTIONS = [
+  { href: '/conceptuaire', label: 'Explorer les concepts', Icon: LayoutGridIcon },
+  { href: '/profile/flashcards', label: 'Pratiquer les flashcards', Icon: ZapIcon },
+  { href: '/graphe', label: 'Voir le graphe', Icon: PhilosophersIcon },
+  { href: '/bibliotheque', label: 'Bibliothèque', Icon: BookOpenIcon },
+  { href: '/agora', label: 'Forum Agora', Icon: MessageSquareIcon },
+];
 
 export function QuickActions() {
   return (
-    <section className="card-parchment border-2 border-sepia-300 p-6">
-      <h3 className="font-serif text-xl font-semibold text-ink mb-6">
+    <section className="bg-white border-2 border-paper-300 p-4 sm:p-6">
+      <h3 className="font-serif text-lg sm:text-xl font-semibold text-ink mb-4">
         Actions Rapides
       </h3>
 
-      <div className="space-y-3">
-        <LinkOrnate
-          href="/conceptuaire"
-          living
-          className="flex items-center gap-3 p-3 border-2 border-paper-300 hover:border-sepia-600 hover:bg-sepia-50 transition-all"
-        >
-          <LayoutGridIcon className="w-4 h-4 text-sepia-600" />
-          <span className="font-medium text-ink">Explorer les concepts</span>
-        </LinkOrnate>
-
-        <LinkOrnate
-          href="/flashcards"
-          living
-          className="flex items-center gap-3 p-3 border-2 border-paper-300 hover:border-sepia-600 hover:bg-sepia-50 transition-all"
-        >
-          <ZapIcon className="w-4 h-4 text-sepia-600" />
-          <span className="font-medium text-ink">Pratiquer les flashcards</span>
-        </LinkOrnate>
-
-        <LinkOrnate
-          href="/graphe"
-          living
-          className="flex items-center gap-3 p-3 border-2 border-paper-300 hover:border-sepia-600 hover:bg-sepia-50 transition-all"
-        >
-          <PhilosophersIcon className="w-4 h-4 text-sepia-600" />
-          <span className="font-medium text-ink">Voir le graphe de connaissances</span>
-        </LinkOrnate>
-
-        <LinkOrnate
-          href="/bibliotheque"
-          living
-          className="flex items-center gap-3 p-3 border-2 border-paper-300 hover:border-sepia-600 hover:bg-sepia-50 transition-all"
-        >
-          <BookOpenIcon className="w-4 h-4 text-sepia-600" />
-          <span className="font-medium text-ink">Bibliothèque philosophique</span>
-        </LinkOrnate>
-
-        <LinkOrnate
-          href="/agora"
-          living
-          className="flex items-center gap-3 p-3 border-2 border-paper-300 hover:border-sepia-600 hover:bg-sepia-50 transition-all"
-        >
-          <MessageSquareIcon className="w-4 h-4 text-sepia-600" />
-          <span className="font-medium text-ink">Forum - Agora</span>
-        </LinkOrnate>
+      <div className="space-y-2">
+        {ACTIONS.map(({ href, label, Icon }) => (
+          <Link
+            key={href}
+            href={href}
+            className="flex items-center gap-3 p-3 bg-paper-50 border border-paper-300 hover:border-sepia-600 hover:bg-sepia-50 transition-all text-ink hover:text-sepia-700"
+          >
+            <Icon className="w-5 h-5 text-sepia-600 flex-shrink-0" />
+            <span className="text-sm font-medium">{label}</span>
+          </Link>
+        ))}
       </div>
     </section>
   );

@@ -1,13 +1,14 @@
-import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { getServerSession } from '@/lib/actions/auth';
 import { getAllSettings, getNotificationSettings } from '@/lib/actions/settings';
-import { ArrowLeftIcon } from '@/ui/components/CustomIcons';
+import { BackButton } from '@/ui/components/BackButton';
 import { SettingsProfile } from './components/SettingsProfile';
 import { SettingsPreferences } from './components/SettingsPreferences';
 import { SettingsNotifications } from './components/SettingsNotifications';
 import { SettingsPrivacy } from './components/SettingsPrivacy';
 import { SettingsAccount } from './components/SettingsAccount';
+
+export const revalidate = 60;
 
 export default async function SettingsPage() {
  const session = await getServerSession();
@@ -16,7 +17,10 @@ export default async function SettingsPage() {
   redirect('/auth/login');
  }
 
- const settings = await getAllSettings(session.user.id);
+ const [settings, notificationsData] = await Promise.all([
+   getAllSettings(session.user.id),
+   getNotificationSettings(),
+ ]);
 
  // Access properties directly from the returned object
  const profile = settings.profile || { name: '', email: '', bio: '', image: null };
@@ -31,9 +35,6 @@ export default async function SettingsPage() {
    language: (rawPreferences.language as 'fr' | 'en' | 'es' | 'de') || 'fr',
    fontSize: (rawPreferences.fontSize as 'small' | 'medium' | 'large') || 'medium',
  };
-
- // Get notification settings
- const notificationsData = await getNotificationSettings();
  const notifications = notificationsData.success && notificationsData.data
    ? notificationsData.data
    : {
@@ -58,13 +59,7 @@ export default async function SettingsPage() {
    <header className="with-sidebar border-b-2 border-sepia-600 bg-paper-50 py-4">
     <div className="w-full px-4 sm:px-6 lg:px-8">
      <div className="max-w-7xl mx-auto flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-      <Link
-       href="/profile"
-       className="inline-flex items-center gap-2 px-2.5 py-1.5 text-sm bg-paper-50 text-sepia-600 hover:text-sepia-700 hover:bg-paper-100 border-2 border-paper-300 hover:border-sepia-600 transition-all duration-200"
-      >
-       <ArrowLeftIcon className="w-4 h-4" />
-       <span className="living-word font-medium">Retour au Profil</span>
-      </Link>
+      <BackButton href="/profile" label="Retour au Profil" />
       <h1 className="font-serif text-2xl font-semibold text-ink">
        Paramètres
       </h1>
